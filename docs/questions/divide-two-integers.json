@@ -1,0 +1,72 @@
+{
+  "id": "divide-two-integers",
+  "leetcode_number": 29,
+  "title": "Divide Two Integers",
+  "difficulty": "Medium",
+  "categories": [
+    "Math",
+    "Bit Manipulation"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given two integers dividend and divisor, divide them without using multiplication, division, or modulo operators. Truncate toward zero. If the result overflows the 32-bit signed integer range, return INT_MAX (2^31 - 1).",
+  "constraints": [
+    "-2^31 <= dividend, divisor <= 2^31 - 1",
+    "divisor != 0"
+  ],
+  "hints": [
+    "Repeatedly double the divisor (via left shift / addition) to subtract big chunks at once.",
+    "Track signs separately and work on absolute values.",
+    "Watch for INT_MIN / -1 — that's the only overflow case."
+  ],
+  "optimal": {
+    "time": "O(log^2 |dividend|)",
+    "space": "O(1)",
+    "approach": "Repeatedly subtract the largest 2^k * divisor that still fits."
+  },
+  "alternatives": [
+    {
+      "approach": "Subtract divisor one at a time",
+      "time": "O(|dividend|)",
+      "space": "O(1)",
+      "note": "TLE on big values."
+    }
+  ],
+  "pitfalls": [
+    "INT_MIN / -1 overflows — return INT_MAX.",
+    "Negating INT_MIN overflows in 32-bit integer types."
+  ],
+  "followups": [
+    "Implement modulo without %."
+  ],
+  "signature": {
+    "fn": "divideTwoIntegers",
+    "params": [
+      {
+        "name": "dividend",
+        "adapt": "identity"
+      },
+      {
+        "name": "divisor",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function divide(dividend: number, divisor: number): number {\n  const INT_MAX = 2147483647, INT_MIN = -2147483648;\n  if (dividend === INT_MIN && divisor === -1) return INT_MAX;\n  const sign = (dividend < 0) === (divisor < 0) ? 1 : -1;\n  let dvd = Math.abs(dividend), dvs = Math.abs(divisor), q = 0;\n  while (dvd >= dvs) {\n    let t = dvs, m = 1;\n    while (t * 2 <= dvd) { t *= 2; m *= 2; }\n    dvd -= t; q += m;\n  }\n  const r = sign * q;\n  if (r > INT_MAX) return INT_MAX;\n  if (r < INT_MIN) return INT_MIN;\n  return r;\n}"
+  },
+  "tests": [
+    {"name":"example-10/3","category":"example","input":{"dividend":10,"divisor":3},"output":3},
+    {"name":"example-7/-3","category":"example","input":{"dividend":7,"divisor":-3},"output":-2},
+    {"name":"overflow-INT_MIN/-1","category":"edge","input":{"dividend":-2147483648,"divisor":-1},"output":2147483647},
+    {"name":"INT_MIN/1","category":"edge","input":{"dividend":-2147483648,"divisor":1},"output":-2147483648},
+    {"name":"INT_MIN/2","category":"edge","input":{"dividend":-2147483648,"divisor":2},"output":-1073741824},
+    {"name":"zero-dividend","category":"edge","input":{"dividend":0,"divisor":7},"output":0},
+    {"name":"abs-equal","category":"edge","input":{"dividend":-7,"divisor":-7},"output":1},
+    {"name":"less-than-divisor","category":"edge","input":{"dividend":1,"divisor":2},"output":0}
+  ]
+}

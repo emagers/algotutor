@@ -1,0 +1,66 @@
+{
+  "id": "climbing-stairs",
+  "leetcode_number": 70,
+  "title": "Climbing Stairs",
+  "difficulty": "Easy",
+  "categories": [
+    "Dynamic Programming",
+    "Math",
+    "Memoization"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "You are climbing a staircase. It takes n steps to reach the top. Each time you can climb either 1 or 2 steps. In how many distinct ways can you climb to the top?",
+  "constraints": [
+    "1 <= n <= 45"
+  ],
+  "hints": [
+    "f(n) = f(n-1) + f(n-2) — Fibonacci.",
+    "Iterate with two rolling variables."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Bottom-up DP (Fibonacci)."
+  },
+  "alternatives": [
+    {
+      "approach": "Recursion + memo",
+      "time": "O(n)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Stack overflow on naive recursion at n=45 (no memo)."
+  ],
+  "followups": [
+    "k steps allowed at a time."
+  ],
+  "signature": {
+    "fn": "climbStairs",
+    "params": [
+      {
+        "name": "n",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function climbStairs(n: number): number {\n  if (n <= 2) return n;\n  let a = 1, b = 2;\n  for (let i = 3; i <= n; i++) { const c = a + b; a = b; b = c; }\n  return b;\n}"
+  },
+  "tests": [
+    {"name":"n-1","category":"example","input":{"n":1},"output":1},
+    {"name":"n-2","category":"example","input":{"n":2},"output":2},
+    {"name":"n-3","category":"example","input":{"n":3},"output":3},
+    {"name":"n-5","category":"edge","input":{"n":5},"output":8},
+    {"name":"n-10","category":"edge","input":{"n":10},"output":89},
+    {"name":"n-20","category":"edge","input":{"n":20},"output":10946},
+    {"name":"n-45","category":"stress","input":{"n":45},"output":1836311903}
+  ]
+}

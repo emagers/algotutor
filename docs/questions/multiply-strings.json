@@ -1,0 +1,71 @@
+{
+  "id": "multiply-strings",
+  "leetcode_number": 43,
+  "title": "Multiply Strings",
+  "difficulty": "Medium",
+  "categories": [
+    "Math",
+    "String",
+    "Simulation"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given two non-negative integers represented as strings num1 and num2 (no leading zeros except for the number '0' itself), return their product, also as a string. You must not use built-in big-integer libraries or convert directly to numbers.",
+  "constraints": [
+    "1 <= num1.length, num2.length <= 200",
+    "digits only",
+    "no leading zeros (except '0')"
+  ],
+  "hints": [
+    "Result has at most m + n digits.",
+    "Multiply each digit pair into the right slot of a result array, propagating carries."
+  ],
+  "optimal": {
+    "time": "O(m·n)",
+    "space": "O(m+n)",
+    "approach": "Schoolbook multiplication into an integer array, then strip leading zeros."
+  },
+  "alternatives": [
+    {
+      "approach": "Karatsuba",
+      "time": "O(n^log2 3)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting to strip leading zeros yields '0123' instead of '123'.",
+    "Result of '0' × anything must be '0' (not '00')."
+  ],
+  "followups": [
+    "Add Strings (LC 415).",
+    "Implement bignum addition and subtraction."
+  ],
+  "signature": {
+    "fn": "multiplyStrings",
+    "params": [
+      {
+        "name": "num1",
+        "adapt": "identity"
+      },
+      {
+        "name": "num2",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function multiply(num1: string, num2: string): string {\n  if (num1 === \"0\" || num2 === \"0\") return \"0\";\n  const m = num1.length, n = num2.length;\n  const r = new Array(m + n).fill(0);\n  for (let i = m - 1; i >= 0; i--) {\n    for (let j = n - 1; j >= 0; j--) {\n      const mul = (num1.charCodeAt(i) - 48) * (num2.charCodeAt(j) - 48);\n      const p1 = i + j, p2 = i + j + 1;\n      const sum = mul + r[p2];\n      r[p2] = sum % 10;\n      r[p1] += Math.floor(sum / 10);\n    }\n  }\n  while (r.length > 1 && r[0] === 0) r.shift();\n  return r.join(\"\");\n}"
+  },
+  "tests": [
+    {"name":"example-2x3","category":"example","input":{"num1":"2","num2":"3"},"output":"6"},
+    {"name":"example-123x456","category":"example","input":{"num1":"123","num2":"456"},"output":"56088"},
+    {"name":"with-zero","category":"edge","input":{"num1":"0","num2":"12345"},"output":"0"},
+    {"name":"single-digit-each","category":"edge","input":{"num1":"9","num2":"9"},"output":"81"},
+    {"name":"powers-of-ten","category":"edge","input":{"num1":"100","num2":"1000"},"output":"100000"},
+    {"name":"stress-100x100","category":"stress","input":{"num1":"7835854536352977868888476607252674630125382791923922199515715471766403102368400744195422841788270798","num2":"7046849678827469253183154670407637670206408319151739405016001079068272709808195646562389106833256698"},"output":"55218089022837750090965720894191644512817983845143231727554292309571829945066054490370624197584316677167565957587192627183309421452669447304742948710563079251631861261527219746851267235397528271305004"}
+  ]
+}

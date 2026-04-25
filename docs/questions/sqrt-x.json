@@ -1,0 +1,63 @@
+{
+  "id": "sqrt-x",
+  "leetcode_number": 69,
+  "title": "Sqrt(x)",
+  "difficulty": "Easy",
+  "categories": [
+    "Math",
+    "Binary Search"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "Given a non-negative integer x, return the integer square root of x — the largest integer m such that m * m <= x. You may not use any built-in exponentiation.",
+  "constraints": [
+    "0 <= x <= 2^31 - 1"
+  ],
+  "hints": [
+    "Binary search the answer in [0, x].",
+    "Check m * m <= x using division to avoid overflow: m <= x / m."
+  ],
+  "optimal": {
+    "time": "O(log x)",
+    "space": "O(1)",
+    "approach": "Binary search for the largest m with m*m <= x."
+  },
+  "alternatives": [
+    {
+      "approach": "Newton's method",
+      "time": "O(log x)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "m * m overflows for large m in fixed-width languages — compare via division."
+  ],
+  "followups": [
+    "Cube root, k-th root."
+  ],
+  "signature": {
+    "fn": "mySqrt",
+    "params": [
+      {
+        "name": "x",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function mySqrt(x: number): number {\n  if (x < 2) return x;\n  let lo = 1, hi = x, ans = 0;\n  while (lo <= hi) {\n    const m = Math.floor((lo + hi) / 2);\n    if (m <= Math.floor(x / m)) { ans = m; lo = m + 1; }\n    else hi = m - 1;\n  }\n  return ans;\n}"
+  },
+  "tests": [
+    {"name":"example-perfect","category":"example","input":{"x":4},"output":2},
+    {"name":"example-non-perfect","category":"example","input":{"x":8},"output":2},
+    {"name":"zero","category":"edge","input":{"x":0},"output":0},
+    {"name":"one","category":"edge","input":{"x":1},"output":1},
+    {"name":"max","category":"edge","input":{"x":2147395599},"output":46339},
+    {"name":"near-perfect","category":"edge","input":{"x":2147483647},"output":46340}
+  ]
+}

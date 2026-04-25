@@ -1,0 +1,64 @@
+{
+  "id": "integer-to-roman",
+  "leetcode_number": 12,
+  "title": "Integer to Roman",
+  "difficulty": "Medium",
+  "categories": [
+    "Hash Table",
+    "Math",
+    "String"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given an integer in [1, 3999], convert it to its roman numeral representation. Use the subtractive forms IV, IX, XL, XC, CD, CM where applicable.",
+  "constraints": [
+    "1 <= num <= 3999"
+  ],
+  "hints": [
+    "Greedily peel off the largest value that fits, including subtractive forms.",
+    "A 13-entry table covers all cases neatly."
+  ],
+  "optimal": {
+    "time": "O(1)",
+    "space": "O(1)",
+    "approach": "Greedy table of (value, symbol) pairs."
+  },
+  "alternatives": [
+    {
+      "approach": "Per-digit lookup",
+      "time": "O(1)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting the six subtractive entries leads to wrong forms (IIII instead of IV)."
+  ],
+  "followups": [
+    "Roman to Integer (LC 13)."
+  ],
+  "signature": {
+    "fn": "intToRoman",
+    "params": [
+      {
+        "name": "num",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function intToRoman(num: number): string {\n  const v = [1000,900,500,400,100,90,50,40,10,9,5,4,1];\n  const sym = [\"M\",\"CM\",\"D\",\"CD\",\"C\",\"XC\",\"L\",\"XL\",\"X\",\"IX\",\"V\",\"IV\",\"I\"];\n  let out = \"\";\n  for (let i = 0; i < v.length; i++) while (num >= v[i]) { out += sym[i]; num -= v[i]; }\n  return out;\n}"
+  },
+  "tests": [
+    {"name":"example-3","category":"example","input":{"num":3},"output":"III"},
+    {"name":"example-58","category":"example","input":{"num":58},"output":"LVIII"},
+    {"name":"example-1994","category":"example","input":{"num":1994},"output":"MCMXCIV"},
+    {"name":"min","category":"edge","input":{"num":1},"output":"I"},
+    {"name":"max","category":"edge","input":{"num":3999},"output":"MMMCMXCIX"},
+    {"name":"round-thousand","category":"edge","input":{"num":2000},"output":"MM"},
+    {"name":"subtractive","category":"edge","input":{"num":444},"output":"CDXLIV"}
+  ]
+}

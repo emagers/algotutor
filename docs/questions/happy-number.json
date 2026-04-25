@@ -1,0 +1,64 @@
+{
+  "id": "happy-number",
+  "leetcode_number": 202,
+  "title": "Happy Number",
+  "difficulty": "Easy",
+  "categories": [
+    "Math",
+    "Hash Table",
+    "Two Pointers"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "Replace n by the sum of the squares of its digits and repeat. n is happy if this process eventually reaches 1; otherwise it loops forever in a cycle that does not include 1. Return true if n is happy.",
+  "constraints": [
+    "1 <= n <= 2^31 - 1"
+  ],
+  "hints": [
+    "Either you reach 1, or you enter a cycle.",
+    "Detect the cycle with a set, or with Floyd's tortoise-and-hare."
+  ],
+  "optimal": {
+    "time": "O(log n)",
+    "space": "O(1)",
+    "approach": "Floyd cycle detection on the digit-square sequence."
+  },
+  "alternatives": [
+    {
+      "approach": "Hash set of seen values",
+      "time": "O(log n)",
+      "space": "O(log n)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting to check for 1 inside the loop leads to infinite recursion."
+  ],
+  "followups": [
+    "Generalize to k-th power of digits."
+  ],
+  "signature": {
+    "fn": "isHappy",
+    "params": [
+      {
+        "name": "n",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function isHappy(n: number): boolean {\n  const seen = new Set<number>();\n  while (n !== 1 && !seen.has(n)) {\n    seen.add(n);\n    let s = 0;\n    while (n > 0) { const d = n % 10; s += d * d; n = (n - d) / 10; }\n    n = s;\n  }\n  return n === 1;\n}"
+  },
+  "tests": [
+    {"name":"example-true","category":"example","input":{"n":19},"output":true},
+    {"name":"example-false","category":"example","input":{"n":2},"output":false},
+    {"name":"one","category":"edge","input":{"n":1},"output":true},
+    {"name":"seven","category":"edge","input":{"n":7},"output":true},
+    {"name":"large-true","category":"edge","input":{"n":1111111},"output":true},
+    {"name":"large-false","category":"edge","input":{"n":9999999},"output":false}
+  ]
+}

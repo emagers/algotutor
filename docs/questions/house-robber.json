@@ -1,0 +1,61 @@
+{
+  "id": "house-robber",
+  "leetcode_number": 198,
+  "title": "House Robber",
+  "difficulty": "Medium",
+  "categories": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "You are a robber planning to rob houses along a street. Each house has a certain amount of money stashed. Adjacent houses have connected security systems and will alert police if both are robbed. Given nums where nums[i] is the money in house i, return the maximum amount you can rob without alerting police.",
+  "constraints": [
+    "1 <= nums.length <= 100",
+    "0 <= nums[i] <= 400"
+  ],
+  "hints": [
+    "dp[i] = max(dp[i-1], dp[i-2] + nums[i]).",
+    "Two rolling variables suffice."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Rolling DP: prev/cur."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Forgetting prev when computing the new state."
+  ],
+  "followups": [
+    "Houses arranged in a circle (House Robber II)."
+  ],
+  "signature": {
+    "fn": "rob",
+    "params": [
+      {
+        "name": "nums",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function rob(nums: number[]): number {\n  let prev = 0, cur = 0;\n  for (const x of nums) { const nxt = Math.max(cur, prev + x); prev = cur; cur = nxt; }\n  return cur;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"nums":[1,2,3,1]},"output":4},
+    {"name":"example-2","category":"example","input":{"nums":[2,7,9,3,1]},"output":12},
+    {"name":"single","category":"edge","input":{"nums":[5]},"output":5},
+    {"name":"two-pick-larger","category":"edge","input":{"nums":[3,7]},"output":7},
+    {"name":"all-zero","category":"edge","input":{"nums":[0,0,0,0]},"output":0},
+    {"name":"alternating","category":"edge","input":{"nums":[10,1,10,1,10]},"output":30},
+    {"name":"decreasing","category":"edge","input":{"nums":[5,4,3,2,1]},"output":9},
+    {"name":"stress-100","category":"stress","input":{"nums":[251,1,211,393,388,112,245,289,170,398,182,196,55,161,99,61,196,27,158,307,114,76,17,171,236,320,118,82,263,218,304,77,289,182,308,398,95,303,61,129,165,99,60,291,231,51,106,19,249,347,95,396,288,161,121,271,382,370,277,368,334,374,46,15,348,118,353,204,375,282,66,271,380,52,392,65,155,47,160,130,263,204,213,30,324,342,109,65,121,358,116,57,262,220,130,48,56,27,120,270]},"output":11647}
+  ]
+}

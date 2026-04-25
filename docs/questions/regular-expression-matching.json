@@ -1,0 +1,75 @@
+{
+  "id": "regular-expression-matching",
+  "leetcode_number": 10,
+  "title": "Regular Expression Matching",
+  "difficulty": "Hard",
+  "categories": [
+    "String",
+    "Dynamic Programming",
+    "Recursion"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given an input string s and a pattern p, implement regex matching with support for '.' (matches any single char) and '*' (zero or more of the preceding element). The match must cover the entire input string.",
+  "constraints": [
+    "1 <= s.length <= 20",
+    "1 <= p.length <= 20",
+    "p uses lowercase letters, '.', and '*'.",
+    "It is guaranteed that '*' is preceded by a valid character."
+  ],
+  "hints": [
+    "2D DP: dp[i][j] = match of s[:i] vs p[:j].",
+    "If p[j-1] == '*': dp[i][j] = dp[i][j-2] (zero copies) OR (s[i-1] matches p[j-2] AND dp[i-1][j]).",
+    "Else: dp[i][j] = (chars match) AND dp[i-1][j-1]."
+  ],
+  "optimal": {
+    "time": "O(m*n)",
+    "space": "O(m*n)",
+    "approach": "2D DP."
+  },
+  "alternatives": [
+    {
+      "approach": "Recursion + memo",
+      "time": "O(m*n)",
+      "space": "O(m*n)"
+    }
+  ],
+  "pitfalls": [
+    "Initializing dp[0][j] for patterns like 'a*b*c*' — they match empty string."
+  ],
+  "followups": [
+    "Wildcard matching with '?' and '*' that matches any sequence."
+  ],
+  "signature": {
+    "fn": "isMatchRegex",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      },
+      {
+        "name": "p",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function isMatch(s: string, p: string): boolean {\n  const m = s.length, n = p.length;\n  const dp: boolean[][] = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(false));\n  dp[0][0] = true;\n  for (let j = 2; j <= n; j++) if (p[j - 1] === \"*\") dp[0][j] = dp[0][j - 2];\n  for (let i = 1; i <= m; i++) {\n    for (let j = 1; j <= n; j++) {\n      if (p[j - 1] === \"*\") {\n        dp[i][j] = dp[i][j - 2] || ((p[j - 2] === \".\" || p[j - 2] === s[i - 1]) && dp[i - 1][j]);\n      } else {\n        dp[i][j] = (p[j - 1] === \".\" || p[j - 1] === s[i - 1]) && dp[i - 1][j - 1];\n      }\n    }\n  }\n  return dp[m][n];\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"aa","p":"a"},"output":false},
+    {"name":"example-2","category":"example","input":{"s":"aa","p":"a*"},"output":true},
+    {"name":"example-3","category":"example","input":{"s":"ab","p":".*"},"output":true},
+    {"name":"example-4","category":"example","input":{"s":"aab","p":"c*a*b"},"output":true},
+    {"name":"example-5","category":"example","input":{"s":"mississippi","p":"mis*is*p*."},"output":false},
+    {"name":"empty-s-empty-p","category":"edge","input":{"s":"","p":""},"output":true},
+    {"name":"empty-s-star-pattern","category":"edge","input":{"s":"","p":"a*b*c*"},"output":true},
+    {"name":"dot-only","category":"edge","input":{"s":"abc","p":"..."},"output":true},
+    {"name":"no-match","category":"edge","input":{"s":"abc","p":"abcd"},"output":false},
+    {"name":"stress","category":"stress","input":{"s":"aaaaaaaaaaaaaaaaaaab","p":"a*a*a*a*a*a*a*a*a*a*c"},"output":false}
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "id": "house-robber-ii",
+  "leetcode_number": 213,
+  "title": "House Robber II",
+  "difficulty": "Medium",
+  "categories": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Same as House Robber, but the houses are arranged in a circle (the first and last houses are adjacent). Return the maximum amount you can rob.",
+  "constraints": [
+    "1 <= nums.length <= 100",
+    "0 <= nums[i] <= 1000"
+  ],
+  "hints": [
+    "Run linear House-Robber twice: once on nums[0..n-2], once on nums[1..n-1].",
+    "Take the max — circular constraint reduces to two linear cases."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Two linear DP runs over slices."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Single-element edge case: handle separately."
+  ],
+  "followups": [],
+  "signature": {
+    "fn": "robII",
+    "params": [
+      {
+        "name": "nums",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function rob(nums: number[]): number {\n  if (nums.length === 1) return nums[0];\n  const lin = (arr: number[]) => {\n    let p = 0, c = 0;\n    for (const x of arr) { const n = Math.max(c, p + x); p = c; c = n; }\n    return c;\n  };\n  return Math.max(lin(nums.slice(0, -1)), lin(nums.slice(1)));\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"nums":[2,3,2]},"output":3},
+    {"name":"example-2","category":"example","input":{"nums":[1,2,3,1]},"output":4},
+    {"name":"single","category":"edge","input":{"nums":[5]},"output":5},
+    {"name":"two-elements","category":"edge","input":{"nums":[3,7]},"output":7},
+    {"name":"three-equal","category":"edge","input":{"nums":[4,4,4]},"output":4},
+    {"name":"all-zero","category":"edge","input":{"nums":[0,0,0,0,0]},"output":0},
+    {"name":"stress-100","category":"stress","input":{"nums":[734,325,285,538,876,631,499,357,782,114,786,201,424,835,581,141,672,367,972,39,916,62,128,192,7,941,452,635,989,233,468,348,52,521,95,57,961,805,0,983,72,973,527,194,678,51,778,912,827,446,949,71,714,981,839,642,524,33,849,839,548,312,903,929,447,349,18,953,313,438,799,868,920,432,207,646,624,713,938,205,279,345,537,27,288,831,167,777,394,419,395,844,476,990,260,85,708,20,734,782]},"output":32171}
+  ]
+}

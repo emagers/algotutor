@@ -1,0 +1,71 @@
+{
+  "id": "pow-x-n",
+  "leetcode_number": 50,
+  "title": "Pow(x, n)",
+  "difficulty": "Medium",
+  "categories": [
+    "Math",
+    "Recursion"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Implement pow(x, n) which computes x raised to the power n (where n is a 32-bit signed integer).",
+  "constraints": [
+    "-100.0 < x < 100.0",
+    "-2^31 <= n <= 2^31 - 1"
+  ],
+  "hints": [
+    "Naively multiplying n times is too slow when |n| is huge.",
+    "Halve n at each step using x^n = (x^{n/2})^2 (with adjustment for odd n).",
+    "Negative n: invert x and negate n (careful with INT_MIN)."
+  ],
+  "optimal": {
+    "time": "O(log |n|)",
+    "space": "O(1)",
+    "approach": "Iterative fast exponentiation by squaring."
+  },
+  "alternatives": [
+    {
+      "approach": "Recursive fast exponentiation",
+      "time": "O(log |n|)",
+      "space": "O(log |n|)"
+    }
+  ],
+  "pitfalls": [
+    "Negating INT_MIN overflows in fixed-width languages.",
+    "0^0 returns 1 by convention."
+  ],
+  "followups": [
+    "Modular exponentiation."
+  ],
+  "signature": {
+    "fn": "myPow",
+    "params": [
+      {
+        "name": "x",
+        "adapt": "identity"
+      },
+      {
+        "name": "n",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function myPow(x: number, n: number): number {\n  if (n === 0) return 1;\n  let N = n;\n  if (N < 0) { x = 1 / x; N = -N; }\n  let r = 1, base = x;\n  while (N > 0) {\n    if (N & 1) r *= base;\n    base *= base;\n    N = Math.floor(N / 2);\n  }\n  return r;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"x":2,"n":10},"output":1024},
+    {"name":"example-2","category":"example","input":{"x":2.1,"n":3},"output":9.261000000000001},
+    {"name":"example-3-negative-n","category":"example","input":{"x":2,"n":-2},"output":0.25},
+    {"name":"n-zero","category":"edge","input":{"x":0.5,"n":0},"output":1},
+    {"name":"x-one","category":"edge","input":{"x":1,"n":1000},"output":1},
+    {"name":"x-neg-one-even","category":"edge","input":{"x":-1,"n":1000000},"output":1},
+    {"name":"x-neg-one-odd","category":"edge","input":{"x":-1,"n":1000001},"output":-1},
+    {"name":"large-power","category":"edge","input":{"x":2,"n":30},"output":1073741824}
+  ]
+}

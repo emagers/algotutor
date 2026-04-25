@@ -1,0 +1,68 @@
+{
+  "id": "unique-paths",
+  "leetcode_number": 62,
+  "title": "Unique Paths",
+  "difficulty": "Medium",
+  "categories": [
+    "Math",
+    "Dynamic Programming",
+    "Combinatorics"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "There is a robot on an m x n grid at top-left (0,0). It tries to reach the bottom-right (m-1, n-1). The robot can only move down or right. Return the number of unique paths.",
+  "constraints": [
+    "1 <= m, n <= 100"
+  ],
+  "hints": [
+    "dp[i][j] = dp[i-1][j] + dp[i][j-1].",
+    "Closed form: C(m+n-2, m-1)."
+  ],
+  "optimal": {
+    "time": "O(m*n)",
+    "space": "O(n)",
+    "approach": "Rolling 1D DP."
+  },
+  "alternatives": [
+    {
+      "approach": "Combinatorics",
+      "time": "O(min(m,n))",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Integer overflow at extreme sizes — fits in 64-bit but not 32-bit at 100x100."
+  ],
+  "followups": [
+    "With obstacles (Unique Paths II)."
+  ],
+  "signature": {
+    "fn": "uniquePaths",
+    "params": [
+      {
+        "name": "m",
+        "adapt": "identity"
+      },
+      {
+        "name": "n",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function uniquePaths(m: number, n: number): number {\n  const dp = new Array(n).fill(1);\n  for (let i = 1; i < m; i++) for (let j = 1; j < n; j++) dp[j] += dp[j - 1];\n  return dp[n - 1];\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"m":3,"n":7},"output":28},
+    {"name":"example-2","category":"example","input":{"m":3,"n":2},"output":3},
+    {"name":"1x1","category":"edge","input":{"m":1,"n":1},"output":1},
+    {"name":"1xn","category":"edge","input":{"m":1,"n":50},"output":1},
+    {"name":"mx1","category":"edge","input":{"m":50,"n":1},"output":1},
+    {"name":"square-10","category":"edge","input":{"m":10,"n":10},"output":48620},
+    {"name":"stress-23x12","category":"stress","input":{"m":23,"n":12},"output":193536720}
+  ]
+}

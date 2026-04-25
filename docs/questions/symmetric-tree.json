@@ -1,0 +1,66 @@
+{
+  "id": "symmetric-tree",
+  "leetcode_number": 101,
+  "title": "Symmetric Tree",
+  "difficulty": "Easy",
+  "categories": [
+    "Tree",
+    "DFS",
+    "BFS"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
+  "constraints": [
+    "1 <= n <= 1000",
+    "-100 <= Node.val <= 100"
+  ],
+  "hints": [
+    "A tree is symmetric iff its left and right subtrees mirror each other.",
+    "Recurse with two pointers a, b. Compare a.left with b.right and a.right with b.left."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(h)",
+    "approach": "DFS mirror."
+  },
+  "alternatives": [
+    {
+      "approach": "BFS level by level",
+      "time": "O(n)",
+      "space": "O(w)"
+    }
+  ],
+  "pitfalls": [
+    "Comparing values without mirroring children."
+  ],
+  "followups": [
+    "Detect axes of symmetry."
+  ],
+  "signature": {
+    "fn": "isSymmetric",
+    "params": [
+      {
+        "name": "root",
+        "adapt": "arrayToBinaryTree"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function isSymmetric(root: TreeNode | null): boolean {\n  const mirror = (a: TreeNode | null, b: TreeNode | null): boolean => {\n    if (!a && !b) return true;\n    if (!a || !b) return false;\n    if (a.val !== b.val) return false;\n    return mirror(a.left, b.right) && mirror(a.right, b.left);\n  };\n  return !root || mirror(root.left, root.right);\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"root":[1,2,2,3,4,4,3]},"output":true},
+    {"name":"example-2-asymmetric","category":"example","input":{"root":[1,2,2,null,3,null,3]},"output":false},
+    {"name":"edge-empty","category":"edge","input":{"root":[]},"output":true},
+    {"name":"edge-single","category":"edge","input":{"root":[1]},"output":true},
+    {"name":"edge-pair-equal","category":"edge","input":{"root":[1,2,2]},"output":true},
+    {"name":"edge-pair-unequal","category":"edge","input":{"root":[1,2,3]},"output":false},
+    {"name":"edge-deep-symmetric","category":"edge","input":{"root":[1,2,2,3,4,4,3,5,6,7,8,8,7,6,5]},"output":true},
+    {"name":"edge-value-symmetric-shape-not","category":"edge","input":{"root":[1,2,2,2,null,2]},"output":false}
+  ]
+}

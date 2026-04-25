@@ -1,0 +1,62 @@
+{
+  "id": "word-pattern",
+  "leetcode_number": 290,
+  "title": "Word Pattern",
+  "difficulty": "Easy",
+  "categories": [
+    "String",
+    "Hash Table"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a pattern and a string s, return true if s follows the same pattern. Each character in pattern maps to exactly one whitespace-separated word in s, and each word maps to exactly one character (a bijection).",
+  "constraints": [
+    "1 <= pattern.length <= 300",
+    "pattern is lowercase English letters",
+    "1 <= s.length <= 3000",
+    "s is single-space-separated lowercase words"
+  ],
+  "hints": [
+    "This is Isomorphic Strings (LC 205) but with words instead of characters."
+  ],
+  "optimal": {
+    "time": "O(n + m)",
+    "space": "O(σ)",
+    "approach": "Two hash maps to enforce the bijection."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Length mismatch between pattern and tokens."
+  ],
+  "followups": [
+    "Multi-character patterns / pattern-DP."
+  ],
+  "signature": {
+    "fn": "wordPattern",
+    "params": [
+      {
+        "name": "pattern",
+        "adapt": "identity"
+      },
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function wordPattern(pattern: string, s: string): boolean {\n  const words = s.split(' ');\n  if (words.length !== pattern.length) return false;\n  const p2w = new Map<string, string>(), w2p = new Map<string, string>();\n  for (let i = 0; i < pattern.length; i++) {\n    const p = pattern[i], w = words[i];\n    if (p2w.has(p) && p2w.get(p) !== w) return false;\n    if (w2p.has(w) && w2p.get(w) !== p) return false;\n    p2w.set(p, w); w2p.set(w, p);\n  }\n  return true;\n}"
+  },
+  "tests": [
+    {"name":"example-1-true","category":"example","input":{"pattern":"abba","s":"dog cat cat dog"},"output":true},
+    {"name":"example-2-false","category":"example","input":{"pattern":"abba","s":"dog cat cat fish"},"output":false},
+    {"name":"example-3-false-len","category":"example","input":{"pattern":"aaaa","s":"dog cat cat dog"},"output":false},
+    {"name":"single-pair","category":"edge","input":{"pattern":"a","s":"hi"},"output":true},
+    {"name":"two-words-same","category":"edge","input":{"pattern":"ab","s":"dog dog"},"output":false},
+    {"name":"length-mismatch","category":"edge","input":{"pattern":"abc","s":"dog cat"},"output":false}
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "coin-change",
+  "leetcode_number": 322,
+  "title": "Coin Change",
+  "difficulty": "Medium",
+  "categories": [
+    "Dynamic Programming",
+    "Array"
+  ],
+  "sources": [
+    "Blind 75",
+    "Grind 75",
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Fewest coins to make `amount` using unlimited copies of denominations in `coins`, or -1 if impossible.",
+  "constraints": [
+    "1 <= coins.length <= 12",
+    "1 <= coins[i] <= 2^31 - 1",
+    "0 <= amount <= 10^4"
+  ],
+  "hints": [
+    "dp[x] = min coins to make x. Base: dp[0] = 0.",
+    "Transition: dp[x] = 1 + min over coin c of dp[x - c] (when x - c >= 0).",
+    "Greedy 'always take the largest' does NOT work in general."
+  ],
+  "optimal": {
+    "time": "O(amount * |coins|)",
+    "space": "O(amount)",
+    "approach": "Bottom-up DP over amounts"
+  },
+  "alternatives": [
+    {
+      "approach": "Top-down DFS + memoization",
+      "time": "O(amount * |coins|)",
+      "space": "O(amount)",
+      "note": "Recursion overhead."
+    },
+    {
+      "approach": "BFS over amounts",
+      "time": "O(amount * |coins|)",
+      "space": "O(amount)",
+      "note": "Level = coin count."
+    }
+  ],
+  "pitfalls": [
+    "Using Infinity then arithmetic is brittle — use amount+1 as sentinel.",
+    "Trying greedy fails on non-canonical coin sets."
+  ],
+  "followups": [
+    "Coin Change II (LC 518) — count combinations.",
+    "Print one optimal combination.",
+    "Bounded knapsack variant."
+  ],
+  "signature": {
+    "fn": "coinChange",
+    "params": [
+      {
+        "name": "coins"
+      },
+      {
+        "name": "amount"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function coinChange(coins: number[], amount: number): number {\n  const INF = amount + 1;\n  const dp = new Array(amount + 1).fill(INF);\n  dp[0] = 0;\n  for (let x = 1; x <= amount; x++) {\n    for (const c of coins) {\n      if (c <= x && dp[x - c] + 1 < dp[x]) dp[x] = dp[x - c] + 1;\n    }\n  }\n  return dp[amount] === INF ? -1 : dp[amount];\n}"
+  },
+  "tests": [
+    {"name":"example-classic","category":"example","input":{"coins":[1,2,5],"amount":11},"output":3},
+    {"name":"example-impossible","category":"example","input":{"coins":[2],"amount":3},"output":-1},
+    {"name":"example-zero-amount","category":"example","input":{"coins":[1],"amount":0},"output":0},
+    {"name":"edge-trivial","category":"edge","input":{"coins":[1],"amount":1},"output":1},
+    {"name":"edge-multiple-uses","category":"edge","input":{"coins":[1],"amount":2},"output":2},
+    {"name":"edge-mixed-sizes","category":"edge","input":{"coins":[2,5,10,1],"amount":27},"output":4},
+    {"name":"edge-greedy-fails","category":"edge","input":{"coins":[1,3,4],"amount":6},"note":"Greedy says 4+1+1=3; optimal is 3+3=2.","output":2},
+    {"name":"edge-large-coins","category":"edge","input":{"coins":[186,419,83,408],"amount":6249},"output":20},
+    {"name":"edge-coin-larger-than-amount","category":"edge","input":{"coins":[10,20,30],"amount":5},"output":-1},
+    {"name":"stress-amount-9999-canonical","category":"stress","input":{"coins":[1,5,10,25],"amount":9999},"output":405},
+    {"name":"stress-amount-10000-many-coins","category":"stress","input":{"coins":[1,2,5,10,20,50,100,200,500,1000],"amount":10000},"output":10},
+    {"name":"stress-amount-10000-impossible","category":"stress","input":{"coins":[3],"amount":10000},"output":-1},
+    {"name":"stress-amount-10000-only-large","category":"stress","input":{"coins":[137,251,499],"amount":10000},"output":36}
+  ]
+}

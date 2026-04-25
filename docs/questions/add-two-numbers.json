@@ -1,0 +1,76 @@
+{
+  "id": "add-two-numbers",
+  "leetcode_number": 2,
+  "title": "Add Two Numbers",
+  "difficulty": "Medium",
+  "categories": [
+    "Linked List",
+    "Math",
+    "Recursion"
+  ],
+  "sources": [
+    "Grind 75",
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each node contains a single digit. Add the two numbers and return the sum as a linked list (also reverse order).",
+  "constraints": [
+    "1 <= each list length <= 100",
+    "0 <= Node.val <= 9",
+    "Numbers contain no leading zeros except 0 itself."
+  ],
+  "hints": [
+    "Walk both lists in lockstep; track a carry.",
+    "Continue while either list has nodes or carry is non-zero."
+  ],
+  "optimal": {
+    "time": "O(max(m, n))",
+    "space": "O(max(m, n))",
+    "approach": "Single pass with carry."
+  },
+  "alternatives": [
+    {
+      "approach": "Recursive with carry parameter",
+      "time": "O(max(m, n))",
+      "space": "O(max(m, n))"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting the trailing carry node.",
+    "Skipping the shorter list when one is exhausted."
+  ],
+  "followups": [
+    "Numbers stored in forward order (LC 445).",
+    "Multiplication of two big numbers."
+  ],
+  "signature": {
+    "fn": "addTwoNumbers",
+    "params": [
+      {
+        "name": "l1",
+        "adapt": "arrayToLinkedList"
+      },
+      {
+        "name": "l2",
+        "adapt": "arrayToLinkedList"
+      }
+    ],
+    "returnAdapt": "linkedListToArray"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {\n  const dummy = new ListNode();\n  let cur: ListNode = dummy, carry = 0;\n  while (l1 || l2 || carry) {\n    const a = l1 ? l1.val : 0;\n    const b = l2 ? l2.val : 0;\n    const sum = a + b + carry;\n    carry = Math.floor(sum / 10);\n    cur.next = new ListNode(sum % 10);\n    cur = cur.next;\n    if (l1) l1 = l1.next;\n    if (l2) l2 = l2.next;\n  }\n  return dummy.next;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"l1":[2,4,3],"l2":[5,6,4]},"output":[7,0,8]},
+    {"name":"example-2","category":"example","input":{"l1":[0],"l2":[0]},"output":[0]},
+    {"name":"example-3","category":"example","input":{"l1":[9,9,9,9,9,9,9],"l2":[9,9,9,9]},"output":[8,9,9,9,0,0,0,1]},
+    {"name":"edge-different-lengths","category":"edge","input":{"l1":[1,2,3],"l2":[9,9]},"output":[0,2,4]},
+    {"name":"edge-carry-only","category":"edge","input":{"l1":[5],"l2":[5]},"output":[0,1]},
+    {"name":"edge-trailing-carry","category":"edge","input":{"l1":[9,9,9],"l2":[1]},"output":[0,0,0,1]},
+    {"name":"edge-one-empty-conceptual","category":"edge","input":{"l1":[0],"l2":[7,8,9]},"output":[7,8,9]},
+    {"name":"stress-100-100","category":"stress","input":{"l1":[4,3,7,8,5,2,4,4,0,8,5,8,2,3,0,8,2,3,2,6,9,9,3,0,2,4,5,5,8,6,0,7,2,9,0,6,6,4,2,4,9,8,2,6,1,3,1,1,3,7,7,2,0,9,8,2,5,3,2,8,5,2,0,6,0,1,9,6,9,8,6,8,5,6,2,4,5,4,3,5,7,8,8,4,0,9,6,7,8,4,0,2,5,2,3,4,2,0,9,9],"l2":[1,7,0,0,6,3,5,1,3,6,0,7,5,4,9,3,8,4,6,2,5,3,2,8,9,5,3,3,1,8,0,0,3,6,3,5,8,0,3,7,4,8,8,7,2,8,6,5,1,3,8,4,1,1,5,8,8,8,3,9,8,8,2,1,8,0,4,6,2,2,3,2,8,9,6,6,5,0,2,4,2,1,5,7,8,1,8,7,7,3,7,2,5,2,5,3,1,1,6,2]},"output":[5,0,8,8,1,6,9,5,3,4,6,5,8,7,9,1,1,8,8,8,4,3,6,8,1,0,9,8,9,4,1,7,5,5,4,1,5,5,5,1,4,7,1,4,4,1,8,6,4,0,6,7,1,0,4,1,4,2,6,7,4,1,3,7,8,1,3,3,2,1,0,1,4,6,9,0,1,5,5,9,9,9,3,2,9,0,5,5,6,8,7,4,0,5,8,7,3,1,5,2,1]},
+    {"name":"stress-100-all-9s","category":"stress","input":{"l1":[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],"l2":[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]},"output":[8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,1]},
+    {"name":"stress-100-vs-1","category":"stress","input":{"l1":[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],"l2":[1]},"output":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]}
+  ]
+}

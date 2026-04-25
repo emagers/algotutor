@@ -1,0 +1,71 @@
+{
+  "id": "valid-parenthesis-string",
+  "leetcode_number": 678,
+  "title": "Valid Parenthesis String",
+  "difficulty": "Medium",
+  "categories": [
+    "String",
+    "Stack",
+    "Greedy",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a string s containing only '(', ')', and '*', return true if s is valid. '*' may be treated as '(', ')', or empty.",
+  "constraints": [
+    "1 <= s.length <= 100",
+    "s consists of '(', ')', '*' only"
+  ],
+  "hints": [
+    "Greedy: track lo/hi = min/max possible open count after processing prefix.",
+    "If hi < 0 at any point, fail; clamp lo at 0; final lo must be 0."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Two-pointer interval of possible open counts."
+  },
+  "alternatives": [
+    {
+      "approach": "Two stacks",
+      "time": "O(n)",
+      "space": "O(n)"
+    },
+    {
+      "approach": "DP",
+      "time": "O(n²)",
+      "space": "O(n²)"
+    }
+  ],
+  "pitfalls": [
+    "When clamping lo, don't forget — '*' as '(' could rescue later."
+  ],
+  "followups": [],
+  "signature": {
+    "fn": "checkValidString",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function checkValidString(s: string): boolean {\n  let lo = 0, hi = 0;\n  for (const c of s) {\n    if (c === \"(\") { lo++; hi++; }\n    else if (c === \")\") { lo--; hi--; }\n    else { lo--; hi++; }\n    if (hi < 0) return false;\n    if (lo < 0) lo = 0;\n  }\n  return lo === 0;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"()"},"output":true},
+    {"name":"example-2","category":"example","input":{"s":"(*)"},"output":true},
+    {"name":"example-3","category":"example","input":{"s":"(*))"},"output":true},
+    {"name":"all-stars","category":"edge","input":{"s":"****"},"output":true},
+    {"name":"single-star","category":"edge","input":{"s":"*"},"output":true},
+    {"name":"single-open","category":"edge","input":{"s":"("},"output":false},
+    {"name":"single-close","category":"edge","input":{"s":")"},"output":false},
+    {"name":"deep-nesting","category":"edge","input":{"s":"((((**))))"},"output":true},
+    {"name":"stress-100","category":"stress","input":{"s":"(*()())**())(*(***))*(((()*(**))*)(((*(*))*(()((((()*))*())())())***)((((*((*((**())()()()***((**(()"},"output":false}
+  ]
+}

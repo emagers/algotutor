@@ -1,0 +1,65 @@
+{
+  "id": "partition-equal-subset-sum",
+  "leetcode_number": 416,
+  "title": "Partition Equal Subset Sum",
+  "difficulty": "Medium",
+  "categories": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a non-empty array of positive integers nums, return true if you can partition it into two subsets with equal sums.",
+  "constraints": [
+    "1 <= nums.length <= 200",
+    "1 <= nums[i] <= 100"
+  ],
+  "hints": [
+    "If total is odd, false.",
+    "Else: subset-sum DP for target = total/2 (boolean knapsack)."
+  ],
+  "optimal": {
+    "time": "O(n*S)",
+    "space": "O(S)",
+    "approach": "Boolean subset-sum DP rolled to 1D, iterate descending."
+  },
+  "alternatives": [
+    {
+      "approach": "Bitset DP",
+      "time": "O(n*S/64)",
+      "space": "O(S/64)"
+    }
+  ],
+  "pitfalls": [
+    "Iterate s descending in the inner loop to avoid reusing items."
+  ],
+  "followups": [
+    "Partition into k equal subsets."
+  ],
+  "signature": {
+    "fn": "canPartition",
+    "params": [
+      {
+        "name": "nums",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function canPartition(nums: number[]): boolean {\n  const total = nums.reduce((a, b) => a + b, 0);\n  if (total % 2) return false;\n  const target = total / 2;\n  const dp = new Uint8Array(target + 1);\n  dp[0] = 1;\n  for (const x of nums) {\n    for (let s = target; s >= x; s--) if (dp[s - x]) dp[s] = 1;\n  }\n  return !!dp[target];\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"nums":[1,5,11,5]},"output":true},
+    {"name":"example-2","category":"example","input":{"nums":[1,2,3,5]},"output":false},
+    {"name":"single-even-impossible","category":"edge","input":{"nums":[2]},"output":false},
+    {"name":"two-equal","category":"edge","input":{"nums":[3,3]},"output":true},
+    {"name":"two-different","category":"edge","input":{"nums":[2,4]},"output":false},
+    {"name":"odd-total","category":"edge","input":{"nums":[1,2,3,4,5,6,7]},"output":true},
+    {"name":"all-equal-even-count","category":"edge","input":{"nums":[4,4,4,4]},"output":true},
+    {"name":"stress-200","category":"stress","input":{"nums":[53,1,67,21,55,8,1,93,98,22,94,39,3,6,46,79,64,49,41,20,99,95,27,95,86,99,70,95,97,95,22,56,21,30,22,84,41,59,58,89,58,88,72,58,28,86,82,21,42,37,66,3,34,30,26,31,27,38,10,37,9,93,51,12,49,48,6,45,67,30,29,93,13,17,59,70,74,90,16,60,43,73,15,20,84,8,11,58,30,74,51,88,78,20,28,53,34,54,17,13,20,42,15,75,73,1,63,6,91,43,83,84,94,40,70,3,39,90,21,69,10,38,9,20,78,60,51,28,97,94,54,60,76,29,27,40,54,72,86,11,26,87,8,13,72,53,96,9,92,34,50,50,32,24,40,29,36,51,60,93,48,100,95,78,4,53,41,65,44,14,90,3,3,43,77,18,64,98,29,44,36,29,43,97,41,53,79,28,90,2,57,5,40,90,61,93,13,43,58,36]},"output":false}
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "reconstruct-itinerary",
+  "leetcode_number": 332,
+  "title": "Reconstruct Itinerary",
+  "difficulty": "Hard",
+  "categories": [
+    "Graph",
+    "DFS",
+    "Eulerian Path"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a list of airline tickets [from, to], reconstruct the itinerary in order. The trip starts at \"JFK\" and uses every ticket exactly once. If multiple valid itineraries exist, return the one that is lexicographically smallest when read as a single concatenated list.",
+  "constraints": [
+    "1 <= tickets.length <= 300",
+    "Airport codes are 3-letter uppercase strings.",
+    "An itinerary is guaranteed to exist."
+  ],
+  "hints": [
+    "It's an Eulerian path problem: visit every edge exactly once.",
+    "Sort each adjacency list ascending; do DFS visiting smallest unused outgoing edge first.",
+    "Hierholzer: when you can't go further, prepend the current node to the path."
+  ],
+  "optimal": {
+    "time": "O(E log E)",
+    "space": "O(E)",
+    "approach": "Hierholzer's algorithm with sorted adjacency lists."
+  },
+  "alternatives": [
+    {
+      "approach": "Backtracking trying lexicographic order",
+      "time": "Exponential worst case",
+      "space": "O(E)"
+    }
+  ],
+  "pitfalls": [
+    "Returning the path in reverse (forgot to reverse the result).",
+    "Re-using tickets — adjacency lists must be consumed."
+  ],
+  "followups": [
+    "Eulerian circuit detection.",
+    "Eulerian path on undirected graphs."
+  ],
+  "signature": {
+    "fn": "findItinerary",
+    "params": [
+      {
+        "name": "tickets",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function findItinerary(tickets: string[][]): string[] {\n  const adj = new Map<string, string[]>();\n  for (const [a,b] of tickets) {\n    if (!adj.has(a)) adj.set(a, []);\n    adj.get(a)!.push(b);\n  }\n  for (const arr of adj.values()) arr.sort();\n  const out: string[] = [];\n  const dfs = (u: string) => {\n    const arr = adj.get(u);\n    while (arr && arr.length) dfs(arr.shift()!);\n    out.push(u);\n  };\n  dfs(\"JFK\");\n  return out.reverse();\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"tickets":[["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]},"output":["JFK","MUC","LHR","SFO","SJC"]},
+    {"name":"example-2-multi-choice","category":"example","input":{"tickets":[["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]},"output":["JFK","ATL","JFK","SFO","ATL","SFO"]},
+    {"name":"edge-single-ticket","category":"edge","input":{"tickets":[["JFK","ABC"]]},"output":["JFK","ABC"]},
+    {"name":"edge-cycle-back-to-jfk","category":"edge","input":{"tickets":[["JFK","KUL"],["JFK","NRT"],["NRT","JFK"]]},"output":["JFK","NRT","JFK","KUL"]},
+    {"name":"edge-must-finish-distant","category":"edge","input":{"tickets":[["JFK","A"],["A","B"],["B","C"],["C","A"],["A","JFK"]]},"output":["JFK","A","B","C","A","JFK"]},
+    {"name":"stress-300-random-tour","category":"stress","input":{"tickets":[["JFK","JFK"],["JFK","MWB"],["MWB","YNB"],["YNB","JCX"],["JCX","OIT"],["OIT","YUW"],["YUW","MOJ"],["MOJ","IIM"],["IIM","YNB"],["YNB","VXO"],["VXO","HFR"],["HFR","JPW"],["JPW","LGY"],["LGY","VXO"],["VXO","ATS"],["ATS","PAQ"],["PAQ","IUI"],["IUI","DEC"],["DEC","LGY"],["LGY","JFK"],["JFK","ZSX"],["ZSX","RMU"],["RMU","MOJ"],["MOJ","FFF"],["FFF","JKD"],["JKD","JFK"],["JFK","CBP"],["CBP","ZSF"],["ZSF","FFF"],["FFF","IUI"],["IUI","FFF"],["FFF","MOJ"],["MOJ","VKG"],["VKG","CYP"],["CYP","CBP"],["CBP","AMA"],["AMA","JAW"],["JAW","JCX"],["JCX","DEC"],["DEC","BYN"],["BYN","YWV"],["YWV","FFF"],["FFF","JFK"],["JFK","YUW"],["YUW","BXP"],["BXP","URS"],["URS","VOO"],["VOO","ZSF"],["ZSF","YWV"],["YWV","DDD"],["DDD","VXI"],["VXI","HFR"],["HFR","VXO"],["VXO","URS"],["URS","JKD"],["JKD","YWV"],["YWV","MWB"],["MWB","GWC"],["GWC","ZSX"],["ZSX","MWB"],["MWB","VXO"],["VXO","PCH"],["PCH","YNB"],["YNB","ZBX"],["ZBX","HCK"],["HCK","YNB"],["YNB","NER"],["NER","DGX"],["DGX","DDD"],["DDD","OIT"],["OIT","YWV"],["YWV","GWC"],["GWC","VOO"],["VOO","PCH"],["PCH","CBP"],["CBP","YWV"],["YWV","VXO"],["VXO","AMA"],["AMA","DIE"],["DIE","YWV"],["YWV","JCX"],["JCX","JFK"],["JFK","IUI"],["IUI","VOO"],["VOO","OHE"],["OHE","WOA"],["WOA","JPW"],["JPW","DGX"],["DGX","GWC"],["GWC","HCK"],["HCK","JFK"],["JFK","PCH"],["PCH","HFR"],["HFR","JKD"],["JKD","KIB"],["KIB","CYP"],["CYP","VKG"],["VKG","JPW"],["JPW","QSG"],["QSG","IIM"],["IIM","IUI"],["IUI","WOA"],["WOA","YHQ"],["YHQ","YWV"],["YWV","VOO"],["VOO","BXP"],["BXP","HCK"],["HCK","ZSF"],["ZSF","KIB"],["KIB","KIB"],["KIB","HFR"],["HFR","ZSF"],["ZSF","DDD"],["DDD","WOA"],["WOA","NER"],["NER","URS"],["URS","VXI"],["VXI","YWV"],["YWV","KIB"],["KIB","OIT"],["OIT","IIM"],["IIM","YWV"],["YWV","BXP"],["BXP","LGY"],["LGY","HFR"],["HFR","YWP"],["YWP","ZBX"],["ZBX","JFK"],["JFK","DGX"],["DGX","ZSF"],["ZSF","JCX"],["JCX","DEC"],["DEC","AMA"],["AMA","YWV"],["YWV","DDD"],["DDD","RMU"],["RMU","FFF"],["FFF","ZSF"],["ZSF","BYN"],["BYN","GWC"],["GWC","PCH"],["PCH","IUI"],["IUI","AMA"],["AMA","ZAK"],["ZAK","IUI"],["IUI","GWC"],["GWC","OHE"],["OHE","JRW"],["JRW","ZBX"],["ZBX","NER"],["NER","BYN"],["BYN","ATS"],["ATS","ZBX"],["ZBX","NER"],["NER","YWV"],["YWV","JPG"],["JPG","HCK"],["HCK","BYN"],["BYN","IIM"],["IIM","LGY"],["LGY","RMU"],["RMU","JCX"],["JCX","YNB"],["YNB","DGX"],["DGX","JRW"],["JRW","VKG"],["VKG","ZAK"],["ZAK","GWC"],["GWC","GWC"],["GWC","YUW"],["YUW","VOO"],["VOO","LGY"],["LGY","CYP"],["CYP","PCH"],["PCH","YNB"],["YNB","LGY"],["LGY","JAW"],["JAW","HFR"],["HFR","CYP"],["CYP","GWC"],["GWC","ZBX"],["ZBX","NER"],["NER","JFK"],["JFK","JPW"],["JPW","OHE"],["OHE","MWB"],["MWB","ZBX"],["ZBX","ZAK"],["ZAK","PCH"],["PCH","LGY"],["LGY","RMU"],["RMU","QSG"],["QSG","JRW"],["JRW","NER"],["NER","PCH"],["PCH","MOJ"],["MOJ","DIE"],["DIE","JRW"],["JRW","RMU"],["RMU","WOA"],["WOA","ATS"],["ATS","IUI"],["IUI","JFK"],["JFK","MOJ"],["MOJ","ZSF"],["ZSF","YNB"],["YNB","GWC"],["GWC","PCH"],["PCH","JAW"],["JAW","ZAK"],["ZAK","KIB"],["KIB","DDD"],["DDD","CYP"],["CYP","YUW"],["YUW","VXO"],["VXO","JKD"],["JKD","BYN"],["BYN","XIQ"],["XIQ","LGY"],["LGY","HFR"],["HFR","WOA"],["WOA","GWC"],["GWC","MWB"],["MWB","XIQ"],["XIQ","IIM"],["IIM","CYP"],["CYP","JFK"],["JFK","JPG"],["JPG","PCH"],["PCH","DIE"],["DIE","KIB"],["KIB","JCX"],["JCX","VXO"],["VXO","JCX"],["JCX","HCK"],["HCK","BXP"],["BXP","JKD"],["JKD","JPG"],["JPG","VXO"],["VXO","OHE"],["OHE","YWV"],["YWV","VXO"],["VXO","QSG"],["QSG","WOA"],["WOA","ZSX"],["ZSX","JRW"],["JRW","JAW"],["JAW","VXO"],["VXO","DEC"],["DEC","VOO"],["VOO","MWB"],["MWB","YNB"],["YNB","JRW"],["JRW","URS"],["URS","IIM"],["IIM","ZSX"],["ZSX","PCH"],["PCH","CYP"],["CYP","URS"],["URS","JPW"],["JPW","PAQ"],["PAQ","ATS"],["ATS","FFF"],["FFF","JPG"],["JPG","JPG"],["JPG","ZAK"],["ZAK","WOA"],["WOA","QSG"],["QSG","VXI"],["VXI","YWV"],["YWV","NER"],["NER","BYN"],["BYN","ATS"],["ATS","MWB"],["MWB","ATS"],["ATS","JPW"],["JPW","YNB"],["YNB","YWP"],["YWP","MWB"],["MWB","OHE"],["OHE","YWP"],["YWP","YUW"],["YUW","VXI"],["VXI","PAQ"],["PAQ","YWP"],["YWP","DDD"],["DDD","FFF"],["FFF","WOA"],["WOA","VXO"],["VXO","MOJ"],["MOJ","JPW"],["JPW","BXP"],["BXP","OHE"],["OHE","CBP"],["CBP","FFF"],["FFF","GWC"],["GWC","DGX"],["DGX","XIQ"],["XIQ","VOO"],["VOO","JFK"]]},"output":["JFK","CBP","AMA","DIE","JRW","JAW","HFR","CYP","CBP","FFF","GWC","DGX","DDD","CYP","GWC","GWC","HCK","BXP","HCK","BYN","ATS","FFF","IUI","AMA","JAW","JCX","DEC","AMA","YWV","BXP","JKD","BYN","ATS","IUI","DEC","BYN","GWC","MWB","ATS","JPW","BXP","LGY","CYP","JFK","DGX","GWC","OHE","CBP","YWV","DDD","FFF","JFK","IUI","FFF","JKD","JFK","JFK","JPG","HCK","JFK","JPW","DGX","JRW","NER","BYN","IIM","CYP","PCH","CBP","ZSF","BYN","XIQ","IIM","IUI","GWC","PCH","CYP","URS","IIM","LGY","HFR","JKD","JPG","JPG","PCH","DIE","KIB","CYP","VKG","CYP","YUW","BXP","OHE","JRW","RMU","FFF","JPG","VXO","AMA","ZAK","GWC","PCH","HFR","JPW","LGY","HFR","VXO","ATS","MWB","GWC","VOO","BXP","URS","JKD","KIB","DDD","OIT","IIM","YNB","DGX","XIQ","LGY","JAW","VXO","DEC","LGY","JFK","MOJ","DIE","YWV","DDD","RMU","JCX","DEC","VOO","JFK","MWB","OHE","MWB","VXO","HFR","WOA","ATS","PAQ","ATS","ZBX","HCK","YNB","GWC","YUW","MOJ","FFF","MOJ","IIM","YWV","FFF","WOA","GWC","ZBX","JFK","PCH","IUI","JFK","YUW","VOO","LGY","RMU","MOJ","JPW","OHE","WOA","JPW","PAQ","IUI","VOO","MWB","XIQ","VOO","OHE","YWP","DDD","VXI","HFR","YWP","MWB","YNB","JCX","HCK","ZSF","DDD","WOA","NER","BYN","YWV","GWC","ZSX","JRW","URS","JPW","QSG","IIM","ZSX","MWB","YNB","JRW","VKG","JPW","YNB","LGY","RMU","QSG","JRW","ZBX","NER","DGX","ZSF","FFF","ZSF","JCX","JFK","ZSX","PCH","JAW","ZAK","IUI","WOA","QSG","VXI","PAQ","YWP","YUW","VXI","YWV","JCX","OIT","YUW","VXO","JCX","VXO","JKD","YWV","JPG","ZAK","KIB","HFR","ZSF","KIB","JCX","YNB","NER","PCH","LGY","VXO","MOJ","VKG","ZAK","PCH","MOJ","ZSF","YNB","VXO","OHE","YWV","KIB","KIB","OIT","YWV","MWB","ZBX","NER","URS","VOO","PCH","YNB","YWP","ZBX","NER","YWV","VOO","ZSF","YWV","VXO","PCH","YNB","ZBX","ZAK","WOA","VXO","QSG","WOA","ZSX","RMU","WOA","YHQ","YWV","VXO","URS","VXI","YWV","NER","JFK"]}
+  ]
+}

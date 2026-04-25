@@ -1,0 +1,63 @@
+{
+  "id": "palindrome-number",
+  "leetcode_number": 9,
+  "title": "Palindrome Number",
+  "difficulty": "Easy",
+  "categories": [
+    "Math"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given an integer x, return true if it is a palindrome (reads the same forwards and backwards in base 10). Negative numbers are not palindromes.",
+  "constraints": [
+    "-2^31 <= x <= 2^31 - 1"
+  ],
+  "hints": [
+    "Negative numbers can never be palindromes due to the leading minus.",
+    "Reverse half (or all) of the digits and compare."
+  ],
+  "optimal": {
+    "time": "O(log10 x)",
+    "space": "O(1)",
+    "approach": "Reverse the integer numerically and compare."
+  },
+  "alternatives": [
+    {
+      "approach": "Convert to string and two-pointer",
+      "time": "O(n)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Reversing all digits can overflow in fixed-width languages — reverse only half.",
+    "x ending in 0 (and x != 0) cannot be a palindrome."
+  ],
+  "followups": [
+    "What if you may not convert to a string?"
+  ],
+  "signature": {
+    "fn": "isPalindromeNumber",
+    "params": [
+      {
+        "name": "x",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function isPalindrome(x: number): boolean {\n  if (x < 0) return false;\n  let rev = 0, n = x;\n  while (n > 0) { rev = rev * 10 + n % 10; n = Math.floor(n / 10); }\n  return rev === x;\n}"
+  },
+  "tests": [
+    {"name":"example-true","category":"example","input":{"x":121},"output":true},
+    {"name":"example-false-negative","category":"example","input":{"x":-121},"output":false},
+    {"name":"example-trailing-zero","category":"example","input":{"x":10},"output":false},
+    {"name":"zero","category":"edge","input":{"x":0},"output":true},
+    {"name":"single-digit","category":"edge","input":{"x":7},"output":true},
+    {"name":"long-palindrome","category":"edge","input":{"x":1234567654321},"output":true},
+    {"name":"near-int-max","category":"edge","input":{"x":2147447412},"output":true}
+  ]
+}

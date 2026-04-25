@@ -1,0 +1,66 @@
+{
+  "id": "longest-common-subsequence",
+  "leetcode_number": 1143,
+  "title": "Longest Common Subsequence",
+  "difficulty": "Medium",
+  "categories": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "Given two strings text1 and text2, return the length of their longest common subsequence. A subsequence is derived by deleting some characters without changing the order. If there is no common subsequence, return 0.",
+  "constraints": [
+    "1 <= text1.length, text2.length <= 1000",
+    "Lowercase English letters."
+  ],
+  "hints": [
+    "dp[i][j] = dp[i-1][j-1]+1 if a[i-1]==b[j-1], else max(dp[i-1][j], dp[i][j-1]).",
+    "Roll to 1D with a 'prev' temp."
+  ],
+  "optimal": {
+    "time": "O(m*n)",
+    "space": "O(min(m,n))",
+    "approach": "Classic 2D DP rolled to 1D."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Resetting prev each row."
+  ],
+  "followups": [
+    "Reconstruct the LCS itself.",
+    "Edit Distance / Shortest Common Supersequence."
+  ],
+  "signature": {
+    "fn": "longestCommonSubsequence",
+    "params": [
+      {
+        "name": "text1",
+        "adapt": "identity"
+      },
+      {
+        "name": "text2",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function longestCommonSubsequence(a: string, b: string): number {\n  const m = a.length, n = b.length;\n  const dp = new Array(n + 1).fill(0);\n  for (let i = 1; i <= m; i++) {\n    let prev = 0;\n    for (let j = 1; j <= n; j++) {\n      const tmp = dp[j];\n      if (a[i - 1] === b[j - 1]) dp[j] = prev + 1;\n      else dp[j] = Math.max(dp[j], dp[j - 1]);\n      prev = tmp;\n    }\n  }\n  return dp[n];\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"text1":"abcde","text2":"ace"},"output":3},
+    {"name":"example-2-equal","category":"example","input":{"text1":"abc","text2":"abc"},"output":3},
+    {"name":"example-3-no-common","category":"example","input":{"text1":"abc","text2":"def"},"output":0},
+    {"name":"single-char-match","category":"edge","input":{"text1":"a","text2":"a"},"output":1},
+    {"name":"single-char-mismatch","category":"edge","input":{"text1":"a","text2":"b"},"output":0},
+    {"name":"one-empty-substr","category":"edge","input":{"text1":"abc","text2":"a"},"output":1},
+    {"name":"interleaved","category":"edge","input":{"text1":"abcbdab","text2":"bdcaba"},"output":4},
+    {"name":"stress-1000","category":"stress","input":{"text1":"daaaddbddacceaabcbbaacbfbabfaaaaecededdbbdaefcfcccdbfadfffaeaeccdfdaeadbefaeedebedadefdafdddaffccbcffcecbaadaccaeffaacaffcfddeefdbdadfcabcccfacfcecaccacccebeffceddcbbddccfedeaadddcedcacdcefaceccdffdbbebcfccabbbaabbedecaddbccdeeeeefbcdecfaadcffbafabcecbfaeefccefeecdefecbbcceecabdddceaacabffabbebddbdebccfcfedfabeddbdeeeccdfafbdfafbeffcfdcddfadaefdccdcdebacaecceeaacccdcceadeeeaececfdebbefcededcacffdcfcefeddedfcccfbfbcfbeabbdedcbebbedaedbbcfdddcbfddabcbebcedfeebefefbdcacdfbfdcaefcbbacaecbddabeddbadfaeabdbdafbbfdcaadecbfdbadfbabceeedccbbcdcdbadfeabceedfccadaddbedefeaaafdababbdbeebbdcaeeebabeacdbbbedefeefbbbbddbaafabdacfbfebcdfafabbafbdfcbfeccccfdacfeeaadcdbffeafabcfdfdfcffccfeadabccabffdaeadcdbceacfcaffbcfcaaefcdbfcfdafdafacddedbbebfafddacccfececdaacedcadacbeafbbcbdbebebafdeddadbedaefcaaffacbeabaaaceaadafbbfacbddefedfeeffabddcddcedaeacddecbacbefcdddaefbbcaebdbcdefedcabccecfdcddfcaeabffeefbddbdbeaeedffcefebfbbbccecfdcdafdaadaabcbdcbbedecffefaefeebbdceaececacdbeddafdbdfdcfbffbeeccaffaffbdaefd","text2":"caacfeacdddacbafecedbabaeafecebefcfefefdbcaaefaabbefdabdeffaaaaaffebedeecdebcbfeeaeaafbefbadadbebdbcefadedbbdbbbfffcabfeaaffabbdecfbadaffbbecbaeecbaeaffdcbdfaccfadcccbdabceaeacfcbdafbaecceeeaffdaededddfecbceffdccdcafbefbffaafddbadaabbcabaccedbabfaeccbdefbdbaadadbfaffaebdfaabddefddeadcadaeeabafeaedcefcefcadadcddeecdccdbbefefaaeeaacecffdeedcabedcefaabcdcbcdbbcfbbfdbfefadbffeafddecdabeeabacebbcbdbfaacadbcbaedcacaaebfecfaabbdfeebaaffbbfacdcfdccacacfabffcfbbbececebfeadeefbbcffcafdaabbafaafadeeecdacedeffdfecbdaecacaceacbfdcfcfaaaaffffdcbdfedbbecdbadedebfccbfcaddeccaccceacdcfddeaeceabebaeefacfdcbbbbefcbefdebdcdbcbaeacfbabedeeffeaafbefbaaaabfadcedececccbcfcdfaaffafdacdaafdadeaaddefdaeaefadfdcccadcccacdcbfebdafaccfbdfcdfeebecefeabdcbfabaabbbabeeafaebaecafafaacebabdafecfefadacdfcfedafaaccfdfadeddbcbeadebdcaadebfedffdfdaecfccdabccebbeaecedaaffabdefeeefadfeedaacdabfdcadfedbfadbdadefbaacefcadcbadaadfffcfaeeceddfebbafedfcddabdaedbcdcdbabbcaaaeadebaeccfdbdfdfedafbbdafaaebfcbfefccaeeddefbbcabcebddccfd"},"output":557}
+  ]
+}

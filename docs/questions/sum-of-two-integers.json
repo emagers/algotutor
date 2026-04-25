@@ -1,0 +1,64 @@
+{
+  "id": "sum-of-two-integers",
+  "leetcode_number": 371,
+  "title": "Sum of Two Integers",
+  "difficulty": "Medium",
+  "categories": [
+    "Bit Manipulation",
+    "Math"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given two integers a and b, return their sum without using the operators + and -.",
+  "constraints": [
+    "-1000 <= a, b <= 1000"
+  ],
+  "hints": [
+    "XOR computes addition without carry.",
+    "AND followed by left shift produces the carry.",
+    "Loop until carry is zero."
+  ],
+  "optimal": {
+    "time": "O(1)",
+    "space": "O(1)",
+    "approach": "Bitwise add: sum = a^b, carry = (a&b) << 1, repeat."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Negative numbers in higher-level languages need 32-bit masking; in JS, |0 keeps results in 32-bit signed range."
+  ],
+  "followups": [
+    "Subtract two integers without using - or +."
+  ],
+  "signature": {
+    "fn": "getSum",
+    "params": [
+      {
+        "name": "a",
+        "adapt": "identity"
+      },
+      {
+        "name": "b",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function getSum(a: number, b: number): number {\n  while (b !== 0) {\n    const c = (a & b) << 1;\n    a = (a ^ b) | 0;\n    b = c | 0;\n  }\n  return a;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"a":1,"b":2},"output":3},
+    {"name":"example-2","category":"example","input":{"a":2,"b":3},"output":5},
+    {"name":"negative-positive","category":"edge","input":{"a":-1,"b":1},"output":0},
+    {"name":"both-negative","category":"edge","input":{"a":-7,"b":-3},"output":-10},
+    {"name":"with-zero","category":"edge","input":{"a":0,"b":0},"output":0},
+    {"name":"boundary","category":"edge","input":{"a":1000,"b":-1000},"output":0},
+    {"name":"stress-0","category":"stress","input":{"a":742,"b":-514},"output":228},
+    {"name":"stress-1","category":"stress","input":{"a":-802,"b":-147},"output":-949},
+    {"name":"stress-2","category":"stress","input":{"a":-686,"b":-908},"output":-1594}
+  ]
+}

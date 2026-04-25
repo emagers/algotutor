@@ -1,0 +1,77 @@
+{
+  "id": "merge-two-sorted-lists",
+  "leetcode_number": 21,
+  "title": "Merge Two Sorted Lists",
+  "difficulty": "Easy",
+  "categories": [
+    "Linked List",
+    "Recursion"
+  ],
+  "sources": [
+    "Blind 75",
+    "Grind 75",
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "You are given the heads of two sorted singly linked lists. Splice them into one sorted list and return the head.",
+  "constraints": [
+    "0 <= number of nodes in each list <= 50",
+    "-100 <= Node.val <= 100",
+    "Both lists are sorted in non-decreasing order."
+  ],
+  "hints": [
+    "Walk both lists with two pointers, always taking the smaller head.",
+    "A dummy/sentinel head removes the special case for the first node."
+  ],
+  "optimal": {
+    "time": "O(n + m)",
+    "space": "O(1)",
+    "approach": "Iterative merge with sentinel node"
+  },
+  "alternatives": [
+    {
+      "approach": "Recursive merge",
+      "time": "O(n + m)",
+      "space": "O(n + m) stack",
+      "note": "Elegant; risks stack overflow on long lists."
+    }
+  ],
+  "pitfalls": [
+    "Forgetting to attach the remaining tail of the non-empty list.",
+    "Using `<` instead of `<=` is fine for this problem but matters for stability in variants."
+  ],
+  "followups": [
+    "Merge k Sorted Lists (LC 23).",
+    "Merge sorted arrays in place (LC 88)."
+  ],
+  "signature": {
+    "fn": "mergeTwoLists",
+    "params": [
+      {
+        "name": "list1",
+        "adapt": "arrayToLinkedList"
+      },
+      {
+        "name": "list2",
+        "adapt": "arrayToLinkedList"
+      }
+    ],
+    "returnAdapt": "linkedListToArray"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "class ListNode {\n  val: number;\n  next: ListNode | null;\n  constructor(val = 0, next: ListNode | null = null) { this.val = val; this.next = next; }\n}\n\nfunction mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {\n  const dummy = new ListNode();\n  let tail = dummy;\n  while (list1 && list2) {\n    if (list1.val <= list2.val) { tail.next = list1; list1 = list1.next; }\n    else { tail.next = list2; list2 = list2.next; }\n    tail = tail.next!;\n  }\n  tail.next = list1 ?? list2;\n  return dummy.next;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"list1":[1,2,4],"list2":[1,3,4]},"output":[1,1,2,3,4,4]},
+    {"name":"example-both-empty","category":"example","input":{"list1":[],"list2":[]},"output":[]},
+    {"name":"example-one-empty","category":"example","input":{"list1":[],"list2":[0]},"output":[0]},
+    {"name":"edge-all-duplicates","category":"edge","input":{"list1":[1,1,1],"list2":[1,1]},"output":[1,1,1,1,1]},
+    {"name":"edge-negatives","category":"edge","input":{"list1":[-5,-3,0],"list2":[-2,1]},"output":[-5,-3,-2,0,1]},
+    {"name":"edge-one-much-longer","category":"edge","input":{"list1":[5],"list2":[1,2,3]},"output":[1,2,3,5]},
+    {"name":"edge-disjoint-ranges","category":"edge","input":{"list1":[-100,-99,-98],"list2":[98,99,100]},"output":[-100,-99,-98,98,99,100]},
+    {"name":"edge-interleave","category":"edge","input":{"list1":[1,3,5,7,9],"list2":[2,4,6,8,10]},"output":[1,2,3,4,5,6,7,8,9,10]},
+    {"name":"stress-50-50-interleave","category":"stress","input":{"list1":[-100,-98,-96,-94,-92,-90,-88,-86,-84,-82,-80,-78,-76,-74,-72,-70,-68,-66,-64,-62,-60,-58,-56,-54,-52,-50,-48,-46,-44,-42,-40,-38,-36,-34,-32,-30,-28,-26,-24,-22,-20,-18,-16,-14,-12,-10,-8,-6,-4,-2],"list2":[-99,-97,-95,-93,-91,-89,-87,-85,-83,-81,-79,-77,-75,-73,-71,-69,-67,-65,-63,-61,-59,-57,-55,-53,-51,-49,-47,-45,-43,-41,-39,-37,-35,-33,-31,-29,-27,-25,-23,-21,-19,-17,-15,-13,-11,-9,-7,-5,-3,-1]},"output":[-100,-99,-98,-97,-96,-95,-94,-93,-92,-91,-90,-89,-88,-87,-86,-85,-84,-83,-82,-81,-80,-79,-78,-77,-76,-75,-74,-73,-72,-71,-70,-69,-68,-67,-66,-65,-64,-63,-62,-61,-60,-59,-58,-57,-56,-55,-54,-53,-52,-51,-50,-49,-48,-47,-46,-45,-44,-43,-42,-41,-40,-39,-38,-37,-36,-35,-34,-33,-32,-31,-30,-29,-28,-27,-26,-25,-24,-23,-22,-21,-20,-19,-18,-17,-16,-15,-14,-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1]},
+    {"name":"stress-50-50-all-zero","category":"stress","input":{"list1":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"list2":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},"output":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}
+  ]
+}

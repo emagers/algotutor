@@ -1,0 +1,77 @@
+{
+  "id": "word-search-ii",
+  "leetcode_number": 212,
+  "title": "Word Search II",
+  "difficulty": "Hard",
+  "categories": [
+    "Array",
+    "String",
+    "Trie",
+    "Backtracking",
+    "Matrix"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given an m x n board of characters and a list of words, return all words that can be constructed from letters of sequentially adjacent cells (horizontally/vertically), where the same cell may not be used more than once in a word. Order of returned words is not specified.",
+  "constraints": [
+    "1 <= m, n <= 12",
+    "1 <= words.length <= 3e4",
+    "1 <= words[i].length <= 10",
+    "All inputs are lowercase letters."
+  ],
+  "hints": [
+    "Build a trie of all words; do DFS from each cell, walking the trie alongside.",
+    "When you hit a node with a word, record it and clear it to avoid duplicates.",
+    "Prune dead branches by removing exhausted children to speed up later DFS."
+  ],
+  "optimal": {
+    "time": "O(m*n*4^L)",
+    "space": "O(N*L)",
+    "approach": "Trie + DFS with pruning."
+  },
+  "alternatives": [
+    {
+      "approach": "Per-word DFS",
+      "time": "O(W * m*n*4^L)",
+      "space": "O(L)"
+    }
+  ],
+  "pitfalls": [
+    "Returning duplicates if the same word is reachable two ways.",
+    "Forgetting to restore the cell after DFS (visited marker)."
+  ],
+  "followups": [
+    "Words with wildcards.",
+    "Match in all 8 directions."
+  ],
+  "signature": {
+    "fn": "findWords",
+    "params": [
+      {
+        "name": "board",
+        "adapt": "identity"
+      },
+      {
+        "name": "words",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "sortedArray",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function findWords(board: string[][], words: string[]): string[] {\n  type Node = { children: Map<string, Node>; word: string | null };\n  const root: Node = { children: new Map(), word: null };\n  for (const w of words) {\n    let cur = root;\n    for (const c of w) {\n      if (!cur.children.has(c)) cur.children.set(c, { children: new Map(), word: null });\n      cur = cur.children.get(c)!;\n    }\n    cur.word = w;\n  }\n  const m = board.length, n = board[0].length;\n  const out: string[] = [];\n  const dfs = (i: number, j: number, node: Node): void => {\n    if (i < 0 || j < 0 || i >= m || j >= n) return;\n    const c = board[i][j];\n    if (c === \"#\") return;\n    const nxt = node.children.get(c);\n    if (!nxt) return;\n    if (nxt.word) { out.push(nxt.word); nxt.word = null; }\n    board[i][j] = \"#\";\n    dfs(i+1,j,nxt); dfs(i-1,j,nxt); dfs(i,j+1,nxt); dfs(i,j-1,nxt);\n    board[i][j] = c;\n    if (nxt.children.size === 0) node.children.delete(c);\n  };\n  for (let i = 0; i < m; i++) for (let j = 0; j < n; j++) dfs(i, j, root);\n  return out;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"board":[["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]],"words":["oath","pea","eat","rain"]},"output":["oath","eat"]},
+    {"name":"example-2-none","category":"example","input":{"board":[["a","b"],["c","d"]],"words":["abcb"]},"output":[]},
+    {"name":"single-cell-match","category":"edge","input":{"board":[["a"]],"words":["a","b"]},"output":["a"]},
+    {"name":"single-cell-no-match","category":"edge","input":{"board":[["a"]],"words":["aa"]},"output":[]},
+    {"name":"all-same-letter","category":"edge","input":{"board":[["a","a","a"],["a","a","a"],["a","a","a"]],"words":["aaa","aaaa","aaaaaaaaaa"]},"output":["aaa","aaaa"]},
+    {"name":"duplicates-in-words","category":"edge","input":{"board":[["a","b"],["c","d"]],"words":["ab","ab","ac","cd"]},"output":["ac","ab","cd"]},
+    {"name":"long-snake","category":"edge","input":{"board":[["a","b","c","e"],["s","f","c","s"],["a","d","e","e"]],"words":["abcced","see","abcb"]},"output":["abcced","see"]},
+    {"name":"stress-12x12","category":"stress","input":{"board":[["d","f","g","c","b","c","a","g","d","e","c","d"],["a","e","e","f","b","c","b","a","c","d","f","b"],["f","e","c","c","c","e","a","a","b","g","g","f"],["f","g","f","a","g","c","a","f","f","e","c","c"],["g","a","g","e","b","f","b","g","b","b","f","f"],["d","e","d","e","a","f","g","a","f","d","f","e"],["g","f","d","d","b","e","c","g","e","a","c","f"],["b","a","b","c","c","e","a","e","g","g","f","e"],["g","d","d","d","c","b","g","f","g","a","e","c"],["b","b","b","a","b","f","f","g","c","a","a","d"],["g","e","b","b","f","d","a","a","d","c","d","e"],["e","f","a","d","d","a","a","f","f","f","d","f"]],"words":["daeaegbb","dffc","gaccada","fdcdfc","aeacebgb","fdebaea","ebg","gdgb","dabaf","edeb","afa","dgee","gbagege","gcf","bbfe","fdedb","eaafgdd","egefe","cbcca","gaafc","geg","cfgaacda","ddae","aefa","bdcge","eceegee","acdbabbc","eggddeb","gcbgc","gbbagedf","dbfdgcad","dgabf","cafg","dbbc","cgadbdbg","ggedabde","ceaecdgf","gbgca","ccbggg","age","dbbeaa","degf","dggefgb","eabdb","addbd","eccddbea","cefgab","fddedc","efebdg","dcfedece","fbg","ccf","aacfccb","ffff","fggggc","fbdc","adb","gabeaa","cdde","dcdbaf","dbacbcee","aefdbgfc","ddfgbfbe","eedbcee","dcg","ecggbddc","dgagg","aaba","dceb","ebadabe","cgbae","bfadfa","bbfa","aec","dbfaa","addb","cgebe","fagbd","cggdccbe","fcbabgaf","fce","cffbacg","fec","feca","cgacfbge","cgf","afb","fcbffbab","bgfdac","gbbcgcd","abdfecc","cgfeedd","ebaaabcb","dae","edea","gfcacga","egaecd","gfddf","fbb","dcbfd","gdgd","feage","cbdg","egee","gab","dgcade","ceff","cgcedag","gfgbf","dfa","cggedfd","aacg","ebede","cabg","abdaagef","fcgac","bdddeefc","ffefbdeb","cfaeegf","ebgefa","geefgcf","feadaca","bbeegdc","bca","fdfdadb","adfedge","fgdcb","adcaa","cdfeffbb","bad","egdbcdd","bdad","ebcbe","dcbae","feacca","cafff","egcafeeg","fbagcaag","bcf","agdagc","fcbdae","ebaffa","bdbfdgbg","cdddef","cce","gfgcce","fdfde","cfgcf","eadgdfg","efe","gdaee","cddffa","bgdefdfg","ebf","afdf","gddbdf","aef","gdaga","dadc","baagcg","baa","dgb","eababceb","aaca","bacf","cegf","cbaaebcd","gecd","fabagee","aef","eaf","bgdg","fbbgcdae","cddea","cada","abecffaf","ggd","gbcaccd","bcbfca","debddef","gfbffbbg","acegb","bbgaabge","ffebbfbf","ecfg","geabc","eac","eaacdcg","cddagf","agfaefc","cbcedbe","bdfg","caaae","ggcgbbd","ceabffb","gddag","eafdaf","cgcg","abeeecd","bbd"]},"output":["dae","gcf","cgf","bbfe","bca","bcf","cce","gab","ecfg","cfgcf","aef","eaf","fbb","fec","cbcca","baa","bcbfca","caaae","dgb","fce","fbdc","cegf","ccf","ceff","cafg","cgbae","aacg","aec","afa","aaba","ggd","geefgcf","cabg","fbg","ebf","gdgb","aefa","age","eedbcee","eac","ebg","fcgac","bacf","gbgca","bbd","bbfa","edea","dgee","feca","afb","afdf","dffc","dfa","efe","feage","fddedc","geg","adb","cfgaacda","bgdg","bad","addb","addbd","bdfg","cdddef","gddbdf","dcdbaf","dcbfd","gfgbf","eaacdcg","adcaa","dadc","dcg","efebdg","ddae"]}
+  ]
+}

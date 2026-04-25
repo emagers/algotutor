@@ -1,0 +1,64 @@
+{
+  "id": "reverse-bits",
+  "leetcode_number": 190,
+  "title": "Reverse Bits",
+  "difficulty": "Easy",
+  "categories": [
+    "Bit Manipulation"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Reverse the bits of a given 32-bit unsigned integer. Example: input 43261596 (00000010100101000001111010011100) should produce 964176192 (00111001011110000010100101000000).",
+  "constraints": [
+    "0 <= n <= 2^32 - 1"
+  ],
+  "hints": [
+    "Loop 32 times, peeling off the low bit and pushing it onto the result.",
+    "Be careful with JavaScript's signed bitwise shifts; use *2 or coerce with >>> 0."
+  ],
+  "optimal": {
+    "time": "O(32)",
+    "space": "O(1)",
+    "approach": "Bit-by-bit shift-and-peel for 32 iterations."
+  },
+  "alternatives": [
+    {
+      "approach": "Cached byte-reversal lookup",
+      "time": "O(1)",
+      "space": "O(256)"
+    }
+  ],
+  "pitfalls": [
+    "Using r << 1 in JS turns r negative when bit 31 is set; multiply by 2 (numbers up to 2^32-1 stay safe) or coerce."
+  ],
+  "followups": [
+    "What if reverseBits is called many times?"
+  ],
+  "signature": {
+    "fn": "reverseBits",
+    "params": [
+      {
+        "name": "n",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function reverseBits(n: number): number {\n  let r = 0;\n  let x = n >>> 0;\n  for (let i = 0; i < 32; i++) {\n    r = r * 2 + (x & 1);\n    x >>>= 1;\n  }\n  return r;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"n":43261596},"output":964176192},
+    {"name":"example-2","category":"example","input":{"n":4294967293},"output":3221225471},
+    {"name":"zero","category":"edge","input":{"n":0},"output":0},
+    {"name":"one","category":"edge","input":{"n":1},"output":2147483648},
+    {"name":"all-ones","category":"edge","input":{"n":4294967295},"output":4294967295},
+    {"name":"high-bit","category":"edge","input":{"n":2147483648},"output":1},
+    {"name":"stress-0","category":"stress","input":{"n":1796983200},"output":93575382},
+    {"name":"stress-1","category":"stress","input":{"n":2973198434},"output":1175907469},
+    {"name":"stress-2","category":"stress","input":{"n":2348576477},"output":3145088977}
+  ]
+}

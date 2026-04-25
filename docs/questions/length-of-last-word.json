@@ -1,0 +1,62 @@
+{
+  "id": "length-of-last-word",
+  "leetcode_number": 58,
+  "title": "Length of Last Word",
+  "difficulty": "Easy",
+  "categories": [
+    "String"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a string s consisting of words separated by single or multiple spaces (with possible leading or trailing spaces), return the length of the last word.",
+  "constraints": [
+    "1 <= s.length <= 1e4",
+    "s consists of English letters and spaces",
+    "There is at least one word in s."
+  ],
+  "hints": [
+    "Walk from the right, skip trailing spaces, then count the next run of non-space characters."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Right-to-left two-state scan: skip spaces, then count word."
+  },
+  "alternatives": [
+    {
+      "approach": "Split + filter empty",
+      "time": "O(n)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Trailing spaces — must skip them before measuring."
+  ],
+  "followups": [
+    "Length of all words / longest word."
+  ],
+  "signature": {
+    "fn": "lengthOfLastWord",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function lengthOfLastWord(s: string): number {\n  let i = s.length - 1;\n  while (i >= 0 && s[i] === ' ') i--;\n  let len = 0;\n  while (i >= 0 && s[i] !== ' ') { len++; i--; }\n  return len;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"Hello World"},"output":5},
+    {"name":"example-2","category":"example","input":{"s":"   fly me   to   the moon  "},"output":4},
+    {"name":"example-3","category":"example","input":{"s":"luffy is still joyboy"},"output":6},
+    {"name":"single-word","category":"edge","input":{"s":"abc"},"output":3},
+    {"name":"trailing-spaces","category":"edge","input":{"s":"abc   "},"output":3},
+    {"name":"single-letter","category":"edge","input":{"s":"x"},"output":1}
+  ]
+}

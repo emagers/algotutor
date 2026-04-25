@@ -1,0 +1,58 @@
+{
+  "id": "excel-sheet-column-number",
+  "leetcode_number": 171,
+  "title": "Excel Sheet Column Number",
+  "difficulty": "Easy",
+  "categories": [
+    "Math",
+    "String"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a string columnTitle representing an Excel sheet column title (A, B, ..., Z, AA, AB, ...), return its corresponding column number. 'A' is 1, 'B' is 2, ..., 'Z' is 26, 'AA' is 27, 'AB' is 28, etc.",
+  "constraints": [
+    "1 <= columnTitle.length <= 7",
+    "columnTitle consists of uppercase English letters",
+    "result fits in 32-bit signed integer"
+  ],
+  "hints": [
+    "This is base-26 with digits 1..26 instead of 0..25."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Horner's method in base 26."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Using digit value 0..25 instead of 1..26 is off by one for every column."
+  ],
+  "followups": [
+    "Excel Column Number to Title (LC 168) — the inverse mapping."
+  ],
+  "signature": {
+    "fn": "titleToNumber",
+    "params": [
+      {
+        "name": "columnTitle",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function titleToNumber(columnTitle: string): number {\n  let r = 0;\n  for (let i = 0; i < columnTitle.length; i++) r = r * 26 + (columnTitle.charCodeAt(i) - 64);\n  return r;\n}"
+  },
+  "tests": [
+    {"name":"example-A","category":"example","input":{"columnTitle":"A"},"output":1},
+    {"name":"example-AB","category":"example","input":{"columnTitle":"AB"},"output":28},
+    {"name":"example-ZY","category":"example","input":{"columnTitle":"ZY"},"output":701},
+    {"name":"Z","category":"edge","input":{"columnTitle":"Z"},"output":26},
+    {"name":"AA","category":"edge","input":{"columnTitle":"AA"},"output":27},
+    {"name":"AAAAAAA","category":"edge","input":{"columnTitle":"AAAAAAA"},"output":321272407},
+    {"name":"FXSHRXW","category":"edge","input":{"columnTitle":"FXSHRXW"},"output":2147483647}
+  ]
+}

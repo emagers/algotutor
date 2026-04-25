@@ -1,0 +1,74 @@
+{
+  "id": "design-twitter",
+  "leetcode_number": 355,
+  "title": "Design Twitter",
+  "difficulty": "Medium",
+  "categories": [
+    "Hash Table",
+    "Heap / Priority Queue",
+    "Design",
+    "Linked List"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Design a simplified Twitter that supports four operations: postTweet(userId, tweetId), getNewsFeed(userId) returning the 10 most recent tweet IDs in the user's news feed (the user's own tweets and the tweets of users they follow, most recent first), follow(followerId, followeeId), and unfollow(followerId, followeeId). The runnable variant accepts (operations, args) arrays. Construct with operation 'Twitter' (no args).",
+  "constraints": [
+    "1 <= userId, tweetId, followerId, followeeId <= 500",
+    "up to 3 * 1e4 operations",
+    "Tweet IDs are unique."
+  ],
+  "hints": [
+    "Per-user list of (timestamp, tweetId).",
+    "For getNewsFeed, merge the latest 10 from each followed user (a min-heap of size 10 works in O(k log 10)).",
+    "A user implicitly follows themselves."
+  ],
+  "optimal": {
+    "time": "post O(1), feed O(F log 10) where F = #followees, follow/unfollow O(1)",
+    "space": "O(N)",
+    "approach": "Hash map from user → tweets list; per-user follow set."
+  },
+  "alternatives": [
+    {
+      "approach": "Sort all matched tweets globally",
+      "time": "O(F · T log(FT))",
+      "space": "O(FT)",
+      "note": "Simpler but slower for long histories."
+    }
+  ],
+  "pitfalls": [
+    "Following yourself with follow(u, u) should be a no-op for the feed (already included).",
+    "Unfollowing yourself must not actually remove yourself.",
+    "The feed must respect ordering across followees, not just per-user recency."
+  ],
+  "followups": [
+    "Twitter with edits/deletes.",
+    "Streaming top-K with multiple writers."
+  ],
+  "signature": {
+    "fn": "twitterOps",
+    "params": [
+      {
+        "name": "operations",
+        "adapt": "identity"
+      },
+      {
+        "name": "args",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "class Twitter {\n  timer = 0;\n  tweets = new Map<number, { t: number; id: number }[]>();\n  follows = new Map<number, Set<number>>();\n  private ensure(u: number) {\n    if (!this.tweets.has(u)) this.tweets.set(u, []);\n    if (!this.follows.has(u)) this.follows.set(u, new Set([u]));\n  }\n  postTweet(userId: number, tweetId: number) {\n    this.ensure(userId);\n    this.tweets.get(userId)!.push({ t: this.timer++, id: tweetId });\n  }\n  getNewsFeed(userId: number): number[] {\n    this.ensure(userId);\n    const all: { t: number; id: number }[] = [];\n    for (const u of this.follows.get(userId)!) {\n      const list = this.tweets.get(u) || [];\n      for (let j = list.length - 1, k = 0; j >= 0 && k < 10; j--, k++) all.push(list[j]);\n    }\n    all.sort((a, b) => b.t - a.t);\n    return all.slice(0, 10).map((x) => x.id);\n  }\n  follow(a: number, b: number) { this.ensure(a); this.ensure(b); this.follows.get(a)!.add(b); }\n  unfollow(a: number, b: number) { this.ensure(a); if (a !== b) this.follows.get(a)!.delete(b); }\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"operations":["Twitter","postTweet","getNewsFeed","follow","postTweet","getNewsFeed","unfollow","getNewsFeed"],"args":[[],[1,5],[1],[1,2],[2,6],[1],[1,2],[1]]},"output":[null,null,[5],null,null,[6,5],null,[5]]},
+    {"name":"self-follow-noop","category":"edge","input":{"operations":["Twitter","postTweet","follow","getNewsFeed"],"args":[[],[1,10],[1,1],[1]]},"output":[null,null,null,[10]]},
+    {"name":"unfollow-self-still-shows","category":"edge","input":{"operations":["Twitter","postTweet","unfollow","getNewsFeed"],"args":[[],[3,99],[3,3],[3]]},"output":[null,null,null,[99]]},
+    {"name":"feed-empty-for-new-user","category":"edge","input":{"operations":["Twitter","getNewsFeed"],"args":[[],[42]]},"output":[null,[]]},
+    {"name":"more-than-ten","category":"edge","input":{"operations":["Twitter","postTweet","postTweet","postTweet","postTweet","postTweet","postTweet","postTweet","postTweet","postTweet","postTweet","postTweet","postTweet","getNewsFeed"],"args":[[],[1,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[1,10],[1,11],[1,12],[1]]},"output":[null,null,null,null,null,null,null,null,null,null,null,null,null,[12,11,10,9,8,7,6,5,4,3]]}
+  ]
+}

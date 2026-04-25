@@ -1,0 +1,56 @@
+{
+  "id": "partition-labels",
+  "leetcode_number": 763,
+  "title": "Partition Labels",
+  "difficulty": "Medium",
+  "categories": [
+    "String",
+    "Hash Table",
+    "Two Pointers",
+    "Greedy"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "You are given a string s. Partition s into as many parts as possible so that each letter appears in at most one part. Return a list of integers representing the size of these parts, in order.",
+  "constraints": [
+    "1 <= s.length <= 500",
+    "Lowercase English letters."
+  ],
+  "hints": [
+    "Record last occurrence of each character.",
+    "Sweep, extending current end to max(end, last[s[i]]); when i hits end, cut."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Last-occurrence map + greedy expansion."
+  },
+  "alternatives": [],
+  "pitfalls": [],
+  "followups": [],
+  "signature": {
+    "fn": "partitionLabels",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function partitionLabels(s: string): number[] {\n  const last = new Map<string, number>();\n  for (let i = 0; i < s.length; i++) last.set(s[i], i);\n  const out: number[] = [];\n  let start = 0, end = 0;\n  for (let i = 0; i < s.length; i++) {\n    end = Math.max(end, last.get(s[i])!);\n    if (i === end) { out.push(end - start + 1); start = i + 1; }\n  }\n  return out;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"ababcbacadefegdehijhklij"},"output":[9,7,8]},
+    {"name":"example-2","category":"example","input":{"s":"eccbbbbdec"},"output":[10]},
+    {"name":"single-char","category":"edge","input":{"s":"a"},"output":[1]},
+    {"name":"all-distinct","category":"edge","input":{"s":"abcdef"},"output":[1,1,1,1,1,1]},
+    {"name":"all-same","category":"edge","input":{"s":"aaaaa"},"output":[5]},
+    {"name":"two-blocks","category":"edge","input":{"s":"aabbcc"},"output":[2,2,2]},
+    {"name":"stress-500","category":"stress","input":{"s":"bajdhbahdghcjajghfhjhheicdcefiiiddjifffbfadijgdfbgjacbdfcgacfhhbagbdcffjdjhbgcgabcdhfbcfcfeaegbgegbijagafafjdhcighcjjiihhhihhcacgjgfdjhccbjdbeafjgjhjcdhebffhbiddbagjbjbhcdejfhejacbifdjbhebdgagabggbdcfedhihfdddbjiifigfgedggbajjeagiaagdiebfbchcbjdhjhacafjfcahheefdbagfbijceagchajehbchcbgcggideabiijaiiifaihafahahdegdaehhbedgffhfhgefbgjcaehfdhbdaggihdghaggecihfcaeebbdgaaecagdfebjeegdicfehdhicjjhfiechbjbddfjeffjcaebbhcbibjdffjgfhfjfbijcajeaejfedeegjfaihjhbiciahbdgghhfdgdbdgafbgcicfjeacbddiacjhdafijhed"},"output":[500]}
+  ]
+}

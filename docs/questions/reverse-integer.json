@@ -1,0 +1,64 @@
+{
+  "id": "reverse-integer",
+  "leetcode_number": 7,
+  "title": "Reverse Integer",
+  "difficulty": "Medium",
+  "categories": [
+    "Math"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing causes the value to fall outside the 32-bit signed integer range [-2^31, 2^31 - 1], return 0.",
+  "constraints": [
+    "-2^31 <= x <= 2^31 - 1"
+  ],
+  "hints": [
+    "Repeatedly take x % 10 and rebuild.",
+    "Check for overflow before each multiplication step."
+  ],
+  "optimal": {
+    "time": "O(log10 |x|)",
+    "space": "O(1)",
+    "approach": "Mod-10 rebuild with overflow check."
+  },
+  "alternatives": [
+    {
+      "approach": "Convert to string and reverse",
+      "time": "O(n)",
+      "space": "O(n)",
+      "note": "Easier but uses extra space."
+    }
+  ],
+  "pitfalls": [
+    "Forgetting to detect overflow — must clamp to 0 in that case.",
+    "Negative modulo behavior differs by language; abs first in JS to keep it consistent."
+  ],
+  "followups": [
+    "Reverse a 64-bit integer with overflow handling."
+  ],
+  "signature": {
+    "fn": "reverseInteger",
+    "params": [
+      {
+        "name": "x",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function reverse(x: number): number {\n  const INT_MAX = 2147483647, INT_MIN = -2147483648;\n  const sign = x < 0 ? -1 : 1;\n  let n = Math.abs(x), r = 0;\n  while (n > 0) { r = r * 10 + n % 10; n = Math.floor(n / 10); }\n  r *= sign;\n  if (r > INT_MAX || r < INT_MIN) return 0;\n  return r;\n}"
+  },
+  "tests": [
+    {"name":"example-pos","category":"example","input":{"x":123},"output":321},
+    {"name":"example-neg","category":"example","input":{"x":-123},"output":-321},
+    {"name":"example-trailing-zero","category":"example","input":{"x":120},"output":21},
+    {"name":"zero","category":"edge","input":{"x":0},"output":0},
+    {"name":"overflow-pos","category":"edge","input":{"x":1534236469},"output":0},
+    {"name":"overflow-neg","category":"edge","input":{"x":-2147483648},"output":0},
+    {"name":"single-digit","category":"edge","input":{"x":7},"output":7}
+  ]
+}

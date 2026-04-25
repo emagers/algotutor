@@ -1,0 +1,66 @@
+{
+  "id": "last-stone-weight",
+  "leetcode_number": 1046,
+  "title": "Last Stone Weight",
+  "difficulty": "Easy",
+  "categories": [
+    "Array",
+    "Heap / Priority Queue"
+  ],
+  "sources": [
+    "Grind 75"
+  ],
+  "prompt": "You are given an array of integers stones where stones[i] is the weight of the ith stone. We are playing a game with the stones: on each turn, choose the two heaviest stones x ≤ y and smash them. If x == y, both are destroyed; else the new stone has weight y - x. Return the weight of the last remaining stone, or 0 if none remain.",
+  "constraints": [
+    "1 <= stones.length <= 30",
+    "1 <= stones[i] <= 1000"
+  ],
+  "hints": [
+    "Use a max-heap; repeatedly pop two and push the difference.",
+    "Stop when ≤1 stones remain."
+  ],
+  "optimal": {
+    "time": "O(n log n)",
+    "space": "O(n)",
+    "approach": "Max-heap simulation."
+  },
+  "alternatives": [
+    {
+      "approach": "Sorted array (resort each step)",
+      "time": "O(n² log n)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting to push when x == y (correctly: don't push)."
+  ],
+  "followups": [
+    "Last Stone Weight II — partition / DP variant."
+  ],
+  "signature": {
+    "fn": "lastStoneWeight",
+    "params": [
+      {
+        "name": "stones",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function lastStoneWeight(stones: number[]): number {\n  const h = [...stones];\n  const less = (a: number, b: number) => a > b; // max-heap\n  const up = (i: number) => { while (i > 0) { const p = (i - 1) >> 1; if (less(h[i], h[p])) { [h[i], h[p]] = [h[p], h[i]]; i = p; } else break; } };\n  const down = (i: number) => { for (;;) { const l = 2*i+1, r = 2*i+2; let m = i;\n    if (l < h.length && less(h[l], h[m])) m = l; if (r < h.length && less(h[r], h[m])) m = r;\n    if (m === i) break; [h[i], h[m]] = [h[m], h[i]]; i = m; } };\n  for (let i = (h.length >> 1) - 1; i >= 0; i--) down(i);\n  const pop = () => { const top = h[0]; const last = h.pop()!; if (h.length) { h[0] = last; down(0); } return top; };\n  while (h.length > 1) {\n    const y = pop(), x = pop();\n    if (y !== x) { h.push(y - x); up(h.length - 1); }\n  }\n  return h.length ? h[0] : 0;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"stones":[2,7,4,1,8,1]},"output":1},
+    {"name":"example-2","category":"example","input":{"stones":[1]},"output":1},
+    {"name":"all-equal-pairs","category":"edge","input":{"stones":[3,3,3,3]},"output":0},
+    {"name":"two-equal","category":"edge","input":{"stones":[5,5]},"output":0},
+    {"name":"two-different","category":"edge","input":{"stones":[9,2]},"output":7},
+    {"name":"single-stone","category":"edge","input":{"stones":[42]},"output":42},
+    {"name":"all-ones","category":"edge","input":{"stones":[1,1,1,1,1,1]},"output":0},
+    {"name":"all-ones-odd","category":"edge","input":{"stones":[1,1,1,1,1]},"output":1},
+    {"name":"stress-30","category":"stress","input":{"stones":[42,872,523,102,876,366,531,395,423,724,186,504,786,955,200,184,615,29,893,191,187,746,329,376,506,571,290,430,537,734]},"output":1}
+  ]
+}

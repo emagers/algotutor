@@ -1,0 +1,64 @@
+{
+  "id": "number-of-1-bits",
+  "leetcode_number": 191,
+  "title": "Number of 1 Bits",
+  "difficulty": "Easy",
+  "categories": [
+    "Bit Manipulation"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a non-negative 32-bit integer, return the number of '1' bits in its binary representation (also known as the Hamming weight).",
+  "constraints": [
+    "0 <= n <= 2^32 - 1"
+  ],
+  "hints": [
+    "n & (n - 1) clears the lowest set bit.",
+    "Loop while n is non-zero, counting iterations."
+  ],
+  "optimal": {
+    "time": "O(k)",
+    "space": "O(1)",
+    "approach": "Brian Kernighan: clear the lowest set bit each iteration (k = popcount)."
+  },
+  "alternatives": [
+    {
+      "approach": "Test each of 32 bits",
+      "time": "O(32)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Right-shifting a signed JS number (>>) on values with the high bit set produces negative numbers — use >>> 0 first."
+  ],
+  "followups": [
+    "Counting Bits (LC 338) — popcount of every 0..n."
+  ],
+  "signature": {
+    "fn": "hammingWeight",
+    "params": [
+      {
+        "name": "n",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function hammingWeight(n: number): number {\n  let c = 0;\n  let x = n >>> 0;\n  while (x) { x &= x - 1; c++; }\n  return c;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"n":11},"output":3},
+    {"name":"example-2","category":"example","input":{"n":128},"output":1},
+    {"name":"example-3","category":"example","input":{"n":4294967293},"output":31},
+    {"name":"zero","category":"edge","input":{"n":0},"output":0},
+    {"name":"all-ones","category":"edge","input":{"n":4294967295},"output":32},
+    {"name":"single-high-bit","category":"edge","input":{"n":2147483648},"output":1},
+    {"name":"stress-0","category":"stress","input":{"n":1434157674},"output":16},
+    {"name":"stress-1","category":"stress","input":{"n":964631958},"output":19},
+    {"name":"stress-2","category":"stress","input":{"n":3946493200},"output":16}
+  ]
+}

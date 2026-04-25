@@ -1,0 +1,67 @@
+{
+  "id": "isomorphic-strings",
+  "leetcode_number": 205,
+  "title": "Isomorphic Strings",
+  "difficulty": "Easy",
+  "categories": [
+    "String",
+    "Hash Table"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Two strings s and t are isomorphic if there is a one-to-one mapping between every character of s and every character of t such that replacing all occurrences of each s-character with its mapped t-character produces t. No two distinct s-characters may map to the same t-character.",
+  "constraints": [
+    "1 <= s.length == t.length <= 5 * 1e4",
+    "s, t consist of any printable ASCII"
+  ],
+  "hints": [
+    "Maintain two maps: s→t and t→s.",
+    "On every position, both maps must be consistent."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(σ)",
+    "approach": "Two hash maps with consistency checks."
+  },
+  "alternatives": [
+    {
+      "approach": "Two index arrays sized 256",
+      "time": "O(n)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Using only one direction lets distinct s-chars map to the same t-char — both directions must be enforced."
+  ],
+  "followups": [
+    "Word Pattern (LC 290) — the same idea on tokens."
+  ],
+  "signature": {
+    "fn": "isIsomorphic",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      },
+      {
+        "name": "t",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function isIsomorphic(s: string, t: string): boolean {\n  if (s.length !== t.length) return false;\n  const ms = new Map<string, string>(), mt = new Map<string, string>();\n  for (let i = 0; i < s.length; i++) {\n    const a = s[i], b = t[i];\n    if (ms.has(a) && ms.get(a) !== b) return false;\n    if (mt.has(b) && mt.get(b) !== a) return false;\n    ms.set(a, b); mt.set(b, a);\n  }\n  return true;\n}"
+  },
+  "tests": [
+    {"name":"example-egg-add","category":"example","input":{"s":"egg","t":"add"},"output":true},
+    {"name":"example-foo-bar","category":"example","input":{"s":"foo","t":"bar"},"output":false},
+    {"name":"example-paper-title","category":"example","input":{"s":"paper","t":"title"},"output":true},
+    {"name":"single-char","category":"edge","input":{"s":"a","t":"z"},"output":true},
+    {"name":"same-string","category":"edge","input":{"s":"abcabc","t":"abcabc"},"output":true},
+    {"name":"all-same-fails","category":"edge","input":{"s":"ab","t":"aa"},"output":false}
+  ]
+}

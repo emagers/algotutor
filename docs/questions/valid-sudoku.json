@@ -1,0 +1,64 @@
+{
+  "id": "valid-sudoku",
+  "leetcode_number": 36,
+  "title": "Valid Sudoku",
+  "difficulty": "Medium",
+  "categories": [
+    "Array",
+    "Hash Table",
+    "Matrix"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Determine whether a partially filled 9x9 Sudoku board is valid. Validation rules: each row contains digits 1-9 with no duplicates, each column contains digits 1-9 with no duplicates, and each of the nine 3x3 sub-boxes contains digits 1-9 with no duplicates. Empty cells are denoted '.'. You only need to validate the filled cells.",
+  "constraints": [
+    "board.length == 9",
+    "board[i].length == 9",
+    "board[i][j] is a digit '1'-'9' or '.'"
+  ],
+  "hints": [
+    "Use 9 row sets, 9 column sets, and 9 box sets.",
+    "Box index = (row / 3) * 3 + (col / 3)."
+  ],
+  "optimal": {
+    "time": "O(81) ≈ O(1)",
+    "space": "O(81)",
+    "approach": "Single sweep with 27 hash sets."
+  },
+  "alternatives": [
+    {
+      "approach": "Encode (kind, value, group) tuples in one Set",
+      "time": "O(1)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting to check the box constraint — rows + columns alone aren't enough."
+  ],
+  "followups": [
+    "Solve Sudoku via backtracking (LC 37)."
+  ],
+  "signature": {
+    "fn": "isValidSudoku",
+    "params": [
+      {
+        "name": "board",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function isValidSudoku(board: string[][]): boolean {\n  const rows = Array.from({length:9}, () => new Set<string>());\n  const cols = Array.from({length:9}, () => new Set<string>());\n  const boxes = Array.from({length:9}, () => new Set<string>());\n  for (let i = 0; i < 9; i++) for (let j = 0; j < 9; j++) {\n    const v = board[i][j];\n    if (v === \".\") continue;\n    const b = Math.floor(i/3)*3 + Math.floor(j/3);\n    if (rows[i].has(v) || cols[j].has(v) || boxes[b].has(v)) return false;\n    rows[i].add(v); cols[j].add(v); boxes[b].add(v);\n  }\n  return true;\n}"
+  },
+  "tests": [
+    {"name":"example-valid","category":"example","input":{"board":[["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]},"output":true},
+    {"name":"example-invalid-col","category":"example","input":{"board":[["8","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]},"output":false},
+    {"name":"all-empty","category":"edge","input":{"board":[[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."]]},"output":true},
+    {"name":"dup-in-row","category":"edge","input":{"board":[["5",".",".",".",".",".",".",".","5"],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."]]},"output":false},
+    {"name":"dup-in-box","category":"edge","input":{"board":[["5",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".","5",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."],[".",".",".",".",".",".",".",".","."]]},"output":false}
+  ]
+}

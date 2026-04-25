@@ -1,0 +1,63 @@
+{
+  "id": "rotting-oranges",
+  "leetcode_number": 994,
+  "title": "Rotting Oranges",
+  "difficulty": "Medium",
+  "categories": [
+    "Matrix",
+    "BFS"
+  ],
+  "sources": [
+    "Grind 75",
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "You are given an m x n grid where each cell is 0 (empty), 1 (fresh orange), or 2 (rotten). Each minute every fresh orange adjacent (4-directionally) to a rotten orange becomes rotten. Return the minimum number of minutes that must elapse until no fresh orange remains; -1 if impossible.",
+  "constraints": [
+    "1 <= m, n <= 10",
+    "grid[i][j] in {0, 1, 2}"
+  ],
+  "hints": [
+    "Multi-source BFS starting from every initially rotten orange.",
+    "Track time per cell during BFS; the answer is the maximum time reached, or -1 if any fresh orange remains."
+  ],
+  "optimal": {
+    "time": "O(m*n)",
+    "space": "O(m*n)",
+    "approach": "Multi-source BFS with time labels."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Returning -1 when there are no oranges at all (answer is 0).",
+    "Decrementing fresh count after rotting (avoid double-counting)."
+  ],
+  "followups": [
+    "Different rot speeds per cell.",
+    "Diagonal rot rules."
+  ],
+  "signature": {
+    "fn": "orangesRotting",
+    "params": [
+      {
+        "name": "grid",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function orangesRotting(grid: number[][]): number {\n  const m = grid.length, n = grid[0].length;\n  const q: [number,number,number][] = [];\n  let fresh = 0;\n  for (let i = 0; i < m; i++) for (let j = 0; j < n; j++) {\n    if (grid[i][j] === 2) q.push([i,j,0]);\n    else if (grid[i][j] === 1) fresh++;\n  }\n  let mins = 0;\n  const dirs: [number,number][] = [[1,0],[-1,0],[0,1],[0,-1]];\n  while (q.length) {\n    const [r,c,t] = q.shift()!;\n    if (t > mins) mins = t;\n    for (const [dr,dc] of dirs) {\n      const nr=r+dr, nc=c+dc;\n      if (nr<0||nc<0||nr>=m||nc>=n||grid[nr][nc]!==1) continue;\n      grid[nr][nc] = 2;\n      fresh--;\n      q.push([nr,nc,t+1]);\n    }\n  }\n  return fresh ? -1 : mins;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"grid":[[2,1,1],[1,1,0],[0,1,1]]},"output":4},
+    {"name":"example-2-impossible","category":"example","input":{"grid":[[2,1,1],[0,1,1],[1,0,1]]},"output":-1},
+    {"name":"example-3-no-fresh","category":"example","input":{"grid":[[0,2]]},"output":0},
+    {"name":"edge-all-empty","category":"edge","input":{"grid":[[0,0],[0,0]]},"output":0},
+    {"name":"edge-no-rotten-with-fresh","category":"edge","input":{"grid":[[1,1,1]]},"output":-1},
+    {"name":"edge-single-rotten","category":"edge","input":{"grid":[[2]]},"output":0},
+    {"name":"edge-single-fresh","category":"edge","input":{"grid":[[1]]},"output":-1},
+    {"name":"edge-line-of-rot","category":"edge","input":{"grid":[[2,1,1,1,1,1,1,1,1,1]]},"output":9},
+    {"name":"stress-10x10-mixed","category":"stress","input":{"grid":[[0,1,2,1,1,1,1,1,1,0],[1,1,1,1,1,1,1,2,1,0],[1,1,0,0,1,0,0,0,1,0],[1,0,1,1,1,0,1,0,2,0],[1,2,1,1,1,2,1,1,1,1],[0,1,0,1,0,0,0,2,0,1],[0,1,1,0,1,0,1,1,1,1],[0,1,1,0,1,1,1,1,0,1],[1,0,2,1,1,0,1,0,0,0],[0,2,0,0,0,1,2,0,1,0]]},"output":-1}
+  ]
+}

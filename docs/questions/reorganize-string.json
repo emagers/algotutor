@@ -1,0 +1,71 @@
+{
+  "id": "reorganize-string",
+  "leetcode_number": 767,
+  "title": "Reorganize String",
+  "difficulty": "Medium",
+  "categories": [
+    "String",
+    "Hash Table",
+    "Heap / Priority Queue",
+    "Greedy",
+    "Sorting"
+  ],
+  "sources": [
+    "Grind 75"
+  ],
+  "prompt": "Given a string s, rearrange its characters so that no two adjacent characters are the same. Return any valid rearrangement, or `\"\"` if impossible. The reference produces a deterministic output: at each step, pick the two highest-frequency characters; ties broken alphabetically.",
+  "constraints": [
+    "1 <= s.length <= 500",
+    "s contains lowercase English letters."
+  ],
+  "hints": [
+    "Impossible iff max-count > ceil(n/2).",
+    "Greedy with a max-heap by count: pop two, append, decrement, push back.",
+    "Or place the most frequent char first into even positions, then fill the rest."
+  ],
+  "optimal": {
+    "time": "O(n log k)",
+    "space": "O(k)",
+    "approach": "Max-heap; pop two, append, push back if remaining."
+  },
+  "alternatives": [
+    {
+      "approach": "Place most-frequent at even indices first",
+      "time": "O(n)",
+      "space": "O(k)"
+    }
+  ],
+  "pitfalls": [
+    "Multiple valid outputs exist on LeetCode; this dataset uses the deterministic heap-with-alphabetical-tiebreak output."
+  ],
+  "followups": [
+    "k-distance apart variant: Task Scheduler-style spacing."
+  ],
+  "signature": {
+    "fn": "reorganizeString",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function reorganizeString(s: string): string {\n  const cnt = new Map<string, number>();\n  for (const c of s) cnt.set(c, (cnt.get(c) || 0) + 1);\n  // Max-heap by count, then alphabetical tiebreak.\n  const less = (a: [number, string], b: [number, string]) => a[0] > b[0] || (a[0] === b[0] && a[1] < b[1]);\n  const h: [number, string][] = [];\n  const up = (i: number) => { while (i > 0) { const p = (i - 1) >> 1; if (less(h[i], h[p])) { [h[i], h[p]] = [h[p], h[i]]; i = p; } else break; } };\n  const down = (i: number) => { for (;;) { const l = 2*i+1, r = 2*i+2; let m = i;\n    if (l < h.length && less(h[l], h[m])) m = l; if (r < h.length && less(h[r], h[m])) m = r;\n    if (m === i) break; [h[i], h[m]] = [h[m], h[i]]; i = m; } };\n  for (const [c, v] of cnt) { h.push([v, c]); up(h.length - 1); }\n  if (h[0] && h[0][0] > Math.ceil(s.length / 2)) return \"\";\n  const pop = () => { const t = h[0]; const last = h.pop()!; if (h.length) { h[0] = last; down(0); } return t; };\n  let out = \"\";\n  while (h.length >= 2) {\n    const a = pop(), b = pop();\n    out += a[1] + b[1];\n    if (a[0] - 1 > 0) { h.push([a[0]-1, a[1]]); up(h.length - 1); }\n    if (b[0] - 1 > 0) { h.push([b[0]-1, b[1]]); up(h.length - 1); }\n  }\n  if (h.length) out += h[0][1];\n  return out;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"aab"},"output":"aba"},
+    {"name":"example-2-impossible","category":"example","input":{"s":"aaab"},"output":""},
+    {"name":"single-char","category":"edge","input":{"s":"a"},"output":"a"},
+    {"name":"two-same","category":"edge","input":{"s":"aa"},"output":""},
+    {"name":"two-different","category":"edge","input":{"s":"ab"},"output":"ab"},
+    {"name":"all-different","category":"edge","input":{"s":"abcdef"},"output":"abcdef"},
+    {"name":"balanced","category":"edge","input":{"s":"aabb"},"output":"abab"},
+    {"name":"long-mostly-one","category":"edge","input":{"s":"aaaaabbbbcc"},"output":"abababacabc"},
+    {"name":"exactly-half","category":"edge","input":{"s":"aaaabbbb"},"output":"abababab"},
+    {"name":"stress-500","category":"stress","input":{"s":"uygpusrnqxihcztlocmjkgiqbwzixkdvlvfjbuzcavzprhnqfspnamemzjwpjxxgwzvkxidgfelcmpuwwndtemgfskppgrxsxiduuyjddgsswkdqwrdfyyupaxrgoiwujsnqszqtarmetvqxvnoelanuywikmfocckeccwoeouqshmwshkmdsomxxohsjsgugkjvnmddmdityecpmqpqqiagwkmoabqnwteyjhkowopzlxuldynlkbdncnyydqnjxtpvomoieadbhkkktakivtlannspyrydunbzqpzgwprjkvzqgyfvtrsxqxrlakvaitalkrlkgsrkpkingbhyfhuqublaimgmzpnooukretisnvpnsmjapnuxwhkeshnjrtcowmlkrsrdvkyltrcdfpjgvlarvohqahqjdeqnxzbmtxbhdxzxncfaegjmnxechytdaurzqwvglymcftdidnhjrkwnbifxcnoksiqpfcnbddnfzfpa"},"output":"nknkndnkndkndkndkndkmnpqxdkmnpqsxadkmnpqrsxadgkmnpqrswxadgikmnopqrsuwxacdgijkmnopqrstuvwxyacdghijklmnopqrstuvwxyzacdefghijklmnopqrstuvwxyzacdefghijklmnopqrstuvwxyzacdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"}
+  ]
+}

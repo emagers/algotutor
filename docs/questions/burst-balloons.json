@@ -1,0 +1,58 @@
+{
+  "id": "burst-balloons",
+  "leetcode_number": 312,
+  "title": "Burst Balloons",
+  "difficulty": "Hard",
+  "categories": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "You are given n balloons with numbers nums[i] painted on them. If you burst balloon i you gain nums[left] * nums[i] * nums[right] coins (using virtual nums[-1] = nums[n] = 1). Return the maximum coins you can collect by bursting balloons wisely.",
+  "constraints": [
+    "1 <= n <= 300",
+    "0 <= nums[i] <= 100"
+  ],
+  "hints": [
+    "Reverse think: pick the LAST balloon to burst in interval (l, r).",
+    "dp[l][r] = max over k in (l, r) of dp[l][k] + dp[k][r] + arr[l]*arr[k]*arr[r].",
+    "Pad with 1s at both ends."
+  ],
+  "optimal": {
+    "time": "O(n³)",
+    "space": "O(n²)",
+    "approach": "Interval DP with last-burst trick."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Naive 'first burst' DP doesn't decouple — last burst does.",
+    "Padding boundary 1s simplifies edge cases."
+  ],
+  "followups": [],
+  "signature": {
+    "fn": "maxCoins",
+    "params": [
+      {
+        "name": "nums",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function maxCoins(nums: number[]): number {\n  const arr = [1, ...nums, 1];\n  const n = arr.length;\n  const dp: number[][] = Array.from({ length: n }, () => new Array(n).fill(0));\n  for (let len = 2; len < n; len++) {\n    for (let l = 0; l + len < n; l++) {\n      const r = l + len;\n      let best = 0;\n      for (let k = l + 1; k < r; k++) {\n        const v = dp[l][k] + dp[k][r] + arr[l] * arr[k] * arr[r];\n        if (v > best) best = v;\n      }\n      dp[l][r] = best;\n    }\n  }\n  return dp[0][n - 1];\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"nums":[3,1,5,8]},"output":167},
+    {"name":"example-2","category":"example","input":{"nums":[1,5]},"output":10},
+    {"name":"single","category":"edge","input":{"nums":[5]},"output":5},
+    {"name":"two","category":"edge","input":{"nums":[3,4]},"output":16},
+    {"name":"all-zero","category":"edge","input":{"nums":[0,0,0,0]},"output":0},
+    {"name":"all-equal","category":"edge","input":{"nums":[5,5,5,5]},"output":280},
+    {"name":"stress-100","category":"stress","input":{"nums":[68,19,53,16,8,76,28,55,25,69,80,30,23,20,63,74,29,48,69,67,56,61,57,40,6,6,88,32,42,64,61,4,23,81,10,96,32,11,72,19,39,73,8,77,25,81,93,36,18,22,81,56,70,12,48,93,59,84,8,78,95,27,7,68,14,34,76,66,55,67,82,74,43,5,66,51,63,3,95,5,55,11,32,48,56,14,47,79,2,77,93,41,91,31,29,56,31,11,60,80]},"output":30526174}
+  ]
+}

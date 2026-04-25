@@ -1,0 +1,70 @@
+{
+  "id": "alien-dictionary",
+  "leetcode_number": 269,
+  "title": "Alien Dictionary",
+  "difficulty": "Hard",
+  "categories": [
+    "Graph",
+    "Topological Sort",
+    "String"
+  ],
+  "sources": [
+    "Blind 75"
+  ],
+  "prompt": "There is an alien language using lowercase English letters but with an unknown order. You are given a list of `words` from this language sorted lexicographically by its rules. Return any valid letter ordering as a string. If invalid (e.g., a prefix violation) return \"\". Note: this dataset compares against a deterministic Kahn's algorithm with alphabetical tiebreaks; multiple valid orderings exist for the underlying problem, but our reference produces one canonical answer.",
+  "constraints": [
+    "1 <= words.length <= 100",
+    "1 <= words[i].length <= 100",
+    "All words consist of lowercase English letters."
+  ],
+  "hints": [
+    "Compare adjacent words to derive ordering edges (the first differing letter).",
+    "If a longer word comes before its prefix, the input is invalid.",
+    "Topologically sort the resulting graph (Kahn's BFS)."
+  ],
+  "optimal": {
+    "time": "O(C)",
+    "space": "O(1) (alphabet bounded)",
+    "approach": "Build precedence DAG from adjacent words, then Kahn's topo sort."
+  },
+  "alternatives": [
+    {
+      "approach": "DFS topo sort with cycle detection",
+      "time": "O(C)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Missing the prefix-violation check.",
+    "Adding duplicate edges (use a set for outgoing neighbors)."
+  ],
+  "followups": [
+    "All valid orderings (exponential)."
+  ],
+  "signature": {
+    "fn": "alienOrder",
+    "params": [
+      {
+        "name": "words",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function alienOrder(words: string[]): string {\n  const adj = new Map<string, Set<string>>();\n  const indeg = new Map<string, number>();\n  for (const w of words) for (const c of w) {\n    if (!adj.has(c)) { adj.set(c, new Set()); indeg.set(c, 0); }\n  }\n  for (let i = 0; i + 1 < words.length; i++) {\n    const a = words[i], b = words[i+1];\n    let found = false;\n    const lim = Math.min(a.length, b.length);\n    for (let j = 0; j < lim; j++) {\n      if (a[j] !== b[j]) {\n        if (!adj.get(a[j])!.has(b[j])) {\n          adj.get(a[j])!.add(b[j]);\n          indeg.set(b[j], indeg.get(b[j])! + 1);\n        }\n        found = true;\n        break;\n      }\n    }\n    if (!found && a.length > b.length) return \"\";\n  }\n  const ready: string[] = [];\n  for (const [c, d] of indeg) if (d === 0) ready.push(c);\n  ready.sort();\n  let out = \"\";\n  while (ready.length) {\n    const c = ready.shift()!;\n    out += c;\n    const neighbors = [...adj.get(c)!].sort();\n    for (const nb of neighbors) {\n      indeg.set(nb, indeg.get(nb)! - 1);\n      if (indeg.get(nb) === 0) {\n        let lo = 0, hi = ready.length;\n        while (lo < hi) { const m = (lo+hi)>>1; if (ready[m] < nb) lo = m+1; else hi = m; }\n        ready.splice(lo, 0, nb);\n      }\n    }\n  }\n  return out.length === indeg.size ? out : \"\";\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"words":["wrt","wrf","er","ett","rftt"]},"output":"wertf"},
+    {"name":"example-2","category":"example","input":{"words":["z","x"]},"output":"zx"},
+    {"name":"example-3-cycle","category":"example","input":{"words":["z","x","z"]},"output":""},
+    {"name":"edge-prefix-violation","category":"edge","input":{"words":["abc","ab"]},"output":""},
+    {"name":"edge-single-word","category":"edge","input":{"words":["abc"]},"output":"abc"},
+    {"name":"edge-single-letter-words","category":"edge","input":{"words":["a","b","c","d"]},"output":"abcd"},
+    {"name":"edge-all-same-prefix","category":"edge","input":{"words":["zb","zc","zd"]},"output":"bcdz"},
+    {"name":"edge-no-constraints","category":"edge","input":{"words":["a","a","a"]},"output":"a"},
+    {"name":"stress-100-words","category":"stress","input":{"words":["i","idghji","icd","ihecea","if","ifbb","iaiih","igh","d","d","dcic","db","dhd","dhh","dai","dad","dgigig","j","j","jdbihcj","jj","jjaib","jeibfh","jae","jgbg","e","ejgbie","ee","ee","ec","ec","ece","ebacb","ef","cia","cde","cdbh","cdajdde","cdah","cj","cee","ccfjci","ccadj","ccgg","cbg","chaaei","cg","cgahdc","cggcb","b","b","bdhi","bj","bjdh","bja","bc","bch","bb","ba","hi","hdf","hj","hegaf","hba","hf","hfd","f","fecj","febfjhh","fcd","fcfe","fcga","fhcj","ff","ffheba","ffhfj","fai","fgicc","fgc","fgc","fgb","a","a","aie","ab","ahhb","aa","aaacd","ag","ag","ag","agedec","agaad","gi","gd","gej","gcejgb","gcg","gbae","ggjce"]},"output":"idjecbhfag"}
+  ]
+}

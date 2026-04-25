@@ -1,0 +1,65 @@
+{
+  "id": "edit-distance",
+  "leetcode_number": 72,
+  "title": "Edit Distance",
+  "difficulty": "Medium",
+  "categories": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You can insert, delete, or replace one character per operation.",
+  "constraints": [
+    "0 <= word1.length, word2.length <= 500",
+    "Lowercase English letters."
+  ],
+  "hints": [
+    "dp[i][j] = dp[i-1][j-1] if equal; else 1 + min(insert, delete, replace).",
+    "Roll to 1D with a 'prev' temp."
+  ],
+  "optimal": {
+    "time": "O(m*n)",
+    "space": "O(min(m,n))",
+    "approach": "Classic 2D DP rolled to 1D."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Initialize dp[0][j]=j and dp[i][0]=i."
+  ],
+  "followups": [
+    "Hirschberg's algorithm: O(m+n) space and reconstruction."
+  ],
+  "signature": {
+    "fn": "minDistance",
+    "params": [
+      {
+        "name": "word1",
+        "adapt": "identity"
+      },
+      {
+        "name": "word2",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function minDistance(a: string, b: string): number {\n  const m = a.length, n = b.length;\n  const dp = new Array(n + 1);\n  for (let j = 0; j <= n; j++) dp[j] = j;\n  for (let i = 1; i <= m; i++) {\n    let prev = dp[0];\n    dp[0] = i;\n    for (let j = 1; j <= n; j++) {\n      const tmp = dp[j];\n      if (a[i - 1] === b[j - 1]) dp[j] = prev;\n      else dp[j] = 1 + Math.min(prev, dp[j], dp[j - 1]);\n      prev = tmp;\n    }\n  }\n  return dp[n];\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"word1":"horse","word2":"ros"},"output":3},
+    {"name":"example-2","category":"example","input":{"word1":"intention","word2":"execution"},"output":5},
+    {"name":"both-empty","category":"edge","input":{"word1":"","word2":""},"output":0},
+    {"name":"one-empty","category":"edge","input":{"word1":"abc","word2":""},"output":3},
+    {"name":"other-empty","category":"edge","input":{"word1":"","word2":"xyz"},"output":3},
+    {"name":"equal","category":"edge","input":{"word1":"abcdef","word2":"abcdef"},"output":0},
+    {"name":"single-char-diff","category":"edge","input":{"word1":"a","word2":"b"},"output":1},
+    {"name":"stress-500","category":"stress","input":{"word1":"bcbcababbccbbcacccbcccacaacbaacaabcacbabacacccbaacaaabcbbaabbbcbabbcccbcbbaacccbccbbccbabbcaaabacabcaaacaacbccabcbbbbcbbaabbcbbcababcbcbbbabacbbbabbcccccbaccaacaabbccccaacbaccbcbcaccbbccaaabcaabccababbcccccbbbaabcaacbcbccbacacaaacbaccacbbbaaaccabccbabbcaaacbcaccacbcccaccbccaabbacbacacabcaabaccbabaacababcbaacbacccacaaaccbaccaaaaacacbbbbaabbbcaaacbcaabccbabaccaccacbaaccbcbacabcaaacaaaccacbbabcaccbbcaccbacabcacababcabcbcacbcbcabbbcbcbbaabbabccaabcccbbababacbcbcbaabbcaabbbaabbabbabaabccaabbabcbbbacc","word2":"ababcabcbaacbcaabbbbcbacaaaabbabcbbbacbbccacacacabccbcacbaaabcaacbaccccbccccccaacbcacaabcacbbaacbacaacbbabbbbcaabbaabaccbcbcccbbbbacbbacaaaccaabaababababacaccbbbbbbbbbbbbbccaabcabcbaaabacbbbbbbacacaaaacbcababbbbacacbccbbacbbcabbaacbccccaabacbabbccaaaccbbaaabbaacbbabaaacabccbcccacaaccbacbbbabbcbabaaccabcccccaabbbaaaacacbcacbabcbbbccbcababcbcabcacaccbbababbaabaccbaacaacabbcacbbababcacbcbabbcbcabacbacbbabaabbccbbcbbaaccbaaacaacbcabccbccabbaccabbbacacbaccabababacacbaabcbbcaaababcabbcccabbccabbcbccca"},"output":226}
+  ]
+}

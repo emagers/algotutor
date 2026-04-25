@@ -1,0 +1,66 @@
+{
+  "id": "zigzag-conversion",
+  "leetcode_number": 6,
+  "title": "Zigzag Conversion",
+  "difficulty": "Medium",
+  "categories": [
+    "String"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Write the string s in a zigzag pattern on numRows rows (going down and then diagonally up), then read it row by row to produce a new string. For numRows = 1 or numRows >= s.length, return s unchanged.",
+  "constraints": [
+    "1 <= s.length <= 1000",
+    "1 <= numRows <= 1000",
+    "s consists of letters, ',' and '.'"
+  ],
+  "hints": [
+    "Walk across s, appending each character to the row indicated by a bouncing pointer.",
+    "Reverse direction at the top and bottom rows."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(n)",
+    "approach": "Bucket characters into rows, join rows in order."
+  },
+  "alternatives": [
+    {
+      "approach": "Direct index calculation per cell",
+      "time": "O(n)",
+      "space": "O(1) extra"
+    }
+  ],
+  "pitfalls": [
+    "Treating numRows = 1 the same way as multi-row leads to division by zero or all-in-row-0."
+  ],
+  "followups": [
+    "Direct k-th character without building the rows."
+  ],
+  "signature": {
+    "fn": "zigzagConvert",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      },
+      {
+        "name": "numRows",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function convert(s: string, numRows: number): string {\n  if (numRows === 1 || numRows >= s.length) return s;\n  const rows: string[] = Array.from({ length: numRows }, () => \"\");\n  let cur = 0, dir = -1;\n  for (const c of s) {\n    rows[cur] += c;\n    if (cur === 0 || cur === numRows - 1) dir = -dir;\n    cur += dir;\n  }\n  return rows.join(\"\");\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"PAYPALISHIRING","numRows":3},"output":"PAHNAPLSIIGYIR"},
+    {"name":"example-2","category":"example","input":{"s":"PAYPALISHIRING","numRows":4},"output":"PINALSIGYAHRPI"},
+    {"name":"single-row","category":"edge","input":{"s":"ABCDEF","numRows":1},"output":"ABCDEF"},
+    {"name":"rows-greater-than-length","category":"edge","input":{"s":"AB","numRows":5},"output":"AB"},
+    {"name":"two-rows","category":"edge","input":{"s":"ABCDE","numRows":2},"output":"ACEBD"}
+  ]
+}

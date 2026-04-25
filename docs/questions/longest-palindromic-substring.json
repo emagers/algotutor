@@ -1,0 +1,80 @@
+{
+  "id": "longest-palindromic-substring",
+  "leetcode_number": 5,
+  "title": "Longest Palindromic Substring",
+  "difficulty": "Medium",
+  "categories": [
+    "Two Pointers",
+    "String",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given a string `s`, return the longest palindromic substring of `s`. Any valid longest substring is accepted.",
+  "constraints": [
+    "1 <= s.length <= 1000",
+    "s consists of digits and English letters."
+  ],
+  "hints": [
+    "Brute force is O(n^3) — too slow.",
+    "Try expanding around each center; there are 2n-1 centers (odd and even).",
+    "Manacher's algorithm achieves O(n) but is rarely required."
+  ],
+  "optimal": {
+    "time": "O(n^2)",
+    "space": "O(1)",
+    "approach": "Expand around each center for both odd and even lengths; track the best."
+  },
+  "alternatives": [
+    {
+      "approach": "DP table",
+      "time": "O(n^2)",
+      "space": "O(n^2)"
+    },
+    {
+      "approach": "Manacher's algorithm",
+      "time": "O(n)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting the even-length centers.",
+    "Tracking indices vs substring extraction."
+  ],
+  "followups": [
+    "Count all palindromic substrings (LC 647).",
+    "Shortest palindrome by prefix extension."
+  ],
+  "signature": {
+    "fn": "longestPalindrome",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "stringLength",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function longestPalindrome(s: string): string {\n  let bl = 0, br = 0;\n  const expand = (l: number, r: number) => {\n    while (l >= 0 && r < s.length && s[l] === s[r]) { l--; r++; }\n    if (r - l - 1 > br - bl + 1) { bl = l + 1; br = r - 1; }\n  };\n  for (let i = 0; i < s.length; i++) { expand(i, i); expand(i, i + 1); }\n  return s.slice(bl, br + 1);\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"babad"},"output":"bab"},
+    {"name":"example-2","category":"example","input":{"s":"cbbd"},"output":"bb"},
+    {"name":"edge-single-char","category":"edge","input":{"s":"a"},"output":"a"},
+    {"name":"edge-two-same","category":"edge","input":{"s":"bb"},"output":"bb"},
+    {"name":"edge-two-diff","category":"edge","input":{"s":"ab"},"output":"a"},
+    {"name":"edge-all-same","category":"edge","input":{"s":"aaaaaa"},"output":"aaaaaa"},
+    {"name":"edge-no-palindrome-longer-than-1","category":"edge","input":{"s":"abcdefg"},"output":"a"},
+    {"name":"edge-pal-at-start","category":"edge","input":{"s":"abacxyz"},"output":"aba"},
+    {"name":"edge-pal-at-end","category":"edge","input":{"s":"xyzracecar"},"output":"racecar"},
+    {"name":"edge-even-pal","category":"edge","input":{"s":"abccba"},"output":"abccba"},
+    {"name":"stress-600-with-embedded-pal","category":"stress","input":{"s":"htmnyuifyvzbeqdxtubxtxebjqtgziprtbunlistsxsejairuasipzzxjumhangtwqtnhfqijydjkidbsmnortqfkgmouqvzmwdgfwdvsrgxdqsphyhsqjnxwlweribwfnmbvsfbmirhoyoeninuppnrmeypqorzxatcrqztxugrydyruitiswbpoinhmevsoyvafprfgxqalceceehvdwrvjynyvmgxycjixlkvtovbaywxvwuwjmvekonxbncskrqehrixcosadenymemguymxpdcfqspkpvcizwhtbpeqqepbthwzicvpkpsqfcdpxmyugmemynedasocxirheqrkscnbxnokevmjwuwvxwyabvotvklxijcyxgmvynyjvrwdvheececlaqxgfrpfavyosvemhniopbwsitiurydyrguxtzqrctaxzroqpyemrnppunineoyohrimbfsvbmnfwbirewlwxnjqshyhpsqdxgrsvdwfwwlfcvuoapdkmmzhlcgpggyqvntjjmhbzhmwnkjziskqemmlepwijcwowbztimjslyubrpoadfwvlemtqykhyeyynyrzvkwwksls"},"output":"fwdvsrgxdqsphyhsqjnxwlweribwfnmbvsfbmirhoyoeninuppnrmeypqorzxatcrqztxugrydyruitiswbpoinhmevsoyvafprfgxqalceceehvdwrvjynyvmgxycjixlkvtovbaywxvwuwjmvekonxbncskrqehrixcosadenymemguymxpdcfqspkpvcizwhtbpeqqepbthwzicvpkpsqfcdpxmyugmemynedasocxirheqrkscnbxnokevmjwuwvxwyabvotvklxijcyxgmvynyjvrwdvheececlaqxgfrpfavyosvemhniopbwsitiurydyrguxtzqrctaxzroqpyemrnppunineoyohrimbfsvbmnfwbirewlwxnjqshyhpsqdxgrsvdwf"},
+    {"name":"stress-1000-random","category":"stress","input":{"s":"hkfijhhguyeuogkykdmdxxgduebviashufvijnxgnbocmeuqixdqzqnhvvnjmmofqmtwrxwufiyddrfijypddludivlkmausmwbdejztzslvzhwgtilpeohdtdkicfrquhjhlwnwepjnwbsxuggzdtxhnmgcytgfrvchgkkrdldmsaxuwoxxsgjxyzfvbiwifkzdalzyzjljcaiaykhnsrbrkwybuogegintnrsxfkbazguigcvhctamplbllozsdatmyzzhhgpdzrxfvepouhdclwcnolgewizdlnhebvcltdlagejebphpdvixjajjyetaydnvyeoygedzlfstfrjulromajdsokdfwsgujbiiqdtwdrljushiaffkuyeoadctoktttostdawhwlirohzytbdgxggyvepfjdtcdunxxditnywehguejlasaogslqbkwukbxlcfgxqpprdrnpwtndrueiqqekvvxjlvpbvymeuwkxldbpqlvxlednvexpbcpwsusoopoakvlwemditsiwvjutxclxoffdpcmazxxzoakjrpfvqkcughzffehknnksszlhcuuirlclnmtnckkwtgdfkeubipauwlgsikcqnfywidtkonivbtraplndfmepanrdwjytjlnyaojcmyskrjqgpxsjlqpqsieyzuyoralqzedoilpmiseqapfcnzgrlpuegnhvyblsrfubhglmhzfpebmavrwnbhiyyqjgsdpmwzmifhfzwtaizwntsedmbywvnsiitkqbnjirugekfucvzoihuxwqfwqozormiirnhcoqfiqecxfvfuftwbrgwilakhpbcdwlopriudwvzamtpezyqlcdgfgotgvblhycyqhbuajwpzpjafozswuceytpaogqxjdxeeshqbolznczrumugzrbhhzxbwxufijnwyqadwceqiqjbfkqkayaexeawfrulrbzzmbjcrtccixzhqqsbljrjj"},"output":"aexea"},
+    {"name":"stress-1000-all-same","category":"stress","input":{"s":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},"output":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+  ]
+}

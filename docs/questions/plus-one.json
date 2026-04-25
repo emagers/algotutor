@@ -1,0 +1,59 @@
+{
+  "id": "plus-one",
+  "leetcode_number": 66,
+  "title": "Plus One",
+  "difficulty": "Easy",
+  "categories": [
+    "Array",
+    "Math"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "You are given a large integer represented as an array of digits where digits[0] is the most significant digit. Increment the integer by one and return the resulting array of digits.",
+  "constraints": [
+    "1 <= digits.length <= 100",
+    "0 <= digits[i] <= 9",
+    "no leading zeros except for the number 0 itself"
+  ],
+  "hints": [
+    "Walk from the right, propagating the carry.",
+    "If every digit was 9, you need a new leading 1."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1) extra (or O(n) on the all-9 case)",
+    "approach": "Right-to-left carry propagation."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Forgetting the all-9 case where the result has one more digit than the input."
+  ],
+  "followups": [
+    "Plus K (general increment)."
+  ],
+  "signature": {
+    "fn": "plusOne",
+    "params": [
+      {
+        "name": "digits",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function plusOne(digits: number[]): number[] {\n  const out = digits.slice();\n  for (let i = out.length - 1; i >= 0; i--) {\n    if (out[i] < 9) { out[i]++; return out; }\n    out[i] = 0;\n  }\n  out.unshift(1);\n  return out;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"digits":[1,2,3]},"output":[1,2,4]},
+    {"name":"example-2","category":"example","input":{"digits":[4,3,2,1]},"output":[4,3,2,2]},
+    {"name":"single-zero","category":"edge","input":{"digits":[0]},"output":[1]},
+    {"name":"single-nine","category":"edge","input":{"digits":[9]},"output":[1,0]},
+    {"name":"all-nines","category":"edge","input":{"digits":[9,9,9,9]},"output":[1,0,0,0,0]},
+    {"name":"trailing-nine","category":"edge","input":{"digits":[1,9,9]},"output":[2,0,0]},
+    {"name":"stress-100","category":"stress","input":{"digits":[3,5,4,6,8,3,2,1,8,2,5,7,4,0,0,9,0,6,3,6,9,1,4,9,0,1,3,1,7,0,8,8,2,8,2,4,8,4,6,4,0,5,6,6,8,5,6,3,3,0,8,3,4,8,3,8,3,5,3,2,8,9,5,3,0,0,6,7,9,7,7,1,4,9,5,5,3,0,5,6,1,7,7,4,0,4,9,2,2,6,2,4,7,0,0,8,6,3,6,1]},"output":[3,5,4,6,8,3,2,1,8,2,5,7,4,0,0,9,0,6,3,6,9,1,4,9,0,1,3,1,7,0,8,8,2,8,2,4,8,4,6,4,0,5,6,6,8,5,6,3,3,0,8,3,4,8,3,8,3,5,3,2,8,9,5,3,0,0,6,7,9,7,7,1,4,9,5,5,3,0,5,6,1,7,7,4,0,4,9,2,2,6,2,4,7,0,0,8,6,3,6,2]}
+  ]
+}

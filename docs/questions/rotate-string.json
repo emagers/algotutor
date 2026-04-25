@@ -1,0 +1,67 @@
+{
+  "id": "rotate-string",
+  "leetcode_number": 796,
+  "title": "Rotate String",
+  "difficulty": "Easy",
+  "categories": [
+    "String",
+    "String Matching"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given two strings s and goal, return true if and only if s can become goal after some number of left shifts. A left shift moves the first character to the end.",
+  "constraints": [
+    "1 <= s.length, goal.length <= 100",
+    "s and goal consist of lowercase English letters"
+  ],
+  "hints": [
+    "Every rotation of s is a substring of s + s.",
+    "First check the lengths match."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(n)",
+    "approach": "Length match + (s + s).includes(goal)."
+  },
+  "alternatives": [
+    {
+      "approach": "Try all n rotations",
+      "time": "O(n²)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting the length check — '' .includes('') is true but lengths still matter."
+  ],
+  "followups": [
+    "Use KMP to do the substring check in O(n) without building s+s."
+  ],
+  "signature": {
+    "fn": "rotateString",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      },
+      {
+        "name": "goal",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function rotateString(s: string, goal: string): boolean {\n  return s.length === goal.length && (s + s).includes(goal);\n}"
+  },
+  "tests": [
+    {"name":"example-1-true","category":"example","input":{"s":"abcde","goal":"cdeab"},"output":true},
+    {"name":"example-2-false","category":"example","input":{"s":"abcde","goal":"abced"},"output":false},
+    {"name":"identical","category":"edge","input":{"s":"a","goal":"a"},"output":true},
+    {"name":"length-mismatch","category":"edge","input":{"s":"abc","goal":"ab"},"output":false},
+    {"name":"empty-pair","category":"edge","input":{"s":"abcd","goal":"dabc"},"output":true},
+    {"name":"all-same-letter","category":"edge","input":{"s":"aaaa","goal":"aaaa"},"output":true}
+  ]
+}

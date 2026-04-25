@@ -1,0 +1,69 @@
+{
+  "id": "interleaving-string",
+  "leetcode_number": 97,
+  "title": "Interleaving String",
+  "difficulty": "Medium",
+  "categories": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given strings s1, s2, s3, return true iff s3 can be formed by interleaving s1 and s2 (preserving each string's order).",
+  "constraints": [
+    "0 <= s1.length, s2.length <= 100",
+    "0 <= s3.length <= 200",
+    "All lowercase letters."
+  ],
+  "hints": [
+    "If |s1|+|s2|≠|s3|, false.",
+    "dp[i][j] = (dp[i-1][j] && s1[i-1]==s3[i+j-1]) || (dp[i][j-1] && s2[j-1]==s3[i+j-1]).",
+    "Roll to 1D over s2's length."
+  ],
+  "optimal": {
+    "time": "O(m*n)",
+    "space": "O(n)",
+    "approach": "1D DP rolled over s1."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Length check must be first."
+  ],
+  "followups": [
+    "Reconstruct an interleaving."
+  ],
+  "signature": {
+    "fn": "isInterleave",
+    "params": [
+      {
+        "name": "s1",
+        "adapt": "identity"
+      },
+      {
+        "name": "s2",
+        "adapt": "identity"
+      },
+      {
+        "name": "s3",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function isInterleave(s1: string, s2: string, s3: string): boolean {\n  if (s1.length + s2.length !== s3.length) return false;\n  const m = s1.length, n = s2.length;\n  const dp = new Array(n + 1).fill(false);\n  dp[0] = true;\n  for (let j = 1; j <= n; j++) dp[j] = dp[j - 1] && s2[j - 1] === s3[j - 1];\n  for (let i = 1; i <= m; i++) {\n    dp[0] = dp[0] && s1[i - 1] === s3[i - 1];\n    for (let j = 1; j <= n; j++) {\n      dp[j] = (dp[j] && s1[i - 1] === s3[i + j - 1]) || (dp[j - 1] && s2[j - 1] === s3[i + j - 1]);\n    }\n  }\n  return dp[n];\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s1":"aabcc","s2":"dbbca","s3":"aadbbcbcac"},"output":true},
+    {"name":"example-2","category":"example","input":{"s1":"aabcc","s2":"dbbca","s3":"aadbbbaccc"},"output":false},
+    {"name":"all-empty","category":"edge","input":{"s1":"","s2":"","s3":""},"output":true},
+    {"name":"one-empty-match","category":"edge","input":{"s1":"","s2":"abc","s3":"abc"},"output":true},
+    {"name":"wrong-length","category":"edge","input":{"s1":"a","s2":"b","s3":"abc"},"output":false},
+    {"name":"trivial-true","category":"edge","input":{"s1":"a","s2":"b","s3":"ab"},"output":true},
+    {"name":"trivial-false","category":"edge","input":{"s1":"a","s2":"b","s3":"ba"},"output":true},
+    {"name":"stress-100-interleave","category":"stress","input":{"s1":"abbabbbaababaababbbaabababaabaaababbbbabbaabbaabbabbaaaabaabaababbbabbbbbbaaabbbbbabbaaaabaababbbaba","s2":"aaaaaabbaaaabbbbbbbbbaabaaabaaaabaabaaabababbbbbbbbbabbbabbabbabbbbbbbaabaaababbabbabaababaaabababab","s3":"aabaaaabaabbbbabaabaaaabaabbbabbbbbbbbbaababbaabaabaaabababbababaabbabaaaabbaababbabaababaaaaabaababbababbbbbaabbbbabbabbbbababbbbbabbbabaaabbbbbbbbbbbbaabaaababbabbabababaaaaabbaaabbaabbaabbaababbaab"},"output":true}
+  ]
+}

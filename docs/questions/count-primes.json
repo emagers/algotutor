@@ -1,0 +1,62 @@
+{
+  "id": "count-primes",
+  "leetcode_number": 204,
+  "title": "Count Primes",
+  "difficulty": "Medium",
+  "categories": [
+    "Math"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given an integer n, return the number of prime numbers strictly less than n.",
+  "constraints": [
+    "0 <= n <= 5 * 1e6"
+  ],
+  "hints": [
+    "Sieve of Eratosthenes — mark composites in O(n log log n).",
+    "Start crossing out from i*i (smaller multiples are already marked)."
+  ],
+  "optimal": {
+    "time": "O(n log log n)",
+    "space": "O(n)",
+    "approach": "Sieve of Eratosthenes."
+  },
+  "alternatives": [
+    {
+      "approach": "Trial division up to sqrt(n)",
+      "time": "O(n sqrt n / log n)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Off-by-one — count strictly less than n, not <= n."
+  ],
+  "followups": [
+    "Linear sieve (Euler) for prime listing."
+  ],
+  "signature": {
+    "fn": "countPrimes",
+    "params": [
+      {
+        "name": "n",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function countPrimes(n: number): number {\n  if (n <= 2) return 0;\n  const sieve = new Uint8Array(n);\n  let c = 0;\n  for (let i = 2; i < n; i++) {\n    if (!sieve[i]) {\n      c++;\n      for (let j = i * i; j < n; j += i) sieve[j] = 1;\n    }\n  }\n  return c;\n}"
+  },
+  "tests": [
+    {"name":"example-10","category":"example","input":{"n":10},"output":4},
+    {"name":"n-0","category":"edge","input":{"n":0},"output":0},
+    {"name":"n-1","category":"edge","input":{"n":1},"output":0},
+    {"name":"n-2","category":"edge","input":{"n":2},"output":0},
+    {"name":"n-100","category":"edge","input":{"n":100},"output":25},
+    {"name":"stress-100000","category":"stress","input":{"n":100000},"output":9592},
+    {"name":"stress-1000000","category":"stress","input":{"n":1000000},"output":78498}
+  ]
+}

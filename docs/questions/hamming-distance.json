@@ -1,0 +1,58 @@
+{
+  "id": "hamming-distance",
+  "leetcode_number": 461,
+  "title": "Hamming Distance",
+  "difficulty": "Easy",
+  "categories": [
+    "Bit Manipulation"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "The Hamming distance between two integers is the number of positions at which their bits differ. Given two non-negative integers x and y, return their Hamming distance.",
+  "constraints": [
+    "0 <= x, y <= 2^31 - 1"
+  ],
+  "hints": [
+    "x XOR y has 1s at exactly the differing positions.",
+    "Now count the 1 bits."
+  ],
+  "optimal": {
+    "time": "O(1)",
+    "space": "O(1)",
+    "approach": "popcount(x ^ y)."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Use unsigned shift after XOR to avoid sign-extension issues."
+  ],
+  "followups": [
+    "Total Hamming Distance (LC 477) — sum over all pairs."
+  ],
+  "signature": {
+    "fn": "hammingDistance",
+    "params": [
+      {
+        "name": "x",
+        "adapt": "identity"
+      },
+      {
+        "name": "y",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function hammingDistance(x: number, y: number): number {\n  let v = (x ^ y) >>> 0, c = 0;\n  while (v) { v &= v - 1; c++; }\n  return c;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"x":1,"y":4},"output":2},
+    {"name":"example-2","category":"example","input":{"x":3,"y":1},"output":1},
+    {"name":"same","category":"edge","input":{"x":0,"y":0},"output":0},
+    {"name":"max-diff","category":"edge","input":{"x":0,"y":2147483647},"output":31},
+    {"name":"all-bits","category":"edge","input":{"x":1431655765,"y":2863311530},"output":32}
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "spiral-matrix",
+  "leetcode_number": 54,
+  "title": "Spiral Matrix",
+  "difficulty": "Medium",
+  "categories": [
+    "Array",
+    "Matrix",
+    "Simulation"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given an m x n matrix, return all elements of the matrix in spiral order — start at the top-left, go right, then down, then left, then up, peeling off layers.",
+  "constraints": [
+    "1 <= m, n <= 10",
+    "-100 <= matrix[i][j] <= 100"
+  ],
+  "hints": [
+    "Track four boundaries: top, bottom, left, right.",
+    "After each side, shrink the corresponding boundary; stop when boundaries cross."
+  ],
+  "optimal": {
+    "time": "O(m·n)",
+    "space": "O(1) extra (output not counted)",
+    "approach": "Layer-by-layer with shrinking boundaries."
+  },
+  "alternatives": [
+    {
+      "approach": "Direction array with rotation",
+      "time": "O(m·n)",
+      "space": "O(m·n)",
+      "note": "Use a visited matrix; cleaner code, more memory."
+    }
+  ],
+  "pitfalls": [
+    "Forgetting the t<=b / l<=r guard before the third and fourth sides — non-square matrices will repeat cells."
+  ],
+  "followups": [
+    "Spiral Matrix II (fill 1..n^2 in spiral order, LC 59)."
+  ],
+  "signature": {
+    "fn": "spiralOrder",
+    "params": [
+      {
+        "name": "matrix",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function spiralOrder(matrix: number[][]): number[] {\n  const out: number[] = [];\n  if (!matrix.length) return out;\n  let t = 0, b = matrix.length - 1, l = 0, r = matrix[0].length - 1;\n  while (t <= b && l <= r) {\n    for (let j = l; j <= r; j++) out.push(matrix[t][j]); t++;\n    for (let i = t; i <= b; i++) out.push(matrix[i][r]); r--;\n    if (t <= b) { for (let j = r; j >= l; j--) out.push(matrix[b][j]); b--; }\n    if (l <= r) { for (let i = b; i >= t; i--) out.push(matrix[i][l]); l++; }\n  }\n  return out;\n}"
+  },
+  "tests": [
+    {"name":"example-3x3","category":"example","input":{"matrix":[[1,2,3],[4,5,6],[7,8,9]]},"output":[1,2,3,6,9,8,7,4,5]},
+    {"name":"example-3x4","category":"example","input":{"matrix":[[1,2,3,4],[5,6,7,8],[9,10,11,12]]},"output":[1,2,3,4,8,12,11,10,9,5,6,7]},
+    {"name":"single-row","category":"edge","input":{"matrix":[[1,2,3,4,5]]},"output":[1,2,3,4,5]},
+    {"name":"single-col","category":"edge","input":{"matrix":[[1],[2],[3],[4]]},"output":[1,2,3,4]},
+    {"name":"single-cell","category":"edge","input":{"matrix":[[42]]},"output":[42]},
+    {"name":"tall-2col","category":"edge","input":{"matrix":[[1,2],[3,4],[5,6],[7,8]]},"output":[1,2,4,6,8,7,5,3]},
+    {"name":"wide-2row","category":"edge","input":{"matrix":[[1,2,3,4,5],[6,7,8,9,10]]},"output":[1,2,3,4,5,10,9,8,7,6]}
+  ]
+}

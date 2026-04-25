@@ -1,0 +1,70 @@
+{
+  "id": "longest-common-prefix",
+  "leetcode_number": 14,
+  "title": "Longest Common Prefix",
+  "difficulty": "Easy",
+  "categories": [
+    "String",
+    "Trie"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "Write a function that finds the longest common prefix string among an array of strings. Return '' if no common prefix exists.",
+  "constraints": [
+    "0 <= strs.length <= 200",
+    "0 <= strs[i].length <= 200",
+    "strs[i] consists of lowercase English letters"
+  ],
+  "hints": [
+    "Compare characters column by column.",
+    "Or repeatedly trim the candidate prefix until every string starts with it."
+  ],
+  "optimal": {
+    "time": "O(S)",
+    "space": "O(1)",
+    "approach": "Vertical scan: at each column, all strings must agree."
+  },
+  "alternatives": [
+    {
+      "approach": "Sort, compare first and last",
+      "time": "O(n log n · k)",
+      "space": "O(1)"
+    },
+    {
+      "approach": "Trie",
+      "time": "O(S)",
+      "space": "O(S)"
+    }
+  ],
+  "pitfalls": [
+    "Empty array or empty string in the array — must return ''."
+  ],
+  "followups": [
+    "Longest common suffix / LCP of pairs."
+  ],
+  "signature": {
+    "fn": "longestCommonPrefix",
+    "params": [
+      {
+        "name": "strs",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function longestCommonPrefix(strs: string[]): string {\n  if (strs.length === 0) return \"\";\n  let p = strs[0];\n  for (let i = 1; i < strs.length; i++) {\n    while (!strs[i].startsWith(p)) {\n      p = p.slice(0, -1);\n      if (p === \"\") return \"\";\n    }\n  }\n  return p;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"strs":["flower","flow","flight"]},"output":"fl"},
+    {"name":"example-2-no-prefix","category":"example","input":{"strs":["dog","racecar","car"]},"output":""},
+    {"name":"single","category":"edge","input":{"strs":["abc"]},"output":"abc"},
+    {"name":"empty-string-in-list","category":"edge","input":{"strs":["","abc"]},"output":""},
+    {"name":"all-same","category":"edge","input":{"strs":["abc","abc","abc"]},"output":"abc"},
+    {"name":"one-is-prefix","category":"edge","input":{"strs":["ab","abc","abcd"]},"output":"ab"}
+  ]
+}

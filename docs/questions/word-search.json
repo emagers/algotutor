@@ -1,0 +1,74 @@
+{
+  "id": "word-search",
+  "leetcode_number": 79,
+  "title": "Word Search",
+  "difficulty": "Medium",
+  "categories": [
+    "Array",
+    "String",
+    "Backtracking",
+    "Matrix"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "Given an m x n grid of characters and a word, return true if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cells (horizontally or vertically). The same cell may not be used more than once in a single word.",
+  "constraints": [
+    "1 <= m, n <= 6 (LC bound; we test up to 12x12)",
+    "1 <= word.length <= 15",
+    "Letters and word are lowercase or uppercase English."
+  ],
+  "hints": [
+    "DFS from each cell; mark visited (e.g., temporarily replace with '#').",
+    "Restore the cell on backtrack."
+  ],
+  "optimal": {
+    "time": "O(m*n*4^L)",
+    "space": "O(L)",
+    "approach": "DFS with in-place visited marker."
+  },
+  "alternatives": [
+    {
+      "approach": "Use a separate visited set",
+      "time": "same",
+      "space": "O(m*n)"
+    }
+  ],
+  "pitfalls": [
+    "Not restoring the cell on backtrack."
+  ],
+  "followups": [
+    "Word Search II with a trie."
+  ],
+  "signature": {
+    "fn": "exist",
+    "params": [
+      {
+        "name": "board",
+        "adapt": "identity"
+      },
+      {
+        "name": "word",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function exist(board: string[][], word: string): boolean {\n  const m = board.length, n = board[0].length;\n  const dfs = (i: number, j: number, k: number): boolean => {\n    if (k === word.length) return true;\n    if (i < 0 || j < 0 || i >= m || j >= n || board[i][j] !== word[k]) return false;\n    const c = board[i][j];\n    board[i][j] = \"#\";\n    const ok = dfs(i+1,j,k+1) || dfs(i-1,j,k+1) || dfs(i,j+1,k+1) || dfs(i,j-1,k+1);\n    board[i][j] = c;\n    return ok;\n  };\n  for (let i = 0; i < m; i++) for (let j = 0; j < n; j++) if (board[i][j] === word[0] && dfs(i, j, 0)) return true;\n  return false;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"board":[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],"word":"ABCCED"},"output":true},
+    {"name":"example-2","category":"example","input":{"board":[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],"word":"SEE"},"output":true},
+    {"name":"example-3-no-match","category":"example","input":{"board":[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],"word":"ABCB"},"output":false},
+    {"name":"single-cell-match","category":"edge","input":{"board":[["X"]],"word":"X"},"output":true},
+    {"name":"single-cell-no-match","category":"edge","input":{"board":[["X"]],"word":"Y"},"output":false},
+    {"name":"longer-than-cells","category":"edge","input":{"board":[["A","B"]],"word":"ABA"},"output":false},
+    {"name":"wrap-needed","category":"edge","input":{"board":[["A","B"],["C","D"]],"word":"ABDC"},"output":true},
+    {"name":"stress-12x12","category":"stress","input":{"board":[["a","c","c","c","c","c","c","b","d","a","d","a"],["c","d","c","c","b","b","c","c","b","a","d","c"],["d","c","b","c","c","b","b","d","d","d","a","c"],["b","a","d","a","a","a","d","c","c","b","a","d"],["c","d","b","c","a","a","b","d","b","d","d","a"],["c","b","a","c","a","c","c","a","b","a","d","d"],["c","d","d","b","b","d","c","d","c","c","a","a"],["c","b","d","c","b","c","d","d","a","c","a","a"],["c","c","a","a","d","c","c","c","c","d","b","d"],["d","d","b","a","d","a","a","d","c","c","d","a"],["a","a","d","d","b","d","b","c","d","d","c","a"],["a","d","b","b","b","a","d","a","b","b","b","a"]],"word":"abcdabcdabcd"},"output":false}
+  ]
+}

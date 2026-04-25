@@ -1,0 +1,63 @@
+{
+  "id": "coin-change-ii",
+  "leetcode_number": 518,
+  "title": "Coin Change II",
+  "difficulty": "Medium",
+  "categories": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "You are given an integer array coins (denominations, infinite supply each) and an integer amount. Return the number of distinct combinations that make up amount. If impossible, return 0.",
+  "constraints": [
+    "1 <= coins.length <= 300",
+    "1 <= coins[i] <= 5000",
+    "0 <= amount <= 5000",
+    "All coin values unique."
+  ],
+  "hints": [
+    "Unbounded knapsack — outer loop coins, inner loop sums ascending. Order matters: coins outside means combinations (sets), not permutations."
+  ],
+  "optimal": {
+    "time": "O(n*amount)",
+    "space": "O(amount)",
+    "approach": "1D DP, coins outer, sums inner."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Loop order: coins outer, sums inner — the reverse counts permutations."
+  ],
+  "followups": [
+    "Combination Sum IV (permutations)."
+  ],
+  "signature": {
+    "fn": "changeII",
+    "params": [
+      {
+        "name": "amount",
+        "adapt": "identity"
+      },
+      {
+        "name": "coins",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function change(amount: number, coins: number[]): number {\n  const dp = new Array(amount + 1).fill(0);\n  dp[0] = 1;\n  for (const c of coins) for (let s = c; s <= amount; s++) dp[s] += dp[s - c];\n  return dp[amount];\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"amount":5,"coins":[1,2,5]},"output":4},
+    {"name":"example-2-impossible","category":"example","input":{"amount":3,"coins":[2]},"output":0},
+    {"name":"amount-zero","category":"edge","input":{"amount":0,"coins":[1,2,5]},"output":1},
+    {"name":"single-coin-fits","category":"edge","input":{"amount":10,"coins":[10]},"output":1},
+    {"name":"single-coin-no-fit","category":"edge","input":{"amount":7,"coins":[3]},"output":0},
+    {"name":"many-ways","category":"edge","input":{"amount":10,"coins":[1,2,5]},"output":10},
+    {"name":"stress-amount-1000","category":"stress","input":{"amount":1000,"coins":[52,53,61,60,86,54,9,46,49,85,42,68,69,17,18,28,40,38,59,13,58,81,77,32,63,26,6,75,98,30,15,35,56,83,39,3,8,50]},"output":451007160107049300}
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "word-ladder",
+  "leetcode_number": 127,
+  "title": "Word Ladder",
+  "difficulty": "Hard",
+  "categories": [
+    "Graph",
+    "BFS",
+    "String",
+    "Hash Table"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given two words beginWord and endWord and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, where each step changes exactly one letter and every intermediate word must be in wordList. Return 0 if no such sequence exists.",
+  "constraints": [
+    "1 <= beginWord.length <= 10",
+    "endWord.length == beginWord.length",
+    "1 <= wordList.length <= 5000",
+    "All strings are lowercase English letters."
+  ],
+  "hints": [
+    "Treat each word as a node; connect words that differ in one letter.",
+    "BFS from beginWord; the shortest path length is the answer.",
+    "For O(N*L²) instead of O(N²*L), use a 'pattern' hash like h*t to bucket neighbors."
+  ],
+  "optimal": {
+    "time": "O(N * L^2)",
+    "space": "O(N * L^2)",
+    "approach": "BFS with letter-substitution neighbor generation."
+  },
+  "alternatives": [
+    {
+      "approach": "Bidirectional BFS",
+      "time": "O(N * L^2)",
+      "space": "O(N * L^2)",
+      "note": "Faster constant factor on long ladders."
+    },
+    {
+      "approach": "Pattern bucketing graph",
+      "time": "O(N * L^2)",
+      "space": "O(N * L^2)"
+    }
+  ],
+  "pitfalls": [
+    "Re-visiting words (use visited set / delete from dict).",
+    "Forgetting that beginWord need not be in the dictionary."
+  ],
+  "followups": [
+    "Word Ladder II — return all shortest sequences."
+  ],
+  "signature": {
+    "fn": "ladderLength",
+    "params": [
+      {
+        "name": "beginWord",
+        "adapt": "identity"
+      },
+      {
+        "name": "endWord",
+        "adapt": "identity"
+      },
+      {
+        "name": "wordList",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function ladderLength(beginWord: string, endWord: string, wordList: string[]): number {\n  const dict = new Set(wordList);\n  if (!dict.has(endWord)) return 0;\n  const q: [string, number][] = [[beginWord, 1]];\n  dict.delete(beginWord);\n  while (q.length) {\n    const [w, d] = q.shift()!;\n    if (w === endWord) return d;\n    const arr = w.split(\"\");\n    for (let i = 0; i < arr.length; i++) {\n      const orig = arr[i];\n      for (let c = 97; c <= 122; c++) {\n        const ch = String.fromCharCode(c);\n        if (ch === orig) continue;\n        arr[i] = ch;\n        const nw = arr.join(\"\");\n        if (dict.has(nw)) { dict.delete(nw); q.push([nw, d+1]); }\n      }\n      arr[i] = orig;\n    }\n  }\n  return 0;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"beginWord":"hit","endWord":"cog","wordList":["hot","dot","dog","lot","log","cog"]},"output":5},
+    {"name":"example-2-no-path","category":"example","input":{"beginWord":"hit","endWord":"cog","wordList":["hot","dot","dog","lot","log"]},"output":0},
+    {"name":"edge-begin-equals-end","category":"edge","input":{"beginWord":"abc","endWord":"abc","wordList":["abc"]},"output":1},
+    {"name":"edge-direct-neighbor","category":"edge","input":{"beginWord":"ab","endWord":"ac","wordList":["ac"]},"output":2},
+    {"name":"edge-empty-list","category":"edge","input":{"beginWord":"abc","endWord":"def","wordList":[]},"output":0},
+    {"name":"edge-end-not-in-list","category":"edge","input":{"beginWord":"hot","endWord":"dog","wordList":["hot","dog"]},"output":0},
+    {"name":"edge-single-letter-words","category":"edge","input":{"beginWord":"a","endWord":"c","wordList":["a","b","c"]},"output":2},
+    {"name":"stress-1500-words","category":"stress","input":{"beginWord":"aaaaa","endWord":"bywyf","wordList":["bywyf","hpftd","kzmbp","jpmth","dcdju","kyceg","lwvyp","owgwq","ekdqy","vuilf","svklz","ralxx","ahota","ftjru","yfsbb","htytq","obuoe","yhdak","taqas","kpfgl","ifhbc","nbtrd","mqznz","otmgb","sumwq","flhcw","sompi","gzytn","sbovz","llkat","lqzmw","ietoy","xnvkh","lyrls","gisur","ucutv","cjees","zxgxf","zgnae","qcguo","onerd","vmkuv","nihio","xoqyy","qrkhe","qmudb","rqxzi","ezxlj","qqqxl","nnwap","zdqoc","mqooz","vibln","vcjve","mhyha","bagrk","nzdsm","iynlv","kcfgh","osenr","viwfh","hzdza","wnjbr","wyswr","sevcc","yimgy","ycftb","stcet","ymkmp","zjbvb","ctpww","hqweq","venvi","nqkfp","yltfp","cyzvl","qozkk","evmmg","nypzp","huolv","gnkzl","rfnfe","elbnk","hymgy","tqwyx","hibar","obkua","axmcu","rchbf","ltrnb","gdabu","klyhd","luoxg","wlmjn","jeqqt","vxqhv","bfwir","huxxk","swupd","revop","wguqw","obong","yzuwg","gzxrp","ezvvq","khlhk","obpts","lmccb","oixal","lbrjl","cfyjm","gpakw","tmhhi","eiqle","quwfg","wumpf","bsvwy","nomit","calwe","subyp","itvgd","vifhh","hpisj","luwtg","syqxh","wxbku","hvqlb","cduhs","hgbdi","swpxl","awwig","zupfc","snacj","dedce","ukckw","yxqfa","ttfsm","imlia","cahiw","iodid","vbqro","vrbbx","okuyj","acrrp","kqbij","dmryq","idypz","lghco","pawac","inbfr","cncay","qmbvi","ygmbg","wptxg","whceu","lrtgm","mtazb","jefne","pxniv","cbmor","xwddt","zqjyo","owfpb","bpzjc","jqapu","ptwgq","xyxnm","ekles","pkzbg","oirmp","vvhmt","uyjyk","suqrv","ahmog","mkcql","zajeq","oihny","aqtww","hgduy","ajuhg","jxuqa","sfuoa","hipyu","pqpux","zcxxh","ijqzk","uhonx","gxbuw","uwokx","gjzjb","uozdr","hlfvn","zjquh","hldbu","bfnoh","kfcjv","ovkoo","rytqo","rttim","vpaxw","folie","xsvit","uhvll","rfjjd","obnae","zcrvt","ydxwe","yodpa","eymde","zxyab","xiptt","bmugj","eaogy","yqlvq","vllmv","biweu","yourx","sqlfl","kiuti","wxvya","zikvn","rzgty","bqqfa","anutp","fgtjx","ommzi","fwzbj","ypvjb","andhw","mvolk","gttrm","jqipo","otpuz","oonbn","mlgyf","zzoev","ctpar","sfxda","wvcfa","jffkp","bntvf","oraya","jxbmo","lvzgj","mrhhw","rcrrq","inerf","jqckl","rtjol","ckaga","kjlgc","tchta","eelkw","loakq","psorj","ywneg","fmiwt","ssfar","hzpeu","nlvak","dcllf","psani","jpvne","udjpu","rosji","ghihe","znfwz","iwhwi","iorjr","yytpf","vtioq","iygnu","wermw","jzagy","veilz","suycb","czvps","araxp","njekn","cxxwr","rpdzs","ptouf","ytowz","cjylj","eguvk","pnjjx","exmpq","cqiti","yuegp","ocrak","elhyh","fgarf","pnqpn","ijvhb","epovy","ptmbj","uinot","oqfhi","itxts","zbxxw","hcsrt","hydti","qfuho","wymtn","lzrzq","iegyd","oqoaj","ozwxg","zuilt","rjekf","uxzcd","emkmj","gqlum","ascid","kpnoz","injpw","vmage","xjlqo","pfsqu","jesji","sngbl","mjphw","irlki","zlzan","lawvc","vureu","djynn","ovnyq","ddrxs","culrg","rvlkn","zhfft","cegak","mvebd","smcbu","vlzcx","sjlwt","lethw","acfxq","dwqkc","nxslf","uvfhi","yaihc","nbopf","ggpbm","twdvs","hygtw","cxukb","xvffc","bcqrn","jifjt","hnbtb","osung","tuvjl","ffbwg","wzjwj","vreda","udhoz","kyoej","yhyns","ywdfw","gqvuq","alhed","zkrrb","opokv","vztej","hrbfx","rllxl","rrypo","bqvjq","dcmho","wiseh","ymlly","pfxed","fqmiz","fevie","xfpds","rmhom","urzvz","dlkkr","vexih","bolja","uhcmn","luvwf","qerih","fxcih","nzzld","thmqt","itikp","wpztp","zophj","wyypq","wrvzy","xrinc","ihmif","uvavx","dbsvh","mxvla","zqnox","lcyez","jqrpz","xhbph","ydmve","hoojl","ptlhp","goauu","uwzrj","jchxw","kyivq","juwhs","wmgzd","tjunp","howfe","rlglf","pryab","wdclv","dygwf","wcyfm","pfvbz","trgue","juoqg","pbagp","lmtkv","xzgfe","mvdyb","vsmuq","owkhd","vfesw","fejbz","qbyft","zuiad","bufxq","agvgr","pxljg","xqezj","uqoul","simhy","axlfb","jobao","vuhwb","smpbd","pqezn","qchkb","ybgba","wmuwt","tdrmj","cudsi","fhupk","clazs","nnvzu","odneq","cjfwt","tzdpt","jvtfz","wwups","veqav","vkjko","pxwmx","ihork","ckghx","eqhgb","evmdi","qgbtn","vjlha","serjj","vesbt","oopbd","iguye","hnlqx","wrlcm","slckn","ofgtl","dmmjm","mnahh","ppcvp","frges","jtakp","ujfcq","sosao","wslgq","okvij","qpequ","nxrfj","ydits","xtizi","iirnd","popak","fkhsh","vlpnn","ykrbf","zkbym","eqxxd","jqrws","vpkdk","wnaxx","azrue","envcl","ycgtl","ggvfv","grxza","eaeok","eshhw","ezxxb","uhcph","wxquk","fznhc","rpvmi","ajclx","uxxut","xnwai","xqpzq","kjrks","ulley","pavsc","ytihg","gjxsx","rcvla","kexkp","lmwov","awmln","igmat","jkwou","fcjil","xwgqm","vvwpb","rghku","gafnr","onzwg","udvcu","sllpm","raebo","gdbbf","ocodg","perqh","yrhix","qyfxg","nfqpt","aavpe","cwmeq","lsfmx","oylht","pdtpp","sxxlu","ieryw","vwdfc","abfjy","sanos","uhpbq","kqcsx","sypvj","pfsbl","aacdp","gmodq","ussvo","hxeuz","drxxg","mjalr","misri","eerln","nzrfb","fwxcb","aweyw","oudfh","bxsjf","mzndy","jwdpv","okurh","sfdpe","felra","axpwx","isfij","ptxhj","fxslg","ogpml","jidbt","wlrsa","stjfb","xzmnm","yurfx","dxgyo","yartj","gzlap","xpeew","pvfox","tzegn","oucnn","djzua","sytbn","agzht","klagi","tamty","cpzyz","blpwe","tcqfx","tzwqf","yumvr","vphnn","wvzuj","witmx","rkfbv","jcrgw","frlfs","dvjie","fawki","uydhr","wypnx","evbvi","hxqlu","rwgdn","wxzyv","pjeaf","vmmfq","ylmkm","vkmlq","plnxg","kyzmx","okbzb","trcnh","vfiwi","lxaiw","kbotk","wilst","fvjbs","zzqvy","sally","cxggm","tduwr","lnvxl","beszx","vcmap","hkjrp","ylluz","ovyqz","wojsb","qwzxj","xtine","fgfcg","qblmw","nnkda","ryadp","otwlg","givko","dlsxq","zragc","pzaxd","sjkdb","umgyn","hwaph","nvhfy","vlutt","dycgl","vybar","drxmu","ymoex","ypuio","qfuyc","ppsni","xlpnm","hdaiu","vstke","dgdwj","vqbbn","hnvot","dgcyw","kkueo","jfcnc","oemor","txfif","btqpg","ehaie","qvmwz","hnjdj","gqzva","utenp","yygkc","dmama","abbzc","jetuo","euxuh","ghuxj","jflan","mxlya","etwje","jqcbk","xbaua","busgq","lawvl","cmjzo","mjpyx","rpixg","mknao","srtgt","pphvj","ksodt","wtszb","rwfkl","xkthr","kcpmx","xfmug","qwipw","hwixu","mjkvf","gnerv","uslyg","izfmn","ufgar","vxmbp","qynql","sucjn","biqgc","cthbb","cvzup","uzikq","byfdj","dryyc","mvfdc","oqdbv","xbgxg","qupam","hkqrn","bflkg","ixuul","ntfxc","taowz","jhnhz","eescz","upgkt","vyedv","ozjxo","suqam","etpqg","clenw","mmzik","bsdkd","xuxwd","xrfvc","apozl","nknsj","mwzjg","cznio","sivjh","lfiwk","vljdq","qspgu","rukbd","wiwtl","imlhw","gcgmz","yorcc","xadln","zcqzq","iunmx","gdzbq","rcida","jddni","ftqnc","orkht","xptif","nvaxs","gjfic","lwowd","ypkla","yjyuv","crulr","syeld","cejag","peida","aziqr","lujnf","dmxnq","nkemq","xiuqy","hvbok","brwyb","vxdsj","qatdr","rdwbc","tkhtg","ugcne","mtphk","tnbge","fqpwz","rkvry","ykriu","ztdni","ozzzt","lysfc","keski","ihydv","hwvpu","sgrbz","lesgg","hrcdc","krbfq","luuaq","eoaib","gyqax","oayiz","vofyo","wmkwv","vxrtv","borqu","vjdes","bozwj","gpyia","rgjsy","cnkew","mdtxu","rfixu","vffac","zttpk","jbndl","zhiow","vqqtu","qljgf","tovnj","bdajy","glgbz","xgvqb","yiser","wyavu","iatzw","tjpvd","ruhty","uozhr","vqtzy","lvdtb","yhwej","ycmyn","vxtnr","npvbe","kuwno","vbwnl","tgjvj","fngar","lluki","pgznx","kagrh","fuhpa","oojgz","awvuk","nwplo","wbtkw","tfqvf","enrrm","bmmuh","vshdc","oeykd","prhdf","tmqav","fztzz","mchde","xscmn","qjcix","yehdw","surkw","euodr","wodex","lapjq","bfbgm","gewwc","xebpi","luloj","pnypp","kqmhg","fecbb","bafbp","sprem","mozzp","blspd","dlhpi","poplk","obsor","rseho","hjvba","upviz","blgra","bzywx","hotrh","avbtr","xrpph","klckj","theqn","fnhfu","srmui","pnvsw","zpoep","sddwb","zmhfp","yksiz","qyenl","asyrb","achtu","aijsg","zcidl","rctwa","kiwrt","vnrbw","xumih","sbyjy","odknf","jexca","bcjdf","iaoaf","mfeae","oejng","webdg","xxukc","nbsmg","dzrwq","fcato","hdowf","embmi","ghuqi","pjaja","ystli","eexvo","ijmmh","drxqp","cnhfo","luhob","jkmio","nopon","prxaw","tdvco","wawgj","mjojb","swhvx","naius","bhhvi","qejnf","lunsk","fvfer","qwirb","svlwb","dzzqo","iuflb","kdqzo","uviul","oqsjz","vfbmw","firpq","nzdnx","toxbw","usuor","iuvva","krivc","avxgo","fvfzp","sfpet","qbxiz","baxwr","bycmd","gpcbn","ocjnu","anjrq","keger","cprsi","xogoh","ubkjq","udjtt","ifzwe","pdgih","unoos","kfrac","tofoz","vsaen","wnfrv","zbrvx","wpavd","pydwc","zapee","gqhgy","ocyla","qnokt","fnrqe","nyjak","kgbpn","wzact","yvbmq","cvavb","bnngf","fhumr","gdnsp","nbqqt","nkfjn","uhopp","mewzn","twqyr","yteda","pybay","pzura","pfrlz","piglj","kmwcr","dqefy","hreaq","gccwu","vwjqz","bswuc","jefbf","okpni","srejs","qdudq","aixao","oimys","mmjjk","rytdf","vygtj","tvnru","zfzik","mkadl","ebyaf","lnoxp","ngzlv","vpgza","jvvua","cywkk","aopbw","xytlb","ofcsg","ypcwh","vslai","vsohv","gvqkv","kajik","xsmwe","xjymu","bmtsa","lwoye","higln","gqxad","cbkgc","ndwpz","qllgh","reivn","gghde","mxtph","kdrfj","onckp","phblm","dpdga","unjdl","ngrvj","osvcb","zncrh","yscpd","ldemm","ttnnj","hwkah","qdoqy","askjy","zjied","eibqa","ymfxz","minse","hqqdn","uhhnd","zbjne","zlohv","zzygj","qvubq","lxevc","rznru","xbxur","ewmfy","hqaaa","pbznw","gjsgi","vbwnk","ygwac","trnql","ytpxx","cpldo","czqvy","dbffy","dyvim","zmjwu","ajzvr","bgpqc","imzjs","egdam","cnxcl","mwgqn","czefq","kdsho","qacuk","lolki","migjl","kwugy","pqmpk","fqzjr","fveyl","myqla","vurca","nmwfp","cqytq","rfbrn","pampo","imuly","gryuf","ypbiz","okzdo","vlzav","tipts","wbqjc","rrmeo","plaxn","fbsyg","iwdiu","ltmkr","tpwcp","iqmys","hddbq","brsuz","bjgnz","bmfoa","jgdjr","zfvph","yxobt","veygk","ivsnb","ebnvd","zlmnk","yjave","yewkc","utoxy","nzgqu","kjryh","odyok","svbxs","nqzza","nfizt","gktqe","cpspx","pfogf","zpgfa","osxlz","lhivp","kmorp","njrvh","wpekv","mdpbf","xyecd","ukkqb","skdpv","eyppx","nymfe","dkvok","jvvrk","tomdb","agrqe","wyhph","nnota","ikawz","zqrbw","iqshz","psydv","plzvk","ojgfs","vagry","urjql","zflko","vvrej","zawcr","zgnjx","heueo","ikksh","hrlft","bdsvt","xhure","lypeh","emubz","mnpec","xtftp","eryts","dwzcc","qvyvs","udale","aolho","ktstv","wgbfm","udcpp","fhmsy","kjwlh","dxkwb","oewka","cjcll","nzxxl","tufvb","euiny","cqpvy","sjddr","woqat","kudif","mduvs","zfevi","bgrqg","jokdy","okork","kcxlk","wohxb","yevkt","ooqlu","dlgzd","bkrnk","ksltq","eqsxa","zfvxj","osamz","dfkep","gpmza","lscbj","bdlrf","mpche","rsszq","inxsd","hcluk","tdddw","ifcae","tzqqv","ivopg","vvxnj","uawla","rybtm","jjgsu","amudh","dakkr","puegl","yezja","yhavx","pdwmh","hlsiv","usfow","bcklk","ybjuk","gsgvh","ywqvf","gsxwd","yxnpr","ifels","dapmg","mwunt","gxfxu","uzqeb","yyohn","wexno","gyzjh","ytnnz","kgkks","jmrgq","akoeu","vpfkt","mivlm","zkove","ddwgs","hhlck","rgxyu","dfkrm","uinlg","jrpbl","uzpio","gsjgo","lrdvu","lwkti","easgm","dkbue","vohnp","swufd","vzysd","ignxb","daqvw","gnozl","rqhor","ikjsk","losps","jfnkq","ftygd","pcvyj","pxjyq","gzmmq","ururh","acwdn","iacnr","eqcik","egqdo","lovmt","ctoqr","jchvw","rtyxc","pgvyo","rsnqu","inrqm","wtbas","staru","ulcio","mgmix","rhpkd","tcvdv","alugv","cnopd","jcrcd","immic","dqtsl","qargf","mwefq","feqjn","pqalo","osfjm","gsmrl","gobzt","coomo","idroz","hhqtg","ctlhv","dqgez","ntkiq","unvhg","zekcp","ihbor","wnkpb","wscnx","yqlpu","fknwk","ylows","wirkb","nribt","qeedu","nwjyk","qzimu","mmxiw","nejeu","cikhu","vmrfj","lxsea","mvydw","osnxx","tdxao","zmfaa","clmsc","uflsa","rotvl","cgymt","rfare","qzgmd","gcbwk","oqnsr","vzuxv","lvalr","mncir","dfrtr","vbvnh","eqvpb","fgydm","levvc","djhly","jxalk","rspbk","royss","ctvxq","tgzzi","myqaq","piotf","vxhew","wkqls","cgrjb","xqaod","dnxyg","wybka","vylhn","lsoji","pneyx","stdtl","hdvjm","vmpjn","cqzoo","ialvn","abhyx","vhyhk","ysqnf","eeuej","jihqv","prpob","yclxb","rpvdk","jrlgz","jrqtz","auqbv","lvpap","orein","nwxgl","rwufj","nweaj","hewlm","ufhnm","gphug","athox","bzirp","qopvy","apxoi","yhqsw","mzttk","zmcew","lxfvs","orbgd","ckqyd","rglyo","xosac","ulkwy","xxaty","oblev","tmvna","fcqlp","pxocw","wpjzt","dkfpq","oflwt","uhkqe","tzrzl","dborl","ncegl","ntrqy","jojtu","kmmed","nfrza","znlfj","rnmjd","prkhs","xlyjg","tqpyt","dqpcu","rltdk","elodm","rwcib","qcymc","ettfe","thdct","rxzxh","hgcyt","zqfco","aubxz","dzrvi","ufhsu","wxwhb","fghvi","lqsci","bysxy","anapt","hqpxi","hangd","hvpyw","ichox","ttecc","mfvyq","qqkza","covzx","zargp","bdexf","dqqzg","jrenv","kdqxm","bjovi","enynp","ovrht","nyhga","xgeni","tanvx","souxo","cwcyp","neneo","zwqin","lepon","hxucz","hjwbw","vnhvb","agvui","vfxpq","ejuro","gqmbb","qpuam","urotm","kbkxj","edxam","gyhcx","rfnbd","ppxrx","xqhrh","litlq","urvpy","kluzu","bljsc","ryfbr","uzjim","ubfib","gxpfh","fcvrr","mprbe","dluzq","mtnqf","yaawp"]},"output":0}
+  ]
+}

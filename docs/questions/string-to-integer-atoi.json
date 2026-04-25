@@ -1,0 +1,69 @@
+{
+  "id": "string-to-integer-atoi",
+  "leetcode_number": 8,
+  "title": "String to Integer (atoi)",
+  "difficulty": "Medium",
+  "categories": [
+    "String",
+    "Math"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Implement myAtoi(s) which converts a string to a 32-bit signed integer. Steps: skip leading whitespace; read an optional '+' or '-' sign; read as many decimal digits as possible (the rest is ignored); convert to integer; clamp to the 32-bit signed range; if no digits were read, return 0.",
+  "constraints": [
+    "0 <= s.length <= 200",
+    "s is printable ASCII"
+  ],
+  "hints": [
+    "State machine: whitespace → sign → digits → done.",
+    "Detect overflow before it happens: if the partial result exceeds INT_MAX/10 (or equals it with a digit > 7), clamp."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Single pass with overflow guard against INT_MAX/INT_MIN."
+  },
+  "alternatives": [
+    {
+      "approach": "Regex parse + clamp",
+      "time": "O(n)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Allowing whitespace between sign and digits — that's invalid per the spec.",
+    "Treating '+-1' as -1 — the second sign breaks the parse.",
+    "Forgetting the clamp on the negative side (INT_MIN)."
+  ],
+  "followups": [
+    "Localized number parsing (commas, locales)."
+  ],
+  "signature": {
+    "fn": "myAtoi",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function myAtoi(s: string): number {\n  const INT_MAX = 2147483647, INT_MIN = -2147483648;\n  let i = 0;\n  while (i < s.length && s[i] === ' ') i++;\n  let sign = 1;\n  if (i < s.length && (s[i] === '+' || s[i] === '-')) { if (s[i] === '-') sign = -1; i++; }\n  let r = 0;\n  while (i < s.length && s[i] >= '0' && s[i] <= '9') {\n    r = r * 10 + (s.charCodeAt(i) - 48);\n    if (r * sign >= INT_MAX) return INT_MAX;\n    if (r * sign <= INT_MIN) return INT_MIN;\n    i++;\n  }\n  return r * sign;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"42"},"output":42},
+    {"name":"example-2","category":"example","input":{"s":"   -042"},"output":-42},
+    {"name":"example-3","category":"example","input":{"s":"1337c0d3"},"output":1337},
+    {"name":"example-4-noise-prefix","category":"example","input":{"s":"words and 987"},"output":0},
+    {"name":"empty","category":"edge","input":{"s":""},"output":0},
+    {"name":"only-sign","category":"edge","input":{"s":"+"},"output":0},
+    {"name":"double-sign","category":"edge","input":{"s":"+-12"},"output":0},
+    {"name":"overflow-pos","category":"edge","input":{"s":"91283472332"},"output":2147483647},
+    {"name":"overflow-neg","category":"edge","input":{"s":"-91283472332"},"output":-2147483648},
+    {"name":"leading-zero","category":"edge","input":{"s":"0000123"},"output":123}
+  ]
+}

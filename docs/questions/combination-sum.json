@@ -1,0 +1,67 @@
+{
+  "id": "combination-sum",
+  "leetcode_number": 39,
+  "title": "Combination Sum",
+  "difficulty": "Medium",
+  "categories": [
+    "Array",
+    "Backtracking"
+  ],
+  "sources": [
+    "Blind 75",
+    "LeetCode Top Interview 150",
+    "Grind 75"
+  ],
+  "prompt": "Given an array of distinct integers candidates and a target integer target, return all unique combinations of candidates where the chosen numbers sum to target. The same number may be chosen unlimited times. Two combinations are unique if their multiset of chosen numbers differs.",
+  "constraints": [
+    "1 <= candidates.length <= 30",
+    "1 <= candidates[i] <= 200",
+    "1 <= target <= 500",
+    "All elements distinct."
+  ],
+  "hints": [
+    "Sort; DFS with a `start` index and remaining target.",
+    "Keep `start` (not `start+1`) since reuse is allowed.",
+    "Prune when arr[i] > rem."
+  ],
+  "optimal": {
+    "time": "O(2^t)",
+    "space": "O(t)",
+    "approach": "Sorted DFS with reuse and pruning."
+  },
+  "alternatives": [],
+  "pitfalls": [
+    "Avoid duplicates by passing `start = i` (not 0) on recursion."
+  ],
+  "followups": [
+    "Combination Sum II (each used once + dedup)."
+  ],
+  "signature": {
+    "fn": "combinationSum",
+    "params": [
+      {
+        "name": "candidates",
+        "adapt": "identity"
+      },
+      {
+        "name": "target",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "setOfArrays",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function combinationSum(candidates: number[], target: number): number[][] {\n  const arr = candidates.slice().sort((a, b) => a - b);\n  const out: number[][] = [];\n  const cur: number[] = [];\n  const dfs = (start: number, rem: number): void => {\n    if (rem === 0) { out.push(cur.slice()); return; }\n    for (let i = start; i < arr.length; i++) {\n      if (arr[i] > rem) break;\n      cur.push(arr[i]);\n      dfs(i, rem - arr[i]);\n      cur.pop();\n    }\n  };\n  dfs(0, target);\n  return out;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"candidates":[2,3,6,7],"target":7},"output":[[2,2,3],[7]]},
+    {"name":"example-2","category":"example","input":{"candidates":[2,3,5],"target":8},"output":[[2,2,2,2],[2,3,3],[3,5]]},
+    {"name":"example-3-impossible","category":"example","input":{"candidates":[2],"target":1},"output":[]},
+    {"name":"single-coin-fits","category":"edge","input":{"candidates":[3],"target":9},"output":[[3,3,3]]},
+    {"name":"target-equals-element","category":"edge","input":{"candidates":[4,5,6],"target":5},"output":[[5]]},
+    {"name":"many-ways","category":"edge","input":{"candidates":[1,2],"target":4},"output":[[1,1,1,1],[1,1,2],[2,2]]},
+    {"name":"stress","category":"stress","input":{"candidates":[2,3,5,7,11,13],"target":24},"output":[[2,2,2,2,2,2,2,2,2,2,2,2],[2,2,2,2,2,2,2,2,2,3,3],[2,2,2,2,2,2,2,2,3,5],[2,2,2,2,2,2,2,3,7],[2,2,2,2,2,2,2,5,5],[2,2,2,2,2,2,3,3,3,3],[2,2,2,2,2,2,5,7],[2,2,2,2,2,3,3,3,5],[2,2,2,2,2,3,11],[2,2,2,2,2,7,7],[2,2,2,2,3,3,3,7],[2,2,2,2,3,3,5,5],[2,2,2,2,3,13],[2,2,2,2,5,11],[2,2,2,3,3,3,3,3,3],[2,2,2,3,3,5,7],[2,2,2,3,5,5,5],[2,2,2,5,13],[2,2,2,7,11],[2,2,3,3,3,3,3,5],[2,2,3,3,3,11],[2,2,3,3,7,7],[2,2,3,5,5,7],[2,2,5,5,5,5],[2,2,7,13],[2,3,3,3,3,3,7],[2,3,3,3,3,5,5],[2,3,3,3,13],[2,3,3,5,11],[2,3,5,7,7],[2,5,5,5,7],[2,11,11],[3,3,3,3,3,3,3,3],[3,3,3,3,5,7],[3,3,3,5,5,5],[3,3,5,13],[3,3,7,11],[3,5,5,11],[3,7,7,7],[5,5,7,7],[11,13]]}
+  ]
+}

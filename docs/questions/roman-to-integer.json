@@ -1,0 +1,65 @@
+{
+  "id": "roman-to-integer",
+  "leetcode_number": 13,
+  "title": "Roman to Integer",
+  "difficulty": "Easy",
+  "categories": [
+    "Hash Table",
+    "Math",
+    "String"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Convert a roman numeral string to its integer value. Symbols: I=1, V=5, X=10, L=50, C=100, D=500, M=1000. A smaller symbol placed before a larger one is subtracted (e.g., IV = 4, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900).",
+  "constraints": [
+    "1 <= s.length <= 15",
+    "valid roman numeral in [1, 3999]"
+  ],
+  "hints": [
+    "Map each character to its value.",
+    "If v[i] < v[i+1], subtract v[i] instead of adding."
+  ],
+  "optimal": {
+    "time": "O(n)",
+    "space": "O(1)",
+    "approach": "Single pass with subtraction rule."
+  },
+  "alternatives": [
+    {
+      "approach": "Table-driven longest match",
+      "time": "O(n)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Off-by-one when looking ahead at i+1 — handle the last character cleanly."
+  ],
+  "followups": [
+    "Integer to Roman (LC 12)."
+  ],
+  "signature": {
+    "fn": "romanToInt",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function romanToInt(s: string): number {\n  const m: Record<string, number> = { I:1, V:5, X:10, L:50, C:100, D:500, M:1000 };\n  let r = 0;\n  for (let i = 0; i < s.length; i++) {\n    const v = m[s[i]], nx = m[s[i+1]] || 0;\n    r += v < nx ? -v : v;\n  }\n  return r;\n}"
+  },
+  "tests": [
+    {"name":"example-III","category":"example","input":{"s":"III"},"output":3},
+    {"name":"example-LVIII","category":"example","input":{"s":"LVIII"},"output":58},
+    {"name":"example-MCMXCIV","category":"example","input":{"s":"MCMXCIV"},"output":1994},
+    {"name":"single-I","category":"edge","input":{"s":"I"},"output":1},
+    {"name":"single-M","category":"edge","input":{"s":"M"},"output":1000},
+    {"name":"max-3999","category":"edge","input":{"s":"MMMCMXCIX"},"output":3999},
+    {"name":"all-subtractions","category":"edge","input":{"s":"CDXLIV"},"output":444}
+  ]
+}

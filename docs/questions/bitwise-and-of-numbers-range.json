@@ -1,0 +1,65 @@
+{
+  "id": "bitwise-and-of-numbers-range",
+  "leetcode_number": 201,
+  "title": "Bitwise AND of Numbers Range",
+  "difficulty": "Medium",
+  "categories": [
+    "Bit Manipulation"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given two integers left and right with left <= right, return the bitwise AND of all numbers in the inclusive range [left, right].",
+  "constraints": [
+    "0 <= left <= right <= 2^31 - 1"
+  ],
+  "hints": [
+    "Any bit that differs between left and right gets zeroed somewhere in the range.",
+    "Find the common high-order prefix of left and right."
+  ],
+  "optimal": {
+    "time": "O(log n)",
+    "space": "O(1)",
+    "approach": "Right-shift both until equal, then shift back."
+  },
+  "alternatives": [
+    {
+      "approach": "Iterate and AND",
+      "time": "O(right - left)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Iterating from left to right can blow up when the range is enormous."
+  ],
+  "followups": [
+    "Bitwise OR of a range."
+  ],
+  "signature": {
+    "fn": "rangeBitwiseAnd",
+    "params": [
+      {
+        "name": "left",
+        "adapt": "identity"
+      },
+      {
+        "name": "right",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function rangeBitwiseAnd(left: number, right: number): number {\n  let s = 0;\n  while (left !== right) { left >>>= 1; right >>>= 1; s++; }\n  return left << s;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"left":5,"right":7},"output":4},
+    {"name":"example-2","category":"example","input":{"left":0,"right":0},"output":0},
+    {"name":"example-3","category":"example","input":{"left":1,"right":2147483647},"output":0},
+    {"name":"same","category":"edge","input":{"left":42,"right":42},"output":42},
+    {"name":"adjacent","category":"edge","input":{"left":8,"right":9},"output":8},
+    {"name":"powers","category":"edge","input":{"left":1024,"right":2047},"output":1024}
+  ]
+}

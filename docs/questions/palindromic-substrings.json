@@ -1,0 +1,74 @@
+{
+  "id": "palindromic-substrings",
+  "leetcode_number": 647,
+  "title": "Palindromic Substrings",
+  "difficulty": "Medium",
+  "categories": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "sources": [
+    "Blind 75"
+  ],
+  "prompt": "Given a string `s`, return the number of palindromic substrings in it. A substring is palindromic if it reads the same forward and backward; identical substrings at different positions are counted separately.",
+  "constraints": [
+    "1 <= s.length <= 1000",
+    "s consists of lowercase English letters."
+  ],
+  "hints": [
+    "Same expand-around-center technique as Longest Palindromic Substring.",
+    "Each center contributes the number of palindromes that extend from it."
+  ],
+  "optimal": {
+    "time": "O(n^2)",
+    "space": "O(1)",
+    "approach": "Expand around each odd and even center, counting matches."
+  },
+  "alternatives": [
+    {
+      "approach": "DP",
+      "time": "O(n^2)",
+      "space": "O(n^2)"
+    },
+    {
+      "approach": "Manacher's",
+      "time": "O(n)",
+      "space": "O(n)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting even centers.",
+    "Double counting when expanding past mismatch."
+  ],
+  "followups": [
+    "Return all distinct palindromic substrings."
+  ],
+  "signature": {
+    "fn": "countSubstrings",
+    "params": [
+      {
+        "name": "s",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function countSubstrings(s: string): number {\n  let count = 0;\n  const expand = (l: number, r: number) => {\n    while (l >= 0 && r < s.length && s[l] === s[r]) { count++; l--; r++; }\n  };\n  for (let i = 0; i < s.length; i++) { expand(i, i); expand(i, i + 1); }\n  return count;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"s":"abc"},"output":3},
+    {"name":"example-2","category":"example","input":{"s":"aaa"},"output":6},
+    {"name":"edge-single","category":"edge","input":{"s":"z"},"output":1},
+    {"name":"edge-two-same","category":"edge","input":{"s":"bb"},"output":3},
+    {"name":"edge-two-diff","category":"edge","input":{"s":"bc"},"output":2},
+    {"name":"edge-all-same-10","category":"edge","input":{"s":"aaaaaaaaaa"},"output":55},
+    {"name":"edge-no-pal-beyond-1","category":"edge","input":{"s":"abcdef"},"output":6},
+    {"name":"edge-mix","category":"edge","input":{"s":"abacdfgdcaba"},"output":14},
+    {"name":"stress-1000-random","category":"stress","input":{"s":"nxrullfcazxdkklyhvyeksnmhijnbnbbfdcdtmkquelxgurdpwpatsquokitdkfbwllewlwybehzyoafitwwvifhzxrunkggqjuaowunkvxmfgbxirrohjhplrhtypdaeumrruanhnbgfxtwkfjuyfgmhswejewytvkcvwoienfninobbnmmkmvfowkyobeipquesywivjdpvumgsmqkctqtwztyrmkshcflcrgcqmqzcmdqnprdkpxijwfxpdygfigxhcbzslmuwgpttthicsxztmohtxomxjumnsilsmacwpfxmqaexybtrwiadafiulraonahtakwjdcjlbgpovjynkvnpqyycuiibdgvxeznajswgakpndggetnaxlkfyxtuslzmbynwqqvgpqvanpxzcghnrpkqxjmhripkjtqlhkutjgksvahskyvptssswdeubzsxymxotrlkllphgbnkklfiookyhqqbmgmdwvqlpkeaqkoseaukumtdietwlogezbexvksjkjdqihpgyzfdeebwhuccizftuknxiorgzzldqenxjjevysttlpvuhelqzdzyypzsfeswwkpzyhfvhcaucncycsnaxrhbfobuwzptqqkkgekysusxnpcuwyhikvlbfwgujwvceoobgnxttahhnuhlofovhrbjzaclsvguqhcgyhegnxjiankcfxdskdyalcbksshtloajhoczuyxqicdhsuolqmghummpaxuqrfsgzkxlqfjvwqiusqbowieaetovaitwnmgwogfpworhivbteaxkiuunkgvvztpstzncllbfuzdckddtegjjedjnlanuuuwmhobtooapwfyybzamjdjzcbxuqaxgoikostsxkdkthsnvzbtsvzvznrxsodhpdkuvawknqhwofbtksmnzvfababtakwmqgdetoxjarzgufdhohhlfyhboqoqmzsjzsdwjnikeyvzfpnmmawjdtccjnjng"},"output":1088},
+    {"name":"stress-1000-all-same","category":"stress","input":{"s":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},"note":"All n*(n+1)/2 substrings are palindromes.","output":500500},
+    {"name":"stress-1000-alt","category":"stress","input":{"s":"abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab"},"output":250500}
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "power-of-two",
+  "leetcode_number": 231,
+  "title": "Power of Two",
+  "difficulty": "Easy",
+  "categories": [
+    "Bit Manipulation",
+    "Math"
+  ],
+  "sources": [
+    "LeetCode Top Interview 150"
+  ],
+  "prompt": "Given an integer n, return true if it is a power of two; otherwise return false. An integer is a power of two if there exists an integer x such that n == 2^x.",
+  "constraints": [
+    "-2^31 <= n <= 2^31 - 1"
+  ],
+  "hints": [
+    "Powers of two have exactly one bit set.",
+    "n & (n - 1) clears the lowest set bit."
+  ],
+  "optimal": {
+    "time": "O(1)",
+    "space": "O(1)",
+    "approach": "n > 0 && (n & (n-1)) === 0."
+  },
+  "alternatives": [
+    {
+      "approach": "Repeatedly divide by 2",
+      "time": "O(log n)",
+      "space": "O(1)"
+    }
+  ],
+  "pitfalls": [
+    "Forgetting to exclude zero and negatives — both can pass naive checks."
+  ],
+  "followups": [
+    "Power of Three / Power of Four."
+  ],
+  "signature": {
+    "fn": "isPowerOfTwo",
+    "params": [
+      {
+        "name": "n",
+        "adapt": "identity"
+      }
+    ],
+    "returnAdapt": "identity"
+  },
+  "comparison": "exact",
+  "solution": {
+    "language": "TypeScript",
+    "code": "function isPowerOfTwo(n: number): boolean {\n  return n > 0 && (n & (n - 1)) === 0;\n}"
+  },
+  "tests": [
+    {"name":"example-1","category":"example","input":{"n":1},"output":true},
+    {"name":"example-16","category":"example","input":{"n":16},"output":true},
+    {"name":"example-3","category":"example","input":{"n":3},"output":false},
+    {"name":"zero","category":"edge","input":{"n":0},"output":false},
+    {"name":"negative","category":"edge","input":{"n":-2},"output":false},
+    {"name":"max-power","category":"edge","input":{"n":1073741824},"output":true},
+    {"name":"off-by-one-large","category":"edge","input":{"n":1073741825},"output":false}
+  ]
+}
