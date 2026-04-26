@@ -48,28 +48,24 @@
     "returnAdapt": "identity",
     "kind": "function",
     "judgeSource": "return",
-    "backendUnsupported": {
-      "rust": true,
-      "go": true
-    },
     "codeTypes": {
       "rust": {
         "params": [
           {
             "name": "list",
-            "type": "serde_json::Value"
+            "type": "RandomList"
           }
         ],
-        "returns": "serde_json::Value"
+        "returns": "RandomList"
       },
       "go": {
         "params": [
           {
             "name": "list",
-            "type": "any"
+            "type": "RandomList"
           }
         ],
-        "returns": "any"
+        "returns": "RandomList"
       }
     }
   },

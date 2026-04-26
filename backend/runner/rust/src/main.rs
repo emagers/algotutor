@@ -96,21 +96,37 @@ fn tree_to_array(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     out
 }
 
-
-// === User code ===
-fn twoSum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-    // Your code here
-    todo!()
+// === Wire-shape structs for graph/random-list problems ===
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct RandomList {
+    pub vals: Vec<i32>,
+    pub randoms: Vec<Option<usize>>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct GraphRepr {
+    pub nodes: Vec<i32>,
+    pub adj: Vec<Vec<usize>>,
 }
 
+
+// === User code ===
+
+fn isPalindrome(s: String) -> bool {
+    let bytes: Vec<u8> = s.bytes().filter(|&b| b.is_ascii_alphanumeric()).map(|b| b.to_ascii_lowercase()).collect();
+    let (mut i, mut j) = (0usize, bytes.len().saturating_sub(1));
+    while i < j {
+        if bytes[i] != bytes[j] { return false; }
+        i += 1; j -= 1;
+    }
+    true
+}
 // === End user code ===
 
 #[derive(Deserialize)]
 pub struct Test { pub input: TestInput, pub output: serde_json::Value }
 #[derive(Deserialize)]
 pub struct TestInput {
-    pub nums: Vec<i32>,
-    pub target: i32,
+    pub s: String,
 }
 
 #[derive(Deserialize)]
@@ -149,11 +165,10 @@ fn main() {
     let mut out: Vec<CaseResult> = Vec::with_capacity(req.tests.len());
     for (i, t) in req.tests.into_iter().enumerate() {
         let Test { input, output: _ } = t;
-        let nums_in = input.nums;
-        let target_in = input.target;
+        let s_in = input.s;
         let started = std::time::Instant::now();
         let res = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-            twoSum(nums_in, target_in)
+            isPalindromeAlnum(s_in)
         }));
         let dt = started.elapsed().as_millis() as u64;
         match res {

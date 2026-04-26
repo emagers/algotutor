@@ -55,7 +55,7 @@ function runProcess(cmd, args, { cwd, input, timeoutMs, env }) {
 
 export async function runGo({ question, code, tests }) {
   const kind = question.signature.kind || "function";
-  if (kind !== "function" && kind !== "design") {
+  if (kind !== "function" && kind !== "design" && kind !== "codec-roundtrip") {
     return {
       results: [],
       compileError: `Go runner does not support kind="${kind}" yet. Coming soon.`,
@@ -93,14 +93,18 @@ export async function runGo({ question, code, tests }) {
     catch (e) {
       return { results: [], compileError: `Could not parse runner output: ${e.message}\n${exec.stdout.slice(0, 800)}` };
     }
-    const cmpFn = comparators[question.comparison?.kind || "exact"] || comparators.exact;
+    const cmpKey = typeof question.comparison === "string"
+      ? question.comparison
+      : (question.comparison?.kind || "exact");
+    const cmpFn = comparators[cmpKey] || comparators.exact;
 
     const results = (parsed.results || []).map((r, i) => {
-      const expected = tests[r.index ?? i]?.output;
+      const test = tests[r.index ?? i];
+      const expected = test?.output;
       if (!r.ok) {
         return { index: i, status: "error", expected, actual: null, durationMs: r.durationMs ?? 0, stderr: r.error || "panic" };
       }
-      const pass = cmpFn(r.actual, expected);
+      const pass = cmpFn(r.actual, expected, test?.input);
       return { index: i, status: pass ? "pass" : "fail", expected, actual: r.actual, durationMs: r.durationMs ?? 0 };
     });
     return { results, metrics: exec.metrics };

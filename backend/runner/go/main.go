@@ -94,26 +94,52 @@ func treeToArray(root *TreeNode) []*int {
 	return out
 }
 
+// === Wire-shape structs for graph/random-list problems ===
+type RandomList struct {
+	Vals    []int  `json:"vals"`
+	Randoms []*int `json:"randoms"`
+}
+type GraphRepr struct {
+	Nodes []int   `json:"nodes"`
+	Adj   [][]int `json:"adj"`
+}
+
 
 // === User code ===
-
-func twoSum(nums []int, target int) []int {
-    m := map[int]int{}
-    for i, n := range nums {
-        if j, ok := m[target-n]; ok { return []int{j, i} }
-        m[n] = i
+type LRUCache struct {
+    cap int
+    order []int
+    m map[int]int
+}
+func Constructor(capacity int) LRUCache {
+    return LRUCache{cap: capacity, order: []int{}, m: map[int]int{}}
+}
+func (c *LRUCache) get(key int) int {
+    v, ok := c.m[key]
+    if !ok { return -1 }
+    for i, k := range c.order { if k == key { c.order = append(c.order[:i], c.order[i+1:]...); break } }
+    c.order = append(c.order, key)
+    return v
+}
+func (c *LRUCache) put(key int, value int) {
+    if _, ok := c.m[key]; ok {
+        for i, k := range c.order { if k == key { c.order = append(c.order[:i], c.order[i+1:]...); break } }
+    } else if len(c.m) >= c.cap {
+        ev := c.order[0]; c.order = c.order[1:]; delete(c.m, ev)
     }
-    return nil
+    c.m[key] = value
+    c.order = append(c.order, key)
 }
 // === End user code ===
 
-type TestInput struct {
-	Nums []int `json:"nums"`
-	Target int `json:"target"`
+type DesignInput struct {
+	Ops        [][]json.RawMessage `json:"ops,omitempty"`
+	Operations []string            `json:"operations,omitempty"`
+	Args       [][]json.RawMessage `json:"args,omitempty"`
 }
 
 type Test struct {
-	Input  TestInput       `json:"input"`
+	Input  DesignInput     `json:"input"`
 	Output json.RawMessage `json:"output"`
 }
 
@@ -133,6 +159,10 @@ type Response struct {
 	Results []CaseResult `json:"results"`
 }
 
+// Helper to construct a default-initialized instance for "ctor not in stream"
+// (only used when ctor has zero params).
+
+
 func runOneCase(i int, t Test) (cr CaseResult) {
 	cr.Index = i
 	started := time.Now()
@@ -144,15 +174,64 @@ func runOneCase(i int, t Test) (cr CaseResult) {
 		}
 	}()
 	input := t.Input
-	_ = input
-	var actualVal interface{}
-	func() {
-		nums := input.Nums
-		target := input.Target
-			__ret := twoSum(nums, target)
-			actualVal = __ret
-	}()
-	bs, err := json.Marshal(actualVal)
+	var methods []string
+	var allArgs [][]json.RawMessage
+	if len(input.Ops) > 0 {
+		methods = make([]string, 0, len(input.Ops))
+		allArgs = make([][]json.RawMessage, 0, len(input.Ops))
+		for _, op := range input.Ops {
+			if len(op) == 0 {
+				panic("empty op tuple")
+			}
+			var name string
+			if err := json.Unmarshal(op[0], &name); err != nil {
+				panic(fmt.Sprintf("op[0] not a string: %v", err))
+			}
+			methods = append(methods, name)
+			allArgs = append(allArgs, op[1:])
+		}
+	} else {
+		methods = input.Operations
+		allArgs = input.Args
+	}
+
+	out := make([]json.RawMessage, 0, len(methods))
+	var inst *LRUCache
+	for idx, name := range methods {
+		var args []json.RawMessage
+		if idx < len(allArgs) {
+			args = allArgs[idx]
+		}
+		if name == "LRUCache" {
+			var __c0 int
+			if err := json.Unmarshal(args[0], &__c0); err != nil { panic(fmt.Sprintf("ctor arg 0 (capacity) parse: %v", err)) }
+			v := Constructor(__c0)
+			inst = &v
+			out = append(out, json.RawMessage("null"))
+			continue
+		}
+		if inst == nil {
+			panic("first op should be the constructor (LRUCache) for this problem")
+		}
+		switch name {
+		case "get":
+				var __a0 int
+				if err := json.Unmarshal(args[0], &__a0); err != nil { panic(fmt.Sprintf("get arg 0 (key) parse: %v", err)) }
+				__r := inst.get(__a0)
+				bs, _ := json.Marshal(__r)
+				out = append(out, json.RawMessage(bs))
+		case "put":
+				var __a0 int
+				if err := json.Unmarshal(args[0], &__a0); err != nil { panic(fmt.Sprintf("put arg 0 (key) parse: %v", err)) }
+				var __a1 int
+				if err := json.Unmarshal(args[1], &__a1); err != nil { panic(fmt.Sprintf("put arg 1 (value) parse: %v", err)) }
+				inst.put(__a0, __a1)
+				out = append(out, json.RawMessage("null"))
+		default:
+			panic("unknown method: " + name)
+		}
+	}
+	bs, err := json.Marshal(out)
 	if err != nil {
 		cr.OK = false
 		cr.Error = "marshal: " + err.Error()

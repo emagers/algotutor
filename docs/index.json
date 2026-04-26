@@ -298,11 +298,7 @@
         "Two Pointers",
         "Array"
       ],
-      "file": "questions/remove-duplicates-from-sorted-array.json",
-      "backendUnsupported": {
-        "rust": true,
-        "go": true
-      }
+      "file": "questions/remove-duplicates-from-sorted-array.json"
     },
     {
       "id": "merge-sorted-array",
@@ -643,11 +639,7 @@
         "Linked List",
         "Hash Table"
       ],
-      "file": "questions/copy-list-with-random-pointer.json",
-      "backendUnsupported": {
-        "rust": true,
-        "go": true
-      }
+      "file": "questions/copy-list-with-random-pointer.json"
     },
     {
       "id": "merge-k-sorted-lists",
@@ -909,11 +901,7 @@
         "Design",
         "String"
       ],
-      "file": "questions/serialize-and-deserialize-binary-tree.json",
-      "backendUnsupported": {
-        "rust": true,
-        "go": true
-      }
+      "file": "questions/serialize-and-deserialize-binary-tree.json"
     },
     {
       "id": "convert-sorted-array-to-bst",
@@ -938,11 +926,7 @@
         "DFS",
         "Hash Table"
       ],
-      "file": "questions/clone-graph.json",
-      "backendUnsupported": {
-        "rust": true,
-        "go": true
-      }
+      "file": "questions/clone-graph.json"
     },
     {
       "id": "pacific-atlantic-water-flow",
@@ -1113,11 +1097,7 @@
         "Topological Sort",
         "String"
       ],
-      "file": "questions/alien-dictionary.json",
-      "backendUnsupported": {
-        "rust": true,
-        "go": true
-      }
+      "file": "questions/alien-dictionary.json"
     },
     {
       "id": "kth-largest-element-in-an-array",

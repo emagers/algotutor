@@ -31,7 +31,7 @@ function runOne(fn, signature, comparison, test) {
     const ret = fn(...passed);
     const outAdapt = adapters[signature.returnAdapt ?? "identity"];
     actual = outAdapt(ret);
-    ok = comparators[comparison](actual, test.output);
+    ok = comparators[comparison](actual, test.output, test.input);
   } catch (e) {
     error = (e && e.stack) ? String(e.stack).split("\n").slice(0, 4).join("\n") : String(e);
   }

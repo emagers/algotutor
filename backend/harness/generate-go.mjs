@@ -103,6 +103,16 @@ func treeToArray(root *TreeNode) []*int {
 	return out
 }
 
+// === Wire-shape structs for graph/random-list problems ===
+type RandomList struct {
+	Vals    []int  \`json:"vals"\`
+	Randoms []*int \`json:"randoms"\`
+}
+type GraphRepr struct {
+	Nodes []int   \`json:"nodes"\`
+	Adj   [][]int \`json:"adj"\`
+}
+
 `;
 
 // Map a paramAdapter to the wire-side Go type.
@@ -161,6 +171,7 @@ export function generateGoFunctionHarness(question, userCode) {
   const judge = sig.judgeSource || "return";
   const isMutation = judge.startsWith("param:");
   const mutIdx = isMutation ? Number(judge.slice(6)) : -1;
+  const isPrefixReturn = judge === "param0PrefixWithReturn";
 
   const params = sig.params.map((p, i) => {
     const ut = ct.params[i].type;
@@ -176,9 +187,6 @@ export function generateGoFunctionHarness(question, userCode) {
   let callBlock;
   if (isMutation) {
     const mutParam = params[mutIdx];
-    // For arrayToLinkedList mutation, after the user fn runs we serialize the head pointer
-    // (re-converting via listToArray). For identity []int / [][]int / etc, the slice was
-    // mutated in place — just marshal it.
     let mutSerialize;
     switch (mutParam.adapt) {
       case "arrayToLinkedList":
@@ -192,6 +200,14 @@ export function generateGoFunctionHarness(question, userCode) {
     }
     callBlock = `\t\t\t${callExpr(fnName, params)}
 \t\t\tactualVal = ${mutSerialize}`;
+  } else if (isPrefixReturn) {
+    const p0 = params[0];
+    callBlock = `\t\t\t__ret := ${callExpr(fnName, params)}
+\t\t\t__k := __ret
+\t\t\tif __k < 0 { __k = 0 }
+\t\t\tif __k > len(${p0.name}) { __k = len(${p0.name}) }
+\t\t\t__prefix := append([]int{}, ${p0.name}[:__k]...)
+\t\t\tactualVal = []interface{}{__ret, __prefix}`;
   } else {
     callBlock = `\t\t\t__ret := ${callExpr(fnName, params)}
 \t\t\tactualVal = ${actualExpr(sig.returnAdapt || "identity", ct.returns)}`;
@@ -456,9 +472,95 @@ func main() {
 `;
 }
 
+// === Codec round-trip harness ===
+// User defines `type Codec struct{}`, `func Constructor() Codec`, and pointer-receiver methods
+// `serialize(root *TreeNode) string` and `deserialize(data string) *TreeNode`.
+// Wire input: { tree: []*int }. We materialize the tree, drive the round-trip,
+// and emit the resulting tree as `actual` in level-order form.
+export function generateGoCodecHarness(question, userCode) {
+  return `${PRELUDE}
+// === User code ===
+${userCode}
+// === End user code ===
+
+type TestInput struct {
+	Tree []*int \`json:"tree"\`
+}
+
+type Test struct {
+	Input  TestInput       \`json:"input"\`
+	Output json.RawMessage \`json:"output"\`
+}
+
+type Request struct {
+	Tests []Test \`json:"tests"\`
+}
+
+type CaseResult struct {
+	Index      int             \`json:"index"\`
+	OK         bool            \`json:"ok"\`
+	Actual     json.RawMessage \`json:"actual,omitempty"\`
+	DurationMs int64           \`json:"durationMs"\`
+	Error      string          \`json:"error,omitempty"\`
+}
+
+type Response struct {
+	Results []CaseResult \`json:"results"\`
+}
+
+func runOneCase(i int, t Test) (cr CaseResult) {
+	cr.Index = i
+	started := time.Now()
+	defer func() {
+		cr.DurationMs = time.Since(started).Milliseconds()
+		if r := recover(); r != nil {
+			cr.OK = false
+			cr.Error = fmt.Sprintf("%v", r)
+		}
+	}()
+	root := arrayToTree(t.Input.Tree)
+	c := Constructor()
+	codec := &c
+	s := codec.serialize(root)
+	r := codec.deserialize(s)
+	arr := treeToArray(r)
+	bs, err := json.Marshal(arr)
+	if err != nil {
+		cr.OK = false
+		cr.Error = "marshal: " + err.Error()
+		return
+	}
+	cr.OK = true
+	cr.Actual = bs
+	return
+}
+
+func main() {
+	buf, err := io.ReadAll(os.Stdin)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "__HARNESS_READ_ERROR__: %v\\n", err)
+		os.Exit(2)
+	}
+	var req Request
+	if err := json.Unmarshal(buf, &req); err != nil {
+		fmt.Fprintf(os.Stderr, "__HARNESS_PARSE_ERROR__: %v\\n", err)
+		os.Exit(2)
+	}
+	out := make([]CaseResult, 0, len(req.Tests))
+	for i, t := range req.Tests {
+		out = append(out, runOneCase(i, t))
+	}
+	resp := Response{Results: out}
+	bs, _ := json.Marshal(resp)
+	os.Stdout.Write(bs)
+}
+`;
+}
+
 export function generateGoHarness(question, userCode) {
   const kind = question.signature.kind || "function";
   if (kind === "function") return generateGoFunctionHarness(question, userCode);
   if (kind === "design") return generateGoDesignHarness(question, userCode);
+  if (kind === "codec-roundtrip") return generateGoCodecHarness(question, userCode);
   throw new Error(`unsupported kind for Go: ${kind}`);
 }

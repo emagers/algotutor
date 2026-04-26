@@ -126,6 +126,42 @@ export const comparators = {
   sortedArray: (a, b) => deepEqual(canonSortedArray(a), canonSortedArray(b)),
   setOfArrays: (a, b) => deepEqual(canonSetOfArrays(a), canonSetOfArrays(b)),
   stringLength: (a, b) => typeof a === "string" && typeof b === "string" && a.length === b.length,
+  // See comments in backend/harness/js/runtime.mjs.
+  topologicalValid(actual, expected, input) {
+    if (typeof actual !== "string") return false;
+    const words = (input && input.words) || [];
+    const chars = new Set();
+    for (const w of words) for (const c of w) chars.add(c);
+    let invalid = false;
+    for (let i = 0; i + 1 < words.length && !invalid; i++) {
+      const a = words[i], b = words[i + 1];
+      let differed = false;
+      const lim = Math.min(a.length, b.length);
+      for (let j = 0; j < lim; j++) {
+        if (a[j] !== b[j]) { differed = true; break; }
+      }
+      if (!differed && a.length > b.length) invalid = true;
+    }
+    if (invalid || expected === "") return actual === "";
+    if (actual.length !== chars.size) return false;
+    const pos = new Map();
+    for (let i = 0; i < actual.length; i++) {
+      if (!chars.has(actual[i])) return false;
+      if (pos.has(actual[i])) return false;
+      pos.set(actual[i], i);
+    }
+    for (let i = 0; i + 1 < words.length; i++) {
+      const a = words[i], b = words[i + 1];
+      const lim = Math.min(a.length, b.length);
+      for (let j = 0; j < lim; j++) {
+        if (a[j] !== b[j]) {
+          if (pos.get(a[j]) >= pos.get(b[j])) return false;
+          break;
+        }
+      }
+    }
+    return true;
+  },
 };
 
 export function deepClone(x) {

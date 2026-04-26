@@ -51,28 +51,24 @@
     "returnAdapt": "identity",
     "kind": "function",
     "judgeSource": "return",
-    "backendUnsupported": {
-      "rust": true,
-      "go": true
-    },
     "codeTypes": {
       "rust": {
         "params": [
           {
             "name": "graph",
-            "type": "serde_json::Value"
+            "type": "GraphRepr"
           }
         ],
-        "returns": "serde_json::Value"
+        "returns": "GraphRepr"
       },
       "go": {
         "params": [
           {
             "name": "graph",
-            "type": "any"
+            "type": "GraphRepr"
           }
         ],
-        "returns": "any"
+        "returns": "GraphRepr"
       }
     }
   },

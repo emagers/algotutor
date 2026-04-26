@@ -71,9 +71,7 @@ export const overrides = {
     },
   },
   "remove-duplicates-from-sorted-array": {
-    // Hybrid judge: JS users return [k, nums[0..k]] as a tuple. Doesn't map
-    // cleanly to Rust/Go without bespoke tuple-return handling. Defer.
-    backendUnsupported: { rust: true, go: true },
+    judgeSource: "param0PrefixWithReturn",
     codeTypes: {
       rust: { params: [{ name: "nums", type: "&mut Vec<i32>" }], returns: "i32" },
       go:   { params: [{ name: "nums", type: "[]int" }],         returns: "int" },
@@ -245,10 +243,9 @@ export const overrides = {
   // ===== Codec round-trip =====
   "serialize-and-deserialize-binary-tree": {
     kind: "codec-roundtrip",
-    // User must implement two methods on a Codec class: serialize(root) -> String, deserialize(data) -> tree.
-    // Harness: deserialize wire input → user.serialize → user.deserialize → re-serialize → compare wire form.
-    // Codec round-trip not yet implemented for typed langs; only JS path supports this.
-    backendUnsupported: { rust: true, go: true },
+    // Codec round-trip: user implements a Codec class with serialize/deserialize.
+    // The harness materializes the wire tree, drives codec.serialize → codec.deserialize,
+    // then re-serializes the result and compares to the input shape.
     design: {
       className: "Codec",
       ctor: { params: [] },
@@ -312,15 +309,26 @@ export const overrides = {
     },
   },
 
-  // ===== Special canonical-object problems (clone/copy graph & list with random pointer) =====
-  // These have non-standard wire formats and require dedicated harness drivers.
-  // Mark unsupported for typed languages for now; JS already handles them.
-  "clone-graph": { backendUnsupported: { rust: true, go: true } },
-  "copy-list-with-random-pointer": { backendUnsupported: { rust: true, go: true } },
+  // ===== Canonical wire-shape graph/random-list problems =====
+  // These take/return the wire shape directly via typed structs added to each
+  // language's PRELUDE (RandomList, GraphRepr). The user works on the same
+  // {vals,randoms} / {nodes,adj} encoding the JS path uses.
+  "clone-graph": {
+    codeTypes: {
+      rust: { params: [{ name: "graph", type: "GraphRepr" }], returns: "GraphRepr" },
+      go:   { params: [{ name: "graph", type: "GraphRepr" }], returns: "GraphRepr" },
+    },
+  },
+  "copy-list-with-random-pointer": {
+    codeTypes: {
+      rust: { params: [{ name: "list", type: "RandomList" }], returns: "RandomList" },
+      go:   { params: [{ name: "list", type: "RandomList" }], returns: "RandomList" },
+    },
+  },
   "alien-dictionary": {
-    // Multiple valid orderings — comparator is stringLength-like; safer to mark unsupported
-    // until we add a custom driver that validates topological correctness.
-    backendUnsupported: { rust: true, go: true },
+    // Multiple valid topological orderings are accepted; the
+    // `topologicalValid` comparator validates against the input words.
+    comparison: "topologicalValid",
   },
   "reconstruct-itinerary": {
     // Eulerian path output verification is fine, but test answer is canonical lex-smallest.

@@ -46,11 +46,7 @@
     ],
     "returnAdapt": "identity",
     "kind": "function",
-    "judgeSource": "return",
-    "backendUnsupported": {
-      "rust": true,
-      "go": true
-    },
+    "judgeSource": "param0PrefixWithReturn",
     "codeTypes": {
       "rust": {
         "params": [

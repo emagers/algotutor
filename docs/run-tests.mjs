@@ -69,7 +69,7 @@ for (const f of files) {
       failures.push({ id: q.id, test: test.name, error: String(e) });
       continue;
     }
-    if (cmp(actual, test.output)) {
+    if (cmp(actual, test.output, test.input)) {
       qPass++; pass++;
     } else {
       qFail++; fail++;

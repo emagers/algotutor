@@ -91,10 +91,6 @@
         }
       ]
     },
-    "backendUnsupported": {
-      "rust": true,
-      "go": true
-    },
     "codeTypes": {
       "rust": {
         "params": [

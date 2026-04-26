@@ -1366,7 +1366,7 @@ for (const q of questions) {
     pitfalls: q.pitfalls,
     followups: q.followups,
     signature: enrichedSignature,
-    comparison: q.comparison,
+    comparison: ov.comparison ?? q.comparison,
     solution: { language: "TypeScript", code: q.solutionTs },
     tests: enriched,
   };

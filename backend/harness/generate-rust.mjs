@@ -106,6 +106,18 @@ fn tree_to_array(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     }
     out
 }
+
+// === Wire-shape structs for graph/random-list problems ===
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct RandomList {
+    pub vals: Vec<i32>,
+    pub randoms: Vec<Option<usize>>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct GraphRepr {
+    pub nodes: Vec<i32>,
+    pub adj: Vec<Vec<usize>>,
+}
 `;
 
 // camelCase → snake_case for fields where Rust requires it. We don't actually
@@ -157,9 +169,12 @@ export function generateRustFunctionHarness(question, userCode) {
   // For mutation params (`&mut T`) we keep a mut local so we can re-serialize after.
   const isMutation = judge.startsWith("param:");
   const mutIdx = isMutation ? Number(judge.slice(6)) : -1;
+  // "param0PrefixWithReturn" means the user fn mutates param 0 in-place and
+  // returns an i32 `k`; the judged `actual` is `[k, param0[..k]]`.
+  const isPrefixReturn = judge === "param0PrefixWithReturn";
 
   const bindLines = params.map((p, i) => {
-    const isMut = i === mutIdx || p.userType.startsWith("&mut");
+    const isMut = i === mutIdx || isPrefixReturn && i === 0 || p.userType.startsWith("&mut");
     const bindName = `${p.name}_in`;
     let expr;
     if (p.adapt === "arrayToLinkedList") expr = `array_to_list(input.${p.name})`;
@@ -170,7 +185,7 @@ export function generateRustFunctionHarness(question, userCode) {
 
   // Build call args. For mutation slot pass `&mut <name>_in`.
   const callArgs = params.map((p, i) => {
-    if (i === mutIdx || p.userType.startsWith("&mut")) return `&mut ${p.name}_in`;
+    if (i === mutIdx || (isPrefixReturn && i === 0) || p.userType.startsWith("&mut")) return `&mut ${p.name}_in`;
     return `${p.name}_in`;
   }).join(", ");
 
@@ -181,6 +196,14 @@ export function generateRustFunctionHarness(question, userCode) {
     if (p.adapt === "arrayToLinkedList") actualExpr = `serde_json::to_value(list_to_array(${p.name}_in)).unwrap()`;
     else if (p.adapt === "arrayToBinaryTree") actualExpr = `serde_json::to_value(tree_to_array(${p.name}_in)).unwrap()`;
     else actualExpr = `serde_json::to_value(&${p.name}_in).unwrap()`;
+  } else if (isPrefixReturn) {
+    const p = params[0];
+    actualExpr = `{
+                let __k = __ret as i64;
+                let __k_usize = if __k < 0 { 0usize } else { (__k as usize).min(${p.name}_in.len()) };
+                let __prefix: Vec<_> = ${p.name}_in[..__k_usize].to_vec();
+                serde_json::to_value((__k, __prefix)).unwrap()
+            }`;
   } else {
     const ra = sig.returnAdapt || "identity";
     if (ra === "linkedListToArray") actualExpr = `serde_json::to_value(list_to_array(__ret)).unwrap()`;
@@ -421,10 +444,88 @@ fn main() {
 `;
 }
 
+// === Codec round-trip harness ===
+// User defines `pub struct Codec { ... }` + `impl Codec { pub fn new() -> Self;
+// pub fn serialize(&self, root: Option<Rc<RefCell<TreeNode>>>) -> String;
+// pub fn deserialize(&self, data: String) -> Option<Rc<RefCell<TreeNode>>>; }`.
+// Wire input: { tree: Vec<Option<i32>> }. We materialize the tree, drive the
+// round-trip, and emit the resulting tree as `actual` in level-order form.
+export function generateRustCodecHarness(question, userCode) {
+  return `${PRELUDE}
+
+// === User code ===
+${userCode}
+// === End user code ===
+
+#[derive(Deserialize)]
+pub struct TestInput { pub tree: Vec<Option<i32>> }
+
+#[derive(Deserialize)]
+pub struct Test { pub input: TestInput, pub output: serde_json::Value }
+#[derive(Deserialize)]
+pub struct Request { pub tests: Vec<Test> }
+
+#[derive(Serialize)]
+pub struct CaseResult {
+    pub index: usize,
+    pub ok: bool,
+    pub actual: serde_json::Value,
+    #[serde(rename = "durationMs")]
+    pub duration_ms: u64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub error: Option<String>,
+}
+
+#[derive(Serialize)]
+pub struct Response { pub results: Vec<CaseResult> }
+
+fn panic_message(e: Box<dyn std::any::Any + Send>) -> String {
+    if let Some(s) = e.downcast_ref::<&str>() { return (*s).to_string(); }
+    if let Some(s) = e.downcast_ref::<String>() { return s.clone(); }
+    "panic".to_string()
+}
+
+fn main() {
+    let mut buf = String::new();
+    io::stdin().read_to_string(&mut buf).unwrap();
+    let req: Request = match serde_json::from_str(&buf) {
+        Ok(r) => r,
+        Err(e) => { eprintln!("__HARNESS_PARSE_ERROR__: {}", e); std::process::exit(2); }
+    };
+    let mut out: Vec<CaseResult> = Vec::with_capacity(req.tests.len());
+    for (i, t) in req.tests.into_iter().enumerate() {
+        let started = std::time::Instant::now();
+        let res = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            let root = array_to_tree(t.input.tree);
+            let mut codec = Codec::new();
+            let s = codec.serialize(root);
+            let r = codec.deserialize(s);
+            tree_to_array(r)
+        }));
+        let dt = started.elapsed().as_millis() as u64;
+        match res {
+            Ok(arr) => {
+                let actual = serde_json::to_value(arr).unwrap();
+                out.push(CaseResult { index: i, ok: true, actual, duration_ms: dt, error: None });
+            }
+            Err(e) => {
+                out.push(CaseResult { index: i, ok: false, actual: serde_json::Value::Null, duration_ms: dt, error: Some(panic_message(e)) });
+            }
+        }
+    }
+    let resp = Response { results: out };
+    let s = serde_json::to_string(&resp).unwrap();
+    let stdout = io::stdout();
+    stdout.lock().write_all(s.as_bytes()).unwrap();
+}
+`;
+}
+
 // Top-level dispatcher.
 export function generateRustHarness(question, userCode) {
   const kind = question.signature.kind || "function";
   if (kind === "function") return generateRustFunctionHarness(question, userCode);
   if (kind === "design") return generateRustDesignHarness(question, userCode);
+  if (kind === "codec-roundtrip") return generateRustCodecHarness(question, userCode);
   throw new Error(`unsupported kind for Rust: ${kind}`);
 }

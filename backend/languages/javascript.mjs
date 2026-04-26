@@ -84,7 +84,10 @@ export async function runJavascript({ question, code, tests }) {
     return { results: [], compileError: `Could not find ${designName || fnName} in your code.` };
   }
 
-  const cmp = comparators[question.comparison?.kind || "exact"] || comparators.exact;
+  const cmpKey = typeof question.comparison === "string"
+    ? question.comparison
+    : (question.comparison?.kind || "exact");
+  const cmp = comparators[cmpKey] || comparators.exact;
   const results = [];
   const ru0 = process.resourceUsage();
   const memBefore = process.memoryUsage().rss;
@@ -103,7 +106,7 @@ export async function runJavascript({ question, code, tests }) {
         new Promise((_, rej) => setTimeout(() => rej(new Error("case timeout")), CASE_TIMEOUT_MS)),
       ]);
       const expected = test.output;
-      const pass = cmp(actual, expected);
+      const pass = cmp(actual, expected, test.input);
       results.push({ index: i, status: pass ? "pass" : "fail", expected, actual, durationMs });
     } catch (err) {
       results.push({

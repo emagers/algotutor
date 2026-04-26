@@ -175,14 +175,12 @@ function starterDesignGo(signature) {
 
 export function starterCode(signature, lang) {
   const kind = signature.kind || "function";
-  if (kind === "design") {
+  if (kind === "design" || kind === "codec-roundtrip") {
     if (lang === "javascript") return starterDesignJs(signature);
     if (lang === "rust") return starterDesignRust(signature);
     if (lang === "go") return starterDesignGo(signature);
     return "";
   }
-  // Fallback for codec-roundtrip and any future kinds: use function-style starter
-  // (the user-facing fn is named in signature.fn).
   if (lang === "javascript") return starterFunctionJs(signature);
   if (lang === "rust") return starterFunctionRust(signature);
   if (lang === "go") return starterFunctionGo(signature);

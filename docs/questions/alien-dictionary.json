@@ -49,10 +49,6 @@
     "returnAdapt": "identity",
     "kind": "function",
     "judgeSource": "return",
-    "backendUnsupported": {
-      "rust": true,
-      "go": true
-    },
     "codeTypes": {
       "rust": {
         "params": [
@@ -74,7 +70,7 @@
       }
     }
   },
-  "comparison": "exact",
+  "comparison": "topologicalValid",
   "solution": {
     "language": "TypeScript",
     "code": "function alienOrder(words: string[]): string {\n  const adj = new Map<string, Set<string>>();\n  const indeg = new Map<string, number>();\n  for (const w of words) for (const c of w) {\n    if (!adj.has(c)) { adj.set(c, new Set()); indeg.set(c, 0); }\n  }\n  for (let i = 0; i + 1 < words.length; i++) {\n    const a = words[i], b = words[i+1];\n    let found = false;\n    const lim = Math.min(a.length, b.length);\n    for (let j = 0; j < lim; j++) {\n      if (a[j] !== b[j]) {\n        if (!adj.get(a[j])!.has(b[j])) {\n          adj.get(a[j])!.add(b[j]);\n          indeg.set(b[j], indeg.get(b[j])! + 1);\n        }\n        found = true;\n        break;\n      }\n    }\n    if (!found && a.length > b.length) return \"\";\n  }\n  const ready: string[] = [];\n  for (const [c, d] of indeg) if (d === 0) ready.push(c);\n  ready.sort();\n  let out = \"\";\n  while (ready.length) {\n    const c = ready.shift()!;\n    out += c;\n    const neighbors = [...adj.get(c)!].sort();\n    for (const nb of neighbors) {\n      indeg.set(nb, indeg.get(nb)! - 1);\n      if (indeg.get(nb) === 0) {\n        let lo = 0, hi = ready.length;\n        while (lo < hi) { const m = (lo+hi)>>1; if (ready[m] < nb) lo = m+1; else hi = m; }\n        ready.splice(lo, 0, nb);\n      }\n    }\n  }\n  return out.length === indeg.size ? out : \"\";\n}"
