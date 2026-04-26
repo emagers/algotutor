@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problems — AlgoTutor</title>
+  <link rel="stylesheet" href="app/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">AlgoTutor</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="problems.html" class="active">Problems</a>
+    </nav>
+  </header>
+
+  <main class="container wide">
+    <div class="list-layout">
+      <aside class="filters">
+        <h3>Difficulty</h3>
+        <div class="filter-group" id="filter-difficulty"></div>
+
+        <h3>Options</h3>
+        <div class="filter-group">
+          <label>
+            <input type="checkbox" id="unsolved-only">
+            Show only unsolved
+          </label>
+        </div>
+
+        <h3>Categories</h3>
+        <div class="filter-group" id="filter-categories"></div>
+
+        <button class="clear-btn" id="clear-filters">Clear filters</button>
+      </aside>
+
+      <section>
+        <div class="search-bar">
+          <input type="text" id="search" placeholder="Search by title, slug, or LC#…">
+          <select id="group-by">
+            <option value="difficulty">Group by difficulty</option>
+            <option value="category">Group by category</option>
+            <option value="none">No grouping</option>
+          </select>
+        </div>
+        <div class="results-meta" id="results-meta">Loading…</div>
+        <div class="problem-list" id="problem-list">
+          <div class="loading">Loading problems…</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="app/pages/problems.js"></script>
+</body>
+</html>

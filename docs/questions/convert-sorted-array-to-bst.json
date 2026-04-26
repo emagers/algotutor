@@ -47,7 +47,29 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "binaryTreeToLevelOrder"
+    "returnAdapt": "binaryTreeToLevelOrder",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "nums",
+            "type": "Vec<i32>"
+          }
+        ],
+        "returns": "Option<Rc<RefCell<TreeNode>>>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "nums",
+            "type": "[]int"
+          }
+        ],
+        "returns": "*TreeNode"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

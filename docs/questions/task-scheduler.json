@@ -54,7 +54,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "tasks",
+            "type": "Vec<String>"
+          },
+          {
+            "name": "n",
+            "type": "i32"
+          }
+        ],
+        "returns": "i32"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "tasks",
+            "type": "[]string"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          }
+        ],
+        "returns": "int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

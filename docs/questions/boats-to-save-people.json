@@ -40,7 +40,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "people",
+            "type": "Vec<i32>"
+          },
+          {
+            "name": "limit",
+            "type": "i32"
+          }
+        ],
+        "returns": "i32"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "people",
+            "type": "[]int"
+          },
+          {
+            "name": "limit",
+            "type": "int"
+          }
+        ],
+        "returns": "int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

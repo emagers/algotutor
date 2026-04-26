@@ -1,0 +1,16 @@
+node_modules
+.git
+.vscode
+docs/app
+docs/*.html
+docs/serve.mjs
+docs/run-tests.mjs
+docs/build-dataset.mjs
+docs/phase*-questions.mjs
+docs/solutions.mjs
+docs/runtime.mjs
+docs/typeInference.mjs
+docs/metadata-overrides.mjs
+**/target
+**/node_modules
+*.log

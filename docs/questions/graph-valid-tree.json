@@ -52,7 +52,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "n",
+            "type": "i32"
+          },
+          {
+            "name": "edges",
+            "type": "Vec<Vec<i32>>"
+          }
+        ],
+        "returns": "bool"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "edges",
+            "type": "[][]int"
+          }
+        ],
+        "returns": "bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

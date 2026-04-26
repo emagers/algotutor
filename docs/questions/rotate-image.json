@@ -48,7 +48,29 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "param:0",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "matrix",
+            "type": "&mut Vec<Vec<i32>>"
+          }
+        ],
+        "returns": "()"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "matrix",
+            "type": "[][]int"
+          }
+        ],
+        "returns": ""
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

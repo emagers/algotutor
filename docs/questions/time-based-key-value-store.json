@@ -52,7 +52,99 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "TimeMap",
+      "wireFormat": "ops-args",
+      "ctor": {
+        "params": []
+      },
+      "methods": [
+        {
+          "name": "set",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "rust": "String",
+                "go": "string"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "rust": "String",
+                "go": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        },
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "rust": "String",
+                "go": "string"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "String",
+            "go": "string"
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "Vec<String>"
+          },
+          {
+            "name": "args",
+            "type": "Vec<Vec<serde_json::Value>>"
+          }
+        ],
+        "returns": "Vec<String>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "[]string"
+          },
+          {
+            "name": "args",
+            "type": "[][]any"
+          }
+        ],
+        "returns": "[]string"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem — AlgoTutor</title>
+  <link rel="stylesheet" href="app/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">AlgoTutor</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="problems.html" class="active">Problems</a>
+    </nav>
+  </header>
+
+  <main class="container wide">
+    <div class="problem-layout">
+      <section class="problem-pane">
+        <div class="pane-header" id="problem-head">
+          <h2>Loading…</h2>
+        </div>
+        <div class="pane-body" id="problem-body">
+          <div class="loading">Loading problem…</div>
+        </div>
+      </section>
+
+      <section class="editor-pane">
+        <div class="pane-header">
+          <div class="lang-tabs">
+            <button class="lang-tab active" data-lang="javascript">JavaScript</button>
+            <button class="lang-tab" data-lang="rust">Rust</button>
+            <button class="lang-tab" data-lang="go">Go</button>
+          </div>
+          <span class="lang-warning" id="lang-warning"></span>
+        </div>
+        <div class="editor-container" id="editor"></div>
+
+        <div class="run-area">
+          <div class="label">Custom input (JSON object keyed by parameter name):</div>
+          <textarea id="custom-input" spellcheck="false"></textarea>
+        </div>
+
+        <div class="run-controls">
+          <button id="btn-run">▶ Run with custom input</button>
+          <div class="spacer"></div>
+          <button id="btn-submit" class="primary">Submit (run all tests)</button>
+        </div>
+
+        <div class="output-area hidden" id="output"></div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="app/pages/problem.js"></script>
+</body>
+</html>

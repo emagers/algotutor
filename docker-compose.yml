@@ -1,0 +1,45 @@
+services:
+  algotutor-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: algotutor-backend:dev
+    container_name: algotutor-backend
+    ports:
+      - "9090:9090"
+    environment:
+      - NODE_ENV=development
+      - PORT=9090
+      - REQUEST_TIMEOUT_MS=30000
+    volumes:
+      - ./docs/questions:/work/docs/questions:ro
+      - ./backend:/work/backend
+      # Persistent + image-warmed cargo target, otherwise the bind mount above
+      # would shadow the pre-built deps and every cold start would recompile
+      # serde from scratch (~30s). Named volumes are populated from the image
+      # path on first creation.
+      - rust-target:/work/backend/runner/rust/target
+      - go-cache:/root/go
+    restart: unless-stopped
+
+  algotutor-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: algotutor-frontend:dev
+    container_name: algotutor-frontend
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    # Bind-mount docs/ so edits are picked up without rebuilding.
+    volumes:
+      - ./docs:/app/docs:ro
+    depends_on:
+      - algotutor-backend
+    restart: unless-stopped
+
+volumes:
+  rust-target:
+  go-cache:
+

@@ -23,6 +23,8 @@ import { phase7Questions } from "./phase7-questions.mjs";
 import { phase8Questions } from "./phase8-questions.mjs";
 import { phase9Questions } from "./phase9-questions.mjs";
 import { phase10Questions } from "./phase10-questions.mjs";
+import { inferCodeTypes } from "./typeInference.mjs";
+import { overrides as metadataOverrides } from "./metadata-overrides.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const QDIR = resolve(__dirname, "questions");
@@ -1352,6 +1354,24 @@ for (const q of questions) {
   });
   totalTests += enriched.length;
 
+  // ---- Schema enrichment for backend code execution ----
+  const ov = metadataOverrides[q.id] || {};
+  const inferred = inferCodeTypes({ signature: q.signature, tests: enriched });
+  // Merge inferred + override types (override wins per language).
+  const codeTypes = {
+    rust: ov.codeTypes?.rust ?? inferred.rust,
+    go:   ov.codeTypes?.go   ?? inferred.go,
+  };
+  const enrichedSignature = {
+    ...q.signature,
+    kind: ov.kind ?? "function",
+    judgeSource: ov.judgeSource ?? "return",
+    ...(ov.numericOverflow ? { numericOverflow: ov.numericOverflow } : {}),
+    ...(ov.design ? { design: ov.design } : {}),
+    ...(ov.backendUnsupported ? { backendUnsupported: ov.backendUnsupported } : {}),
+    codeTypes,
+  };
+
   const file = {
     id: q.id,
     leetcode_number: q.leetcode_number,
@@ -1366,7 +1386,7 @@ for (const q of questions) {
     alternatives: q.alternatives,
     pitfalls: q.pitfalls,
     followups: q.followups,
-    signature: q.signature,
+    signature: enrichedSignature,
     comparison: q.comparison,
     solution: { language: "TypeScript", code: q.solutionTs },
     tests: enriched,
@@ -1392,15 +1412,22 @@ writeFileSync(
       version: 1,
       total: questions.length,
       totalTests,
-      items: questions.map((q) => ({
-        id: q.id,
-        leetcode_number: q.leetcode_number,
-        title: q.title,
-        difficulty: q.difficulty,
-        categories: q.categories,
-        sources: q.sources,
-        file: `questions/${q.id}.json`,
-      })),
+      items: questions.map((q) => {
+        const item = {
+          id: q.id,
+          leetcode_number: q.leetcode_number,
+          title: q.title,
+          difficulty: q.difficulty,
+          categories: q.categories,
+          sources: q.sources,
+          file: `questions/${q.id}.json`,
+        };
+        const ov = metadataOverrides[q.id];
+        if (ov?.backendUnsupported) {
+          item.backendUnsupported = ov.backendUnsupported;
+        }
+        return item;
+      }),
     },
     null,
     2

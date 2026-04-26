@@ -43,7 +43,69 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "KthLargest",
+      "wireFormat": "ops-tuples",
+      "ctor": {
+        "params": [
+          {
+            "name": "k",
+            "type": {
+              "rust": "i32",
+              "go": "int"
+            }
+          },
+          {
+            "name": "nums",
+            "type": {
+              "rust": "Vec<i32>",
+              "go": "[]int"
+            }
+          }
+        ]
+      },
+      "methods": [
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "val",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "i32",
+            "go": "int"
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "Vec<Vec<String>>"
+          }
+        ],
+        "returns": "Vec<i32>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "[][]string"
+          }
+        ],
+        "returns": "[]int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

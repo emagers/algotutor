@@ -56,7 +56,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "head",
+            "type": "Vec<i32>"
+          },
+          {
+            "name": "pos",
+            "type": "i32"
+          }
+        ],
+        "returns": "bool"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "head",
+            "type": "[]int"
+          },
+          {
+            "name": "pos",
+            "type": "int"
+          }
+        ],
+        "returns": "bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

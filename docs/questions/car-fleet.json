@@ -62,7 +62,45 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "target",
+            "type": "i32"
+          },
+          {
+            "name": "position",
+            "type": "Vec<i32>"
+          },
+          {
+            "name": "speed",
+            "type": "Vec<i32>"
+          }
+        ],
+        "returns": "i32"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "target",
+            "type": "int"
+          },
+          {
+            "name": "position",
+            "type": "[]int"
+          },
+          {
+            "name": "speed",
+            "type": "[]int"
+          }
+        ],
+        "returns": "int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

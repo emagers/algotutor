@@ -52,7 +52,78 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "HitCounter",
+      "wireFormat": "ops-args",
+      "ctor": {
+        "params": []
+      },
+      "methods": [
+        {
+          "name": "hit",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        },
+        {
+          "name": "getHits",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "i32",
+            "go": "int"
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "Vec<String>"
+          },
+          {
+            "name": "args",
+            "type": "Vec<Vec<serde_json::Value>>"
+          }
+        ],
+        "returns": "Vec<i32>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "[]string"
+          },
+          {
+            "name": "args",
+            "type": "[][]any"
+          }
+        ],
+        "returns": "[]int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

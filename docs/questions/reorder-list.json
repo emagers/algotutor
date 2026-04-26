@@ -48,7 +48,29 @@
         "adapt": "arrayToLinkedList"
       }
     ],
-    "returnAdapt": "linkedListToArray"
+    "returnAdapt": "linkedListToArray",
+    "kind": "function",
+    "judgeSource": "param:0",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "head",
+            "type": "&mut Option<Box<ListNode>>"
+          }
+        ],
+        "returns": "()"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "head",
+            "type": "*ListNode"
+          }
+        ],
+        "returns": ""
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

@@ -52,7 +52,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "linkedListToArray"
+    "returnAdapt": "linkedListToArray",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "head",
+            "type": "Option<Box<ListNode>>"
+          },
+          {
+            "name": "k",
+            "type": "i32"
+          }
+        ],
+        "returns": "Option<Box<ListNode>>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "head",
+            "type": "*ListNode"
+          },
+          {
+            "name": "k",
+            "type": "int"
+          }
+        ],
+        "returns": "*ListNode"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

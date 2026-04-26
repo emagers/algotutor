@@ -38,7 +38,30 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "numericOverflow": "skip-rust-stress",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "grid",
+            "type": "Vec<Vec<i32>>"
+          }
+        ],
+        "returns": "i32"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "grid",
+            "type": "[][]int"
+          }
+        ],
+        "returns": "int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

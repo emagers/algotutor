@@ -44,7 +44,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "pattern",
+            "type": "String"
+          },
+          {
+            "name": "s",
+            "type": "String"
+          }
+        ],
+        "returns": "bool"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "pattern",
+            "type": "string"
+          },
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "returns": "bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

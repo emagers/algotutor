@@ -51,7 +51,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "x",
+            "type": "f64"
+          },
+          {
+            "name": "n",
+            "type": "i32"
+          }
+        ],
+        "returns": "f64"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "x",
+            "type": "float64"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          }
+        ],
+        "returns": "float64"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

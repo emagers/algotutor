@@ -49,7 +49,33 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "backendUnsupported": {
+      "rust": true,
+      "go": true
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "words",
+            "type": "Vec<String>"
+          }
+        ],
+        "returns": "String"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "words",
+            "type": "[]string"
+          }
+        ],
+        "returns": "string"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

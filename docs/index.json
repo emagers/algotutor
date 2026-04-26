@@ -414,7 +414,11 @@
       "sources": [
         "LeetCode Top Interview 150"
       ],
-      "file": "questions/remove-duplicates-from-sorted-array.json"
+      "file": "questions/remove-duplicates-from-sorted-array.json",
+      "backendUnsupported": {
+        "rust": true,
+        "go": true
+      }
     },
     {
       "id": "merge-sorted-array",
@@ -865,7 +869,11 @@
         "Blind 75",
         "LeetCode Top Interview 150"
       ],
-      "file": "questions/copy-list-with-random-pointer.json"
+      "file": "questions/copy-list-with-random-pointer.json",
+      "backendUnsupported": {
+        "rust": true,
+        "go": true
+      }
     },
     {
       "id": "merge-k-sorted-lists",
@@ -1209,7 +1217,11 @@
         "Blind 75",
         "LeetCode Top Interview 150"
       ],
-      "file": "questions/serialize-and-deserialize-binary-tree.json"
+      "file": "questions/serialize-and-deserialize-binary-tree.json",
+      "backendUnsupported": {
+        "rust": true,
+        "go": true
+      }
     },
     {
       "id": "convert-sorted-array-to-bst",
@@ -1241,7 +1253,11 @@
         "Blind 75",
         "LeetCode Top Interview 150"
       ],
-      "file": "questions/clone-graph.json"
+      "file": "questions/clone-graph.json",
+      "backendUnsupported": {
+        "rust": true,
+        "go": true
+      }
     },
     {
       "id": "pacific-atlantic-water-flow",
@@ -1457,7 +1473,11 @@
       "sources": [
         "Blind 75"
       ],
-      "file": "questions/alien-dictionary.json"
+      "file": "questions/alien-dictionary.json",
+      "backendUnsupported": {
+        "rust": true,
+        "go": true
+      }
     },
     {
       "id": "kth-largest-element-in-an-array",

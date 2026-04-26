@@ -49,7 +49,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "s",
+            "type": "String"
+          },
+          {
+            "name": "numRows",
+            "type": "i32"
+          }
+        ],
+        "returns": "String"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "s",
+            "type": "string"
+          },
+          {
+            "name": "numRows",
+            "type": "int"
+          }
+        ],
+        "returns": "string"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

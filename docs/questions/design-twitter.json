@@ -57,7 +57,131 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "Twitter",
+      "wireFormat": "ops-args",
+      "ctor": {
+        "params": []
+      },
+      "methods": [
+        {
+          "name": "postTweet",
+          "params": [
+            {
+              "name": "userId",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            },
+            {
+              "name": "tweetId",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        },
+        {
+          "name": "getNewsFeed",
+          "params": [
+            {
+              "name": "userId",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "Vec<i32>",
+            "go": "[]int"
+          }
+        },
+        {
+          "name": "follow",
+          "params": [
+            {
+              "name": "followerId",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            },
+            {
+              "name": "followeeId",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        },
+        {
+          "name": "unfollow",
+          "params": [
+            {
+              "name": "followerId",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            },
+            {
+              "name": "followeeId",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "Vec<String>"
+          },
+          {
+            "name": "args",
+            "type": "Vec<Vec<serde_json::Value>>"
+          }
+        ],
+        "returns": "Vec<Vec<i32>>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "[]string"
+          },
+          {
+            "name": "args",
+            "type": "[][]any"
+          }
+        ],
+        "returns": "[][]int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

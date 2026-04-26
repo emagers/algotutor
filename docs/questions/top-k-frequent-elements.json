@@ -69,7 +69,37 @@
         "name": "k"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "nums",
+            "type": "Vec<i32>"
+          },
+          {
+            "name": "k",
+            "type": "i32"
+          }
+        ],
+        "returns": "Vec<i32>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "nums",
+            "type": "[]int"
+          },
+          {
+            "name": "k",
+            "type": "int"
+          }
+        ],
+        "returns": "[]int"
+      }
+    }
   },
   "comparison": "sortedArray",
   "solution": {

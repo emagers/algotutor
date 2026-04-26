@@ -41,7 +41,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "x",
+            "type": "u32"
+          },
+          {
+            "name": "y",
+            "type": "u32"
+          }
+        ],
+        "returns": "i32"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "x",
+            "type": "uint32"
+          },
+          {
+            "name": "y",
+            "type": "uint32"
+          }
+        ],
+        "returns": "int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

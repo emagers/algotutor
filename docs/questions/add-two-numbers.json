@@ -54,7 +54,37 @@
         "adapt": "arrayToLinkedList"
       }
     ],
-    "returnAdapt": "linkedListToArray"
+    "returnAdapt": "linkedListToArray",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "l1",
+            "type": "Option<Box<ListNode>>"
+          },
+          {
+            "name": "l2",
+            "type": "Option<Box<ListNode>>"
+          }
+        ],
+        "returns": "Option<Box<ListNode>>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "l1",
+            "type": "*ListNode"
+          },
+          {
+            "name": "l2",
+            "type": "*ListNode"
+          }
+        ],
+        "returns": "*ListNode"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

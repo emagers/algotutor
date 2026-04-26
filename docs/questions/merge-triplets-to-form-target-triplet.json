@@ -40,7 +40,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "triplets",
+            "type": "Vec<Vec<i32>>"
+          },
+          {
+            "name": "target",
+            "type": "Vec<i32>"
+          }
+        ],
+        "returns": "bool"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "triplets",
+            "type": "[][]int"
+          },
+          {
+            "name": "target",
+            "type": "[]int"
+          }
+        ],
+        "returns": "bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

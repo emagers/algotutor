@@ -45,7 +45,29 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "digits",
+            "type": "String"
+          }
+        ],
+        "returns": "Vec<String>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "digits",
+            "type": "string"
+          }
+        ],
+        "returns": "[]string"
+      }
+    }
   },
   "comparison": "sortedArray",
   "solution": {

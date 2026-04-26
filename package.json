@@ -7,10 +7,24 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node docs/run-tests.mjs",
+    "build": "node docs/build-dataset.mjs",
+    "serve": "node docs/serve.mjs",
+    "backend:start": "node backend/server.mjs",
+    "backend:build": "docker compose build",
+    "up": "docker compose up -d",
+    "down": "docker compose down",
+    "logs": "docker compose logs -f",
+    "backend:up": "docker compose up -d algotutor-backend",
+    "backend:down": "docker compose down",
+    "backend:logs": "docker compose logs -f algotutor-backend",
+    "e2e": "playwright test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
 }

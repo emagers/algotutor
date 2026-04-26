@@ -52,7 +52,86 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "Trie",
+      "wireFormat": "ops-tuples",
+      "ctor": {
+        "params": []
+      },
+      "methods": [
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "word",
+              "type": {
+                "rust": "String",
+                "go": "string"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        },
+        {
+          "name": "search",
+          "params": [
+            {
+              "name": "word",
+              "type": {
+                "rust": "String",
+                "go": "string"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "bool",
+            "go": "bool"
+          }
+        },
+        {
+          "name": "startsWith",
+          "params": [
+            {
+              "name": "prefix",
+              "type": {
+                "rust": "String",
+                "go": "string"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "bool",
+            "go": "bool"
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "Vec<Vec<String>>"
+          }
+        ],
+        "returns": "Vec<bool>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "[][]string"
+          }
+        ],
+        "returns": "[]bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

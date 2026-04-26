@@ -51,7 +51,62 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "MedianFinder",
+      "wireFormat": "ops-tuples",
+      "ctor": {
+        "params": []
+      },
+      "methods": [
+        {
+          "name": "addNum",
+          "params": [
+            {
+              "name": "num",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        },
+        {
+          "name": "findMedian",
+          "params": [],
+          "returns": {
+            "rust": "f64",
+            "go": "float64"
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "Vec<Vec<String>>"
+          }
+        ],
+        "returns": "Vec<f64>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "[][]string"
+          }
+        ],
+        "returns": "[]float64"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

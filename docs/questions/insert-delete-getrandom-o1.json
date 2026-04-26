@@ -53,7 +53,78 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "RandomizedSet",
+      "wireFormat": "ops-args",
+      "ctor": {
+        "params": []
+      },
+      "methods": [
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "val",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "bool",
+            "go": "bool"
+          }
+        },
+        {
+          "name": "remove",
+          "params": [
+            {
+              "name": "val",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "bool",
+            "go": "bool"
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "Vec<String>"
+          },
+          {
+            "name": "args",
+            "type": "Vec<Vec<serde_json::Value>>"
+          }
+        ],
+        "returns": "Vec<bool>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "[]string"
+          },
+          {
+            "name": "args",
+            "type": "[][]any"
+          }
+        ],
+        "returns": "[]bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

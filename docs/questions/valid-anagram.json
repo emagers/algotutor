@@ -59,7 +59,37 @@
         "name": "t"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "s",
+            "type": "String"
+          },
+          {
+            "name": "t",
+            "type": "String"
+          }
+        ],
+        "returns": "bool"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "s",
+            "type": "string"
+          },
+          {
+            "name": "t",
+            "type": "string"
+          }
+        ],
+        "returns": "bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

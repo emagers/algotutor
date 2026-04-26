@@ -49,7 +49,30 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "numericOverflow": "skip-rust-stress",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "tokens",
+            "type": "Vec<String>"
+          }
+        ],
+        "returns": "i32"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "tokens",
+            "type": "[]string"
+          }
+        ],
+        "returns": "int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

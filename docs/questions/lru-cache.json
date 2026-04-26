@@ -54,7 +54,85 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "LRUCache",
+      "wireFormat": "ops-tuples",
+      "ctor": {
+        "params": [
+          {
+            "name": "capacity",
+            "type": {
+              "rust": "i32",
+              "go": "int"
+            }
+          }
+        ]
+      },
+      "methods": [
+        {
+          "name": "get",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "i32",
+            "go": "int"
+          }
+        },
+        {
+          "name": "put",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "Vec<Vec<String>>"
+          }
+        ],
+        "returns": "Vec<i32>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "[][]string"
+          }
+        ],
+        "returns": "[]int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

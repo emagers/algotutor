@@ -53,7 +53,110 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "MyCircularQueue",
+      "wireFormat": "ops-args",
+      "ctor": {
+        "params": [
+          {
+            "name": "k",
+            "type": {
+              "rust": "i32",
+              "go": "int"
+            }
+          }
+        ]
+      },
+      "methods": [
+        {
+          "name": "enQueue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "bool",
+            "go": "bool"
+          }
+        },
+        {
+          "name": "deQueue",
+          "params": [],
+          "returns": {
+            "rust": "bool",
+            "go": "bool"
+          }
+        },
+        {
+          "name": "Front",
+          "params": [],
+          "returns": {
+            "rust": "i32",
+            "go": "int"
+          }
+        },
+        {
+          "name": "Rear",
+          "params": [],
+          "returns": {
+            "rust": "i32",
+            "go": "int"
+          }
+        },
+        {
+          "name": "isEmpty",
+          "params": [],
+          "returns": {
+            "rust": "bool",
+            "go": "bool"
+          }
+        },
+        {
+          "name": "isFull",
+          "params": [],
+          "returns": {
+            "rust": "bool",
+            "go": "bool"
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "Vec<String>"
+          },
+          {
+            "name": "args",
+            "type": "Vec<Vec<i32>>"
+          }
+        ],
+        "returns": "Vec<bool>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "operations",
+            "type": "[]string"
+          },
+          {
+            "name": "args",
+            "type": "[][]int"
+          }
+        ],
+        "returns": "[]bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

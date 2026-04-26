@@ -44,7 +44,38 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "numericOverflow": "i64",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "amount",
+            "type": "i32"
+          },
+          {
+            "name": "coins",
+            "type": "Vec<i32>"
+          }
+        ],
+        "returns": "i64"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "amount",
+            "type": "int"
+          },
+          {
+            "name": "coins",
+            "type": "[]int"
+          }
+        ],
+        "returns": "int64"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

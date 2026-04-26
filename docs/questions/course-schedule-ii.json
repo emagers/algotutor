@@ -54,7 +54,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "numCourses",
+            "type": "i32"
+          },
+          {
+            "name": "prerequisites",
+            "type": "Vec<Vec<i32>>"
+          }
+        ],
+        "returns": "Vec<i32>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "numCourses",
+            "type": "int"
+          },
+          {
+            "name": "prerequisites",
+            "type": "[][]int"
+          }
+        ],
+        "returns": "[]int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

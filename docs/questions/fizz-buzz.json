@@ -44,7 +44,29 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "n",
+            "type": "i32"
+          }
+        ],
+        "returns": "Vec<String>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "n",
+            "type": "int"
+          }
+        ],
+        "returns": "[]string"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

@@ -52,7 +52,78 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "design",
+    "judgeSource": "return",
+    "design": {
+      "className": "MinStack",
+      "wireFormat": "ops-tuples",
+      "ctor": {
+        "params": []
+      },
+      "methods": [
+        {
+          "name": "push",
+          "params": [
+            {
+              "name": "val",
+              "type": {
+                "rust": "i32",
+                "go": "int"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        },
+        {
+          "name": "pop",
+          "params": [],
+          "returns": {
+            "rust": "()",
+            "go": ""
+          }
+        },
+        {
+          "name": "top",
+          "params": [],
+          "returns": {
+            "rust": "i32",
+            "go": "int"
+          }
+        },
+        {
+          "name": "getMin",
+          "params": [],
+          "returns": {
+            "rust": "i32",
+            "go": "int"
+          }
+        }
+      ]
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "Vec<Vec<String>>"
+          }
+        ],
+        "returns": "Vec<i32>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "ops",
+            "type": "[][]string"
+          }
+        ],
+        "returns": "[]int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

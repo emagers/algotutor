@@ -53,7 +53,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "root",
+            "type": "Option<Rc<RefCell<TreeNode>>>"
+          },
+          {
+            "name": "target",
+            "type": "i32"
+          }
+        ],
+        "returns": "bool"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "root",
+            "type": "*TreeNode"
+          },
+          {
+            "name": "target",
+            "type": "int"
+          }
+        ],
+        "returns": "bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

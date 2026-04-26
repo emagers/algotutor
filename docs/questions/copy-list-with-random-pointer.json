@@ -49,7 +49,33 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "backendUnsupported": {
+      "rust": true,
+      "go": true
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "list",
+            "type": "serde_json::Value"
+          }
+        ],
+        "returns": "serde_json::Value"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "list",
+            "type": "any"
+          }
+        ],
+        "returns": "any"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

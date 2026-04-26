@@ -52,7 +52,73 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "codec-roundtrip",
+    "judgeSource": "return",
+    "design": {
+      "className": "Codec",
+      "ctor": {
+        "params": []
+      },
+      "methods": [
+        {
+          "name": "serialize",
+          "params": [
+            {
+              "name": "root",
+              "type": {
+                "rust": "Option<Rc<RefCell<TreeNode>>>",
+                "go": "*TreeNode"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "String",
+            "go": "string"
+          }
+        },
+        {
+          "name": "deserialize",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "rust": "String",
+                "go": "string"
+              }
+            }
+          ],
+          "returns": {
+            "rust": "Option<Rc<RefCell<TreeNode>>>",
+            "go": "*TreeNode"
+          }
+        }
+      ]
+    },
+    "backendUnsupported": {
+      "rust": true,
+      "go": true
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "tree",
+            "type": "Vec<i32>"
+          }
+        ],
+        "returns": "Vec<i32>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "tree",
+            "type": "[]int"
+          }
+        ],
+        "returns": "[]int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

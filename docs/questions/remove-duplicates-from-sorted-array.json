@@ -47,7 +47,33 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "backendUnsupported": {
+      "rust": true,
+      "go": true
+    },
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "nums",
+            "type": "&mut Vec<i32>"
+          }
+        ],
+        "returns": "i32"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "nums",
+            "type": "[]int"
+          }
+        ],
+        "returns": "int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

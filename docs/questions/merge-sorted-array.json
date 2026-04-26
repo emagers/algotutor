@@ -62,7 +62,53 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "param:0",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "nums1",
+            "type": "&mut Vec<i32>"
+          },
+          {
+            "name": "m",
+            "type": "i32"
+          },
+          {
+            "name": "nums2",
+            "type": "Vec<i32>"
+          },
+          {
+            "name": "n",
+            "type": "i32"
+          }
+        ],
+        "returns": "()"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "nums1",
+            "type": "[]int"
+          },
+          {
+            "name": "m",
+            "type": "int"
+          },
+          {
+            "name": "nums2",
+            "type": "[]int"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          }
+        ],
+        "returns": ""
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

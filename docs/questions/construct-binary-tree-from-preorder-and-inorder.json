@@ -55,7 +55,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "binaryTreeToLevelOrder"
+    "returnAdapt": "binaryTreeToLevelOrder",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "preorder",
+            "type": "Vec<i32>"
+          },
+          {
+            "name": "inorder",
+            "type": "Vec<i32>"
+          }
+        ],
+        "returns": "Option<Rc<RefCell<TreeNode>>>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "preorder",
+            "type": "[]int"
+          },
+          {
+            "name": "inorder",
+            "type": "[]int"
+          }
+        ],
+        "returns": "*TreeNode"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

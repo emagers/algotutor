@@ -61,7 +61,37 @@
         "name": "amount"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "coins",
+            "type": "Vec<i32>"
+          },
+          {
+            "name": "amount",
+            "type": "i32"
+          }
+        ],
+        "returns": "i32"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "coins",
+            "type": "[]int"
+          },
+          {
+            "name": "amount",
+            "type": "int"
+          }
+        ],
+        "returns": "int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

@@ -52,7 +52,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "intervals",
+            "type": "Vec<Vec<i32>>"
+          },
+          {
+            "name": "queries",
+            "type": "Vec<i32>"
+          }
+        ],
+        "returns": "Vec<i32>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "intervals",
+            "type": "[][]int"
+          },
+          {
+            "name": "queries",
+            "type": "[]int"
+          }
+        ],
+        "returns": "[]int"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

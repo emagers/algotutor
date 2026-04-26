@@ -57,7 +57,37 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "board",
+            "type": "Vec<Vec<String>>"
+          },
+          {
+            "name": "words",
+            "type": "Vec<String>"
+          }
+        ],
+        "returns": "Vec<String>"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "board",
+            "type": "[][]string"
+          },
+          {
+            "name": "words",
+            "type": "[]string"
+          }
+        ],
+        "returns": "[]string"
+      }
+    }
   },
   "comparison": "sortedArray",
   "solution": {

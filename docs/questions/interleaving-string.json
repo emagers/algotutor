@@ -49,7 +49,45 @@
         "adapt": "identity"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "s1",
+            "type": "String"
+          },
+          {
+            "name": "s2",
+            "type": "String"
+          },
+          {
+            "name": "s3",
+            "type": "String"
+          }
+        ],
+        "returns": "bool"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "s1",
+            "type": "string"
+          },
+          {
+            "name": "s2",
+            "type": "string"
+          },
+          {
+            "name": "s3",
+            "type": "string"
+          }
+        ],
+        "returns": "bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {

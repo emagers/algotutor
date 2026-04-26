@@ -69,7 +69,37 @@
         "name": "wordDict"
       }
     ],
-    "returnAdapt": "identity"
+    "returnAdapt": "identity",
+    "kind": "function",
+    "judgeSource": "return",
+    "codeTypes": {
+      "rust": {
+        "params": [
+          {
+            "name": "s",
+            "type": "String"
+          },
+          {
+            "name": "wordDict",
+            "type": "Vec<String>"
+          }
+        ],
+        "returns": "bool"
+      },
+      "go": {
+        "params": [
+          {
+            "name": "s",
+            "type": "string"
+          },
+          {
+            "name": "wordDict",
+            "type": "[]string"
+          }
+        ],
+        "returns": "bool"
+      }
+    }
   },
   "comparison": "exact",
   "solution": {
