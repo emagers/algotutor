@@ -215,4 +215,7 @@ This is a localhost-only single-user dev tool. That said:
 
 ## License
 
-Internal / personal use.
+This project is released into the public domain under [The Unlicense](./UNLICENSE).
+You are free to copy, modify, publish, use, compile, sell, or distribute
+this software for any purpose, commercial or non-commercial, without
+restriction or attribution.
