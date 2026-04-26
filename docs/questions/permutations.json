@@ -1,16 +1,11 @@
 {
   "id": "permutations",
-  "leetcode_number": 46,
+  "number": 138,
   "title": "Permutations",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Backtracking"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given an array nums of distinct integers, return all the possible permutations. Order does not matter.",
   "constraints": [

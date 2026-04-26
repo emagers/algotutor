@@ -1,6 +1,6 @@
 {
   "id": "design-twitter",
-  "leetcode_number": 355,
+  "number": 45,
   "title": "Design Twitter",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Heap / Priority Queue",
     "Design",
     "Linked List"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Design a simplified Twitter that supports four operations: postTweet(userId, tweetId), getNewsFeed(userId) returning the 10 most recent tweet IDs in the user's news feed (the user's own tweets and the tweets of users they follow, most recent first), follow(followerId, followeeId), and unfollow(followerId, followeeId). The runnable variant accepts (operations, args) arrays. Construct with operation 'Twitter' (no args).",
   "constraints": [

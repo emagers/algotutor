@@ -1,15 +1,12 @@
 {
   "id": "count-good-nodes-in-binary-tree",
-  "leetcode_number": 1448,
+  "number": 35,
   "title": "Count Good Nodes in Binary Tree",
   "difficulty": "Medium",
   "categories": [
     "Tree",
     "DFS",
     "BFS"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "A node X is 'good' if on the path from root to X there is no node with a value greater than X. Given the root of a binary tree, return the number of good nodes.",
   "constraints": [

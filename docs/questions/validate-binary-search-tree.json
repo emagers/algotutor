@@ -1,16 +1,12 @@
 {
   "id": "validate-binary-search-tree",
-  "leetcode_number": 98,
+  "number": 193,
   "title": "Validate Binary Search Tree",
   "difficulty": "Medium",
   "categories": [
     "Tree",
     "DFS",
     "Binary Search Tree"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a binary tree, determine if it is a valid Binary Search Tree (every node's value is strictly greater than all values in its left subtree and strictly less than all values in its right subtree).",
   "constraints": [

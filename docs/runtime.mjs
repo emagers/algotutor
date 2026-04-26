@@ -41,7 +41,7 @@ export const adapters = {
     return out;
   },
 
-  // LeetCode level-order with `null` placeholders for absent children.
+  // level-order (null placeholders for absent children) with `null` placeholders for absent children.
   arrayToBinaryTree(arr) {
     if (!arr || arr.length === 0 || arr[0] === null) return null;
     const root = new TreeNode(arr[0]);

@@ -1,15 +1,11 @@
 {
   "id": "house-robber-ii",
-  "leetcode_number": 213,
+  "number": 69,
   "title": "House Robber II",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Same as House Robber, but the houses are arranged in a circle (the first and last houses are adjacent). Return the maximum amount you can rob.",
   "constraints": [

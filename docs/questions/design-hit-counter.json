@@ -1,15 +1,12 @@
 {
   "id": "design-hit-counter",
-  "leetcode_number": 362,
+  "number": 44,
   "title": "Design Hit Counter",
   "difficulty": "Medium",
   "categories": [
     "Queue",
     "Design",
     "Binary Search"
-  ],
-  "sources": [
-    "LeetCode Premium"
   ],
   "prompt": "Design a hit counter that counts the number of hits received in the past 5 minutes (300 seconds). Operations: hit(timestamp) — record a hit; getHits(timestamp) — return the number of hits in the past 300 seconds (i.e., timestamps strictly greater than timestamp - 300). All input timestamps are in seconds and are monotonically non-decreasing. The runnable variant accepts (operations, args) arrays.",
   "constraints": [

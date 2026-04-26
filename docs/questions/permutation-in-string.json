@@ -1,15 +1,12 @@
 {
   "id": "permutation-in-string",
-  "leetcode_number": 567,
+  "number": 137,
   "title": "Permutation in String",
   "difficulty": "Medium",
   "categories": [
     "Sliding Window",
     "Hash Table",
     "String"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "Given two strings `s1` and `s2`, return true if `s2` contains a permutation of `s1` as a substring (i.e., one of s1's permutations is a substring of s2).",
   "constraints": [

@@ -1,13 +1,10 @@
 {
   "id": "zigzag-conversion",
-  "leetcode_number": 6,
+  "number": 200,
   "title": "Zigzag Conversion",
   "difficulty": "Medium",
   "categories": [
     "String"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Write the string s in a zigzag pattern on numRows rows (going down and then diagonally up), then read it row by row to produce a new string. For numRows = 1 or numRows >= s.length, return s unchanged.",
   "constraints": [

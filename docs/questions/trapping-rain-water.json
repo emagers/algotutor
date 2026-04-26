@@ -1,6 +1,6 @@
 {
   "id": "trapping-rain-water",
-  "leetcode_number": 42,
+  "number": 183,
   "title": "Trapping Rain Water",
   "difficulty": "Hard",
   "categories": [
@@ -9,10 +9,6 @@
     "Stack",
     "Dynamic Programming",
     "Monotonic Stack"
-  ],
-  "sources": [
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an elevation map (bar widths = 1), compute trapped water after rain.",
   "constraints": [

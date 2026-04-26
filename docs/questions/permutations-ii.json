@@ -1,14 +1,11 @@
 {
   "id": "permutations-ii",
-  "leetcode_number": 47,
+  "number": 139,
   "title": "Permutations II",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Backtracking"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a collection of numbers nums that might contain duplicates, return all possible unique permutations.",
   "constraints": [

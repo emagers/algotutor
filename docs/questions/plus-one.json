@@ -1,14 +1,11 @@
 {
   "id": "plus-one",
-  "leetcode_number": 66,
+  "number": 140,
   "title": "Plus One",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given a large integer represented as an array of digits where digits[0] is the most significant digit. Increment the integer by one and return the resulting array of digits.",
   "constraints": [

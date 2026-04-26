@@ -1,6 +1,6 @@
 {
   "id": "number-of-connected-components",
-  "leetcode_number": 323,
+  "number": 127,
   "title": "Number of Connected Components in an Undirected Graph",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Union-Find",
     "DFS",
     "BFS"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "You have a graph of n nodes labeled 0..n-1. Given n and an array of edges where edges[i] = [a,b] is an undirected edge, return the number of connected components.",
   "constraints": [

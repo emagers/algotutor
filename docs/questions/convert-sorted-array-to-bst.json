@@ -1,15 +1,12 @@
 {
   "id": "convert-sorted-array-to-bst",
-  "leetcode_number": 108,
+  "number": 33,
   "title": "Convert Sorted Array to Binary Search Tree",
   "difficulty": "Easy",
   "categories": [
     "Tree",
     "Binary Search Tree",
     "Divide & Conquer"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array nums sorted in ascending order, convert it to a height-balanced BST. Return the tree as a level-order array (with nulls for absent children). Note: any height-balanced BST is a valid answer; this dataset checks the canonical mid = (lo+hi)/2 (lower mid) construction.",
   "constraints": [

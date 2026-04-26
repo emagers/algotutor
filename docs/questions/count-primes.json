@@ -1,13 +1,10 @@
 {
   "id": "count-primes",
-  "leetcode_number": 204,
+  "number": 36,
   "title": "Count Primes",
   "difficulty": "Medium",
   "categories": [
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer n, return the number of prime numbers strictly less than n.",
   "constraints": [

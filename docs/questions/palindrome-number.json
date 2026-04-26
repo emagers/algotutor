@@ -1,13 +1,10 @@
 {
   "id": "palindrome-number",
-  "leetcode_number": 9,
+  "number": 131,
   "title": "Palindrome Number",
   "difficulty": "Easy",
   "categories": [
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer x, return true if it is a palindrome (reads the same forwards and backwards in base 10). Negative numbers are not palindromes.",
   "constraints": [

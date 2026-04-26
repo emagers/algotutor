@@ -7,7 +7,7 @@ use std::rc::Rc;
 
 use serde::{Deserialize, Serialize};
 
-// === Standard data structures (LeetCode-canonical) ===
+// === Standard data structures (canonical) ===
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ListNode {
     pub val: i32,
@@ -98,7 +98,11 @@ fn tree_to_array(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
 
 
 // === User code ===
-fn twoSum(nums: Vec<i32>, target: i32) -> Vec<i32> { THIS IS NOT VALID RUST }
+fn twoSum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    // Your code here
+    todo!()
+}
+
 // === End user code ===
 
 #[derive(Deserialize)]

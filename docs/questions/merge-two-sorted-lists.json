@@ -1,16 +1,11 @@
 {
   "id": "merge-two-sorted-lists",
-  "leetcode_number": 21,
+  "number": 113,
   "title": "Merge Two Sorted Lists",
   "difficulty": "Easy",
   "categories": [
     "Linked List",
     "Recursion"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given the heads of two sorted singly linked lists. Splice them into one sorted list and return the head.",
   "constraints": [

@@ -1,16 +1,11 @@
 {
   "id": "house-robber",
-  "leetcode_number": 198,
+  "number": 68,
   "title": "House Robber",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "You are a robber planning to rob houses along a street. Each house has a certain amount of money stashed. Adjacent houses have connected security systems and will alert police if both are robbed. Given nums where nums[i] is the money in house i, return the maximum amount you can rob without alerting police.",
   "constraints": [

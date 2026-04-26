@@ -1,16 +1,12 @@
 {
   "id": "binary-tree-right-side-view",
-  "leetcode_number": 199,
+  "number": 14,
   "title": "Binary Tree Right Side View",
   "difficulty": "Medium",
   "categories": [
     "Tree",
     "BFS",
     "DFS"
-  ],
-  "sources": [
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a binary tree, return the values of the nodes you would see if standing on the right side, ordered from top to bottom.",
   "constraints": [

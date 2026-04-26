@@ -1,6 +1,6 @@
 {
   "id": "reorganize-string",
-  "leetcode_number": 767,
+  "number": 151,
   "title": "Reorganize String",
   "difficulty": "Medium",
   "categories": [
@@ -9,9 +9,6 @@
     "Heap / Priority Queue",
     "Greedy",
     "Sorting"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "Given a string s, rearrange its characters so that no two adjacent characters are the same. Return any valid rearrangement, or `\"\"` if impossible. The reference produces a deterministic output: at each step, pick the two highest-frequency characters; ties broken alphabetically.",
   "constraints": [
@@ -36,7 +33,7 @@
     }
   ],
   "pitfalls": [
-    "Multiple valid outputs exist on LeetCode; this dataset uses the deterministic heap-with-alphabetical-tiebreak output."
+    "Multiple valid outputs are possible; this dataset uses the deterministic heap-with-alphabetical-tiebreak output."
   ],
   "followups": [
     "k-distance apart variant: Task Scheduler-style spacing."

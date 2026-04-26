@@ -1,6 +1,6 @@
 {
   "id": "sliding-window-maximum",
-  "leetcode_number": 239,
+  "number": 168,
   "title": "Sliding Window Maximum",
   "difficulty": "Hard",
   "categories": [
@@ -9,10 +9,6 @@
     "Queue",
     "Monotonic Stack",
     "Array"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array `nums` and an integer `k`, return an array of the maximum values in each contiguous window of size k as the window slides from left to right.",
   "constraints": [

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson — AlgoTutor</title>
+  <link rel="stylesheet" href="app/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">AlgoTutor</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="problems.html">Problems</a>
+      <a href="lessons.html" class="active">Lessons</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="margin-bottom: 16px">
+      <h1 id="lesson-title">Loading…</h1>
+      <p id="lesson-desc"></p>
+    </section>
+
+    <section id="lesson-meta" class="dim" style="margin-bottom: 12px"></section>
+
+    <section id="lesson-overview" class="lesson-overview hidden"></section>
+
+    <section id="lesson-problems">
+      <div class="empty-state">Loading…</div>
+    </section>
+  </main>
+
+  <script type="module" src="app/pages/lesson.js"></script>
+</body>
+</html>

@@ -1,17 +1,12 @@
 {
   "id": "subsets",
-  "leetcode_number": 78,
+  "number": 173,
   "title": "Subsets",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Backtracking",
     "Bit Manipulation"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given an integer array nums of unique elements, return all possible subsets (the power set). The solution set must not contain duplicate subsets. Order does not matter.",
   "constraints": [

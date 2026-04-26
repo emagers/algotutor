@@ -1,6 +1,6 @@
 {
   "id": "implement-trie",
-  "leetcode_number": 208,
+  "number": 70,
   "title": "Implement Trie (Prefix Tree)",
   "difficulty": "Medium",
   "categories": [
@@ -8,11 +8,6 @@
     "Trie",
     "Hash Table",
     "Design"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Implement a Trie with `insert(word)`, `search(word) -> bool` (exact match), and `startsWith(prefix) -> bool`. Inputs are op protocols of the form `[['Trie'], ['insert', w], ['search', w], ['startsWith', p], ...]`; outputs are `null` for ctor/insert and the boolean for search/startsWith.",
   "constraints": [

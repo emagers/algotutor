@@ -1,15 +1,12 @@
 {
   "id": "network-delay-time",
-  "leetcode_number": 743,
+  "number": 124,
   "title": "Network Delay Time",
   "difficulty": "Medium",
   "categories": [
     "Graph",
     "Heap / Priority Queue",
     "Shortest Path"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a list of travel times as directed edges times[i] = [u, v, w], return the minimum time required for a signal sent from node k to reach all n nodes. Return -1 if not all nodes can be reached.",
   "constraints": [

@@ -1,17 +1,12 @@
 {
   "id": "longest-increasing-subsequence",
-  "leetcode_number": 300,
+  "number": 95,
   "title": "Longest Increasing Subsequence",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Binary Search",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
   "constraints": [

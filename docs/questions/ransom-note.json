@@ -1,15 +1,12 @@
 {
   "id": "ransom-note",
-  "leetcode_number": 383,
+  "number": 144,
   "title": "Ransom Note",
   "difficulty": "Easy",
   "categories": [
     "String",
     "Hash Table",
     "Counting"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using only letters from magazine; each letter in magazine can be used at most once.",
   "constraints": [

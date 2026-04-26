@@ -1,16 +1,11 @@
 {
   "id": "search-in-rotated-sorted-array",
-  "leetcode_number": 33,
+  "number": 163,
   "title": "Search in Rotated Sorted Array",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Binary Search"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Sorted-ascending array of distinct integers possibly rotated; find target index in O(log n) or -1.",
   "constraints": [

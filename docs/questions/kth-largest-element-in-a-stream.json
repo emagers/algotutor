@@ -1,15 +1,12 @@
 {
   "id": "kth-largest-element-in-a-stream",
-  "leetcode_number": 703,
+  "number": 81,
   "title": "Kth Largest Element in a Stream",
   "difficulty": "Easy",
   "categories": [
     "Heap / Priority Queue",
     "Design",
     "Data Stream"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Design a class that finds the kth largest element in a stream. Implement `KthLargest(k, nums)` initializer and `add(val) -> number` which returns the kth largest after adding val. Inputs are op protocols of the form `[['KthLargest', k, nums], ['add', v], ...]`; outputs include `null` for the constructor and the kth-largest after each add.",
   "constraints": [

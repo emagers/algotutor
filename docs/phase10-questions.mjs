@@ -22,11 +22,10 @@ function add(q) { phase10Questions.push(q); }
 
 add({
   id: "single-number",
-  leetcode_number: 136,
+  number: 166,
   title: "Single Number",
   difficulty: "Easy",
   categories: ["Array", "Bit Manipulation"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt: "Every element in a non-empty integer array appears twice except for one. Find that single element. Your solution must run in linear time and use only constant extra space.",
   constraints: ["1 <= nums.length <= 3 * 1e4", "Every element appears twice except for one."],
   hints: [
@@ -71,11 +70,10 @@ add({
 
 add({
   id: "single-number-ii",
-  leetcode_number: 137,
+  number: 167,
   title: "Single Number II",
   difficulty: "Medium",
   categories: ["Array", "Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "In a non-empty array of integers, every element appears exactly three times except for one element that appears once. Find that element in linear time and constant extra space.",
   constraints: ["1 <= nums.length <= 3 * 1e4", "-2^31 <= nums[i] <= 2^31 - 1"],
   hints: [
@@ -118,11 +116,10 @@ add({
 
 add({
   id: "number-of-1-bits",
-  leetcode_number: 191,
+  number: 126,
   title: "Number of 1 Bits",
   difficulty: "Easy",
   categories: ["Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a non-negative 32-bit integer, return the number of '1' bits in its binary representation (also known as the Hamming weight).",
   constraints: ["0 <= n <= 2^32 - 1"],
   hints: [
@@ -160,11 +157,10 @@ add({
 
 add({
   id: "counting-bits",
-  leetcode_number: 338,
+  number: 37,
   title: "Counting Bits",
   difficulty: "Easy",
   categories: ["Bit Manipulation", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer n, return an array ans of length n + 1 where for each i (0 <= i <= n), ans[i] is the number of 1 bits in the binary representation of i.",
   constraints: ["0 <= n <= 1e5"],
   hints: [
@@ -198,11 +194,10 @@ add({
 
 add({
   id: "reverse-bits",
-  leetcode_number: 190,
+  number: 152,
   title: "Reverse Bits",
   difficulty: "Easy",
   categories: ["Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Reverse the bits of a given 32-bit unsigned integer. Example: input 43261596 (00000010100101000001111010011100) should produce 964176192 (00111001011110000010100101000000).",
   constraints: ["0 <= n <= 2^32 - 1"],
   hints: [
@@ -243,11 +238,10 @@ add({
 
 add({
   id: "missing-number",
-  leetcode_number: 268,
+  number: 120,
   title: "Missing Number",
   difficulty: "Easy",
   categories: ["Array", "Bit Manipulation", "Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an array nums containing n distinct numbers in the range [0, n], return the only number that is missing from the range.",
   constraints: ["n == nums.length", "1 <= n <= 1e4", "0 <= nums[i] <= n", "all values distinct"],
   hints: [
@@ -292,11 +286,10 @@ add({
 
 add({
   id: "sum-of-two-integers",
-  leetcode_number: 371,
+  number: 176,
   title: "Sum of Two Integers",
   difficulty: "Medium",
   categories: ["Bit Manipulation", "Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given two integers a and b, return their sum without using the operators + and -.",
   constraints: ["-1000 <= a, b <= 1000"],
   hints: [
@@ -337,11 +330,10 @@ add({
 
 add({
   id: "bitwise-and-of-numbers-range",
-  leetcode_number: 201,
+  number: 16,
   title: "Bitwise AND of Numbers Range",
   difficulty: "Medium",
   categories: ["Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given two integers left and right with left <= right, return the bitwise AND of all numbers in the inclusive range [left, right].",
   constraints: ["0 <= left <= right <= 2^31 - 1"],
   hints: [
@@ -374,11 +366,10 @@ add({
 
 add({
   id: "hamming-distance",
-  leetcode_number: 461,
+  number: 65,
   title: "Hamming Distance",
   difficulty: "Easy",
   categories: ["Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "The Hamming distance between two integers is the number of positions at which their bits differ. Given two non-negative integers x and y, return their Hamming distance.",
   constraints: ["0 <= x, y <= 2^31 - 1"],
   hints: [
@@ -410,11 +401,10 @@ add({
 
 add({
   id: "power-of-two",
-  leetcode_number: 231,
+  number: 142,
   title: "Power of Two",
   difficulty: "Easy",
   categories: ["Bit Manipulation", "Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer n, return true if it is a power of two; otherwise return false. An integer is a power of two if there exists an integer x such that n == 2^x.",
   constraints: ["-2^31 <= n <= 2^31 - 1"],
   hints: [
@@ -446,11 +436,10 @@ add({
 
 add({
   id: "happy-number",
-  leetcode_number: 202,
+  number: 67,
   title: "Happy Number",
   difficulty: "Easy",
   categories: ["Math", "Hash Table", "Two Pointers"],
-  sources: ["LeetCode Top Interview 150", "Grind 75"],
   prompt: "Replace n by the sum of the squares of its digits and repeat. n is happy if this process eventually reaches 1; otherwise it loops forever in a cycle that does not include 1. Return true if n is happy.",
   constraints: ["1 <= n <= 2^31 - 1"],
   hints: [
@@ -488,11 +477,10 @@ add({
 
 add({
   id: "plus-one",
-  leetcode_number: 66,
+  number: 140,
   title: "Plus One",
   difficulty: "Easy",
   categories: ["Array", "Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "You are given a large integer represented as an array of digits where digits[0] is the most significant digit. Increment the integer by one and return the resulting array of digits.",
   constraints: ["1 <= digits.length <= 100", "0 <= digits[i] <= 9", "no leading zeros except for the number 0 itself"],
   hints: [
@@ -534,11 +522,10 @@ add({
 
 add({
   id: "pow-x-n",
-  leetcode_number: 50,
+  number: 141,
   title: "Pow(x, n)",
   difficulty: "Medium",
   categories: ["Math", "Recursion"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Implement pow(x, n) which computes x raised to the power n (where n is a 32-bit signed integer).",
   constraints: ["-100.0 < x < 100.0", "-2^31 <= n <= 2^31 - 1"],
   hints: [
@@ -581,11 +568,10 @@ add({
 
 add({
   id: "sqrt-x",
-  leetcode_number: 69,
+  number: 170,
   title: "Sqrt(x)",
   difficulty: "Easy",
   categories: ["Math", "Binary Search"],
-  sources: ["LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given a non-negative integer x, return the integer square root of x — the largest integer m such that m * m <= x. You may not use any built-in exponentiation.",
   constraints: ["0 <= x <= 2^31 - 1"],
   hints: [
@@ -623,11 +609,10 @@ add({
 
 add({
   id: "fizz-buzz",
-  leetcode_number: 412,
+  number: 59,
   title: "Fizz Buzz",
   difficulty: "Easy",
   categories: ["Math", "String"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer n, return a string array answer of length n where answer[i] equals 'FizzBuzz' if i+1 is divisible by 15, 'Fizz' if divisible by 3, 'Buzz' if divisible by 5, and the decimal string of i+1 otherwise.",
   constraints: ["1 <= n <= 1e4"],
   hints: ["Check 15 first to short-circuit, or concatenate Fizz/Buzz parts."],
@@ -661,11 +646,10 @@ add({
 
 add({
   id: "roman-to-integer",
-  leetcode_number: 13,
+  number: 156,
   title: "Roman to Integer",
   difficulty: "Easy",
   categories: ["Hash Table", "Math", "String"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Convert a roman numeral string to its integer value. Symbols: I=1, V=5, X=10, L=50, C=100, D=500, M=1000. A smaller symbol placed before a larger one is subtracted (e.g., IV = 4, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900).",
   constraints: ["1 <= s.length <= 15", "valid roman numeral in [1, 3999]"],
   hints: [
@@ -703,11 +687,10 @@ add({
 
 add({
   id: "integer-to-roman",
-  leetcode_number: 12,
+  number: 73,
   title: "Integer to Roman",
   difficulty: "Medium",
   categories: ["Hash Table", "Math", "String"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer in [1, 3999], convert it to its roman numeral representation. Use the subtractive forms IV, IX, XL, XC, CD, CM where applicable.",
   constraints: ["1 <= num <= 3999"],
   hints: [
@@ -743,11 +726,10 @@ add({
 
 add({
   id: "multiply-strings",
-  leetcode_number: 43,
+  number: 122,
   title: "Multiply Strings",
   difficulty: "Medium",
   categories: ["Math", "String", "Simulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given two non-negative integers represented as strings num1 and num2 (no leading zeros except for the number '0' itself), return their product, also as a string. You must not use built-in big-integer libraries or convert directly to numbers.",
   constraints: ["1 <= num1.length, num2.length <= 200", "digits only", "no leading zeros (except '0')"],
   hints: [
@@ -799,11 +781,10 @@ add({
 
 add({
   id: "palindrome-number",
-  leetcode_number: 9,
+  number: 131,
   title: "Palindrome Number",
   difficulty: "Easy",
   categories: ["Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer x, return true if it is a palindrome (reads the same forwards and backwards in base 10). Negative numbers are not palindromes.",
   constraints: ["-2^31 <= x <= 2^31 - 1"],
   hints: [
@@ -838,11 +819,10 @@ add({
 
 add({
   id: "add-binary",
-  leetcode_number: 67,
+  number: 2,
   title: "Add Binary",
   difficulty: "Easy",
   categories: ["Math", "String", "Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given two binary strings a and b, return their sum as a binary string. Inputs may be very long (up to ~10^4 bits), so do not convert directly to a fixed-width number.",
   constraints: ["1 <= a.length, b.length <= 1e4", "characters are '0' or '1'", "no leading zeros except for '0' itself"],
   hints: [
@@ -886,11 +866,10 @@ add({
 
 add({
   id: "excel-sheet-column-number",
-  leetcode_number: 171,
+  number: 51,
   title: "Excel Sheet Column Number",
   difficulty: "Easy",
   categories: ["Math", "String"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a string columnTitle representing an Excel sheet column title (A, B, ..., Z, AA, AB, ...), return its corresponding column number. 'A' is 1, 'B' is 2, ..., 'Z' is 26, 'AA' is 27, 'AB' is 28, etc.",
   constraints: ["1 <= columnTitle.length <= 7", "columnTitle consists of uppercase English letters", "result fits in 32-bit signed integer"],
   hints: ["This is base-26 with digits 1..26 instead of 0..25."],
@@ -921,11 +900,10 @@ add({
 
 add({
   id: "factorial-trailing-zeroes",
-  leetcode_number: 172,
+  number: 52,
   title: "Factorial Trailing Zeroes",
   difficulty: "Medium",
   categories: ["Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer n, return the number of trailing zeroes in n! (n factorial).",
   constraints: ["0 <= n <= 1e4"],
   hints: [
@@ -959,11 +937,10 @@ add({
 
 add({
   id: "count-primes",
-  leetcode_number: 204,
+  number: 36,
   title: "Count Primes",
   difficulty: "Medium",
   categories: ["Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer n, return the number of prime numbers strictly less than n.",
   constraints: ["0 <= n <= 5 * 1e6"],
   hints: [
@@ -1004,11 +981,10 @@ add({
 
 add({
   id: "divide-two-integers",
-  leetcode_number: 29,
+  number: 47,
   title: "Divide Two Integers",
   difficulty: "Medium",
   categories: ["Math", "Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given two integers dividend and divisor, divide them without using multiplication, division, or modulo operators. Truncate toward zero. If the result overflows the 32-bit signed integer range, return INT_MAX (2^31 - 1).",
   constraints: ["-2^31 <= dividend, divisor <= 2^31 - 1", "divisor != 0"],
   hints: [
@@ -1054,11 +1030,10 @@ add({
 
 add({
   id: "reverse-integer",
-  leetcode_number: 7,
+  number: 153,
   title: "Reverse Integer",
   difficulty: "Medium",
   categories: ["Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a signed 32-bit integer x, return x with its digits reversed. If reversing causes the value to fall outside the 32-bit signed integer range [-2^31, 2^31 - 1], return 0.",
   constraints: ["-2^31 <= x <= 2^31 - 1"],
   hints: [
@@ -1096,12 +1071,11 @@ add({
 
 add({
   id: "lfu-cache",
-  leetcode_number: 460,
+  number: 88,
   title: "LFU Cache",
   difficulty: "Hard",
   categories: ["Hash Table", "Linked List", "Design"],
-  sources: ["LeetCode Top Interview 150"],
-  prompt: "Design a data structure that follows the constraints of a Least Frequently Used (LFU) cache. Operations: LFUCache(int capacity), int get(int key) — returns the value if present and bumps its access frequency, else -1; void put(int key, int value) — inserts or updates; if capacity is exceeded, evict the least-frequently-used key, breaking ties by least-recently-used. The runnable variant accepts (operations, args) arrays mirroring LeetCode's design test format and returns the array of results (with null for void calls).",
+  prompt: "Design a data structure that follows the constraints of a Least Frequently Used (LFU) cache. Operations: LFUCache(int capacity), int get(int key) — returns the value if present and bumps its access frequency, else -1; void put(int key, int value) — inserts or updates; if capacity is exceeded, evict the least-frequently-used key, breaking ties by least-recently-used. The runnable variant accepts (operations, args) arrays using parallel operations + arguments arrays and returns the array of results (with null for void calls).",
   constraints: ["0 <= capacity <= 1e4", "0 <= key, value <= 1e9", "up to 2 * 1e5 operations"],
   hints: [
     "Maintain frequency buckets, each an ordered set keyed by recency.",
@@ -1206,11 +1180,10 @@ add({
 
 add({
   id: "design-twitter",
-  leetcode_number: 355,
+  number: 45,
   title: "Design Twitter",
   difficulty: "Medium",
   categories: ["Hash Table", "Heap / Priority Queue", "Design", "Linked List"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Design a simplified Twitter that supports four operations: postTweet(userId, tweetId), getNewsFeed(userId) returning the 10 most recent tweet IDs in the user's news feed (the user's own tweets and the tweets of users they follow, most recent first), follow(followerId, followeeId), and unfollow(followerId, followeeId). The runnable variant accepts (operations, args) arrays. Construct with operation 'Twitter' (no args).",
   constraints: ["1 <= userId, tweetId, followerId, followeeId <= 500", "up to 3 * 1e4 operations", "Tweet IDs are unique."],
   hints: [
@@ -1299,11 +1272,10 @@ add({
 
 add({
   id: "time-based-key-value-store",
-  leetcode_number: 981,
+  number: 181,
   title: "Time Based Key-Value Store",
   difficulty: "Medium",
   categories: ["Hash Table", "String", "Binary Search", "Design"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Design a time-based key-value store that supports: set(key, value, timestamp) — stores value at the given timestamp; get(key, timestamp) — returns the value associated with the largest timestamp ≤ the queried timestamp, or '' if no such record exists. All set timestamps for a given key are strictly increasing. The runnable variant accepts (operations, args) arrays.",
   constraints: ["1 <= key.length, value.length <= 100", "1 <= timestamp <= 1e7", "up to 2 * 1e5 operations"],
   hints: [
@@ -1383,11 +1355,10 @@ add({
 
 add({
   id: "insert-delete-getrandom-o1",
-  leetcode_number: 380,
+  number: 71,
   title: "Insert Delete GetRandom O(1)",
   difficulty: "Medium",
   categories: ["Array", "Hash Table", "Math", "Design"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Implement RandomizedSet supporting insert(val) → bool (true if new), remove(val) → bool (true if existed), and getRandom() → element drawn uniformly from the current set, all in O(1) expected time. The runnable variant accepts (operations, args) arrays. NOTE: tests in this dataset omit getRandom because its output is non-deterministic; correctness of getRandom is validated by inspection or stochastic harness.",
   constraints: ["-2^31 <= val <= 2^31 - 1", "up to 2 * 1e5 operations", "getRandom only when the set is non-empty"],
   hints: [
@@ -1476,11 +1447,10 @@ add({
 
 add({
   id: "design-hit-counter",
-  leetcode_number: 362,
+  number: 44,
   title: "Design Hit Counter",
   difficulty: "Medium",
   categories: ["Queue", "Design", "Binary Search"],
-  sources: ["LeetCode Premium"],
   prompt: "Design a hit counter that counts the number of hits received in the past 5 minutes (300 seconds). Operations: hit(timestamp) — record a hit; getHits(timestamp) — return the number of hits in the past 300 seconds (i.e., timestamps strictly greater than timestamp - 300). All input timestamps are in seconds and are monotonically non-decreasing. The runnable variant accepts (operations, args) arrays.",
   constraints: ["1 <= timestamp <= 2 * 1e9", "timestamps are monotonically non-decreasing", "up to 1e5 operations"],
   hints: [
@@ -1552,11 +1522,10 @@ add({
 
 add({
   id: "design-circular-queue",
-  leetcode_number: 622,
+  number: 43,
   title: "Design Circular Queue",
   difficulty: "Medium",
   categories: ["Array", "Queue", "Design", "Linked List"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Implement a fixed-capacity circular queue (ring buffer) with operations: MyCircularQueue(k), enQueue(value) → bool, deQueue() → bool, Front() → int (-1 when empty), Rear() → int (-1 when empty), isEmpty() → bool, isFull() → bool. All operations should run in O(1). The runnable variant accepts (operations, args) arrays.",
   constraints: ["1 <= k <= 1000", "0 <= value <= 1000", "up to 3000 operations"],
   hints: [
@@ -1632,11 +1601,10 @@ add({
 
 add({
   id: "valid-sudoku",
-  leetcode_number: 36,
+  number: 192,
   title: "Valid Sudoku",
   difficulty: "Medium",
   categories: ["Array", "Hash Table", "Matrix"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Determine whether a partially filled 9x9 Sudoku board is valid. Validation rules: each row contains digits 1-9 with no duplicates, each column contains digits 1-9 with no duplicates, and each of the nine 3x3 sub-boxes contains digits 1-9 with no duplicates. Empty cells are denoted '.'. You only need to validate the filled cells.",
   constraints: ["board.length == 9", "board[i].length == 9", "board[i][j] is a digit '1'-'9' or '.'"],
   hints: [
@@ -1694,11 +1662,10 @@ add({
 
 add({
   id: "spiral-matrix",
-  leetcode_number: 54,
+  number: 169,
   title: "Spiral Matrix",
   difficulty: "Medium",
   categories: ["Array", "Matrix", "Simulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an m x n matrix, return all elements of the matrix in spiral order — start at the top-left, go right, then down, then left, then up, peeling off layers.",
   constraints: ["1 <= m, n <= 10", "-100 <= matrix[i][j] <= 100"],
   hints: [
@@ -1741,11 +1708,10 @@ add({
 
 add({
   id: "rotate-image",
-  leetcode_number: 48,
+  number: 158,
   title: "Rotate Image",
   difficulty: "Medium",
   categories: ["Array", "Matrix", "Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Rotate an n x n 2D matrix representing an image 90 degrees clockwise in place. Do not allocate a second matrix.",
   constraints: ["n == matrix.length == matrix[i].length", "1 <= n <= 20"],
   hints: [
@@ -1784,11 +1750,10 @@ add({
 
 add({
   id: "game-of-life",
-  leetcode_number: 289,
+  number: 60,
   title: "Game of Life",
   difficulty: "Medium",
   categories: ["Array", "Matrix", "Simulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Conway's Game of Life: each cell is live (1) or dead (0). The next state of every cell is computed simultaneously from its 8 neighbors using these rules — live with <2 live neighbors dies, live with 2 or 3 stays alive, live with >3 dies, dead with exactly 3 becomes alive. Update the board in place to reflect the next state.",
   constraints: ["m == board.length", "n == board[i].length", "1 <= m, n <= 25", "board[i][j] is 0 or 1"],
   hints: [
@@ -1836,11 +1801,10 @@ add({
 
 add({
   id: "first-missing-positive",
-  leetcode_number: 41,
+  number: 58,
   title: "First Missing Positive",
   difficulty: "Hard",
   categories: ["Array", "Hash Table"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an unsorted integer array nums, return the smallest positive integer that does not appear in nums. Your algorithm must run in O(n) time and use O(1) auxiliary space.",
   constraints: ["1 <= nums.length <= 1e5", "-2^31 <= nums[i] <= 2^31 - 1"],
   hints: [
@@ -1890,11 +1854,10 @@ add({
 
 add({
   id: "find-the-duplicate-number",
-  leetcode_number: 287,
+  number: 56,
   title: "Find the Duplicate Number",
   difficulty: "Medium",
   categories: ["Array", "Two Pointers", "Binary Search", "Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an array nums of n + 1 integers where each integer is in the range [1, n] inclusive, exactly one number appears more than once. Find that duplicate without modifying the array and using O(1) extra space.",
   constraints: ["1 <= n <= 1e5", "nums.length == n + 1", "1 <= nums[i] <= n", "exactly one number is duplicated (it can appear more than twice)"],
   hints: [
@@ -1941,11 +1904,10 @@ add({
 
 add({
   id: "majority-element",
-  leetcode_number: 169,
+  number: 102,
   title: "Majority Element",
   difficulty: "Easy",
   categories: ["Array", "Hash Table", "Divide & Conquer", "Sorting"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an array nums of size n, return the majority element — the one that appears more than ⌊n / 2⌋ times. You may assume that a majority element always exists.",
   constraints: ["1 <= n <= 5 * 1e4", "-2^31 <= nums[i] <= 2^31 - 1"],
   hints: [
@@ -1992,11 +1954,10 @@ add({
 
 add({
   id: "rotate-array",
-  leetcode_number: 189,
+  number: 157,
   title: "Rotate Array",
   difficulty: "Medium",
   categories: ["Array", "Math", "Two Pointers"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer array nums and a non-negative integer k, rotate the array to the right by k steps in place. The function must mutate the input and return the same reference.",
   constraints: ["1 <= nums.length <= 1e5", "-2^31 <= nums[i] <= 2^31 - 1", "0 <= k <= 1e5"],
   hints: [
@@ -2038,11 +1999,10 @@ add({
 
 add({
   id: "contains-duplicate-ii",
-  leetcode_number: 219,
+  number: 32,
   title: "Contains Duplicate II",
   difficulty: "Easy",
   categories: ["Array", "Hash Table", "Sliding Window"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer array nums and an integer k, return true if there are two distinct indices i and j with nums[i] == nums[j] and |i - j| <= k.",
   constraints: ["1 <= nums.length <= 1e5", "-1e9 <= nums[i] <= 1e9", "0 <= k <= 1e5"],
   hints: [
@@ -2083,11 +2043,10 @@ add({
 
 add({
   id: "find-all-anagrams-in-a-string",
-  leetcode_number: 438,
+  number: 53,
   title: "Find All Anagrams in a String",
   difficulty: "Medium",
   categories: ["String", "Hash Table", "Sliding Window"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given two strings s and p, return an array of every starting index in s where a substring of length p.length is an anagram of p. Indices may be returned in any order, but this dataset expects them in increasing order (the natural left-to-right scan).",
   constraints: ["1 <= s.length, p.length <= 3 * 1e4", "lowercase English letters"],
   hints: [
@@ -2138,11 +2097,10 @@ add({
 
 add({
   id: "string-to-integer-atoi",
-  leetcode_number: 8,
+  number: 172,
   title: "String to Integer (atoi)",
   difficulty: "Medium",
   categories: ["String", "Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Implement myAtoi(s) which converts a string to a 32-bit signed integer. Steps: skip leading whitespace; read an optional '+' or '-' sign; read as many decimal digits as possible (the rest is ignored); convert to integer; clamp to the 32-bit signed range; if no digits were read, return 0.",
   constraints: ["0 <= s.length <= 200", "s is printable ASCII"],
   hints: [
@@ -2193,11 +2151,10 @@ add({
 
 add({
   id: "isomorphic-strings",
-  leetcode_number: 205,
+  number: 76,
   title: "Isomorphic Strings",
   difficulty: "Easy",
   categories: ["String", "Hash Table"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Two strings s and t are isomorphic if there is a one-to-one mapping between every character of s and every character of t such that replacing all occurrences of each s-character with its mapped t-character produces t. No two distinct s-characters may map to the same t-character.",
   constraints: ["1 <= s.length == t.length <= 5 * 1e4", "s, t consist of any printable ASCII"],
   hints: [
@@ -2236,11 +2193,10 @@ add({
 
 add({
   id: "ransom-note",
-  leetcode_number: 383,
+  number: 144,
   title: "Ransom Note",
   difficulty: "Easy",
   categories: ["String", "Hash Table", "Counting"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using only letters from magazine; each letter in magazine can be used at most once.",
   constraints: ["1 <= ransomNote.length, magazine.length <= 1e5", "lowercase English letters"],
   hints: ["Count letters in magazine, then decrement as you scan ransomNote."],
@@ -2280,11 +2236,10 @@ add({
 
 add({
   id: "length-of-last-word",
-  leetcode_number: 58,
+  number: 86,
   title: "Length of Last Word",
   difficulty: "Easy",
   categories: ["String"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a string s consisting of words separated by single or multiple spaces (with possible leading or trailing spaces), return the length of the last word.",
   constraints: ["1 <= s.length <= 1e4", "s consists of English letters and spaces", "There is at least one word in s."],
   hints: ["Walk from the right, skip trailing spaces, then count the next run of non-space characters."],
@@ -2316,11 +2271,10 @@ add({
 
 add({
   id: "longest-common-prefix",
-  leetcode_number: 14,
+  number: 91,
   title: "Longest Common Prefix",
   difficulty: "Easy",
   categories: ["String", "Trie"],
-  sources: ["LeetCode Top Interview 150", "Grind 75"],
   prompt: "Write a function that finds the longest common prefix string among an array of strings. Return '' if no common prefix exists.",
   constraints: ["0 <= strs.length <= 200", "0 <= strs[i].length <= 200", "strs[i] consists of lowercase English letters"],
   hints: [
@@ -2362,11 +2316,10 @@ add({
 
 add({
   id: "zigzag-conversion",
-  leetcode_number: 6,
+  number: 200,
   title: "Zigzag Conversion",
   difficulty: "Medium",
   categories: ["String"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Write the string s in a zigzag pattern on numRows rows (going down and then diagonally up), then read it row by row to produce a new string. For numRows = 1 or numRows >= s.length, return s unchanged.",
   constraints: ["1 <= s.length <= 1000", "1 <= numRows <= 1000", "s consists of letters, ',' and '.'"],
   hints: [
@@ -2404,11 +2357,10 @@ add({
 
 add({
   id: "find-the-index-of-the-first-occurrence-in-a-string",
-  leetcode_number: 28,
+  number: 57,
   title: "Find the Index of the First Occurrence in a String",
   difficulty: "Easy",
   categories: ["String", "Two Pointers"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given strings haystack and needle, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. If needle is empty, return 0.",
   constraints: ["1 <= haystack.length, needle.length <= 1e4", "haystack and needle consist of only lowercase English characters"],
   hints: [
@@ -2442,7 +2394,7 @@ add({
   tests: () => {
     const t = [];
     t.push({ name: "example-1", category: "example", input: { haystack: "sadbutsad", needle: "sad" } });
-    t.push({ name: "example-2", category: "example", input: { haystack: "leetcode", needle: "leeto" } });
+    t.push({ name: "example-2", category: "example", input: { haystack: "abcdefgh", needle: "abco" } });
     t.push({ name: "needle-empty-not-allowed", category: "edge", input: { haystack: "abc", needle: "a" } });
     t.push({ name: "needle-equals-haystack", category: "edge", input: { haystack: "abc", needle: "abc" } });
     t.push({ name: "needle-longer", category: "edge", input: { haystack: "ab", needle: "abc" } });
@@ -2459,11 +2411,10 @@ add({
 
 add({
   id: "word-pattern",
-  leetcode_number: 290,
+  number: 197,
   title: "Word Pattern",
   difficulty: "Easy",
   categories: ["String", "Hash Table"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a pattern and a string s, return true if s follows the same pattern. Each character in pattern maps to exactly one whitespace-separated word in s, and each word maps to exactly one character (a bijection).",
   constraints: ["1 <= pattern.length <= 300", "pattern is lowercase English letters", "1 <= s.length <= 3000", "s is single-space-separated lowercase words"],
   hints: ["This is Isomorphic Strings (LC 205) but with words instead of characters."],
@@ -2500,11 +2451,10 @@ add({
 
 add({
   id: "rotate-string",
-  leetcode_number: 796,
+  number: 159,
   title: "Rotate String",
   difficulty: "Easy",
   categories: ["String", "String Matching"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given two strings s and goal, return true if and only if s can become goal after some number of left shifts. A left shift moves the first character to the end.",
   constraints: ["1 <= s.length, goal.length <= 100", "s and goal consist of lowercase English letters"],
   hints: [

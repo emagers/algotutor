@@ -2,8 +2,15 @@
 import { expect } from "@playwright/test";
 
 export async function clearStorage(page) {
+  // Reset both the backend SQLite store (when ALGOTUTOR_E2E=1) and the
+  // browser's localStorage (covers any legacy state).
+  try {
+    await page.request.post("http://localhost:9090/api/state/reset", {
+      headers: { "x-algotutor-test": "1" },
+    });
+  } catch {}
   await page.goto("/");
-  await page.evaluate(() => { localStorage.clear(); });
+  await page.evaluate(() => { try { localStorage.clear(); } catch {} });
 }
 
 // Wait until the backend is reachable from the browser context.
@@ -45,6 +52,11 @@ export async function getEditorCode(page) {
 export async function selectLanguage(page, lang) {
   await page.click(`.lang-tab[data-lang="${lang}"]`);
   await expect(page.locator(`.lang-tab[data-lang="${lang}"]`)).toHaveClass(/active/);
-  // Wait for the CM view to be reconfigured with the new starter code.
-  await page.waitForTimeout(200);
+  // Wait until the language switch (which is async — it awaits a code load
+  // from the backend) finishes and re-enables the tabs.
+  await page.waitForFunction(() => {
+    const tab = document.querySelector(`.lang-tab.active`);
+    return tab && !tab.disabled;
+  });
+  await page.waitForTimeout(150);
 }

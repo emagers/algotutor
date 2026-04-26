@@ -1,15 +1,11 @@
 {
   "id": "lowest-common-ancestor-of-a-binary-tree",
-  "leetcode_number": 236,
+  "number": 99,
   "title": "Lowest Common Ancestor of a Binary Tree",
   "difficulty": "Medium",
   "categories": [
     "Tree",
     "DFS"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a binary tree (not necessarily a BST) and two unique node values p and q, return the value of their lowest common ancestor.",
   "constraints": [

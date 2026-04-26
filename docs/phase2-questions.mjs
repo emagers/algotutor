@@ -1,5 +1,5 @@
 // Phase 2 question definitions (25 questions). Imported by build-dataset.mjs.
-// Each entry mirrors the Phase 1 inline shape: id, leetcode_number, title,
+// Each entry mirrors the Phase 1 inline shape: id, number, title,
 // difficulty, categories, sources, prompt, constraints, hints, optimal,
 // alternatives, pitfalls, followups, signature, comparison, solutionTs, tests().
 
@@ -21,11 +21,10 @@ function add(q) { phase2Questions.push(q); }
 // 1. Valid Palindrome
 add({
   id: "valid-palindrome",
-  leetcode_number: 125,
+  number: 189,
   title: "Valid Palindrome",
   difficulty: "Easy",
   categories: ["Two Pointers", "String"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a string `s`, return true if it is a palindrome after converting all uppercase letters to lowercase and removing all non-alphanumeric characters.",
   constraints: ["1 <= s.length <= 2 * 10^5", "s consists only of printable ASCII characters."],
@@ -86,11 +85,10 @@ add({
 // 2. Two Sum II - Input Array Is Sorted
 add({
   id: "two-sum-ii",
-  leetcode_number: 167,
+  number: 185,
   title: "Two Sum II - Input Array Is Sorted",
   difficulty: "Medium",
   categories: ["Two Pointers", "Binary Search", "Array"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a 1-indexed array of integers `numbers` sorted in non-decreasing order, find two numbers that add up to `target`. Return the 1-based indices `[index1, index2]` with index1 < index2. There is exactly one solution and you may not use the same element twice. Use only constant extra space.",
   constraints: [
@@ -154,11 +152,10 @@ add({
 // 3. Container With Most Water
 add({
   id: "container-with-most-water",
-  leetcode_number: 11,
+  number: 30,
   title: "Container With Most Water",
   difficulty: "Medium",
   categories: ["Two Pointers", "Greedy", "Array"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given an integer array `height` of length n where height[i] is the height of a vertical line at index i, find two lines that together with the x-axis form a container holding the most water. Return the maximum amount of water (area).",
   constraints: ["n == height.length", "2 <= n <= 10^5", "0 <= height[i] <= 10^4"],
@@ -210,11 +207,10 @@ add({
 // 4. Move Zeroes
 add({
   id: "move-zeroes",
-  leetcode_number: 283,
+  number: 121,
   title: "Move Zeroes",
   difficulty: "Easy",
   categories: ["Two Pointers", "Array"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given an integer array `nums`, move all 0s to the end while maintaining the relative order of the non-zero elements. Modify the array in-place.",
   constraints: ["1 <= nums.length <= 10^4", "-2^31 <= nums[i] <= 2^31 - 1"],
@@ -261,11 +257,10 @@ add({
 // 5. Remove Duplicates from Sorted Array
 add({
   id: "remove-duplicates-from-sorted-array",
-  leetcode_number: 26,
+  number: 148,
   title: "Remove Duplicates from Sorted Array",
   difficulty: "Easy",
   categories: ["Two Pointers", "Array"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given a sorted integer array `nums`, remove duplicates in-place so each unique element appears only once, preserving relative order. Return k = the count of unique elements; the first k positions of nums must contain the unique values.",
   constraints: ["1 <= nums.length <= 3 * 10^4", "-100 <= nums[i] <= 100", "nums is sorted in non-decreasing order."],
@@ -316,11 +311,10 @@ add({
 // 6. Merge Sorted Array
 add({
   id: "merge-sorted-array",
-  leetcode_number: 88,
+  number: 111,
   title: "Merge Sorted Array",
   difficulty: "Easy",
   categories: ["Two Pointers", "Array"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "You are given two sorted integer arrays nums1 and nums2, with nums1 having m + n length where the last n entries are placeholders. Merge nums2 into nums1 in-place so nums1 becomes sorted in non-decreasing order.",
   constraints: [
@@ -384,11 +378,10 @@ add({
 // 7. Longest Consecutive Sequence
 add({
   id: "longest-consecutive-sequence",
-  leetcode_number: 128,
+  number: 93,
   title: "Longest Consecutive Sequence",
   difficulty: "Medium",
   categories: ["Hash Table", "Union-Find", "Array"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence. Solve in O(n).",
   constraints: ["0 <= nums.length <= 10^5", "-10^9 <= nums[i] <= 10^9"],
@@ -449,11 +442,10 @@ add({
 // 8. Encode and Decode Strings
 add({
   id: "encode-decode-strings",
-  leetcode_number: 271,
+  number: 49,
   title: "Encode and Decode Strings",
   difficulty: "Medium",
   categories: ["String", "Design"],
-  sources: ["Blind 75", "Grind 75"],
   prompt:
     "Design an algorithm to encode a list of strings to a single string and decode that single string back into the original list. Strings can contain any unicode characters including separators or digits.",
   constraints: ["1 <= strs.length <= 200", "0 <= strs[i].length <= 200", "strs[i] may contain any printable characters."],
@@ -514,11 +506,10 @@ function decode(s: string): string[] {
 // 9. Longest Palindromic Substring
 add({
   id: "longest-palindromic-substring",
-  leetcode_number: 5,
+  number: 96,
   title: "Longest Palindromic Substring",
   difficulty: "Medium",
   categories: ["Two Pointers", "String", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a string `s`, return the longest palindromic substring of `s`. Any valid longest substring is accepted.",
   constraints: ["1 <= s.length <= 1000", "s consists of digits and English letters."],
@@ -577,11 +568,10 @@ add({
 // 10. Palindromic Substrings
 add({
   id: "palindromic-substrings",
-  leetcode_number: 647,
+  number: 133,
   title: "Palindromic Substrings",
   difficulty: "Medium",
   categories: ["String", "Dynamic Programming"],
-  sources: ["Blind 75"],
   prompt:
     "Given a string `s`, return the number of palindromic substrings in it. A substring is palindromic if it reads the same forward and backward; identical substrings at different positions are counted separately.",
   constraints: ["1 <= s.length <= 1000", "s consists of lowercase English letters."],
@@ -632,11 +622,10 @@ add({
 // 11. Longest Repeating Character Replacement
 add({
   id: "longest-repeating-character-replacement",
-  leetcode_number: 424,
+  number: 97,
   title: "Longest Repeating Character Replacement",
   difficulty: "Medium",
   categories: ["Sliding Window", "Hash Table", "String"],
-  sources: ["Blind 75"],
   prompt:
     "Given a string `s` and an integer `k`, you can change at most k characters to any other uppercase English letter. Return the length of the longest substring containing the same letter you can obtain.",
   constraints: ["1 <= s.length <= 10^5", "0 <= k <= s.length", "s consists of uppercase English letters."],
@@ -692,11 +681,10 @@ add({
 // 12. Minimum Window Substring
 add({
   id: "minimum-window-substring",
-  leetcode_number: 76,
+  number: 119,
   title: "Minimum Window Substring",
   difficulty: "Hard",
   categories: ["Sliding Window", "Hash Table", "String"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given strings `s` and `t`, return the minimum window substring of `s` that contains every character of `t` (including duplicates). If no such substring exists, return the empty string. Any valid minimum-length window is accepted.",
   constraints: ["1 <= s.length, t.length <= 10^5", "s and t consist of uppercase and lowercase English letters."],
@@ -762,11 +750,10 @@ add({
 // 13. Permutation in String
 add({
   id: "permutation-in-string",
-  leetcode_number: 567,
+  number: 137,
   title: "Permutation in String",
   difficulty: "Medium",
   categories: ["Sliding Window", "Hash Table", "String"],
-  sources: ["Grind 75"],
   prompt:
     "Given two strings `s1` and `s2`, return true if `s2` contains a permutation of `s1` as a substring (i.e., one of s1's permutations is a substring of s2).",
   constraints: ["1 <= s1.length, s2.length <= 10^4", "s1 and s2 consist of lowercase English letters."],
@@ -828,11 +815,10 @@ add({
 // 14. Sliding Window Maximum
 add({
   id: "sliding-window-maximum",
-  leetcode_number: 239,
+  number: 168,
   title: "Sliding Window Maximum",
   difficulty: "Hard",
   categories: ["Sliding Window", "Heap / Priority Queue", "Queue", "Monotonic Stack", "Array"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given an integer array `nums` and an integer `k`, return an array of the maximum values in each contiguous window of size k as the window slides from left to right.",
   constraints: ["1 <= nums.length <= 10^5", "1 <= k <= nums.length", "-10^4 <= nums[i] <= 10^4"],
@@ -885,11 +871,10 @@ add({
 // 15. Find Minimum in Rotated Sorted Array
 add({
   id: "find-minimum-in-rotated-sorted-array",
-  leetcode_number: 153,
+  number: 55,
   title: "Find Minimum in Rotated Sorted Array",
   difficulty: "Medium",
   categories: ["Binary Search", "Array"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a sorted array of unique integers that has been rotated between 1 and n times, return the minimum element. Solve in O(log n).",
   constraints: ["1 <= nums.length <= 5000", "-5000 <= nums[i] <= 5000", "All values are unique.", "nums is sorted then rotated 1..n times."],
@@ -940,11 +925,10 @@ add({
 // 16. Search a 2D Matrix
 add({
   id: "search-2d-matrix",
-  leetcode_number: 74,
+  number: 162,
   title: "Search a 2D Matrix",
   difficulty: "Medium",
   categories: ["Binary Search", "Matrix", "Array"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given an m x n integer matrix where every row is sorted in non-decreasing order and the first integer of each row is greater than the last integer of the previous row, return true if `target` is in the matrix.",
   constraints: ["m == matrix.length", "n == matrix[i].length", "1 <= m, n <= 100", "-10^4 <= matrix[i][j], target <= 10^4"],
@@ -1001,11 +985,10 @@ add({
 // 17. Koko Eating Bananas
 add({
   id: "koko-eating-bananas",
-  leetcode_number: 875,
+  number: 80,
   title: "Koko Eating Bananas",
   difficulty: "Medium",
   categories: ["Binary Search", "Array"],
-  sources: ["Grind 75"],
   prompt:
     "Koko has piles of bananas with piles[i] bananas in the i-th pile. She eats k bananas per hour, choosing one pile each hour. If a pile has fewer than k bananas, she finishes it and waits the rest of that hour. Return the minimum integer k that lets her finish all piles within h hours.",
   constraints: ["1 <= piles.length <= 10^4", "piles.length <= h <= 10^9", "1 <= piles[i] <= 10^9"],
@@ -1058,11 +1041,10 @@ add({
 // 18. Min Stack
 add({
   id: "min-stack",
-  leetcode_number: 155,
+  number: 115,
   title: "Min Stack",
   difficulty: "Medium",
   categories: ["Stack", "Design"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Design a stack that supports push, pop, top, and retrieving the minimum element in O(1). Implement: push(val), pop(), top() returning the top value, getMin() returning the current minimum.",
   constraints: ["-2^31 <= val <= 2^31 - 1", "Methods pop, top, and getMin are always called on non-empty stacks.", "At most 3 * 10^4 operations."],
@@ -1124,11 +1106,10 @@ add({
 // 19. Evaluate Reverse Polish Notation
 add({
   id: "evaluate-reverse-polish-notation",
-  leetcode_number: 150,
+  number: 50,
   title: "Evaluate Reverse Polish Notation",
   difficulty: "Medium",
   categories: ["Stack", "Math"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, /. Each operand is a 32-bit integer or another RPN expression. Division between two integers always truncates toward zero.",
   constraints: [
@@ -1195,11 +1176,10 @@ add({
 // 20. Daily Temperatures
 add({
   id: "daily-temperatures",
-  leetcode_number: 739,
+  number: 40,
   title: "Daily Temperatures",
   difficulty: "Medium",
   categories: ["Stack", "Monotonic Stack", "Array"],
-  sources: ["Grind 75"],
   prompt:
     "Given an array of daily temperatures, return an array `answer` such that answer[i] is the number of days you must wait after day i to get a warmer temperature. If no such day exists, answer[i] = 0.",
   constraints: ["1 <= temperatures.length <= 10^5", "30 <= temperatures[i] <= 100"],
@@ -1251,11 +1231,10 @@ add({
 // 21. Largest Rectangle in Histogram
 add({
   id: "largest-rectangle-in-histogram",
-  leetcode_number: 84,
+  number: 84,
   title: "Largest Rectangle in Histogram",
   difficulty: "Hard",
   categories: ["Stack", "Monotonic Stack", "Array"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given an array `heights` representing the bar heights of a histogram (each bar has width 1), return the area of the largest rectangle that fits entirely inside the histogram.",
   constraints: ["1 <= heights.length <= 10^5", "0 <= heights[i] <= 10^4"],
@@ -1311,11 +1290,10 @@ add({
 // 22. Generate Parentheses
 add({
   id: "generate-parentheses",
-  leetcode_number: 22,
+  number: 62,
   title: "Generate Parentheses",
   difficulty: "Medium",
   categories: ["Backtracking", "Dynamic Programming", "String"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given n pairs of parentheses, generate all combinations of well-formed parentheses. Return the result as a list of strings (any order accepted).",
   constraints: ["1 <= n <= 8"],
@@ -1358,11 +1336,10 @@ add({
 // 23. Car Fleet
 add({
   id: "car-fleet",
-  leetcode_number: 853,
+  number: 20,
   title: "Car Fleet",
   difficulty: "Medium",
   categories: ["Stack", "Monotonic Stack", "Sorting", "Greedy"],
-  sources: ["Grind 75"],
   prompt:
     "There are n cars at given integer positions on a single-lane road heading to a destination at `target`. Each car drives at speed[i] and never overtakes; if a faster car catches a slower one they form a fleet that moves at the slower car's speed. Return the number of fleets that arrive at the target.",
   constraints: ["n == position.length == speed.length", "1 <= n <= 10^5", "0 < target <= 10^6", "0 <= position[i] < target", "All position[i] are distinct.", "0 < speed[i] <= 10^6"],
@@ -1424,11 +1401,10 @@ add({
 // 24. Squares of a Sorted Array
 add({
   id: "squares-of-a-sorted-array",
-  leetcode_number: 977,
+  number: 171,
   title: "Squares of a Sorted Array",
   difficulty: "Easy",
   categories: ["Two Pointers", "Sorting", "Array"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given an integer array `nums` sorted in non-decreasing order, return an array of the squares of each number, also sorted in non-decreasing order. Solve in O(n).",
   constraints: ["1 <= nums.length <= 10^4", "-10^4 <= nums[i] <= 10^4", "nums is sorted in non-decreasing order."],
@@ -1476,11 +1452,10 @@ add({
 // 25. Set Matrix Zeroes
 add({
   id: "set-matrix-zeroes",
-  leetcode_number: 73,
+  number: 165,
   title: "Set Matrix Zeroes",
   difficulty: "Medium",
   categories: ["Matrix", "Array", "Hash Table"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given an m x n integer matrix, if any element is 0, set its entire row and column to 0. Modify the matrix in-place using O(1) extra space.",
   constraints: ["m == matrix.length", "n == matrix[0].length", "1 <= m, n <= 200", "-2^31 <= matrix[i][j] <= 2^31 - 1"],

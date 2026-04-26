@@ -1,15 +1,12 @@
 {
   "id": "subtree-of-another-tree",
-  "leetcode_number": 572,
+  "number": 175,
   "title": "Subtree of Another Tree",
   "difficulty": "Easy",
   "categories": [
     "Tree",
     "DFS",
     "String"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values as subRoot.",
   "constraints": [

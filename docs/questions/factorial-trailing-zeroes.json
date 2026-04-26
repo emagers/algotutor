@@ -1,13 +1,10 @@
 {
   "id": "factorial-trailing-zeroes",
-  "leetcode_number": 172,
+  "number": 52,
   "title": "Factorial Trailing Zeroes",
   "difficulty": "Medium",
   "categories": [
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer n, return the number of trailing zeroes in n! (n factorial).",
   "constraints": [

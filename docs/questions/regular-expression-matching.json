@@ -1,15 +1,12 @@
 {
   "id": "regular-expression-matching",
-  "leetcode_number": 10,
+  "number": 147,
   "title": "Regular Expression Matching",
   "difficulty": "Hard",
   "categories": [
     "String",
     "Dynamic Programming",
     "Recursion"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an input string s and a pattern p, implement regex matching with support for '.' (matches any single char) and '*' (zero or more of the preceding element). The match must cover the entire input string.",
   "constraints": [

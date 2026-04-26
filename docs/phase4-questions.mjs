@@ -70,11 +70,10 @@ function add(q) { phase4Questions.push(q); }
 // 1. Maximum Depth of Binary Tree
 add({
   id: "maximum-depth-of-binary-tree",
-  leetcode_number: 104,
+  number: 104,
   title: "Maximum Depth of Binary Tree",
   difficulty: "Easy",
   categories: ["Tree", "DFS", "BFS", "Recursion"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree, return its maximum depth — the number of nodes along the longest path from the root down to a leaf.",
   constraints: ["0 <= number of nodes <= 10^4", "-100 <= Node.val <= 100"],
@@ -110,11 +109,10 @@ add({
 // 2. Same Tree
 add({
   id: "same-tree",
-  leetcode_number: 100,
+  number: 161,
   title: "Same Tree",
   difficulty: "Easy",
   categories: ["Tree", "DFS", "BFS"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given the roots of two binary trees p and q, return true if they are structurally identical and the nodes have the same values.",
   constraints: ["0 <= n <= 100", "-10^4 <= Node.val <= 10^4"],
@@ -163,11 +161,10 @@ add({
 // 3. Symmetric Tree
 add({
   id: "symmetric-tree",
-  leetcode_number: 101,
+  number: 178,
   title: "Symmetric Tree",
   difficulty: "Easy",
   categories: ["Tree", "DFS", "BFS"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
   constraints: ["1 <= n <= 1000", "-100 <= Node.val <= 100"],
@@ -208,11 +205,10 @@ add({
 // 4. Diameter of Binary Tree
 add({
   id: "diameter-of-binary-tree",
-  leetcode_number: 543,
+  number: 46,
   title: "Diameter of Binary Tree",
   difficulty: "Easy",
   categories: ["Tree", "DFS"],
-  sources: ["Blind 75"],
   prompt:
     "Given the root of a binary tree, return the length (in edges) of the longest path between any two nodes. The path may or may not pass through the root.",
   constraints: ["1 <= n <= 10^4", "-100 <= Node.val <= 100"],
@@ -255,11 +251,10 @@ add({
 // 5. Balanced Binary Tree
 add({
   id: "balanced-binary-tree",
-  leetcode_number: 110,
+  number: 5,
   title: "Balanced Binary Tree",
   difficulty: "Easy",
   categories: ["Tree", "DFS"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree, determine if it is height-balanced — for every node the depths of its two subtrees differ by at most 1.",
   constraints: ["0 <= n <= 5000", "-10^4 <= Node.val <= 10^4"],
@@ -301,11 +296,10 @@ add({
 // 6. Path Sum
 add({
   id: "path-sum",
-  leetcode_number: 112,
+  number: 136,
   title: "Path Sum",
   difficulty: "Easy",
   categories: ["Tree", "DFS", "BFS"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.",
   constraints: ["0 <= n <= 5000", "-1000 <= Node.val <= 1000", "-1000 <= targetSum <= 1000"],
@@ -354,11 +348,10 @@ add({
 // 7. Binary Tree Inorder Traversal
 add({
   id: "binary-tree-inorder-traversal",
-  leetcode_number: 94,
+  number: 11,
   title: "Binary Tree Inorder Traversal",
   difficulty: "Easy",
   categories: ["Tree", "DFS", "Stack"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree, return the inorder traversal of its nodes' values.",
   constraints: ["0 <= n <= 100", "-100 <= Node.val <= 100"],
@@ -402,11 +395,10 @@ add({
 // 8. Subtree of Another Tree
 add({
   id: "subtree-of-another-tree",
-  leetcode_number: 572,
+  number: 175,
   title: "Subtree of Another Tree",
   difficulty: "Easy",
   categories: ["Tree", "DFS", "String"],
-  sources: ["Blind 75"],
   prompt:
     "Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values as subRoot.",
   constraints: ["1 <= root nodes <= 2000", "1 <= subRoot nodes <= 1000", "-10^4 <= Node.val <= 10^4"],
@@ -455,11 +447,10 @@ add({
 // 9. Binary Tree Level Order Traversal
 add({
   id: "binary-tree-level-order-traversal",
-  leetcode_number: 102,
+  number: 12,
   title: "Binary Tree Level Order Traversal",
   difficulty: "Medium",
   categories: ["Tree", "BFS"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).",
   constraints: ["0 <= n <= 2000", "-1000 <= Node.val <= 1000"],
@@ -505,11 +496,10 @@ add({
 // 10. Binary Tree Right Side View
 add({
   id: "binary-tree-right-side-view",
-  leetcode_number: 199,
+  number: 14,
   title: "Binary Tree Right Side View",
   difficulty: "Medium",
   categories: ["Tree", "BFS", "DFS"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree, return the values of the nodes you would see if standing on the right side, ordered from top to bottom.",
   constraints: ["0 <= n <= 100", "-100 <= Node.val <= 100"],
@@ -555,11 +545,10 @@ add({
 // 11. Binary Tree Zigzag Level Order Traversal
 add({
   id: "binary-tree-zigzag-level-order-traversal",
-  leetcode_number: 103,
+  number: 15,
   title: "Binary Tree Zigzag Level Order Traversal",
   difficulty: "Medium",
   categories: ["Tree", "BFS"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree, return the zigzag level order traversal of its nodes' values (left-to-right, then right-to-left for the next level, alternating).",
   constraints: ["0 <= n <= 2000", "-100 <= Node.val <= 100"],
@@ -606,11 +595,10 @@ add({
 // 12. Count Good Nodes in Binary Tree
 add({
   id: "count-good-nodes-in-binary-tree",
-  leetcode_number: 1448,
+  number: 35,
   title: "Count Good Nodes in Binary Tree",
   difficulty: "Medium",
   categories: ["Tree", "DFS", "BFS"],
-  sources: ["Grind 75"],
   prompt:
     "A node X is 'good' if on the path from root to X there is no node with a value greater than X. Given the root of a binary tree, return the number of good nodes.",
   constraints: ["1 <= n <= 10^5", "-10^4 <= Node.val <= 10^4"],
@@ -652,11 +640,10 @@ add({
 // 13. Validate Binary Search Tree
 add({
   id: "validate-binary-search-tree",
-  leetcode_number: 98,
+  number: 193,
   title: "Validate Binary Search Tree",
   difficulty: "Medium",
   categories: ["Tree", "DFS", "Binary Search Tree"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the root of a binary tree, determine if it is a valid Binary Search Tree (every node's value is strictly greater than all values in its left subtree and strictly less than all values in its right subtree).",
   constraints: ["1 <= n <= 10^4", "-2^31 <= Node.val <= 2^31 - 1"],
@@ -699,11 +686,10 @@ add({
 // 14. Kth Smallest Element in a BST
 add({
   id: "kth-smallest-element-in-a-bst",
-  leetcode_number: 230,
+  number: 83,
   title: "Kth Smallest Element in a BST",
   difficulty: "Medium",
   categories: ["Tree", "Binary Search Tree", "DFS"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the root of a BST and an integer k, return the kth smallest value in the tree (1-indexed).",
   constraints: ["1 <= k <= n <= 10^4", "0 <= Node.val <= 10^4"],
@@ -754,11 +740,10 @@ add({
 // 15. Lowest Common Ancestor of a BST
 add({
   id: "lowest-common-ancestor-of-a-bst",
-  leetcode_number: 235,
+  number: 100,
   title: "Lowest Common Ancestor of a Binary Search Tree",
   difficulty: "Medium",
   categories: ["Tree", "Binary Search Tree", "DFS"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a BST and two values p and q present in it, return the value of their lowest common ancestor.",
   constraints: ["2 <= n <= 10^5", "-10^9 <= Node.val <= 10^9", "All values are unique. p ≠ q and both exist in the tree."],
@@ -806,11 +791,10 @@ add({
 // 16. Lowest Common Ancestor of a Binary Tree
 add({
   id: "lowest-common-ancestor-of-a-binary-tree",
-  leetcode_number: 236,
+  number: 99,
   title: "Lowest Common Ancestor of a Binary Tree",
   difficulty: "Medium",
   categories: ["Tree", "DFS"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a binary tree (not necessarily a BST) and two unique node values p and q, return the value of their lowest common ancestor.",
   constraints: ["2 <= n <= 10^5", "-10^9 <= Node.val <= 10^9", "All values are unique; both p and q exist in the tree."],
@@ -857,11 +841,10 @@ add({
 // 17. Construct Binary Tree from Preorder and Inorder Traversal
 add({
   id: "construct-binary-tree-from-preorder-and-inorder",
-  leetcode_number: 105,
+  number: 29,
   title: "Construct Binary Tree from Preorder and Inorder Traversal",
   difficulty: "Medium",
   categories: ["Tree", "DFS", "Hash Table", "Divide & Conquer"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree (returned here as level-order with nulls).",
   constraints: ["1 <= n <= 3000", "-3000 <= Node.val <= 3000", "All values are unique. preorder and inorder describe the same tree."],
@@ -933,11 +916,10 @@ add({
 // 18. Binary Tree Maximum Path Sum
 add({
   id: "binary-tree-maximum-path-sum",
-  leetcode_number: 124,
+  number: 13,
   title: "Binary Tree Maximum Path Sum",
   difficulty: "Hard",
   categories: ["Tree", "DFS", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "A path in a binary tree is a sequence of nodes where each pair of adjacent nodes is connected by an edge. Given the root, return the maximum path sum of any path (need not pass through the root).",
   constraints: ["1 <= n <= 3 * 10^4", "-1000 <= Node.val <= 1000"],
@@ -984,18 +966,17 @@ add({
 // 19. Serialize and Deserialize Binary Tree
 add({
   id: "serialize-and-deserialize-binary-tree",
-  leetcode_number: 297,
+  number: 164,
   title: "Serialize and Deserialize Binary Tree",
   difficulty: "Hard",
   categories: ["Tree", "DFS", "BFS", "Design", "String"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Design an algorithm to serialize a binary tree to a string and deserialize the string back to the original tree. The serialization format is up to you. The test driver round-trips your two functions and compares the resulting tree (level-order, with nulls for absent children) to the input.",
   constraints: ["0 <= n <= 10^4", "-1000 <= Node.val <= 1000"],
   hints: [
     "Preorder DFS with a sentinel ('#' or 'null') for missing children gives an unambiguous string.",
     "Deserialize by consuming tokens recursively in the same preorder.",
-    "BFS with level tokens also works (the LeetCode display format).",
+    "BFS with level tokens also works (an alternative format).",
   ],
   optimal: { time: "O(n)", space: "O(n)", approach: "Preorder DFS with null sentinel + comma delimiter." },
   alternatives: [{ approach: "Level-order with nulls", time: "O(n)", space: "O(n)" }],
@@ -1047,11 +1028,10 @@ add({
 // 20. Convert Sorted Array to BST
 add({
   id: "convert-sorted-array-to-bst",
-  leetcode_number: 108,
+  number: 33,
   title: "Convert Sorted Array to Binary Search Tree",
   difficulty: "Easy",
   categories: ["Tree", "Binary Search Tree", "Divide & Conquer"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given an integer array nums sorted in ascending order, convert it to a height-balanced BST. Return the tree as a level-order array (with nulls for absent children). Note: any height-balanced BST is a valid answer; this dataset checks the canonical mid = (lo+hi)/2 (lower mid) construction.",
   constraints: ["1 <= n <= 10^4", "-10^4 <= nums[i] <= 10^4", "nums is sorted in strictly ascending order."],

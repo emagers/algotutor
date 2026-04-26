@@ -1,6 +1,6 @@
 {
   "id": "number-of-islands",
-  "leetcode_number": 200,
+  "number": 128,
   "title": "Number of Islands",
   "difficulty": "Medium",
   "categories": [
@@ -9,11 +9,6 @@
     "DFS",
     "BFS",
     "Union-Find"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Count maximal connected groups of '1's in a 2D grid (4-directional).",
   "constraints": [

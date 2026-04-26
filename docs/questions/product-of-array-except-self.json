@@ -1,16 +1,11 @@
 {
   "id": "product-of-array-except-self",
-  "leetcode_number": 238,
+  "number": 143,
   "title": "Product of Array Except Self",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Prefix Sum"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Return an array `answer` such that `answer[i]` equals the product of all elements of `nums` except `nums[i]`. Run in O(n) without using division.",
   "constraints": [

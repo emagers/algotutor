@@ -1,17 +1,12 @@
 {
   "id": "climbing-stairs",
-  "leetcode_number": 70,
+  "number": 22,
   "title": "Climbing Stairs",
   "difficulty": "Easy",
   "categories": [
     "Dynamic Programming",
     "Math",
     "Memoization"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "You are climbing a staircase. It takes n steps to reach the top. Each time you can climb either 1 or 2 steps. In how many distinct ways can you climb to the top?",
   "constraints": [

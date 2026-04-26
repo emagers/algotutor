@@ -1,17 +1,12 @@
 {
   "id": "jump-game",
-  "leetcode_number": 55,
+  "number": 77,
   "title": "Jump Game",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming",
     "Greedy"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "You are given an integer array nums. You are initially at the first index, and each element represents your maximum jump length at that position. Return true if you can reach the last index.",
   "constraints": [

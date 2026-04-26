@@ -1,16 +1,11 @@
 {
   "id": "valid-palindrome",
-  "leetcode_number": 125,
+  "number": 189,
   "title": "Valid Palindrome",
   "difficulty": "Easy",
   "categories": [
     "Two Pointers",
     "String"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a string `s`, return true if it is a palindrome after converting all uppercase letters to lowercase and removing all non-alphanumeric characters.",
   "constraints": [

@@ -20,11 +20,10 @@ function add(q) { phase5Questions.push(q); }
 // 1. Clone Graph
 add({
   id: "clone-graph",
-  leetcode_number: 133,
+  number: 23,
   title: "Clone Graph",
   difficulty: "Medium",
   categories: ["Graph", "BFS", "DFS", "Hash Table"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. The graph is represented here as `{ nodes: number[], adj: number[][] }` where `adj[i]` is the list of neighbor indices of node i. The output uses the same canonical form, with neighbor lists sorted ascending.",
   constraints: ["0 <= n <= 100", "Node values are unique.", "Graph is connected and undirected."],
@@ -81,11 +80,10 @@ function cloneGraph(node: Node | null): Node | null {
 // 2. Pacific Atlantic Water Flow
 add({
   id: "pacific-atlantic-water-flow",
-  leetcode_number: 417,
+  number: 129,
   title: "Pacific Atlantic Water Flow",
   difficulty: "Medium",
   categories: ["Matrix", "BFS", "DFS"],
-  sources: ["Blind 75"],
   prompt:
     "Given an m x n matrix `heights` representing land elevations, water flows from a cell to a neighboring cell only if the neighbor's height is less than or equal. The Pacific touches the top and left edges; the Atlantic touches the bottom and right. Return all coordinates [r,c] where rain water can flow to BOTH oceans. The reference returns coordinates in row-major order (any-order accepted via comparator).",
   constraints: ["1 <= m, n <= 200", "0 <= heights[i][j] <= 10^5"],
@@ -148,11 +146,10 @@ add({
 // 3. Course Schedule II
 add({
   id: "course-schedule-ii",
-  leetcode_number: 210,
+  number: 39,
   title: "Course Schedule II",
   difficulty: "Medium",
   categories: ["Graph", "Topological Sort", "BFS", "DFS"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Return any valid order in which all numCourses can be taken given prerequisites[i] = [a, b] meaning course b must be completed before course a. If impossible, return [].",
   constraints: ["1 <= numCourses <= 2000", "0 <= prerequisites.length <= numCourses * (numCourses - 1)", "prerequisites[i].length == 2", "All pairs are distinct."],
@@ -218,11 +215,10 @@ add({
 // 4. Number of Connected Components in an Undirected Graph
 add({
   id: "number-of-connected-components",
-  leetcode_number: 323,
+  number: 127,
   title: "Number of Connected Components in an Undirected Graph",
   difficulty: "Medium",
   categories: ["Graph", "Union-Find", "DFS", "BFS"],
-  sources: ["Blind 75"],
   prompt:
     "You have a graph of n nodes labeled 0..n-1. Given n and an array of edges where edges[i] = [a,b] is an undirected edge, return the number of connected components.",
   constraints: ["1 <= n <= 2000", "0 <= edges.length <= 5000", "0 <= a, b < n"],
@@ -277,11 +273,10 @@ add({
 // 5. Graph Valid Tree
 add({
   id: "graph-valid-tree",
-  leetcode_number: 261,
+  number: 63,
   title: "Graph Valid Tree",
   difficulty: "Medium",
   categories: ["Graph", "Union-Find", "DFS", "BFS"],
-  sources: ["Blind 75"],
   prompt:
     "Given n nodes labeled 0..n-1 and a list of undirected edges, determine whether the graph forms a valid tree (connected and acyclic).",
   constraints: ["1 <= n <= 2000", "0 <= edges.length <= 5000"],
@@ -338,11 +333,10 @@ add({
 // 6. Word Ladder
 add({
   id: "word-ladder",
-  leetcode_number: 127,
+  number: 196,
   title: "Word Ladder",
   difficulty: "Hard",
   categories: ["Graph", "BFS", "String", "Hash Table"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given two words beginWord and endWord and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, where each step changes exactly one letter and every intermediate word must be in wordList. Return 0 if no such sequence exists.",
   constraints: ["1 <= beginWord.length <= 10", "endWord.length == beginWord.length", "1 <= wordList.length <= 5000", "All strings are lowercase English letters."],
@@ -414,11 +408,10 @@ add({
 // 7. Rotting Oranges
 add({
   id: "rotting-oranges",
-  leetcode_number: 994,
+  number: 160,
   title: "Rotting Oranges",
   difficulty: "Medium",
   categories: ["Matrix", "BFS"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "You are given an m x n grid where each cell is 0 (empty), 1 (fresh orange), or 2 (rotten). Each minute every fresh orange adjacent (4-directionally) to a rotten orange becomes rotten. Return the minimum number of minutes that must elapse until no fresh orange remains; -1 if impossible.",
   constraints: ["1 <= m, n <= 10", "grid[i][j] in {0, 1, 2}"],
@@ -476,11 +469,10 @@ add({
 // 8. Surrounded Regions
 add({
   id: "surrounded-regions",
-  leetcode_number: 130,
+  number: 177,
   title: "Surrounded Regions",
   difficulty: "Medium",
   categories: ["Matrix", "DFS", "BFS", "Union-Find"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given an m x n board of 'X' and 'O', capture all regions of 'O' that are completely surrounded by 'X' (flip those to 'X'). 'O's connected to the border are not captured. Modify in-place and return the board.",
   constraints: ["1 <= m, n <= 200", "board[i][j] in {'X','O'}"],
@@ -537,11 +529,10 @@ add({
 // 9. Walls and Gates
 add({
   id: "walls-and-gates",
-  leetcode_number: 286,
+  number: 194,
   title: "Walls and Gates",
   difficulty: "Medium",
   categories: ["Matrix", "BFS"],
-  sources: ["Grind 75"],
   prompt:
     "You are given an m x n grid `rooms` initialized with -1 for walls, 0 for gates, and 2147483647 (INT_MAX) for empty rooms. Fill each empty room with the distance to its nearest gate (4-directional). If unreachable, leave INT_MAX. Modify in-place and return the grid.",
   constraints: ["1 <= m, n <= 250", "rooms[i][j] in {-1, 0, 2147483647}"],
@@ -593,11 +584,10 @@ add({
 // 10. Max Area of Island
 add({
   id: "max-area-of-island",
-  leetcode_number: 695,
+  number: 103,
   title: "Max Area of Island",
   difficulty: "Medium",
   categories: ["Matrix", "DFS", "BFS"],
-  sources: ["Grind 75"],
   prompt:
     "Given an m x n binary matrix where 1 represents land and 0 represents water, return the maximum area (in cells) of any 4-connected island. The matrix may be modified in place during traversal.",
   constraints: ["1 <= m, n <= 50", "grid[i][j] in {0, 1}"],
@@ -646,11 +636,10 @@ add({
 // 11. Redundant Connection
 add({
   id: "redundant-connection",
-  leetcode_number: 684,
+  number: 146,
   title: "Redundant Connection",
   difficulty: "Medium",
   categories: ["Graph", "Union-Find"],
-  sources: ["Grind 75"],
   prompt:
     "In a graph that started as a tree of n nodes (labeled 1..n) with one extra edge added, return that redundant edge. If multiple answers exist, return the one that occurs last in the input.",
   constraints: ["3 <= n <= 1000", "edges.length == n", "1 <= a, b <= n", "a != b"],
@@ -697,11 +686,10 @@ add({
 // 12. Network Delay Time
 add({
   id: "network-delay-time",
-  leetcode_number: 743,
+  number: 124,
   title: "Network Delay Time",
   difficulty: "Medium",
   categories: ["Graph", "Heap / Priority Queue", "Shortest Path"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given a list of travel times as directed edges times[i] = [u, v, w], return the minimum time required for a signal sent from node k to reach all n nodes. Return -1 if not all nodes can be reached.",
   constraints: ["1 <= k <= n <= 100", "1 <= times.length <= 6000", "1 <= u, v <= n", "u != v", "0 <= w <= 100"],
@@ -771,11 +759,10 @@ add({
 // 13. Cheapest Flights Within K Stops
 add({
   id: "cheapest-flights-within-k-stops",
-  leetcode_number: 787,
+  number: 21,
   title: "Cheapest Flights Within K Stops",
   difficulty: "Medium",
   categories: ["Graph", "Shortest Path", "Dynamic Programming", "BFS"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "There are n cities and a list of flights = [from, to, price]. Return the cheapest price from `src` to `dst` with at most `k` stops; -1 if no such route.",
   constraints: ["1 <= n <= 100", "0 <= flights.length <= n * (n-1)", "0 <= src, dst, k <= n", "1 <= price <= 10^4"],
@@ -837,11 +824,10 @@ add({
 // 14. Reconstruct Itinerary
 add({
   id: "reconstruct-itinerary",
-  leetcode_number: 332,
+  number: 145,
   title: "Reconstruct Itinerary",
   difficulty: "Hard",
   categories: ["Graph", "DFS", "Eulerian Path"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given a list of airline tickets [from, to], reconstruct the itinerary in order. The trip starts at \"JFK\" and uses every ticket exactly once. If multiple valid itineraries exist, return the one that is lexicographically smallest when read as a single concatenated list.",
   constraints: ["1 <= tickets.length <= 300", "Airport codes are 3-letter uppercase strings.", "An itinerary is guaranteed to exist."],
@@ -903,11 +889,10 @@ add({
 // 15. Alien Dictionary
 add({
   id: "alien-dictionary",
-  leetcode_number: 269,
+  number: 4,
   title: "Alien Dictionary",
   difficulty: "Hard",
   categories: ["Graph", "Topological Sort", "String"],
-  sources: ["Blind 75"],
   prompt:
     "There is an alien language using lowercase English letters but with an unknown order. You are given a list of `words` from this language sorted lexicographically by its rules. Return any valid letter ordering as a string. If invalid (e.g., a prefix violation) return \"\". Note: this dataset compares against a deterministic Kahn's algorithm with alphabetical tiebreaks; multiple valid orderings exist for the underlying problem, but our reference produces one canonical answer.",
   constraints: ["1 <= words.length <= 100", "1 <= words[i].length <= 100", "All words consist of lowercase English letters."],

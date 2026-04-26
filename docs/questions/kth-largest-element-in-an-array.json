@@ -1,6 +1,6 @@
 {
   "id": "kth-largest-element-in-an-array",
-  "leetcode_number": 215,
+  "number": 82,
   "title": "Kth Largest Element in an Array",
   "difficulty": "Medium",
   "categories": [
@@ -8,10 +8,6 @@
     "Heap / Priority Queue",
     "Divide & Conquer",
     "Sorting"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array `nums` and an integer `k`, return the kth largest element in the array. Note that it is the kth largest element in sorted order, not the kth distinct element.",
   "constraints": [

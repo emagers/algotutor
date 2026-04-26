@@ -8,6 +8,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { generateRustHarness } from "../harness/generate-rust.mjs";
 import { comparators } from "../harness/js/runtime.mjs";
+import { runWithMetrics } from "./metrics.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const RUNNER_DIR = existsSync("/work/backend/runner/rust")
@@ -68,7 +69,7 @@ export async function runRust({ question, code, tests }) {
     }
 
     const requestPayload = JSON.stringify({ tests });
-    const exec = await runProcess(resolve(RUNNER_DIR, "target", "release", "runner"), [],
+    const exec = await runWithMetrics(resolve(RUNNER_DIR, "target", "release", "runner"), [],
       { cwd: RUNNER_DIR, input: requestPayload, timeoutMs: RUN_TIMEOUT_MS });
     if (exec.timedOut) {
       return { results: [], compileError: `Execution timed out after ${RUN_TIMEOUT_MS / 1000}s.` };
@@ -92,6 +93,6 @@ export async function runRust({ question, code, tests }) {
       const pass = cmpFn(r.actual, expected);
       return { index: i, status: pass ? "pass" : "fail", expected, actual: r.actual, durationMs: r.durationMs ?? 0 };
     });
-    return { results };
+    return { results, metrics: exec.metrics };
   });
 }

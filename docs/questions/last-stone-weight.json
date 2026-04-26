@@ -1,14 +1,11 @@
 {
   "id": "last-stone-weight",
-  "leetcode_number": 1046,
+  "number": 85,
   "title": "Last Stone Weight",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Heap / Priority Queue"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "You are given an array of integers stones where stones[i] is the weight of the ith stone. We are playing a game with the stones: on each turn, choose the two heaviest stones x ≤ y and smash them. If x == y, both are destroyed; else the new stone has weight y - x. Return the weight of the last remaining stone, or 0 if none remain.",
   "constraints": [

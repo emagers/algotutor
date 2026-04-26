@@ -1,15 +1,11 @@
 {
   "id": "binary-search",
-  "leetcode_number": 704,
+  "number": 10,
   "title": "Binary Search",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Binary Search"
-  ],
-  "sources": [
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a sorted (ascending) array of distinct integers `nums` and a `target`, return the index of `target` if found, else return -1. Run in O(log n).",
   "constraints": [

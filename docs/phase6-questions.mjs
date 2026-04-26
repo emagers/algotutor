@@ -20,11 +20,10 @@ function add(q) { phase6Questions.push(q); }
 // 1. Kth Largest Element in an Array
 add({
   id: "kth-largest-element-in-an-array",
-  leetcode_number: 215,
+  number: 82,
   title: "Kth Largest Element in an Array",
   difficulty: "Medium",
   categories: ["Array", "Heap / Priority Queue", "Divide & Conquer", "Sorting"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given an integer array `nums` and an integer `k`, return the kth largest element in the array. Note that it is the kth largest element in sorted order, not the kth distinct element.",
   constraints: ["1 <= k <= nums.length <= 1e5", "-1e4 <= nums[i] <= 1e4"],
@@ -84,11 +83,10 @@ add({
 // 2. Kth Largest Element in a Stream
 add({
   id: "kth-largest-element-in-a-stream",
-  leetcode_number: 703,
+  number: 81,
   title: "Kth Largest Element in a Stream",
   difficulty: "Easy",
   categories: ["Heap / Priority Queue", "Design", "Data Stream"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Design a class that finds the kth largest element in a stream. Implement `KthLargest(k, nums)` initializer and `add(val) -> number` which returns the kth largest after adding val. Inputs are op protocols of the form `[['KthLargest', k, nums], ['add', v], ...]`; outputs include `null` for the constructor and the kth-largest after each add.",
   constraints: ["1 <= k <= 1e4", "0 <= nums.length <= 1e4", "-1e4 <= val <= 1e4", "There will be at least k elements in the heap when add returns."],
@@ -142,11 +140,10 @@ add({
 // 3. K Closest Points to Origin
 add({
   id: "k-closest-points-to-origin",
-  leetcode_number: 973,
+  number: 79,
   title: "K Closest Points to Origin",
   difficulty: "Medium",
   categories: ["Array", "Heap / Priority Queue", "Math", "Divide & Conquer", "Sorting"],
-  sources: ["LeetCode Top Interview 150", "Grind 75"],
   prompt:
     "Given an array of points where points[i] = [xi, yi] and an integer k, return the k closest points to the origin (0,0). The distance is the Euclidean distance. Any order is acceptable.",
   constraints: ["1 <= k <= points.length <= 1e4", "-1e4 <= xi, yi <= 1e4"],
@@ -202,11 +199,10 @@ add({
 // 4. Last Stone Weight
 add({
   id: "last-stone-weight",
-  leetcode_number: 1046,
+  number: 85,
   title: "Last Stone Weight",
   difficulty: "Easy",
   categories: ["Array", "Heap / Priority Queue"],
-  sources: ["Grind 75"],
   prompt:
     "You are given an array of integers stones where stones[i] is the weight of the ith stone. We are playing a game with the stones: on each turn, choose the two heaviest stones x ≤ y and smash them. If x == y, both are destroyed; else the new stone has weight y - x. Return the weight of the last remaining stone, or 0 if none remain.",
   constraints: ["1 <= stones.length <= 30", "1 <= stones[i] <= 1000"],
@@ -258,11 +254,10 @@ add({
 // 5. Task Scheduler
 add({
   id: "task-scheduler",
-  leetcode_number: 621,
+  number: 180,
   title: "Task Scheduler",
   difficulty: "Medium",
   categories: ["Array", "Hash Table", "Heap / Priority Queue", "Greedy"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given a character array tasks (each character is a task type) and a non-negative integer n (cooldown), return the least number of intervals the CPU needs to finish all tasks, where the same task type must be at least n intervals apart.",
   constraints: ["1 <= tasks.length <= 1e4", "tasks[i] is uppercase English letter", "0 <= n <= 100"],
@@ -310,11 +305,10 @@ add({
 // 6. Find Median from Data Stream
 add({
   id: "find-median-from-data-stream",
-  leetcode_number: 295,
+  number: 54,
   title: "Find Median from Data Stream",
   difficulty: "Hard",
   categories: ["Heap / Priority Queue", "Design", "Data Stream"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt:
     "Design a data structure that supports `addNum(num)` and `findMedian()` in a streaming fashion. The median is the middle value of an ordered list (or average of two middle values). Inputs are op protocols of the form `[['MedianFinder'], ['addNum', n], ['findMedian'], ...]`; outputs are `null` for ctor/addNum and the current median for findMedian.",
   constraints: ["At most 5e4 calls", "-1e5 <= num <= 1e5"],
@@ -381,11 +375,10 @@ add({
 // 7. Implement Trie
 add({
   id: "implement-trie",
-  leetcode_number: 208,
+  number: 70,
   title: "Implement Trie (Prefix Tree)",
   difficulty: "Medium",
   categories: ["String", "Trie", "Hash Table", "Design"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt:
     "Implement a Trie with `insert(word)`, `search(word) -> bool` (exact match), and `startsWith(prefix) -> bool`. Inputs are op protocols of the form `[['Trie'], ['insert', w], ['search', w], ['startsWith', p], ...]`; outputs are `null` for ctor/insert and the boolean for search/startsWith.",
   constraints: ["1 <= word.length, prefix.length <= 2000", "Lowercase English letters", "At most 3e4 calls"],
@@ -458,11 +451,10 @@ class Trie {
 // 8. Design Add and Search Words Data Structure
 add({
   id: "design-add-and-search-words-data-structure",
-  leetcode_number: 211,
+  number: 42,
   title: "Design Add and Search Words Data Structure",
   difficulty: "Medium",
   categories: ["String", "Trie", "DFS", "Design"],
-  sources: ["Blind 75"],
   prompt:
     "Design a data structure with `addWord(word)` and `search(word) -> bool` where word may contain '.' which matches any single letter. Inputs are op protocols `[['WordDictionary'], ['addWord', w], ['search', w], ...]`; outputs are `null` for ctor/addWord and bool for search.",
   constraints: ["1 <= word.length <= 25", "word in addWord uses lowercase letters", "word in search uses lowercase letters or '.'", "At most 1e4 calls", "At most 3 dots in any search word."],
@@ -535,11 +527,10 @@ class WordDictionary {
 // 9. Word Search II
 add({
   id: "word-search-ii",
-  leetcode_number: 212,
+  number: 199,
   title: "Word Search II",
   difficulty: "Hard",
   categories: ["Array", "String", "Trie", "Backtracking", "Matrix"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given an m x n board of characters and a list of words, return all words that can be constructed from letters of sequentially adjacent cells (horizontally/vertically), where the same cell may not be used more than once in a word. Order of returned words is not specified.",
   constraints: ["1 <= m, n <= 12", "1 <= words.length <= 3e4", "1 <= words[i].length <= 10", "All inputs are lowercase letters."],
@@ -612,11 +603,10 @@ add({
 // 10. Reorganize String
 add({
   id: "reorganize-string",
-  leetcode_number: 767,
+  number: 151,
   title: "Reorganize String",
   difficulty: "Medium",
   categories: ["String", "Hash Table", "Heap / Priority Queue", "Greedy", "Sorting"],
-  sources: ["Grind 75"],
   prompt:
     "Given a string s, rearrange its characters so that no two adjacent characters are the same. Return any valid rearrangement, or `\"\"` if impossible. The reference produces a deterministic output: at each step, pick the two highest-frequency characters; ties broken alphabetically.",
   constraints: ["1 <= s.length <= 500", "s contains lowercase English letters."],
@@ -627,7 +617,7 @@ add({
   ],
   optimal: { time: "O(n log k)", space: "O(k)", approach: "Max-heap; pop two, append, push back if remaining." },
   alternatives: [{ approach: "Place most-frequent at even indices first", time: "O(n)", space: "O(k)" }],
-  pitfalls: ["Multiple valid outputs exist on LeetCode; this dataset uses the deterministic heap-with-alphabetical-tiebreak output."],
+  pitfalls: ["Multiple valid outputs are possible; this dataset uses the deterministic heap-with-alphabetical-tiebreak output."],
   followups: ["k-distance apart variant: Task Scheduler-style spacing."],
   signature: { fn: "reorganizeString", params: [{ name: "s", adapt: "identity" }], returnAdapt: "identity" },
   comparison: "exact",

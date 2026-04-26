@@ -1,14 +1,11 @@
 {
   "id": "string-to-integer-atoi",
-  "leetcode_number": 8,
+  "number": 172,
   "title": "String to Integer (atoi)",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Implement myAtoi(s) which converts a string to a 32-bit signed integer. Steps: skip leading whitespace; read an optional '+' or '-' sign; read as many decimal digits as possible (the rest is ignored); convert to integer; clamp to the 32-bit signed range; if no digits were read, return 0.",
   "constraints": [

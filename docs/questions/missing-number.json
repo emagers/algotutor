@@ -1,15 +1,12 @@
 {
   "id": "missing-number",
-  "leetcode_number": 268,
+  "number": 120,
   "title": "Missing Number",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Bit Manipulation",
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an array nums containing n distinct numbers in the range [0, n], return the only number that is missing from the range.",
   "constraints": [

@@ -1,0 +1,548 @@
+{
+  "contains-duplicate": {
+    "video": "3OamzN90kPg"
+  },
+  "valid-anagram": {
+    "video": "9UtInBqnCgA"
+  },
+  "length-of-last-word": {
+    "video": "KT9rltZTybQ"
+  },
+  "two-sum": {
+    "video": "KLlXCFG5TnA"
+  },
+  "longest-common-prefix": {
+    "video": "0sWShKIJoo4"
+  },
+  "group-anagrams": {
+    "video": "vzdNOK2oB2E"
+  },
+  "isomorphic-strings": {
+    "video": "7yF-U1hLEqQ"
+  },
+  "majority-element": {
+    "video": "7pnhv842keE"
+  },
+  "word-pattern": {
+    "video": "W_akoecmCbM"
+  },
+  "top-k-frequent-elements": {
+    "video": "YPTqKIgVk-k"
+  },
+  "product-of-array-except-self": {
+    "video": "bNvIQI2wAjk"
+  },
+  "valid-sudoku": {
+    "video": "TjFXEUCMqI8"
+  },
+  "encode-decode-strings": {
+    "video": "B1k_sxOSgv8"
+  },
+  "longest-consecutive-sequence": {
+    "video": "P6RZZMu_maU"
+  },
+  "best-time-to-buy-and-sell-stock-ii": {
+    "video": "3SJ3pUkPQMc"
+  },
+  "find-all-anagrams-in-a-string": {
+    "video": "G8xtZy0fDKg"
+  },
+  "find-the-index-of-the-first-occurrence-in-a-string": {
+    "video": "JoF0Z7nVSrA"
+  },
+  "insert-delete-getrandom-o1": {
+    "video": "j4KwhBziOpg"
+  },
+  "first-missing-positive": {
+    "video": "8g78yfzMlao"
+  },
+  "valid-palindrome": {
+    "video": "jJXJ16kPFWg"
+  },
+  "merge-sorted-array": {
+    "video": "P1Ic85RarKY"
+  },
+  "move-zeroes": {
+    "video": "aayNRwUN3Do"
+  },
+  "remove-duplicates-from-sorted-array": {
+    "video": "DEJAZBq0FDA"
+  },
+  "two-sum-ii": {
+    "video": "cQ1Oz4ckceM"
+  },
+  "3sum": {
+    "video": "jzZsG8n2R9A"
+  },
+  "container-with-most-water": {
+    "video": "UuiTKBwPgAo"
+  },
+  "rotate-array": {
+    "video": "BHr381Guz3Y"
+  },
+  "boats-to-save-people": {
+    "video": "XbaxWuHIWUs"
+  },
+  "trapping-rain-water": {
+    "video": "ZI2z5pq0TqA"
+  },
+  "best-time-to-buy-and-sell-stock": {
+    "video": "1pkOgXD63yU"
+  },
+  "contains-duplicate-ii": {
+    "video": "ypn0aZ0nrL4"
+  },
+  "longest-substring-without-repeating-characters": {
+    "video": "wiGpQwVHdE0"
+  },
+  "longest-repeating-character-replacement": {
+    "video": "gqXU1UyA8pk"
+  },
+  "permutation-in-string": {
+    "video": "UbyhOgBN834"
+  },
+  "minimum-window-substring": {
+    "video": "jSto0O4AJbM"
+  },
+  "sliding-window-maximum": {
+    "video": "DfljaUwZsOk"
+  },
+  "valid-parentheses": {
+    "video": "WTzjTskDFMg"
+  },
+  "min-stack": {
+    "video": "qkLl7nAwDPo"
+  },
+  "evaluate-reverse-polish-notation": {
+    "video": "iu0082c4HDE"
+  },
+  "generate-parentheses": {
+    "video": "s9fokUqJ76A"
+  },
+  "daily-temperatures": {
+    "video": "cTBiBSnjO3c"
+  },
+  "car-fleet": {
+    "video": "Pr6T-3yB9RM"
+  },
+  "largest-rectangle-in-histogram": {
+    "video": "zx5Sw9130L0"
+  },
+  "binary-search": {
+    "video": "s4DPM8ct1pI"
+  },
+  "squares-of-a-sorted-array": {
+    "video": "FPCZsG_AkUg"
+  },
+  "sqrt-x": {
+    "video": "zdMhGxRWutQ"
+  },
+  "search-2d-matrix": {
+    "video": "Ber2pi2C0j0"
+  },
+  "koko-eating-bananas": {
+    "video": "U2SozAs9RzA"
+  },
+  "find-minimum-in-rotated-sorted-array": {
+    "video": "nIVW4P8b1VA"
+  },
+  "search-in-rotated-sorted-array": {
+    "video": "U8XENwh8Oy8"
+  },
+  "time-based-key-value-store": {
+    "video": "fu2cD_6E8Hw"
+  },
+  "reverse-linked-list": {
+    "video": "G0_I-ZF0S38"
+  },
+  "merge-two-sorted-lists": {
+    "video": "XIdigk956u0"
+  },
+  "palindrome-linked-list": {
+    "video": "yOzXms1J6Nk"
+  },
+  "middle-of-the-linked-list": {
+    "video": "A2_ldqM4QcY"
+  },
+  "reorder-list": {
+    "video": "S5bfdUTrKLM"
+  },
+  "remove-nth-node-from-end-of-list": {
+    "video": "XVuQxVej6y8"
+  },
+  "lfu-cache": {
+    "video": "bLEIHn-DgoA"
+  },
+  "copy-list-with-random-pointer": {
+    "video": "5Y2EiZST97Y"
+  },
+  "add-two-numbers": {
+    "video": "wgFPrzTjm7s"
+  },
+  "linked-list-cycle": {
+    "video": "gBTe7lFR3vc"
+  },
+  "find-the-duplicate-number": {
+    "video": "wjYnzkAhcNk"
+  },
+  "design-circular-queue": {
+    "video": "aBbsfn863oA"
+  },
+  "lru-cache": {
+    "video": "7ABFKPK2hD4"
+  },
+  "merge-k-sorted-lists": {
+    "video": "q5a5OiGbT6Q"
+  },
+  "reverse-nodes-in-k-group": {
+    "video": "1UOPsfP85V4"
+  },
+  "binary-tree-inorder-traversal": {
+    "video": "g_S5WuasWUE"
+  },
+  "invert-binary-tree": {
+    "video": "OnSn2XEQ4MY"
+  },
+  "maximum-depth-of-binary-tree": {
+    "video": "hTM3phVI6YQ"
+  },
+  "diameter-of-binary-tree": {
+    "video": "bkxqA8Rfv04"
+  },
+  "balanced-binary-tree": {
+    "video": "QfJsau0ItOY"
+  },
+  "same-tree": {
+    "video": "vRbbcKXCxOw"
+  },
+  "subtree-of-another-tree": {
+    "video": "E36O5SWp-LE"
+  },
+  "convert-sorted-array-to-bst": {
+    "video": "0K0uCMYq5ng"
+  },
+  "path-sum": {
+    "video": "LSKQyOz_P8I"
+  },
+  "lowest-common-ancestor-of-a-bst": {
+    "video": "gs2LMfuOR9k"
+  },
+  "binary-tree-level-order-traversal": {
+    "video": "6ZnyEApgFYg"
+  },
+  "binary-tree-right-side-view": {
+    "video": "d4zLyf32e3I"
+  },
+  "symmetric-tree": {
+    "video": "Mao9uzxwvmc"
+  },
+  "binary-tree-zigzag-level-order-traversal": {
+    "video": "igbboQbiwqw"
+  },
+  "count-good-nodes-in-binary-tree": {
+    "video": "7cp5imvDzl4"
+  },
+  "validate-binary-search-tree": {
+    "video": "s6ATEkipzow"
+  },
+  "kth-smallest-element-in-a-bst": {
+    "video": "5LUXSvjmGCw"
+  },
+  "construct-binary-tree-from-preorder-and-inorder": {
+    "video": "ihj4IQGZ2zc"
+  },
+  "binary-tree-maximum-path-sum": {
+    "video": "Hr5cWUld4vU"
+  },
+  "serialize-and-deserialize-binary-tree": {
+    "video": "u4JAi2JJhI8"
+  },
+  "implement-trie": {
+    "video": "oobqoCJlHA0"
+  },
+  "design-add-and-search-words-data-structure": {
+    "video": "BTf05gs_8iU"
+  },
+  "word-search-ii": {
+    "video": "asbcE9mZz_U"
+  },
+  "kth-largest-element-in-a-stream": {
+    "video": "hOjcdrqMoQ8"
+  },
+  "last-stone-weight": {
+    "video": "B-QCq79-Vfw"
+  },
+  "k-closest-points-to-origin": {
+    "video": "rI2EBUEMfTk"
+  },
+  "kth-largest-element-in-an-array": {
+    "video": "XEmy13g1Qxc"
+  },
+  "task-scheduler": {
+    "video": "s8p8ukTyA2I"
+  },
+  "design-twitter": {
+    "video": "pNichitDD2E"
+  },
+  "reorganize-string": {
+    "video": "2g_b1aYTHeg"
+  },
+  "find-median-from-data-stream": {
+    "video": "itmhHWaHupI"
+  },
+  "subsets": {
+    "video": "REOH22Xwdkk"
+  },
+  "combination-sum": {
+    "video": "GBKI9VSKdGg"
+  },
+  "permutations": {
+    "video": "s7AvT7cGdSo"
+  },
+  "subsets-ii": {
+    "video": "Vn2v6ajA7U0"
+  },
+  "combination-sum-ii": {
+    "video": "rSA3t6BDDwg"
+  },
+  "permutations-ii": {
+    "video": "qhBVWf0YafA"
+  },
+  "word-search": {
+    "video": "pfiQ_PS1g8E"
+  },
+  "palindrome-partitioning": {
+    "video": "3jvWodd7ht0"
+  },
+  "letter-combinations-of-a-phone-number": {
+    "video": "0snEunUacZY"
+  },
+  "n-queens": {
+    "video": "Ph95IHmRp5M"
+  },
+  "number-of-islands": {
+    "video": "pV2kpPD66nE"
+  },
+  "clone-graph": {
+    "video": "mQeF6bN8hMk"
+  },
+  "max-area-of-island": {
+    "video": "iJGr1OtmH0c"
+  },
+  "pacific-atlantic-water-flow": {
+    "video": "s-VkcjHqkGI"
+  },
+  "surrounded-regions": {
+    "video": "9z2BunfoZ5Y"
+  },
+  "rotting-oranges": {
+    "video": "y704fEOx0s0"
+  },
+  "walls-and-gates": {
+    "video": "e69C6xhiSQE"
+  },
+  "course-schedule": {
+    "video": "EgI5nU9etnU"
+  },
+  "course-schedule-ii": {
+    "video": "Akt3glAwyfY"
+  },
+  "redundant-connection": {
+    "video": "FXWRE67PLL0"
+  },
+  "number-of-connected-components": {
+    "video": "8f1XPm4WOUc"
+  },
+  "graph-valid-tree": {
+    "video": "bXsUuownnoQ"
+  },
+  "word-ladder": {
+    "video": "h9iTnkgv05E"
+  },
+  "reconstruct-itinerary": {
+    "video": "ZyB_gQ8vqGA"
+  },
+  "network-delay-time": {
+    "video": "EaphyqKU4PQ"
+  },
+  "alien-dictionary": {
+    "video": "6kTZYvNNyps"
+  },
+  "cheapest-flights-within-k-stops": {
+    "video": "5eIK3zUdYmE"
+  },
+  "climbing-stairs": {
+    "video": "Y0lT9Fck7qI"
+  },
+  "house-robber": {
+    "video": "73r3KWiEvyk"
+  },
+  "house-robber-ii": {
+    "video": "rWAJCfYYOvM"
+  },
+  "longest-palindromic-substring": {
+    "video": "XYQecbcd6_c"
+  },
+  "palindromic-substrings": {
+    "video": "4RACzI5-du8"
+  },
+  "decode-ways": {
+    "video": "6aEyTjOwlJU"
+  },
+  "coin-change": {
+    "video": "H9bfqozjoqs"
+  },
+  "maximum-product-subarray": {
+    "video": "lXVy6YWFcRM"
+  },
+  "word-break": {
+    "video": "Sx9NNgInc3A"
+  },
+  "longest-increasing-subsequence": {
+    "video": "cjWnW0hdF1Y"
+  },
+  "partition-equal-subset-sum": {
+    "video": "IsvocB5BJhw"
+  },
+  "combination-sum-iv": {
+    "video": "dw2nMCxG0ik"
+  },
+  "unique-paths": {
+    "video": "IlEsdxuD4lY"
+  },
+  "unique-paths-ii": {
+    "video": "d3UOz7zdE4I"
+  },
+  "longest-common-subsequence": {
+    "video": "Ua0GhsJSlWM"
+  },
+  "best-time-to-buy-and-sell-stock-with-cooldown": {
+    "video": "I7j0F7AHpb8"
+  },
+  "coin-change-ii": {
+    "video": "Mjy4hd2xgrs"
+  },
+  "target-sum": {
+    "video": "g0npyaQtAQM"
+  },
+  "interleaving-string": {
+    "video": "3Rw3p9LrgvE"
+  },
+  "minimum-path-sum": {
+    "video": "pGMsrvt0fpk"
+  },
+  "longest-increasing-path-in-a-matrix": {
+    "video": "wCc_nd-GiEc"
+  },
+  "edit-distance": {
+    "video": "XYi2-LPrwm4"
+  },
+  "burst-balloons": {
+    "video": "VFskby7lUbw"
+  },
+  "regular-expression-matching": {
+    "video": "HAA8mgxlov8"
+  },
+  "maximum-subarray": {
+    "video": "5WZl3MMT0Eg"
+  },
+  "jump-game": {
+    "video": "Yan0cv2cLy8"
+  },
+  "jump-game-ii": {
+    "video": "dJ7sWiOoK7g"
+  },
+  "gas-station": {
+    "video": "lJwbPZGo05A"
+  },
+  "hand-of-straights": {
+    "video": "amnrMCVd2YI"
+  },
+  "merge-triplets-to-form-target-triplet": {
+    "video": "kShkQLQZ9K4"
+  },
+  "partition-labels": {
+    "video": "B7m8UmZE-vw"
+  },
+  "valid-parenthesis-string": {
+    "video": "QhPdNS143Qg"
+  },
+  "candy": {
+    "video": "1IzCRCcK17A"
+  },
+  "insert-interval": {
+    "video": "A8NUOmlwOlM"
+  },
+  "merge-intervals": {
+    "video": "44H3cEC2fFM"
+  },
+  "non-overlapping-intervals": {
+    "video": "nONCGxWoUfM"
+  },
+  "meeting-rooms": {
+    "video": "PaJxqZVPhbg"
+  },
+  "meeting-rooms-ii": {
+    "video": "FdzJmTCVyJU"
+  },
+  "minimum-interval-to-include-each-query": {
+    "video": "5hQ5WWW5awQ"
+  },
+  "rotate-image": {
+    "video": "fMSJSS7eO1w"
+  },
+  "spiral-matrix": {
+    "video": "BJnMZNwUk1M"
+  },
+  "set-matrix-zeroes": {
+    "video": "T41rL0L3Pnw"
+  },
+  "happy-number": {
+    "video": "ljz85bxOYJ0"
+  },
+  "plus-one": {
+    "video": "jIaA8boiG1s"
+  },
+  "palindrome-number": {
+    "video": "yubRKwixN-U"
+  },
+  "roman-to-integer": {
+    "video": "3jdxYj3DD98"
+  },
+  "integer-to-roman": {
+    "video": "ohBNdSJyLh8"
+  },
+  "pow-x-n": {
+    "video": "g9YQyYi4IQQ"
+  },
+  "multiply-strings": {
+    "video": "1vZswirL8Y8"
+  },
+  "zigzag-conversion": {
+    "video": "Q2Tw6gcVEwc"
+  },
+  "single-number": {
+    "video": "qMPX1AOa83k"
+  },
+  "number-of-1-bits": {
+    "video": "5Km3utixwZs"
+  },
+  "counting-bits": {
+    "video": "RyBM56RIWrM"
+  },
+  "reverse-bits": {
+    "video": "UcoN6UjAI64"
+  },
+  "missing-number": {
+    "video": "WnPLSRLSANE"
+  },
+  "sum-of-two-integers": {
+    "video": "gVUrDV4tZfY"
+  },
+  "reverse-integer": {
+    "video": "HAgLH58IgJQ"
+  },
+  "add-binary": {
+    "video": "keuWJ47xG8g"
+  }
+}

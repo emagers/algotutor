@@ -1,14 +1,11 @@
 {
   "id": "isomorphic-strings",
-  "leetcode_number": 205,
+  "number": 76,
   "title": "Isomorphic Strings",
   "difficulty": "Easy",
   "categories": [
     "String",
     "Hash Table"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Two strings s and t are isomorphic if there is a one-to-one mapping between every character of s and every character of t such that replacing all occurrences of each s-character with its mapped t-character produces t. No two distinct s-characters may map to the same t-character.",
   "constraints": [

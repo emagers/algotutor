@@ -1,15 +1,12 @@
 {
   "id": "same-tree",
-  "leetcode_number": 100,
+  "number": 161,
   "title": "Same Tree",
   "difficulty": "Easy",
   "categories": [
     "Tree",
     "DFS",
     "BFS"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the roots of two binary trees p and q, return true if they are structurally identical and the nodes have the same values.",
   "constraints": [

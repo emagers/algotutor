@@ -1,6 +1,6 @@
 {
   "id": "maximum-depth-of-binary-tree",
-  "leetcode_number": 104,
+  "number": 104,
   "title": "Maximum Depth of Binary Tree",
   "difficulty": "Easy",
   "categories": [
@@ -8,11 +8,6 @@
     "DFS",
     "BFS",
     "Recursion"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a binary tree, return its maximum depth — the number of nodes along the longest path from the root down to a leaf.",
   "constraints": [

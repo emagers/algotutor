@@ -1,16 +1,12 @@
 {
   "id": "largest-rectangle-in-histogram",
-  "leetcode_number": 84,
+  "number": 84,
   "title": "Largest Rectangle in Histogram",
   "difficulty": "Hard",
   "categories": [
     "Stack",
     "Monotonic Stack",
     "Array"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an array `heights` representing the bar heights of a histogram (each bar has width 1), return the area of the largest rectangle that fits entirely inside the histogram.",
   "constraints": [

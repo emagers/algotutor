@@ -1,15 +1,12 @@
 {
   "id": "binary-tree-inorder-traversal",
-  "leetcode_number": 94,
+  "number": 11,
   "title": "Binary Tree Inorder Traversal",
   "difficulty": "Easy",
   "categories": [
     "Tree",
     "DFS",
     "Stack"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a binary tree, return the inorder traversal of its nodes' values.",
   "constraints": [

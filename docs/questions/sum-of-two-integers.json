@@ -1,14 +1,11 @@
 {
   "id": "sum-of-two-integers",
-  "leetcode_number": 371,
+  "number": 176,
   "title": "Sum of Two Integers",
   "difficulty": "Medium",
   "categories": [
     "Bit Manipulation",
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two integers a and b, return their sum without using the operators + and -.",
   "constraints": [

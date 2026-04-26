@@ -1,17 +1,12 @@
 {
   "id": "lru-cache",
-  "leetcode_number": 146,
+  "number": 101,
   "title": "LRU Cache",
   "difficulty": "Medium",
   "categories": [
     "Hash Table",
     "Linked List",
     "Design"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement the LRUCache class with capacity, get(key) returning the value or -1, and put(key, value). Each operation must run in O(1). Operations are given as `[[\"LRUCache\", capacity], [\"put\", k, v], [\"get\", k], ...]`; the output is an array with `null` for constructor/put and the returned value for get.",
   "constraints": [

@@ -1,16 +1,11 @@
 {
   "id": "find-minimum-in-rotated-sorted-array",
-  "leetcode_number": 153,
+  "number": 55,
   "title": "Find Minimum in Rotated Sorted Array",
   "difficulty": "Medium",
   "categories": [
     "Binary Search",
     "Array"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a sorted array of unique integers that has been rotated between 1 and n times, return the minimum element. Solve in O(log n).",
   "constraints": [

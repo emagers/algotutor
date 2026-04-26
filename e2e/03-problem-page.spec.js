@@ -61,6 +61,28 @@ function twoSum(nums, target) {
   await expect(out).toContainText("[0,1]");
 });
 
+test("custom input runs against the user code (Rust, via backend)", async ({ page }) => {
+  test.setTimeout(120_000);
+  await page.goto("/problem.html?id=two-sum");
+  await waitForEditor(page);
+  await selectLanguage(page, "rust");
+  await setEditorCode(page, `
+fn twoSum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    use std::collections::HashMap;
+    let mut m: HashMap<i32, i32> = HashMap::new();
+    for (i, &n) in nums.iter().enumerate() {
+        if let Some(&j) = m.get(&(target - n)) { return vec![j, i as i32]; }
+        m.insert(n, i as i32);
+    }
+    vec![]
+}`);
+  await page.fill("#custom-input", JSON.stringify({ nums: [2,7,11,15], target: 9 }));
+  await page.click("#btn-run");
+  const out = page.locator("#output");
+  await expect(out).toContainText("Output", { timeout: 60_000 });
+  await expect(out).toContainText("[0,1]");
+});
+
 test("invalid JSON in custom input shows error", async ({ page }) => {
   await page.goto("/problem.html?id=two-sum");
   await waitForEditor(page);
@@ -87,8 +109,8 @@ test("editor code persists across page reload", async ({ page }) => {
   await waitForEditor(page);
   const marker = "// my-custom-marker-" + Date.now();
   await setEditorCode(page, `function twoSum(nums, target) {\n${marker}\n  return [];\n}`);
-  // Give onChange listeners time to persist to localStorage.
-  await page.waitForTimeout(300);
+  // Give the debounced save (400ms) + network round-trip time to complete.
+  await page.waitForTimeout(800);
   await page.reload();
   await waitForEditor(page);
   // Wait for the saved code to be loaded back.
@@ -98,4 +120,56 @@ test("editor code persists across page reload", async ({ page }) => {
     { timeout: 5_000 }
   );
   expect(await getEditorCode(page)).toContain(marker);
+});
+
+test("code is distinct per language and survives switching", async ({ page }) => {
+  await page.goto("/problem.html?id=two-sum");
+  await waitForEditor(page);
+
+  const jsMarker = "// js-marker-" + Date.now();
+  await setEditorCode(page, `function twoSum() {\n${jsMarker}\n}`);
+  await page.waitForTimeout(800);
+
+  await selectLanguage(page, "rust");
+  // Rust tab should show starter (NOT the JS code we just wrote).
+  let rustCode = await getEditorCode(page);
+  expect(rustCode).not.toContain(jsMarker);
+  expect(rustCode).toMatch(/fn\s+twoSum/);
+
+  const rustMarker = "// rust-marker-" + Date.now();
+  await setEditorCode(page, `fn twoSum(nums: Vec<i32>, target: i32) -> Vec<i32> {\n${rustMarker}\n    vec![]\n}`);
+  await page.waitForTimeout(800);
+
+  // Switch back to JavaScript — should restore the JS code, not the Rust code.
+  await selectLanguage(page, "javascript");
+  const jsCode = await getEditorCode(page);
+  expect(jsCode).toContain(jsMarker);
+  expect(jsCode).not.toContain(rustMarker);
+
+  // Switch back to Rust — should restore the Rust code.
+  await selectLanguage(page, "rust");
+  rustCode = await getEditorCode(page);
+  expect(rustCode).toContain(rustMarker);
+  expect(rustCode).not.toContain(jsMarker);
+});
+
+test("selected language persists across page navigations", async ({ page }) => {
+  await page.goto("/problem.html?id=two-sum");
+  await waitForEditor(page);
+  await selectLanguage(page, "rust");
+  // Wait for the lang PUT to complete.
+  await page.waitForTimeout(300);
+
+  // Navigate to a different problem — Rust tab should be active by default.
+  await page.goto("/problem.html?id=valid-parentheses");
+  await waitForEditor(page);
+  await expect(page.locator(`.lang-tab[data-lang="rust"]`)).toHaveClass(/active/);
+  const code = await getEditorCode(page);
+  expect(code).toMatch(/fn\s+/);
+
+  // Even on a fresh page (problems list → problem), the choice persists.
+  await page.goto("/problems.html");
+  await page.goto("/problem.html?id=two-sum");
+  await waitForEditor(page);
+  await expect(page.locator(`.lang-tab[data-lang="rust"]`)).toHaveClass(/active/);
 });

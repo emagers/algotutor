@@ -1,15 +1,11 @@
 {
   "id": "decode-ways",
-  "leetcode_number": 91,
+  "number": 41,
   "title": "Decode Ways",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "A message containing letters from A-Z can be encoded into numbers using A=1, B=2, ..., Z=26. Given a string s containing only digits, return the number of ways to decode it.",
   "constraints": [

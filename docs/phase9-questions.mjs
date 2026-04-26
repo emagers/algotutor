@@ -20,11 +20,10 @@ function add(q) { phase9Questions.push(q); }
 // 1. Insert Interval
 add({
   id: "insert-interval",
-  leetcode_number: 57,
+  number: 72,
   title: "Insert Interval",
   difficulty: "Medium",
   categories: ["Array", "Intervals"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "You are given an array of non-overlapping intervals sorted by start time and a new interval. Insert the new interval into the list (merging overlaps as needed). Return the resulting list of non-overlapping intervals sorted by start time.",
   constraints: ["0 <= intervals.length <= 1e4", "intervals[i].length == 2", "intervals[i][0] <= intervals[i][1]", "intervals are sorted by start"],
   hints: [
@@ -80,11 +79,10 @@ add({
 // 2. Merge Intervals
 add({
   id: "merge-intervals",
-  leetcode_number: 56,
+  number: 109,
   title: "Merge Intervals",
   difficulty: "Medium",
   categories: ["Array", "Sorting", "Intervals"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given an array of intervals where intervals[i] = [start_i, end_i], merge all overlapping intervals and return an array of non-overlapping intervals that cover all the intervals in the input.",
   constraints: ["1 <= intervals.length <= 1e4", "0 <= start_i <= end_i <= 1e4"],
   hints: [
@@ -129,11 +127,10 @@ add({
 // 3. Non-overlapping Intervals
 add({
   id: "non-overlapping-intervals",
-  leetcode_number: 435,
+  number: 125,
   title: "Non-overlapping Intervals",
   difficulty: "Medium",
   categories: ["Array", "Greedy", "Intervals", "Sorting", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an array of intervals, return the minimum number of intervals you need to remove to make the rest non-overlapping (touching at endpoints is allowed).",
   constraints: ["1 <= intervals.length <= 1e5", "intervals[i].length == 2", "-5e4 <= start_i < end_i <= 5e4"],
   hints: ["Sort by end; greedily keep intervals that don't overlap with the last kept end."],
@@ -173,11 +170,10 @@ add({
 // 4. Meeting Rooms
 add({
   id: "meeting-rooms",
-  leetcode_number: 252,
+  number: 107,
   title: "Meeting Rooms",
   difficulty: "Easy",
   categories: ["Array", "Sorting", "Intervals"],
-  sources: ["Grind 75"],
   prompt: "Given an array of meeting time intervals, determine if a person could attend all meetings (no two meetings overlap; touching is allowed).",
   constraints: ["0 <= intervals.length <= 1e4", "0 <= start_i < end_i <= 1e6"],
   hints: ["Sort by start; check that each meeting's start >= previous meeting's end."],
@@ -215,11 +211,10 @@ add({
 // 5. Meeting Rooms II
 add({
   id: "meeting-rooms-ii",
-  leetcode_number: 253,
+  number: 108,
   title: "Meeting Rooms II",
   difficulty: "Medium",
   categories: ["Array", "Sorting", "Heap / Priority Queue", "Intervals"],
-  sources: ["Grind 75"],
   prompt: "Given an array of meeting time intervals, return the minimum number of conference rooms required.",
   constraints: ["0 <= intervals.length <= 1e4", "0 <= start_i < end_i <= 1e6"],
   hints: [
@@ -265,11 +260,10 @@ add({
 // 6. Minimum Number of Arrows to Burst Balloons
 add({
   id: "minimum-number-of-arrows-to-burst-balloons",
-  leetcode_number: 452,
+  number: 117,
   title: "Minimum Number of Arrows to Burst Balloons",
   difficulty: "Medium",
   categories: ["Array", "Greedy", "Sorting", "Intervals"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given balloons[i] = [x_start, x_end], find the minimum number of vertical arrows that must be shot to burst all balloons. An arrow at x bursts every balloon with x_start <= x <= x_end.",
   constraints: ["1 <= points.length <= 1e5", "x_start <= x_end", "-2³¹ <= x <= 2³¹ - 1"],
   hints: ["Sort by x_end; greedy: shoot at the smallest end; reset only when next.start > current arrow position."],
@@ -308,11 +302,10 @@ add({
 // 7. Best Time to Buy and Sell Stock II
 add({
   id: "best-time-to-buy-and-sell-stock-ii",
-  leetcode_number: 122,
+  number: 7,
   title: "Best Time to Buy and Sell Stock II",
   difficulty: "Medium",
   categories: ["Array", "Greedy", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "You are given an integer array prices where prices[i] is the price on day i. You may buy and sell as many times as you like (but only one share at a time). Return the maximum profit.",
   constraints: ["1 <= prices.length <= 3e4", "0 <= prices[i] <= 1e4"],
   hints: ["Sum every positive day-to-day delta — equivalent to picking every uphill segment."],
@@ -348,11 +341,10 @@ add({
 // 8. Gas Station
 add({
   id: "gas-station",
-  leetcode_number: 134,
+  number: 61,
   title: "Gas Station",
   difficulty: "Medium",
   categories: ["Array", "Greedy"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "There are n gas stations along a circular route, where the amount of gas at station i is gas[i]. To travel from i to i+1 costs cost[i] units. Given gas and cost, return the starting gas station's index if you can travel around the circuit once in the clockwise direction; otherwise return -1. Solution is unique if it exists.",
   constraints: ["1 <= n <= 1e5", "0 <= gas[i], cost[i] <= 1e4"],
   hints: [
@@ -397,11 +389,10 @@ add({
 // 9. Hand of Straights
 add({
   id: "hand-of-straights",
-  leetcode_number: 846,
+  number: 66,
   title: "Hand of Straights",
   difficulty: "Medium",
   categories: ["Array", "Hash Table", "Sorting", "Greedy"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Alice has a hand of cards, given as an integer array. She wants to rearrange them into groups, where each group is of size groupSize and consists of groupSize consecutive cards. Return true if she can rearrange the cards.",
   constraints: ["1 <= hand.length <= 1e4", "0 <= hand[i] <= 1e9", "1 <= groupSize <= hand.length"],
   hints: [
@@ -453,11 +444,10 @@ add({
 // 10. Merge Triplets to Form Target Triplet
 add({
   id: "merge-triplets-to-form-target-triplet",
-  leetcode_number: 1899,
+  number: 112,
   title: "Merge Triplets to Form Target Triplet",
   difficulty: "Medium",
   categories: ["Array", "Greedy"],
-  sources: ["NeetCode 150"],
   prompt: "Given a list of triplets and a target triplet [x,y,z], you may pick any subset of triplets and replace any pair of triplets [a,b,c] and [d,e,f] with [max(a,d), max(b,e), max(c,f)]. Return true if it is possible to obtain target.",
   constraints: ["1 <= triplets.length <= 1e5", "0 <= a,b,c,x,y,z <= 1000"],
   hints: [
@@ -499,11 +489,10 @@ add({
 // 11. Partition Labels
 add({
   id: "partition-labels",
-  leetcode_number: 763,
+  number: 135,
   title: "Partition Labels",
   difficulty: "Medium",
   categories: ["String", "Hash Table", "Two Pointers", "Greedy"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "You are given a string s. Partition s into as many parts as possible so that each letter appears in at most one part. Return a list of integers representing the size of these parts, in order.",
   constraints: ["1 <= s.length <= 500", "Lowercase English letters."],
   hints: [
@@ -549,11 +538,10 @@ add({
 // 12. Valid Parenthesis String
 add({
   id: "valid-parenthesis-string",
-  leetcode_number: 678,
+  number: 191,
   title: "Valid Parenthesis String",
   difficulty: "Medium",
   categories: ["String", "Stack", "Greedy", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a string s containing only '(', ')', and '*', return true if s is valid. '*' may be treated as '(', ')', or empty.",
   constraints: ["1 <= s.length <= 100", "s consists of '(', ')', '*' only"],
   hints: [
@@ -601,11 +589,10 @@ add({
 // 13. Candy
 add({
   id: "candy",
-  leetcode_number: 135,
+  number: 19,
   title: "Candy",
   difficulty: "Hard",
   categories: ["Array", "Greedy"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "There are n children standing in a line, each with a rating. You are giving candies subject to: each child has at least one candy; children with a higher rating get more than their immediate neighbors. Return the minimum number of candies you must give.",
   constraints: ["1 <= ratings.length <= 2*1e4", "0 <= ratings[i] <= 2*1e4"],
   hints: ["Two passes: left-to-right then right-to-left, taking max."],
@@ -644,11 +631,10 @@ add({
 // 14. Boats to Save People
 add({
   id: "boats-to-save-people",
-  leetcode_number: 881,
+  number: 17,
   title: "Boats to Save People",
   difficulty: "Medium",
   categories: ["Array", "Two Pointers", "Greedy", "Sorting"],
-  sources: ["NeetCode 150"],
   prompt: "You are given an array people and an integer limit. Each boat carries at most 2 people whose total weight ≤ limit. Return the minimum number of boats to carry every person.",
   constraints: ["1 <= people.length <= 5*1e4", "1 <= people[i] <= limit <= 3*1e4"],
   hints: ["Sort; two pointers from ends. Pair lightest with heaviest if they fit; otherwise heaviest goes alone."],
@@ -689,11 +675,10 @@ add({
 // 15. Minimum Interval to Include Each Query
 add({
   id: "minimum-interval-to-include-each-query",
-  leetcode_number: 1851,
+  number: 116,
   title: "Minimum Interval to Include Each Query",
   difficulty: "Hard",
   categories: ["Array", "Binary Search", "Heap / Priority Queue", "Sorting", "Intervals"],
-  sources: ["NeetCode 150"],
   prompt: "Given a 2D array intervals where intervals[i] = [l_i, r_i] and an array queries, for each query q find the size (r-l+1) of the smallest interval such that l ≤ q ≤ r. If no such interval exists, return -1 for that query. Return an array of answers in the original query order.",
   constraints: ["1 <= intervals.length <= 1e5", "1 <= queries.length <= 1e5", "1 <= l <= r <= 1e7", "1 <= q <= 1e7"],
   hints: [

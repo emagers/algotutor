@@ -1,15 +1,11 @@
 {
   "id": "best-time-to-buy-and-sell-stock-with-cooldown",
-  "leetcode_number": 309,
+  "number": 9,
   "title": "Best Time to Buy and Sell Stock with Cooldown",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given prices where prices[i] is the price of a given stock on day i. Find the maximum profit you can achieve. After you sell, you cannot buy on the next day (cooldown of 1 day). You may complete as many transactions as you like (must sell before buying again).",
   "constraints": [

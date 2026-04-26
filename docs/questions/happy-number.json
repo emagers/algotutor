@@ -1,16 +1,12 @@
 {
   "id": "happy-number",
-  "leetcode_number": 202,
+  "number": 67,
   "title": "Happy Number",
   "difficulty": "Easy",
   "categories": [
     "Math",
     "Hash Table",
     "Two Pointers"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Replace n by the sum of the squares of its digits and repeat. n is happy if this process eventually reaches 1; otherwise it loops forever in a cycle that does not include 1. Return true if n is happy.",
   "constraints": [

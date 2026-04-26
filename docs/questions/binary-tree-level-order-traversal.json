@@ -1,16 +1,11 @@
 {
   "id": "binary-tree-level-order-traversal",
-  "leetcode_number": 102,
+  "number": 12,
   "title": "Binary Tree Level Order Traversal",
   "difficulty": "Medium",
   "categories": [
     "Tree",
     "BFS"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).",
   "constraints": [

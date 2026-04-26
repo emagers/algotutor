@@ -2,6 +2,7 @@ import { fetchIndex } from "../data.js";
 import { Storage } from "../storage.js";
 
 async function init() {
+  await Storage.init();
   const idx = await fetchIndex();
   document.getElementById("stat-total").textContent = idx.total;
   document.getElementById("stat-tests").textContent = idx.totalTests.toLocaleString();

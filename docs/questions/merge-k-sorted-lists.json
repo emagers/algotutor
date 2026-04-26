@@ -1,17 +1,12 @@
 {
   "id": "merge-k-sorted-lists",
-  "leetcode_number": 23,
+  "number": 110,
   "title": "Merge k Sorted Lists",
   "difficulty": "Hard",
   "categories": [
     "Linked List",
     "Heap / Priority Queue",
     "Divide & Conquer"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given an array of k sorted linked lists. Merge them into one sorted linked list and return it.",
   "constraints": [

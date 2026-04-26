@@ -1,14 +1,11 @@
 {
   "id": "excel-sheet-column-number",
-  "leetcode_number": 171,
+  "number": 51,
   "title": "Excel Sheet Column Number",
   "difficulty": "Easy",
   "categories": [
     "Math",
     "String"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a string columnTitle representing an Excel sheet column title (A, B, ..., Z, AA, AB, ...), return its corresponding column number. 'A' is 1, 'B' is 2, ..., 'Z' is 26, 'AA' is 27, 'AB' is 28, etc.",
   "constraints": [

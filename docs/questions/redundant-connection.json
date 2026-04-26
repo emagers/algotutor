@@ -1,14 +1,11 @@
 {
   "id": "redundant-connection",
-  "leetcode_number": 684,
+  "number": 146,
   "title": "Redundant Connection",
   "difficulty": "Medium",
   "categories": [
     "Graph",
     "Union-Find"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "In a graph that started as a tree of n nodes (labeled 1..n) with one extra edge added, return that redundant edge. If multiple answers exist, return the one that occurs last in the input.",
   "constraints": [

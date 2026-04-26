@@ -1,14 +1,11 @@
 {
   "id": "balanced-binary-tree",
-  "leetcode_number": 110,
+  "number": 5,
   "title": "Balanced Binary Tree",
   "difficulty": "Easy",
   "categories": [
     "Tree",
     "DFS"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a binary tree, determine if it is height-balanced — for every node the depths of its two subtrees differ by at most 1.",
   "constraints": [

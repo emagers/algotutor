@@ -1,16 +1,12 @@
 {
   "id": "binary-tree-maximum-path-sum",
-  "leetcode_number": 124,
+  "number": 13,
   "title": "Binary Tree Maximum Path Sum",
   "difficulty": "Hard",
   "categories": [
     "Tree",
     "DFS",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "A path in a binary tree is a sequence of nodes where each pair of adjacent nodes is connected by an edge. Given the root, return the maximum path sum of any path (need not pass through the root).",
   "constraints": [

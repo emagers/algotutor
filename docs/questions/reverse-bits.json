@@ -1,13 +1,10 @@
 {
   "id": "reverse-bits",
-  "leetcode_number": 190,
+  "number": 152,
   "title": "Reverse Bits",
   "difficulty": "Easy",
   "categories": [
     "Bit Manipulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Reverse the bits of a given 32-bit unsigned integer. Example: input 43261596 (00000010100101000001111010011100) should produce 964176192 (00111001011110000010100101000000).",
   "constraints": [

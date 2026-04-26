@@ -1,6 +1,6 @@
 {
   "id": "find-the-duplicate-number",
-  "leetcode_number": 287,
+  "number": 56,
   "title": "Find the Duplicate Number",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Two Pointers",
     "Binary Search",
     "Bit Manipulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an array nums of n + 1 integers where each integer is in the range [1, n] inclusive, exactly one number appears more than once. Find that duplicate without modifying the array and using O(1) extra space.",
   "constraints": [

@@ -32,8 +32,27 @@ function renderTest(r) {
   `;
 }
 
+function fmtBytes(n) {
+  if (!Number.isFinite(n)) return "—";
+  if (n < 1024) return `${n} B`;
+  if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)} KB`;
+  return `${(n / 1024 / 1024).toFixed(1)} MB`;
+}
+
+function metricsRow(sub) {
+  const m = sub.metrics;
+  if (!m) return "";
+  const parts = [];
+  if (Number.isFinite(m.peakMemBytes)) parts.push(`<span>Peak memory <code>${fmtBytes(m.peakMemBytes)}</code></span>`);
+  if (Number.isFinite(m.cpuMs)) parts.push(`<span>CPU time <code>${m.cpuMs} ms</code></span>`);
+  if (Number.isFinite(m.wallMs)) parts.push(`<span>Wall time <code>${m.wallMs} ms</code></span>`);
+  if (!parts.length) return "";
+  return `<div class="metrics-row">${parts.join("")}</div>`;
+}
+
 async function init() {
-  const sub = Storage.getSubmission(slug);
+  await Storage.init();
+  const sub = await Storage.getSubmission(slug);
   const root = document.getElementById("submission-root");
   if (!sub) {
     root.innerHTML = `<p class="empty-state">No submission found for this problem. <a href="problem.html?id=${encodeURIComponent(slug)}">Go solve it →</a></p>`;
@@ -52,6 +71,7 @@ async function init() {
         ${(sub.durationMs / 1000).toFixed(2)}s ·
         ${new Date(sub.timestamp).toLocaleString()}
       </div>
+      ${metricsRow(sub)}
       ${sub.fatal ? `<pre style="margin-top:12px;text-align:left;background:var(--code-bg);padding:12px;border-radius:6px;color:var(--fail);">${escapeHtml(sub.fatal)}</pre>` : ""}
     </div>
   `;

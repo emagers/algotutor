@@ -1,14 +1,11 @@
 {
   "id": "palindromic-substrings",
-  "leetcode_number": 647,
+  "number": 133,
   "title": "Palindromic Substrings",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "Given a string `s`, return the number of palindromic substrings in it. A substring is palindromic if it reads the same forward and backward; identical substrings at different positions are counted separately.",
   "constraints": [

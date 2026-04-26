@@ -5,39 +5,29 @@
   "items": [
     {
       "id": "two-sum",
-      "leetcode_number": 1,
+      "number": 184,
       "title": "Two Sum",
       "difficulty": "Easy",
       "categories": [
         "Array",
         "Hash Table"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/two-sum.json"
     },
     {
       "id": "best-time-to-buy-and-sell-stock",
-      "leetcode_number": 121,
+      "number": 6,
       "title": "Best Time to Buy and Sell Stock",
       "difficulty": "Easy",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/best-time-to-buy-and-sell-stock.json"
     },
     {
       "id": "contains-duplicate",
-      "leetcode_number": 217,
+      "number": 31,
       "title": "Contains Duplicate",
       "difficulty": "Easy",
       "categories": [
@@ -45,14 +35,11 @@
         "Hash Table",
         "Sorting"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/contains-duplicate.json"
     },
     {
       "id": "valid-anagram",
-      "leetcode_number": 242,
+      "number": 188,
       "title": "Valid Anagram",
       "difficulty": "Easy",
       "categories": [
@@ -60,48 +47,33 @@
         "Hash Table",
         "Sorting"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/valid-anagram.json"
     },
     {
       "id": "valid-parentheses",
-      "leetcode_number": 20,
+      "number": 190,
       "title": "Valid Parentheses",
       "difficulty": "Easy",
       "categories": [
         "String",
         "Stack"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/valid-parentheses.json"
     },
     {
       "id": "merge-two-sorted-lists",
-      "leetcode_number": 21,
+      "number": 113,
       "title": "Merge Two Sorted Lists",
       "difficulty": "Easy",
       "categories": [
         "Linked List",
         "Recursion"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/merge-two-sorted-lists.json"
     },
     {
       "id": "invert-binary-tree",
-      "leetcode_number": 226,
+      "number": 75,
       "title": "Invert Binary Tree",
       "difficulty": "Easy",
       "categories": [
@@ -110,30 +82,22 @@
         "BFS",
         "Recursion"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75"
-      ],
       "file": "questions/invert-binary-tree.json"
     },
     {
       "id": "binary-search",
-      "leetcode_number": 704,
+      "number": 10,
       "title": "Binary Search",
       "difficulty": "Easy",
       "categories": [
         "Array",
         "Binary Search"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/binary-search.json"
     },
     {
       "id": "maximum-subarray",
-      "leetcode_number": 53,
+      "number": 106,
       "title": "Maximum Subarray",
       "difficulty": "Medium",
       "categories": [
@@ -141,32 +105,22 @@
         "Dynamic Programming",
         "Divide & Conquer"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/maximum-subarray.json"
     },
     {
       "id": "product-of-array-except-self",
-      "leetcode_number": 238,
+      "number": 143,
       "title": "Product of Array Except Self",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Prefix Sum"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/product-of-array-except-self.json"
     },
     {
       "id": "3sum",
-      "leetcode_number": 15,
+      "number": 1,
       "title": "3Sum",
       "difficulty": "Medium",
       "categories": [
@@ -174,16 +128,11 @@
         "Two Pointers",
         "Sorting"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/3sum.json"
     },
     {
       "id": "longest-substring-without-repeating-characters",
-      "leetcode_number": 3,
+      "number": 98,
       "title": "Longest Substring Without Repeating Characters",
       "difficulty": "Medium",
       "categories": [
@@ -191,16 +140,11 @@
         "Sliding Window",
         "Hash Table"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/longest-substring-without-repeating-characters.json"
     },
     {
       "id": "group-anagrams",
-      "leetcode_number": 49,
+      "number": 64,
       "title": "Group Anagrams",
       "difficulty": "Medium",
       "categories": [
@@ -208,32 +152,22 @@
         "Hash Table",
         "Sorting"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/group-anagrams.json"
     },
     {
       "id": "search-in-rotated-sorted-array",
-      "leetcode_number": 33,
+      "number": 163,
       "title": "Search in Rotated Sorted Array",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Binary Search"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/search-in-rotated-sorted-array.json"
     },
     {
       "id": "number-of-islands",
-      "leetcode_number": 200,
+      "number": 128,
       "title": "Number of Islands",
       "difficulty": "Medium",
       "categories": [
@@ -243,16 +177,11 @@
         "BFS",
         "Union-Find"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/number-of-islands.json"
     },
     {
       "id": "course-schedule",
-      "leetcode_number": 207,
+      "number": 38,
       "title": "Course Schedule",
       "difficulty": "Medium",
       "categories": [
@@ -261,32 +190,22 @@
         "DFS",
         "Topological Sort"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/course-schedule.json"
     },
     {
       "id": "coin-change",
-      "leetcode_number": 322,
+      "number": 24,
       "title": "Coin Change",
       "difficulty": "Medium",
       "categories": [
         "Dynamic Programming",
         "Array"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/coin-change.json"
     },
     {
       "id": "word-break",
-      "leetcode_number": 139,
+      "number": 195,
       "title": "Word Break",
       "difficulty": "Medium",
       "categories": [
@@ -295,16 +214,11 @@
         "Hash Table",
         "Trie"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/word-break.json"
     },
     {
       "id": "top-k-frequent-elements",
-      "leetcode_number": 347,
+      "number": 182,
       "title": "Top K Frequent Elements",
       "difficulty": "Medium",
       "categories": [
@@ -313,16 +227,11 @@
         "Heap / Priority Queue",
         "Sorting"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/top-k-frequent-elements.json"
     },
     {
       "id": "trapping-rain-water",
-      "leetcode_number": 42,
+      "number": 183,
       "title": "Trapping Rain Water",
       "difficulty": "Hard",
       "categories": [
@@ -332,31 +241,22 @@
         "Dynamic Programming",
         "Monotonic Stack"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/trapping-rain-water.json"
     },
     {
       "id": "valid-palindrome",
-      "leetcode_number": 125,
+      "number": 189,
       "title": "Valid Palindrome",
       "difficulty": "Easy",
       "categories": [
         "Two Pointers",
         "String"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/valid-palindrome.json"
     },
     {
       "id": "two-sum-ii",
-      "leetcode_number": 167,
+      "number": 185,
       "title": "Two Sum II - Input Array Is Sorted",
       "difficulty": "Medium",
       "categories": [
@@ -364,15 +264,11 @@
         "Binary Search",
         "Array"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/two-sum-ii.json"
     },
     {
       "id": "container-with-most-water",
-      "leetcode_number": 11,
+      "number": 30,
       "title": "Container With Most Water",
       "difficulty": "Medium",
       "categories": [
@@ -380,39 +276,27 @@
         "Greedy",
         "Array"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/container-with-most-water.json"
     },
     {
       "id": "move-zeroes",
-      "leetcode_number": 283,
+      "number": 121,
       "title": "Move Zeroes",
       "difficulty": "Easy",
       "categories": [
         "Two Pointers",
         "Array"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/move-zeroes.json"
     },
     {
       "id": "remove-duplicates-from-sorted-array",
-      "leetcode_number": 26,
+      "number": 148,
       "title": "Remove Duplicates from Sorted Array",
       "difficulty": "Easy",
       "categories": [
         "Two Pointers",
         "Array"
-      ],
-      "sources": [
-        "LeetCode Top Interview 150"
       ],
       "file": "questions/remove-duplicates-from-sorted-array.json",
       "backendUnsupported": {
@@ -422,21 +306,18 @@
     },
     {
       "id": "merge-sorted-array",
-      "leetcode_number": 88,
+      "number": 111,
       "title": "Merge Sorted Array",
       "difficulty": "Easy",
       "categories": [
         "Two Pointers",
         "Array"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/merge-sorted-array.json"
     },
     {
       "id": "longest-consecutive-sequence",
-      "leetcode_number": 128,
+      "number": 93,
       "title": "Longest Consecutive Sequence",
       "difficulty": "Medium",
       "categories": [
@@ -444,31 +325,22 @@
         "Union-Find",
         "Array"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/longest-consecutive-sequence.json"
     },
     {
       "id": "encode-decode-strings",
-      "leetcode_number": 271,
+      "number": 49,
       "title": "Encode and Decode Strings",
       "difficulty": "Medium",
       "categories": [
         "String",
         "Design"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75"
-      ],
       "file": "questions/encode-decode-strings.json"
     },
     {
       "id": "longest-palindromic-substring",
-      "leetcode_number": 5,
+      "number": 96,
       "title": "Longest Palindromic Substring",
       "difficulty": "Medium",
       "categories": [
@@ -476,29 +348,22 @@
         "String",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/longest-palindromic-substring.json"
     },
     {
       "id": "palindromic-substrings",
-      "leetcode_number": 647,
+      "number": 133,
       "title": "Palindromic Substrings",
       "difficulty": "Medium",
       "categories": [
         "String",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/palindromic-substrings.json"
     },
     {
       "id": "longest-repeating-character-replacement",
-      "leetcode_number": 424,
+      "number": 97,
       "title": "Longest Repeating Character Replacement",
       "difficulty": "Medium",
       "categories": [
@@ -506,14 +371,11 @@
         "Hash Table",
         "String"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/longest-repeating-character-replacement.json"
     },
     {
       "id": "minimum-window-substring",
-      "leetcode_number": 76,
+      "number": 119,
       "title": "Minimum Window Substring",
       "difficulty": "Hard",
       "categories": [
@@ -521,15 +383,11 @@
         "Hash Table",
         "String"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/minimum-window-substring.json"
     },
     {
       "id": "permutation-in-string",
-      "leetcode_number": 567,
+      "number": 137,
       "title": "Permutation in String",
       "difficulty": "Medium",
       "categories": [
@@ -537,14 +395,11 @@
         "Hash Table",
         "String"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/permutation-in-string.json"
     },
     {
       "id": "sliding-window-maximum",
-      "leetcode_number": 239,
+      "number": 168,
       "title": "Sliding Window Maximum",
       "difficulty": "Hard",
       "categories": [
@@ -554,31 +409,22 @@
         "Monotonic Stack",
         "Array"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/sliding-window-maximum.json"
     },
     {
       "id": "find-minimum-in-rotated-sorted-array",
-      "leetcode_number": 153,
+      "number": 55,
       "title": "Find Minimum in Rotated Sorted Array",
       "difficulty": "Medium",
       "categories": [
         "Binary Search",
         "Array"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/find-minimum-in-rotated-sorted-array.json"
     },
     {
       "id": "search-2d-matrix",
-      "leetcode_number": 74,
+      "number": 162,
       "title": "Search a 2D Matrix",
       "difficulty": "Medium",
       "categories": [
@@ -586,59 +432,44 @@
         "Matrix",
         "Array"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/search-2d-matrix.json"
     },
     {
       "id": "koko-eating-bananas",
-      "leetcode_number": 875,
+      "number": 80,
       "title": "Koko Eating Bananas",
       "difficulty": "Medium",
       "categories": [
         "Binary Search",
         "Array"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/koko-eating-bananas.json"
     },
     {
       "id": "min-stack",
-      "leetcode_number": 155,
+      "number": 115,
       "title": "Min Stack",
       "difficulty": "Medium",
       "categories": [
         "Stack",
         "Design"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/min-stack.json"
     },
     {
       "id": "evaluate-reverse-polish-notation",
-      "leetcode_number": 150,
+      "number": 50,
       "title": "Evaluate Reverse Polish Notation",
       "difficulty": "Medium",
       "categories": [
         "Stack",
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/evaluate-reverse-polish-notation.json"
     },
     {
       "id": "daily-temperatures",
-      "leetcode_number": 739,
+      "number": 40,
       "title": "Daily Temperatures",
       "difficulty": "Medium",
       "categories": [
@@ -646,14 +477,11 @@
         "Monotonic Stack",
         "Array"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/daily-temperatures.json"
     },
     {
       "id": "largest-rectangle-in-histogram",
-      "leetcode_number": 84,
+      "number": 84,
       "title": "Largest Rectangle in Histogram",
       "difficulty": "Hard",
       "categories": [
@@ -661,15 +489,11 @@
         "Monotonic Stack",
         "Array"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/largest-rectangle-in-histogram.json"
     },
     {
       "id": "generate-parentheses",
-      "leetcode_number": 22,
+      "number": 62,
       "title": "Generate Parentheses",
       "difficulty": "Medium",
       "categories": [
@@ -677,16 +501,11 @@
         "Dynamic Programming",
         "String"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/generate-parentheses.json"
     },
     {
       "id": "car-fleet",
-      "leetcode_number": 853,
+      "number": 20,
       "title": "Car Fleet",
       "difficulty": "Medium",
       "categories": [
@@ -695,14 +514,11 @@
         "Sorting",
         "Greedy"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/car-fleet.json"
     },
     {
       "id": "squares-of-a-sorted-array",
-      "leetcode_number": 977,
+      "number": 171,
       "title": "Squares of a Sorted Array",
       "difficulty": "Easy",
       "categories": [
@@ -710,14 +526,11 @@
         "Sorting",
         "Array"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/squares-of-a-sorted-array.json"
     },
     {
       "id": "set-matrix-zeroes",
-      "leetcode_number": 73,
+      "number": 165,
       "title": "Set Matrix Zeroes",
       "difficulty": "Medium",
       "categories": [
@@ -725,30 +538,22 @@
         "Array",
         "Hash Table"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/set-matrix-zeroes.json"
     },
     {
       "id": "reverse-linked-list",
-      "leetcode_number": 206,
+      "number": 154,
       "title": "Reverse Linked List",
       "difficulty": "Easy",
       "categories": [
         "Linked List",
         "Recursion"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/reverse-linked-list.json"
     },
     {
       "id": "linked-list-cycle",
-      "leetcode_number": 141,
+      "number": 89,
       "title": "Linked List Cycle",
       "difficulty": "Easy",
       "categories": [
@@ -756,16 +561,11 @@
         "Two Pointers",
         "Hash Table"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/linked-list-cycle.json"
     },
     {
       "id": "linked-list-cycle-ii",
-      "leetcode_number": 142,
+      "number": 90,
       "title": "Linked List Cycle II",
       "difficulty": "Medium",
       "categories": [
@@ -773,28 +573,22 @@
         "Two Pointers",
         "Hash Table"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/linked-list-cycle-ii.json"
     },
     {
       "id": "middle-of-the-linked-list",
-      "leetcode_number": 876,
+      "number": 114,
       "title": "Middle of the Linked List",
       "difficulty": "Easy",
       "categories": [
         "Linked List",
         "Two Pointers"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/middle-of-the-linked-list.json"
     },
     {
       "id": "palindrome-linked-list",
-      "leetcode_number": 234,
+      "number": 130,
       "title": "Palindrome Linked List",
       "difficulty": "Easy",
       "categories": [
@@ -803,30 +597,22 @@
         "Stack",
         "Recursion"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/palindrome-linked-list.json"
     },
     {
       "id": "remove-nth-node-from-end-of-list",
-      "leetcode_number": 19,
+      "number": 149,
       "title": "Remove Nth Node From End of List",
       "difficulty": "Medium",
       "categories": [
         "Linked List",
         "Two Pointers"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/remove-nth-node-from-end-of-list.json"
     },
     {
       "id": "reorder-list",
-      "leetcode_number": 143,
+      "number": 150,
       "title": "Reorder List",
       "difficulty": "Medium",
       "categories": [
@@ -834,15 +620,11 @@
         "Two Pointers",
         "Stack"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/reorder-list.json"
     },
     {
       "id": "add-two-numbers",
-      "leetcode_number": 2,
+      "number": 3,
       "title": "Add Two Numbers",
       "difficulty": "Medium",
       "categories": [
@@ -850,24 +632,16 @@
         "Math",
         "Recursion"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/add-two-numbers.json"
     },
     {
       "id": "copy-list-with-random-pointer",
-      "leetcode_number": 138,
+      "number": 34,
       "title": "Copy List with Random Pointer",
       "difficulty": "Medium",
       "categories": [
         "Linked List",
         "Hash Table"
-      ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
       ],
       "file": "questions/copy-list-with-random-pointer.json",
       "backendUnsupported": {
@@ -877,7 +651,7 @@
     },
     {
       "id": "merge-k-sorted-lists",
-      "leetcode_number": 23,
+      "number": 110,
       "title": "Merge k Sorted Lists",
       "difficulty": "Hard",
       "categories": [
@@ -885,30 +659,22 @@
         "Heap / Priority Queue",
         "Divide & Conquer"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/merge-k-sorted-lists.json"
     },
     {
       "id": "reverse-nodes-in-k-group",
-      "leetcode_number": 25,
+      "number": 155,
       "title": "Reverse Nodes in k-Group",
       "difficulty": "Hard",
       "categories": [
         "Linked List",
         "Recursion"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/reverse-nodes-in-k-group.json"
     },
     {
       "id": "lru-cache",
-      "leetcode_number": 146,
+      "number": 101,
       "title": "LRU Cache",
       "difficulty": "Medium",
       "categories": [
@@ -916,16 +682,11 @@
         "Linked List",
         "Design"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/lru-cache.json"
     },
     {
       "id": "maximum-depth-of-binary-tree",
-      "leetcode_number": 104,
+      "number": 104,
       "title": "Maximum Depth of Binary Tree",
       "difficulty": "Easy",
       "categories": [
@@ -934,16 +695,11 @@
         "BFS",
         "Recursion"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/maximum-depth-of-binary-tree.json"
     },
     {
       "id": "same-tree",
-      "leetcode_number": 100,
+      "number": 161,
       "title": "Same Tree",
       "difficulty": "Easy",
       "categories": [
@@ -951,14 +707,11 @@
         "DFS",
         "BFS"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/same-tree.json"
     },
     {
       "id": "symmetric-tree",
-      "leetcode_number": 101,
+      "number": 178,
       "title": "Symmetric Tree",
       "difficulty": "Easy",
       "categories": [
@@ -966,42 +719,33 @@
         "DFS",
         "BFS"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/symmetric-tree.json"
     },
     {
       "id": "diameter-of-binary-tree",
-      "leetcode_number": 543,
+      "number": 46,
       "title": "Diameter of Binary Tree",
       "difficulty": "Easy",
       "categories": [
         "Tree",
         "DFS"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/diameter-of-binary-tree.json"
     },
     {
       "id": "balanced-binary-tree",
-      "leetcode_number": 110,
+      "number": 5,
       "title": "Balanced Binary Tree",
       "difficulty": "Easy",
       "categories": [
         "Tree",
         "DFS"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/balanced-binary-tree.json"
     },
     {
       "id": "path-sum",
-      "leetcode_number": 112,
+      "number": 136,
       "title": "Path Sum",
       "difficulty": "Easy",
       "categories": [
@@ -1009,14 +753,11 @@
         "DFS",
         "BFS"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/path-sum.json"
     },
     {
       "id": "binary-tree-inorder-traversal",
-      "leetcode_number": 94,
+      "number": 11,
       "title": "Binary Tree Inorder Traversal",
       "difficulty": "Easy",
       "categories": [
@@ -1024,14 +765,11 @@
         "DFS",
         "Stack"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/binary-tree-inorder-traversal.json"
     },
     {
       "id": "subtree-of-another-tree",
-      "leetcode_number": 572,
+      "number": 175,
       "title": "Subtree of Another Tree",
       "difficulty": "Easy",
       "categories": [
@@ -1039,30 +777,22 @@
         "DFS",
         "String"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/subtree-of-another-tree.json"
     },
     {
       "id": "binary-tree-level-order-traversal",
-      "leetcode_number": 102,
+      "number": 12,
       "title": "Binary Tree Level Order Traversal",
       "difficulty": "Medium",
       "categories": [
         "Tree",
         "BFS"
       ],
-      "sources": [
-        "Blind 75",
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/binary-tree-level-order-traversal.json"
     },
     {
       "id": "binary-tree-right-side-view",
-      "leetcode_number": 199,
+      "number": 14,
       "title": "Binary Tree Right Side View",
       "difficulty": "Medium",
       "categories": [
@@ -1070,29 +800,22 @@
         "BFS",
         "DFS"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/binary-tree-right-side-view.json"
     },
     {
       "id": "binary-tree-zigzag-level-order-traversal",
-      "leetcode_number": 103,
+      "number": 15,
       "title": "Binary Tree Zigzag Level Order Traversal",
       "difficulty": "Medium",
       "categories": [
         "Tree",
         "BFS"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/binary-tree-zigzag-level-order-traversal.json"
     },
     {
       "id": "count-good-nodes-in-binary-tree",
-      "leetcode_number": 1448,
+      "number": 35,
       "title": "Count Good Nodes in Binary Tree",
       "difficulty": "Medium",
       "categories": [
@@ -1100,14 +823,11 @@
         "DFS",
         "BFS"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/count-good-nodes-in-binary-tree.json"
     },
     {
       "id": "validate-binary-search-tree",
-      "leetcode_number": 98,
+      "number": 193,
       "title": "Validate Binary Search Tree",
       "difficulty": "Medium",
       "categories": [
@@ -1115,15 +835,11 @@
         "DFS",
         "Binary Search Tree"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/validate-binary-search-tree.json"
     },
     {
       "id": "kth-smallest-element-in-a-bst",
-      "leetcode_number": 230,
+      "number": 83,
       "title": "Kth Smallest Element in a BST",
       "difficulty": "Medium",
       "categories": [
@@ -1131,15 +847,11 @@
         "Binary Search Tree",
         "DFS"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/kth-smallest-element-in-a-bst.json"
     },
     {
       "id": "lowest-common-ancestor-of-a-bst",
-      "leetcode_number": 235,
+      "number": 100,
       "title": "Lowest Common Ancestor of a Binary Search Tree",
       "difficulty": "Medium",
       "categories": [
@@ -1147,30 +859,22 @@
         "Binary Search Tree",
         "DFS"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/lowest-common-ancestor-of-a-bst.json"
     },
     {
       "id": "lowest-common-ancestor-of-a-binary-tree",
-      "leetcode_number": 236,
+      "number": 99,
       "title": "Lowest Common Ancestor of a Binary Tree",
       "difficulty": "Medium",
       "categories": [
         "Tree",
         "DFS"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/lowest-common-ancestor-of-a-binary-tree.json"
     },
     {
       "id": "construct-binary-tree-from-preorder-and-inorder",
-      "leetcode_number": 105,
+      "number": 29,
       "title": "Construct Binary Tree from Preorder and Inorder Traversal",
       "difficulty": "Medium",
       "categories": [
@@ -1179,15 +883,11 @@
         "Hash Table",
         "Divide & Conquer"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/construct-binary-tree-from-preorder-and-inorder.json"
     },
     {
       "id": "binary-tree-maximum-path-sum",
-      "leetcode_number": 124,
+      "number": 13,
       "title": "Binary Tree Maximum Path Sum",
       "difficulty": "Hard",
       "categories": [
@@ -1195,15 +895,11 @@
         "DFS",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/binary-tree-maximum-path-sum.json"
     },
     {
       "id": "serialize-and-deserialize-binary-tree",
-      "leetcode_number": 297,
+      "number": 164,
       "title": "Serialize and Deserialize Binary Tree",
       "difficulty": "Hard",
       "categories": [
@@ -1213,10 +909,6 @@
         "Design",
         "String"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/serialize-and-deserialize-binary-tree.json",
       "backendUnsupported": {
         "rust": true,
@@ -1225,7 +917,7 @@
     },
     {
       "id": "convert-sorted-array-to-bst",
-      "leetcode_number": 108,
+      "number": 33,
       "title": "Convert Sorted Array to Binary Search Tree",
       "difficulty": "Easy",
       "categories": [
@@ -1233,14 +925,11 @@
         "Binary Search Tree",
         "Divide & Conquer"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/convert-sorted-array-to-bst.json"
     },
     {
       "id": "clone-graph",
-      "leetcode_number": 133,
+      "number": 23,
       "title": "Clone Graph",
       "difficulty": "Medium",
       "categories": [
@@ -1248,10 +937,6 @@
         "BFS",
         "DFS",
         "Hash Table"
-      ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
       ],
       "file": "questions/clone-graph.json",
       "backendUnsupported": {
@@ -1261,7 +946,7 @@
     },
     {
       "id": "pacific-atlantic-water-flow",
-      "leetcode_number": 417,
+      "number": 129,
       "title": "Pacific Atlantic Water Flow",
       "difficulty": "Medium",
       "categories": [
@@ -1269,14 +954,11 @@
         "BFS",
         "DFS"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/pacific-atlantic-water-flow.json"
     },
     {
       "id": "course-schedule-ii",
-      "leetcode_number": 210,
+      "number": 39,
       "title": "Course Schedule II",
       "difficulty": "Medium",
       "categories": [
@@ -1285,15 +967,11 @@
         "BFS",
         "DFS"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/course-schedule-ii.json"
     },
     {
       "id": "number-of-connected-components",
-      "leetcode_number": 323,
+      "number": 127,
       "title": "Number of Connected Components in an Undirected Graph",
       "difficulty": "Medium",
       "categories": [
@@ -1302,14 +980,11 @@
         "DFS",
         "BFS"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/number-of-connected-components.json"
     },
     {
       "id": "graph-valid-tree",
-      "leetcode_number": 261,
+      "number": 63,
       "title": "Graph Valid Tree",
       "difficulty": "Medium",
       "categories": [
@@ -1318,14 +993,11 @@
         "DFS",
         "BFS"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/graph-valid-tree.json"
     },
     {
       "id": "word-ladder",
-      "leetcode_number": 127,
+      "number": 196,
       "title": "Word Ladder",
       "difficulty": "Hard",
       "categories": [
@@ -1334,30 +1006,22 @@
         "String",
         "Hash Table"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/word-ladder.json"
     },
     {
       "id": "rotting-oranges",
-      "leetcode_number": 994,
+      "number": 160,
       "title": "Rotting Oranges",
       "difficulty": "Medium",
       "categories": [
         "Matrix",
         "BFS"
       ],
-      "sources": [
-        "Grind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/rotting-oranges.json"
     },
     {
       "id": "surrounded-regions",
-      "leetcode_number": 130,
+      "number": 177,
       "title": "Surrounded Regions",
       "difficulty": "Medium",
       "categories": [
@@ -1366,28 +1030,22 @@
         "BFS",
         "Union-Find"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/surrounded-regions.json"
     },
     {
       "id": "walls-and-gates",
-      "leetcode_number": 286,
+      "number": 194,
       "title": "Walls and Gates",
       "difficulty": "Medium",
       "categories": [
         "Matrix",
         "BFS"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/walls-and-gates.json"
     },
     {
       "id": "max-area-of-island",
-      "leetcode_number": 695,
+      "number": 103,
       "title": "Max Area of Island",
       "difficulty": "Medium",
       "categories": [
@@ -1395,28 +1053,22 @@
         "DFS",
         "BFS"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/max-area-of-island.json"
     },
     {
       "id": "redundant-connection",
-      "leetcode_number": 684,
+      "number": 146,
       "title": "Redundant Connection",
       "difficulty": "Medium",
       "categories": [
         "Graph",
         "Union-Find"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/redundant-connection.json"
     },
     {
       "id": "network-delay-time",
-      "leetcode_number": 743,
+      "number": 124,
       "title": "Network Delay Time",
       "difficulty": "Medium",
       "categories": [
@@ -1424,14 +1076,11 @@
         "Heap / Priority Queue",
         "Shortest Path"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/network-delay-time.json"
     },
     {
       "id": "cheapest-flights-within-k-stops",
-      "leetcode_number": 787,
+      "number": 21,
       "title": "Cheapest Flights Within K Stops",
       "difficulty": "Medium",
       "categories": [
@@ -1440,14 +1089,11 @@
         "Dynamic Programming",
         "BFS"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/cheapest-flights-within-k-stops.json"
     },
     {
       "id": "reconstruct-itinerary",
-      "leetcode_number": 332,
+      "number": 145,
       "title": "Reconstruct Itinerary",
       "difficulty": "Hard",
       "categories": [
@@ -1455,23 +1101,17 @@
         "DFS",
         "Eulerian Path"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/reconstruct-itinerary.json"
     },
     {
       "id": "alien-dictionary",
-      "leetcode_number": 269,
+      "number": 4,
       "title": "Alien Dictionary",
       "difficulty": "Hard",
       "categories": [
         "Graph",
         "Topological Sort",
         "String"
-      ],
-      "sources": [
-        "Blind 75"
       ],
       "file": "questions/alien-dictionary.json",
       "backendUnsupported": {
@@ -1481,7 +1121,7 @@
     },
     {
       "id": "kth-largest-element-in-an-array",
-      "leetcode_number": 215,
+      "number": 82,
       "title": "Kth Largest Element in an Array",
       "difficulty": "Medium",
       "categories": [
@@ -1490,15 +1130,11 @@
         "Divide & Conquer",
         "Sorting"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/kth-largest-element-in-an-array.json"
     },
     {
       "id": "kth-largest-element-in-a-stream",
-      "leetcode_number": 703,
+      "number": 81,
       "title": "Kth Largest Element in a Stream",
       "difficulty": "Easy",
       "categories": [
@@ -1506,14 +1142,11 @@
         "Design",
         "Data Stream"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/kth-largest-element-in-a-stream.json"
     },
     {
       "id": "k-closest-points-to-origin",
-      "leetcode_number": 973,
+      "number": 79,
       "title": "K Closest Points to Origin",
       "difficulty": "Medium",
       "categories": [
@@ -1523,29 +1156,22 @@
         "Divide & Conquer",
         "Sorting"
       ],
-      "sources": [
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/k-closest-points-to-origin.json"
     },
     {
       "id": "last-stone-weight",
-      "leetcode_number": 1046,
+      "number": 85,
       "title": "Last Stone Weight",
       "difficulty": "Easy",
       "categories": [
         "Array",
         "Heap / Priority Queue"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/last-stone-weight.json"
     },
     {
       "id": "task-scheduler",
-      "leetcode_number": 621,
+      "number": 180,
       "title": "Task Scheduler",
       "difficulty": "Medium",
       "categories": [
@@ -1554,14 +1180,11 @@
         "Heap / Priority Queue",
         "Greedy"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/task-scheduler.json"
     },
     {
       "id": "find-median-from-data-stream",
-      "leetcode_number": 295,
+      "number": 54,
       "title": "Find Median from Data Stream",
       "difficulty": "Hard",
       "categories": [
@@ -1569,16 +1192,11 @@
         "Design",
         "Data Stream"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/find-median-from-data-stream.json"
     },
     {
       "id": "implement-trie",
-      "leetcode_number": 208,
+      "number": 70,
       "title": "Implement Trie (Prefix Tree)",
       "difficulty": "Medium",
       "categories": [
@@ -1587,16 +1205,11 @@
         "Hash Table",
         "Design"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/implement-trie.json"
     },
     {
       "id": "design-add-and-search-words-data-structure",
-      "leetcode_number": 211,
+      "number": 42,
       "title": "Design Add and Search Words Data Structure",
       "difficulty": "Medium",
       "categories": [
@@ -1605,14 +1218,11 @@
         "DFS",
         "Design"
       ],
-      "sources": [
-        "Blind 75"
-      ],
       "file": "questions/design-add-and-search-words-data-structure.json"
     },
     {
       "id": "word-search-ii",
-      "leetcode_number": 212,
+      "number": 199,
       "title": "Word Search II",
       "difficulty": "Hard",
       "categories": [
@@ -1622,14 +1232,11 @@
         "Backtracking",
         "Matrix"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/word-search-ii.json"
     },
     {
       "id": "reorganize-string",
-      "leetcode_number": 767,
+      "number": 151,
       "title": "Reorganize String",
       "difficulty": "Medium",
       "categories": [
@@ -1639,14 +1246,11 @@
         "Greedy",
         "Sorting"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/reorganize-string.json"
     },
     {
       "id": "climbing-stairs",
-      "leetcode_number": 70,
+      "number": 22,
       "title": "Climbing Stairs",
       "difficulty": "Easy",
       "categories": [
@@ -1654,77 +1258,55 @@
         "Math",
         "Memoization"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/climbing-stairs.json"
     },
     {
       "id": "house-robber",
-      "leetcode_number": 198,
+      "number": 68,
       "title": "House Robber",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/house-robber.json"
     },
     {
       "id": "house-robber-ii",
-      "leetcode_number": 213,
+      "number": 69,
       "title": "House Robber II",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/house-robber-ii.json"
     },
     {
       "id": "decode-ways",
-      "leetcode_number": 91,
+      "number": 41,
       "title": "Decode Ways",
       "difficulty": "Medium",
       "categories": [
         "String",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/decode-ways.json"
     },
     {
       "id": "maximum-product-subarray",
-      "leetcode_number": 152,
+      "number": 105,
       "title": "Maximum Product Subarray",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/maximum-product-subarray.json"
     },
     {
       "id": "longest-increasing-subsequence",
-      "leetcode_number": 300,
+      "number": 95,
       "title": "Longest Increasing Subsequence",
       "difficulty": "Medium",
       "categories": [
@@ -1732,30 +1314,22 @@
         "Binary Search",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/longest-increasing-subsequence.json"
     },
     {
       "id": "partition-equal-subset-sum",
-      "leetcode_number": 416,
+      "number": 134,
       "title": "Partition Equal Subset Sum",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/partition-equal-subset-sum.json"
     },
     {
       "id": "unique-paths",
-      "leetcode_number": 62,
+      "number": 186,
       "title": "Unique Paths",
       "difficulty": "Medium",
       "categories": [
@@ -1763,14 +1337,11 @@
         "Dynamic Programming",
         "Combinatorics"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/unique-paths.json"
     },
     {
       "id": "unique-paths-ii",
-      "leetcode_number": 63,
+      "number": 187,
       "title": "Unique Paths II",
       "difficulty": "Medium",
       "categories": [
@@ -1778,14 +1349,11 @@
         "Dynamic Programming",
         "Matrix"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/unique-paths-ii.json"
     },
     {
       "id": "minimum-path-sum",
-      "leetcode_number": 64,
+      "number": 118,
       "title": "Minimum Path Sum",
       "difficulty": "Medium",
       "categories": [
@@ -1793,14 +1361,11 @@
         "Dynamic Programming",
         "Matrix"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/minimum-path-sum.json"
     },
     {
       "id": "jump-game",
-      "leetcode_number": 55,
+      "number": 77,
       "title": "Jump Game",
       "difficulty": "Medium",
       "categories": [
@@ -1808,16 +1373,11 @@
         "Dynamic Programming",
         "Greedy"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/jump-game.json"
     },
     {
       "id": "jump-game-ii",
-      "leetcode_number": 45,
+      "number": 78,
       "title": "Jump Game II",
       "difficulty": "Medium",
       "categories": [
@@ -1826,43 +1386,33 @@
         "Greedy",
         "BFS"
       ],
-      "sources": [
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/jump-game-ii.json"
     },
     {
       "id": "coin-change-ii",
-      "leetcode_number": 518,
+      "number": 25,
       "title": "Coin Change II",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/coin-change-ii.json"
     },
     {
       "id": "combination-sum-iv",
-      "leetcode_number": 377,
+      "number": 28,
       "title": "Combination Sum IV",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/combination-sum-iv.json"
     },
     {
       "id": "target-sum",
-      "leetcode_number": 494,
+      "number": 179,
       "title": "Target Sum",
       "difficulty": "Medium",
       "categories": [
@@ -1870,89 +1420,66 @@
         "Dynamic Programming",
         "Backtracking"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/target-sum.json"
     },
     {
       "id": "longest-common-subsequence",
-      "leetcode_number": 1143,
+      "number": 92,
       "title": "Longest Common Subsequence",
       "difficulty": "Medium",
       "categories": [
         "String",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/longest-common-subsequence.json"
     },
     {
       "id": "best-time-to-buy-and-sell-stock-with-cooldown",
-      "leetcode_number": 309,
+      "number": 9,
       "title": "Best Time to Buy and Sell Stock with Cooldown",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/best-time-to-buy-and-sell-stock-with-cooldown.json"
     },
     {
       "id": "best-time-to-buy-and-sell-stock-iv",
-      "leetcode_number": 188,
+      "number": 8,
       "title": "Best Time to Buy and Sell Stock IV",
       "difficulty": "Hard",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/best-time-to-buy-and-sell-stock-iv.json"
     },
     {
       "id": "edit-distance",
-      "leetcode_number": 72,
+      "number": 48,
       "title": "Edit Distance",
       "difficulty": "Medium",
       "categories": [
         "String",
         "Dynamic Programming"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/edit-distance.json"
     },
     {
       "id": "burst-balloons",
-      "leetcode_number": 312,
+      "number": 18,
       "title": "Burst Balloons",
       "difficulty": "Hard",
       "categories": [
         "Array",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/burst-balloons.json"
     },
     {
       "id": "regular-expression-matching",
-      "leetcode_number": 10,
+      "number": 147,
       "title": "Regular Expression Matching",
       "difficulty": "Hard",
       "categories": [
@@ -1960,28 +1487,22 @@
         "Dynamic Programming",
         "Recursion"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/regular-expression-matching.json"
     },
     {
       "id": "interleaving-string",
-      "leetcode_number": 97,
+      "number": 74,
       "title": "Interleaving String",
       "difficulty": "Medium",
       "categories": [
         "String",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/interleaving-string.json"
     },
     {
       "id": "longest-increasing-path-in-a-matrix",
-      "leetcode_number": 329,
+      "number": 94,
       "title": "Longest Increasing Path in a Matrix",
       "difficulty": "Hard",
       "categories": [
@@ -1992,14 +1513,11 @@
         "Matrix",
         "Topological Sort"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/longest-increasing-path-in-a-matrix.json"
     },
     {
       "id": "subsets",
-      "leetcode_number": 78,
+      "number": 173,
       "title": "Subsets",
       "difficulty": "Medium",
       "categories": [
@@ -2007,16 +1525,11 @@
         "Backtracking",
         "Bit Manipulation"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/subsets.json"
     },
     {
       "id": "subsets-ii",
-      "leetcode_number": 90,
+      "number": 174,
       "title": "Subsets II",
       "difficulty": "Medium",
       "categories": [
@@ -2024,74 +1537,55 @@
         "Backtracking",
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/subsets-ii.json"
     },
     {
       "id": "permutations",
-      "leetcode_number": 46,
+      "number": 138,
       "title": "Permutations",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Backtracking"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/permutations.json"
     },
     {
       "id": "permutations-ii",
-      "leetcode_number": 47,
+      "number": 139,
       "title": "Permutations II",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Backtracking"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/permutations-ii.json"
     },
     {
       "id": "combination-sum",
-      "leetcode_number": 39,
+      "number": 26,
       "title": "Combination Sum",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Backtracking"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/combination-sum.json"
     },
     {
       "id": "combination-sum-ii",
-      "leetcode_number": 40,
+      "number": 27,
       "title": "Combination Sum II",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Backtracking"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/combination-sum-ii.json"
     },
     {
       "id": "word-search",
-      "leetcode_number": 79,
+      "number": 198,
       "title": "Word Search",
       "difficulty": "Medium",
       "categories": [
@@ -2100,16 +1594,11 @@
         "Backtracking",
         "Matrix"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/word-search.json"
     },
     {
       "id": "palindrome-partitioning",
-      "leetcode_number": 131,
+      "number": 132,
       "title": "Palindrome Partitioning",
       "difficulty": "Medium",
       "categories": [
@@ -2117,28 +1606,22 @@
         "Backtracking",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/palindrome-partitioning.json"
     },
     {
       "id": "n-queens",
-      "leetcode_number": 51,
+      "number": 123,
       "title": "N-Queens",
       "difficulty": "Hard",
       "categories": [
         "Array",
         "Backtracking"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/n-queens.json"
     },
     {
       "id": "letter-combinations-of-a-phone-number",
-      "leetcode_number": 17,
+      "number": 87,
       "title": "Letter Combinations of a Phone Number",
       "difficulty": "Medium",
       "categories": [
@@ -2146,30 +1629,22 @@
         "String",
         "Backtracking"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/letter-combinations-of-a-phone-number.json"
     },
     {
       "id": "insert-interval",
-      "leetcode_number": 57,
+      "number": 72,
       "title": "Insert Interval",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Intervals"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/insert-interval.json"
     },
     {
       "id": "merge-intervals",
-      "leetcode_number": 56,
+      "number": 109,
       "title": "Merge Intervals",
       "difficulty": "Medium",
       "categories": [
@@ -2177,16 +1652,11 @@
         "Sorting",
         "Intervals"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/merge-intervals.json"
     },
     {
       "id": "non-overlapping-intervals",
-      "leetcode_number": 435,
+      "number": 125,
       "title": "Non-overlapping Intervals",
       "difficulty": "Medium",
       "categories": [
@@ -2196,14 +1666,11 @@
         "Sorting",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/non-overlapping-intervals.json"
     },
     {
       "id": "meeting-rooms",
-      "leetcode_number": 252,
+      "number": 107,
       "title": "Meeting Rooms",
       "difficulty": "Easy",
       "categories": [
@@ -2211,14 +1678,11 @@
         "Sorting",
         "Intervals"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/meeting-rooms.json"
     },
     {
       "id": "meeting-rooms-ii",
-      "leetcode_number": 253,
+      "number": 108,
       "title": "Meeting Rooms II",
       "difficulty": "Medium",
       "categories": [
@@ -2227,14 +1691,11 @@
         "Heap / Priority Queue",
         "Intervals"
       ],
-      "sources": [
-        "Grind 75"
-      ],
       "file": "questions/meeting-rooms-ii.json"
     },
     {
       "id": "minimum-number-of-arrows-to-burst-balloons",
-      "leetcode_number": 452,
+      "number": 117,
       "title": "Minimum Number of Arrows to Burst Balloons",
       "difficulty": "Medium",
       "categories": [
@@ -2243,14 +1704,11 @@
         "Sorting",
         "Intervals"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/minimum-number-of-arrows-to-burst-balloons.json"
     },
     {
       "id": "best-time-to-buy-and-sell-stock-ii",
-      "leetcode_number": 122,
+      "number": 7,
       "title": "Best Time to Buy and Sell Stock II",
       "difficulty": "Medium",
       "categories": [
@@ -2258,28 +1716,22 @@
         "Greedy",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/best-time-to-buy-and-sell-stock-ii.json"
     },
     {
       "id": "gas-station",
-      "leetcode_number": 134,
+      "number": 61,
       "title": "Gas Station",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Greedy"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/gas-station.json"
     },
     {
       "id": "hand-of-straights",
-      "leetcode_number": 846,
+      "number": 66,
       "title": "Hand of Straights",
       "difficulty": "Medium",
       "categories": [
@@ -2288,28 +1740,22 @@
         "Sorting",
         "Greedy"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/hand-of-straights.json"
     },
     {
       "id": "merge-triplets-to-form-target-triplet",
-      "leetcode_number": 1899,
+      "number": 112,
       "title": "Merge Triplets to Form Target Triplet",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Greedy"
       ],
-      "sources": [
-        "NeetCode 150"
-      ],
       "file": "questions/merge-triplets-to-form-target-triplet.json"
     },
     {
       "id": "partition-labels",
-      "leetcode_number": 763,
+      "number": 135,
       "title": "Partition Labels",
       "difficulty": "Medium",
       "categories": [
@@ -2318,14 +1764,11 @@
         "Two Pointers",
         "Greedy"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/partition-labels.json"
     },
     {
       "id": "valid-parenthesis-string",
-      "leetcode_number": 678,
+      "number": 191,
       "title": "Valid Parenthesis String",
       "difficulty": "Medium",
       "categories": [
@@ -2334,28 +1777,22 @@
         "Greedy",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/valid-parenthesis-string.json"
     },
     {
       "id": "candy",
-      "leetcode_number": 135,
+      "number": 19,
       "title": "Candy",
       "difficulty": "Hard",
       "categories": [
         "Array",
         "Greedy"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/candy.json"
     },
     {
       "id": "boats-to-save-people",
-      "leetcode_number": 881,
+      "number": 17,
       "title": "Boats to Save People",
       "difficulty": "Medium",
       "categories": [
@@ -2364,14 +1801,11 @@
         "Greedy",
         "Sorting"
       ],
-      "sources": [
-        "NeetCode 150"
-      ],
       "file": "questions/boats-to-save-people.json"
     },
     {
       "id": "minimum-interval-to-include-each-query",
-      "leetcode_number": 1851,
+      "number": 116,
       "title": "Minimum Interval to Include Each Query",
       "difficulty": "Hard",
       "categories": [
@@ -2381,83 +1815,64 @@
         "Sorting",
         "Intervals"
       ],
-      "sources": [
-        "NeetCode 150"
-      ],
       "file": "questions/minimum-interval-to-include-each-query.json"
     },
     {
       "id": "single-number",
-      "leetcode_number": 136,
+      "number": 166,
       "title": "Single Number",
       "difficulty": "Easy",
       "categories": [
         "Array",
         "Bit Manipulation"
       ],
-      "sources": [
-        "Blind 75",
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/single-number.json"
     },
     {
       "id": "single-number-ii",
-      "leetcode_number": 137,
+      "number": 167,
       "title": "Single Number II",
       "difficulty": "Medium",
       "categories": [
         "Array",
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/single-number-ii.json"
     },
     {
       "id": "number-of-1-bits",
-      "leetcode_number": 191,
+      "number": 126,
       "title": "Number of 1 Bits",
       "difficulty": "Easy",
       "categories": [
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/number-of-1-bits.json"
     },
     {
       "id": "counting-bits",
-      "leetcode_number": 338,
+      "number": 37,
       "title": "Counting Bits",
       "difficulty": "Easy",
       "categories": [
         "Bit Manipulation",
         "Dynamic Programming"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/counting-bits.json"
     },
     {
       "id": "reverse-bits",
-      "leetcode_number": 190,
+      "number": 152,
       "title": "Reverse Bits",
       "difficulty": "Easy",
       "categories": [
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/reverse-bits.json"
     },
     {
       "id": "missing-number",
-      "leetcode_number": 268,
+      "number": 120,
       "title": "Missing Number",
       "difficulty": "Easy",
       "categories": [
@@ -2465,68 +1880,53 @@
         "Bit Manipulation",
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/missing-number.json"
     },
     {
       "id": "sum-of-two-integers",
-      "leetcode_number": 371,
+      "number": 176,
       "title": "Sum of Two Integers",
       "difficulty": "Medium",
       "categories": [
         "Bit Manipulation",
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/sum-of-two-integers.json"
     },
     {
       "id": "bitwise-and-of-numbers-range",
-      "leetcode_number": 201,
+      "number": 16,
       "title": "Bitwise AND of Numbers Range",
       "difficulty": "Medium",
       "categories": [
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/bitwise-and-of-numbers-range.json"
     },
     {
       "id": "hamming-distance",
-      "leetcode_number": 461,
+      "number": 65,
       "title": "Hamming Distance",
       "difficulty": "Easy",
       "categories": [
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/hamming-distance.json"
     },
     {
       "id": "power-of-two",
-      "leetcode_number": 231,
+      "number": 142,
       "title": "Power of Two",
       "difficulty": "Easy",
       "categories": [
         "Bit Manipulation",
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/power-of-two.json"
     },
     {
       "id": "happy-number",
-      "leetcode_number": 202,
+      "number": 67,
       "title": "Happy Number",
       "difficulty": "Easy",
       "categories": [
@@ -2534,72 +1934,55 @@
         "Hash Table",
         "Two Pointers"
       ],
-      "sources": [
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/happy-number.json"
     },
     {
       "id": "plus-one",
-      "leetcode_number": 66,
+      "number": 140,
       "title": "Plus One",
       "difficulty": "Easy",
       "categories": [
         "Array",
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/plus-one.json"
     },
     {
       "id": "pow-x-n",
-      "leetcode_number": 50,
+      "number": 141,
       "title": "Pow(x, n)",
       "difficulty": "Medium",
       "categories": [
         "Math",
         "Recursion"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/pow-x-n.json"
     },
     {
       "id": "sqrt-x",
-      "leetcode_number": 69,
+      "number": 170,
       "title": "Sqrt(x)",
       "difficulty": "Easy",
       "categories": [
         "Math",
         "Binary Search"
       ],
-      "sources": [
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/sqrt-x.json"
     },
     {
       "id": "fizz-buzz",
-      "leetcode_number": 412,
+      "number": 59,
       "title": "Fizz Buzz",
       "difficulty": "Easy",
       "categories": [
         "Math",
         "String"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/fizz-buzz.json"
     },
     {
       "id": "roman-to-integer",
-      "leetcode_number": 13,
+      "number": 156,
       "title": "Roman to Integer",
       "difficulty": "Easy",
       "categories": [
@@ -2607,14 +1990,11 @@
         "Math",
         "String"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/roman-to-integer.json"
     },
     {
       "id": "integer-to-roman",
-      "leetcode_number": 12,
+      "number": 73,
       "title": "Integer to Roman",
       "difficulty": "Medium",
       "categories": [
@@ -2622,14 +2002,11 @@
         "Math",
         "String"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/integer-to-roman.json"
     },
     {
       "id": "multiply-strings",
-      "leetcode_number": 43,
+      "number": 122,
       "title": "Multiply Strings",
       "difficulty": "Medium",
       "categories": [
@@ -2637,27 +2014,21 @@
         "String",
         "Simulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/multiply-strings.json"
     },
     {
       "id": "palindrome-number",
-      "leetcode_number": 9,
+      "number": 131,
       "title": "Palindrome Number",
       "difficulty": "Easy",
       "categories": [
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/palindrome-number.json"
     },
     {
       "id": "add-binary",
-      "leetcode_number": 67,
+      "number": 2,
       "title": "Add Binary",
       "difficulty": "Easy",
       "categories": [
@@ -2665,81 +2036,63 @@
         "String",
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/add-binary.json"
     },
     {
       "id": "excel-sheet-column-number",
-      "leetcode_number": 171,
+      "number": 51,
       "title": "Excel Sheet Column Number",
       "difficulty": "Easy",
       "categories": [
         "Math",
         "String"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/excel-sheet-column-number.json"
     },
     {
       "id": "factorial-trailing-zeroes",
-      "leetcode_number": 172,
+      "number": 52,
       "title": "Factorial Trailing Zeroes",
       "difficulty": "Medium",
       "categories": [
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/factorial-trailing-zeroes.json"
     },
     {
       "id": "count-primes",
-      "leetcode_number": 204,
+      "number": 36,
       "title": "Count Primes",
       "difficulty": "Medium",
       "categories": [
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/count-primes.json"
     },
     {
       "id": "divide-two-integers",
-      "leetcode_number": 29,
+      "number": 47,
       "title": "Divide Two Integers",
       "difficulty": "Medium",
       "categories": [
         "Math",
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/divide-two-integers.json"
     },
     {
       "id": "reverse-integer",
-      "leetcode_number": 7,
+      "number": 153,
       "title": "Reverse Integer",
       "difficulty": "Medium",
       "categories": [
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/reverse-integer.json"
     },
     {
       "id": "lfu-cache",
-      "leetcode_number": 460,
+      "number": 88,
       "title": "LFU Cache",
       "difficulty": "Hard",
       "categories": [
@@ -2747,14 +2100,11 @@
         "Linked List",
         "Design"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/lfu-cache.json"
     },
     {
       "id": "design-twitter",
-      "leetcode_number": 355,
+      "number": 45,
       "title": "Design Twitter",
       "difficulty": "Medium",
       "categories": [
@@ -2763,14 +2113,11 @@
         "Design",
         "Linked List"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/design-twitter.json"
     },
     {
       "id": "time-based-key-value-store",
-      "leetcode_number": 981,
+      "number": 181,
       "title": "Time Based Key-Value Store",
       "difficulty": "Medium",
       "categories": [
@@ -2779,14 +2126,11 @@
         "Binary Search",
         "Design"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/time-based-key-value-store.json"
     },
     {
       "id": "insert-delete-getrandom-o1",
-      "leetcode_number": 380,
+      "number": 71,
       "title": "Insert Delete GetRandom O(1)",
       "difficulty": "Medium",
       "categories": [
@@ -2795,14 +2139,11 @@
         "Math",
         "Design"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/insert-delete-getrandom-o1.json"
     },
     {
       "id": "design-hit-counter",
-      "leetcode_number": 362,
+      "number": 44,
       "title": "Design Hit Counter",
       "difficulty": "Medium",
       "categories": [
@@ -2810,14 +2151,11 @@
         "Design",
         "Binary Search"
       ],
-      "sources": [
-        "LeetCode Premium"
-      ],
       "file": "questions/design-hit-counter.json"
     },
     {
       "id": "design-circular-queue",
-      "leetcode_number": 622,
+      "number": 43,
       "title": "Design Circular Queue",
       "difficulty": "Medium",
       "categories": [
@@ -2826,14 +2164,11 @@
         "Design",
         "Linked List"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/design-circular-queue.json"
     },
     {
       "id": "valid-sudoku",
-      "leetcode_number": 36,
+      "number": 192,
       "title": "Valid Sudoku",
       "difficulty": "Medium",
       "categories": [
@@ -2841,14 +2176,11 @@
         "Hash Table",
         "Matrix"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/valid-sudoku.json"
     },
     {
       "id": "spiral-matrix",
-      "leetcode_number": 54,
+      "number": 169,
       "title": "Spiral Matrix",
       "difficulty": "Medium",
       "categories": [
@@ -2856,14 +2188,11 @@
         "Matrix",
         "Simulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/spiral-matrix.json"
     },
     {
       "id": "rotate-image",
-      "leetcode_number": 48,
+      "number": 158,
       "title": "Rotate Image",
       "difficulty": "Medium",
       "categories": [
@@ -2871,14 +2200,11 @@
         "Matrix",
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/rotate-image.json"
     },
     {
       "id": "game-of-life",
-      "leetcode_number": 289,
+      "number": 60,
       "title": "Game of Life",
       "difficulty": "Medium",
       "categories": [
@@ -2886,28 +2212,22 @@
         "Matrix",
         "Simulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/game-of-life.json"
     },
     {
       "id": "first-missing-positive",
-      "leetcode_number": 41,
+      "number": 58,
       "title": "First Missing Positive",
       "difficulty": "Hard",
       "categories": [
         "Array",
         "Hash Table"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/first-missing-positive.json"
     },
     {
       "id": "find-the-duplicate-number",
-      "leetcode_number": 287,
+      "number": 56,
       "title": "Find the Duplicate Number",
       "difficulty": "Medium",
       "categories": [
@@ -2916,14 +2236,11 @@
         "Binary Search",
         "Bit Manipulation"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/find-the-duplicate-number.json"
     },
     {
       "id": "majority-element",
-      "leetcode_number": 169,
+      "number": 102,
       "title": "Majority Element",
       "difficulty": "Easy",
       "categories": [
@@ -2932,14 +2249,11 @@
         "Divide & Conquer",
         "Sorting"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/majority-element.json"
     },
     {
       "id": "rotate-array",
-      "leetcode_number": 189,
+      "number": 157,
       "title": "Rotate Array",
       "difficulty": "Medium",
       "categories": [
@@ -2947,14 +2261,11 @@
         "Math",
         "Two Pointers"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/rotate-array.json"
     },
     {
       "id": "contains-duplicate-ii",
-      "leetcode_number": 219,
+      "number": 32,
       "title": "Contains Duplicate II",
       "difficulty": "Easy",
       "categories": [
@@ -2962,14 +2273,11 @@
         "Hash Table",
         "Sliding Window"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/contains-duplicate-ii.json"
     },
     {
       "id": "find-all-anagrams-in-a-string",
-      "leetcode_number": 438,
+      "number": 53,
       "title": "Find All Anagrams in a String",
       "difficulty": "Medium",
       "categories": [
@@ -2977,42 +2285,33 @@
         "Hash Table",
         "Sliding Window"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/find-all-anagrams-in-a-string.json"
     },
     {
       "id": "string-to-integer-atoi",
-      "leetcode_number": 8,
+      "number": 172,
       "title": "String to Integer (atoi)",
       "difficulty": "Medium",
       "categories": [
         "String",
         "Math"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/string-to-integer-atoi.json"
     },
     {
       "id": "isomorphic-strings",
-      "leetcode_number": 205,
+      "number": 76,
       "title": "Isomorphic Strings",
       "difficulty": "Easy",
       "categories": [
         "String",
         "Hash Table"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/isomorphic-strings.json"
     },
     {
       "id": "ransom-note",
-      "leetcode_number": 383,
+      "number": 144,
       "title": "Ransom Note",
       "difficulty": "Easy",
       "categories": [
@@ -3020,91 +2319,69 @@
         "Hash Table",
         "Counting"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/ransom-note.json"
     },
     {
       "id": "length-of-last-word",
-      "leetcode_number": 58,
+      "number": 86,
       "title": "Length of Last Word",
       "difficulty": "Easy",
       "categories": [
         "String"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/length-of-last-word.json"
     },
     {
       "id": "longest-common-prefix",
-      "leetcode_number": 14,
+      "number": 91,
       "title": "Longest Common Prefix",
       "difficulty": "Easy",
       "categories": [
         "String",
         "Trie"
       ],
-      "sources": [
-        "LeetCode Top Interview 150",
-        "Grind 75"
-      ],
       "file": "questions/longest-common-prefix.json"
     },
     {
       "id": "zigzag-conversion",
-      "leetcode_number": 6,
+      "number": 200,
       "title": "Zigzag Conversion",
       "difficulty": "Medium",
       "categories": [
         "String"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/zigzag-conversion.json"
     },
     {
       "id": "find-the-index-of-the-first-occurrence-in-a-string",
-      "leetcode_number": 28,
+      "number": 57,
       "title": "Find the Index of the First Occurrence in a String",
       "difficulty": "Easy",
       "categories": [
         "String",
         "Two Pointers"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/find-the-index-of-the-first-occurrence-in-a-string.json"
     },
     {
       "id": "word-pattern",
-      "leetcode_number": 290,
+      "number": 197,
       "title": "Word Pattern",
       "difficulty": "Easy",
       "categories": [
         "String",
         "Hash Table"
       ],
-      "sources": [
-        "LeetCode Top Interview 150"
-      ],
       "file": "questions/word-pattern.json"
     },
     {
       "id": "rotate-string",
-      "leetcode_number": 796,
+      "number": 159,
       "title": "Rotate String",
       "difficulty": "Easy",
       "categories": [
         "String",
         "String Matching"
-      ],
-      "sources": [
-        "LeetCode Top Interview 150"
       ],
       "file": "questions/rotate-string.json"
     }

@@ -20,11 +20,10 @@ function add(q) { phase3Questions.push(q); }
 // 1. Reverse Linked List
 add({
   id: "reverse-linked-list",
-  leetcode_number: 206,
+  number: 154,
   title: "Reverse Linked List",
   difficulty: "Easy",
   categories: ["Linked List", "Recursion"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the head of a singly linked list, reverse the list and return the new head.",
   constraints: ["The number of nodes is in range [0, 5000].", "-5000 <= Node.val <= 5000"],
@@ -70,11 +69,10 @@ add({
 // 2. Linked List Cycle
 add({
   id: "linked-list-cycle",
-  leetcode_number: 141,
+  number: 89,
   title: "Linked List Cycle",
   difficulty: "Easy",
   categories: ["Linked List", "Two Pointers", "Hash Table"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the head of a linked list (represented here as `head` array of node values plus `pos`, the index where the tail's next pointer connects, or -1 for none), determine if the list contains a cycle.",
   constraints: ["0 <= n <= 10^4", "-10^5 <= Node.val <= 10^5", "pos is -1 or a valid index in [0, n)."],
@@ -128,11 +126,10 @@ add({
 // 3. Linked List Cycle II
 add({
   id: "linked-list-cycle-ii",
-  leetcode_number: 142,
+  number: 90,
   title: "Linked List Cycle II",
   difficulty: "Medium",
   categories: ["Linked List", "Two Pointers", "Hash Table"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Return the index of the node where a cycle begins, or -1 if there is no cycle. The list is given as `head` array plus `pos` (cycle entry index, -1 for none); the answer is the **index** of the cycle's first node.",
   constraints: ["0 <= n <= 10^4", "-10^5 <= Node.val <= 10^5", "pos is -1 or a valid index in [0, n)."],
@@ -189,11 +186,10 @@ add({
 // 4. Middle of the Linked List
 add({
   id: "middle-of-the-linked-list",
-  leetcode_number: 876,
+  number: 114,
   title: "Middle of the Linked List",
   difficulty: "Easy",
   categories: ["Linked List", "Two Pointers"],
-  sources: ["Grind 75"],
   prompt:
     "Given the head of a singly linked list, return the middle node. If there are two middle nodes, return the second one.",
   constraints: ["1 <= n <= 100", "1 <= Node.val <= 100"],
@@ -233,11 +229,10 @@ add({
 // 5. Palindrome Linked List
 add({
   id: "palindrome-linked-list",
-  leetcode_number: 234,
+  number: 130,
   title: "Palindrome Linked List",
   difficulty: "Easy",
   categories: ["Linked List", "Two Pointers", "Stack", "Recursion"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the head of a singly linked list, return true if it is a palindrome (reads the same forward and backward).",
   constraints: ["1 <= n <= 10^5", "0 <= Node.val <= 9"],
@@ -290,11 +285,10 @@ add({
 // 6. Remove Nth Node From End of List
 add({
   id: "remove-nth-node-from-end-of-list",
-  leetcode_number: 19,
+  number: 149,
   title: "Remove Nth Node From End of List",
   difficulty: "Medium",
   categories: ["Linked List", "Two Pointers"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given the head of a linked list, remove the nth node from the end and return the head.",
   constraints: ["The list size sz satisfies 1 <= sz <= 30.", "0 <= Node.val <= 100", "1 <= n <= sz"],
@@ -344,11 +338,10 @@ add({
 // 7. Reorder List
 add({
   id: "reorder-list",
-  leetcode_number: 143,
+  number: 150,
   title: "Reorder List",
   difficulty: "Medium",
   categories: ["Linked List", "Two Pointers", "Stack"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a singly linked list L0 → L1 → … → Ln-1 → Ln, reorder it to L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → … in place.",
   constraints: ["1 <= n <= 5 * 10^4", "1 <= Node.val <= 1000"],
@@ -395,11 +388,10 @@ add({
 // 8. Add Two Numbers
 add({
   id: "add-two-numbers",
-  leetcode_number: 2,
+  number: 3,
   title: "Add Two Numbers",
   difficulty: "Medium",
   categories: ["Linked List", "Math", "Recursion"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each node contains a single digit. Add the two numbers and return the sum as a linked list (also reverse order).",
   constraints: ["1 <= each list length <= 100", "0 <= Node.val <= 9", "Numbers contain no leading zeros except 0 itself."],
@@ -460,11 +452,10 @@ add({
 // 9. Copy List with Random Pointer
 add({
   id: "copy-list-with-random-pointer",
-  leetcode_number: 138,
+  number: 34,
   title: "Copy List with Random Pointer",
   difficulty: "Medium",
   categories: ["Linked List", "Hash Table"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt:
     "A linked list is given where each node has a `val`, a `next`, and a `random` pointer that may point to any node in the list or to null. Construct a deep copy of the list. Inputs and outputs are represented as `{ vals, randoms }` where `randoms[i]` is the index of node i's random target (or null).",
   constraints: ["0 <= n <= 1000", "-10^4 <= Node.val <= 10^4", "randoms[i] is null or a valid index in [0, n)."],
@@ -524,11 +515,10 @@ add({
 // 10. Merge K Sorted Lists
 add({
   id: "merge-k-sorted-lists",
-  leetcode_number: 23,
+  number: 110,
   title: "Merge k Sorted Lists",
   difficulty: "Hard",
   categories: ["Linked List", "Heap / Priority Queue", "Divide & Conquer"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "You are given an array of k sorted linked lists. Merge them into one sorted linked list and return it.",
   constraints: ["k == lists.length", "0 <= k <= 10^4", "0 <= lists[i].length <= 500", "-10^4 <= Node.val <= 10^4", "Each list is sorted in ascending order.", "Sum of lists[i].length <= 10^4."],
@@ -595,11 +585,10 @@ add({
 // 11. Reverse Nodes in K-Group
 add({
   id: "reverse-nodes-in-k-group",
-  leetcode_number: 25,
+  number: 155,
   title: "Reverse Nodes in k-Group",
   difficulty: "Hard",
   categories: ["Linked List", "Recursion"],
-  sources: ["LeetCode Top Interview 150"],
   prompt:
     "Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list. Nodes left over at the end (fewer than k) remain in their original order. Use only O(1) extra memory.",
   constraints: ["1 <= n <= 5000", "0 <= Node.val <= 1000", "1 <= k <= n"],
@@ -665,11 +654,10 @@ add({
 // 12. LRU Cache
 add({
   id: "lru-cache",
-  leetcode_number: 146,
+  number: 101,
   title: "LRU Cache",
   difficulty: "Medium",
   categories: ["Hash Table", "Linked List", "Design"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement the LRUCache class with capacity, get(key) returning the value or -1, and put(key, value). Each operation must run in O(1). Operations are given as `[[\"LRUCache\", capacity], [\"put\", k, v], [\"get\", k], ...]`; the output is an array with `null` for constructor/put and the returned value for get.",
   constraints: ["1 <= capacity <= 3000", "0 <= key, value <= 10^4", "At most 2 * 10^5 operations."],

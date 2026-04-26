@@ -12,39 +12,49 @@
     <nav class="site-nav">
       <a href="index.html" class="active">Home</a>
       <a href="problems.html">Problems</a>
+      <a href="lessons.html">Lessons</a>
     </nav>
   </header>
 
   <main class="container">
     <section class="hero">
       <h1>Master 200 interview problems</h1>
-      <p>The complete LeetCode Top Interview 150 + Blind 75 + Grind 75, with progressive hints, optimal solutions in TypeScript, and a comprehensive in-browser test suite. Code in JavaScript, Rust, or Go.</p>
+      <p>A curated collection of the 200 most common interview questions across arrays, strings, trees, graphs, dynamic programming, and more — with progressive hints, optimal complexity targets, and a comprehensive in-browser test suite. Code in JavaScript, Rust, or Go.</p>
       <a class="btn primary cta" href="problems.html">Browse problems →</a>
+      <a class="btn cta" href="lessons.html" style="margin-left:8px">Browse lessons →</a>
     </section>
 
     <section id="stats" class="stats">
       <div class="stat"><div class="stat-num" id="stat-total">…</div><div class="stat-label">Problems</div></div>
       <div class="stat"><div class="stat-num" id="stat-tests">…</div><div class="stat-label">Tests</div></div>
-      <div class="stat"><div class="stat-num" id="stat-cats">…</div><div class="stat-label">Categories</div></div>
+      <div class="stat"><div class="stat-num" id="stat-cats">…</div><div class="stat-label">Topics</div></div>
       <div class="stat"><div class="stat-num" id="stat-solved">0</div><div class="stat-label">Solved by you</div></div>
     </section>
 
     <section class="feature-grid">
       <div class="feature">
-        <h3>Progressive hints</h3>
-        <p>Three reveal-on-click hints per problem, from gentle nudge to the core insight — no spoilers unless you want them.</p>
+        <h3>Three languages, real toolchains</h3>
+        <p>Solve in JavaScript (in-browser Web Worker), Rust, or Go (compiled by the local Docker backend with the actual <code>cargo</code> and <code>go</code> toolchains, std-lib only).</p>
       </div>
       <div class="feature">
-        <h3>In-browser execution</h3>
-        <p>Write JavaScript and submit. Your solution is run against the full test suite — examples, edge cases, and stress tests up to 100k elements.</p>
+        <h3>Comprehensive test coverage</h3>
+        <p>Every problem ships with examples, edge cases, and stress tests up to 100k elements — 1,600+ test cases total. Submission results show pass / fail per case plus peak memory and CPU usage.</p>
       </div>
       <div class="feature">
-        <h3>Optimal references</h3>
-        <p>Every problem ships with the optimal time/space approach plus alternatives, common pitfalls, and follow-up questions.</p>
+        <h3>Lessons by topic</h3>
+        <p>Browse problems grouped by topic — arrays, hash tables, sliding window, graphs, DP, and more — with per-topic progress tracking.</p>
       </div>
       <div class="feature">
-        <h3>No backend, no login</h3>
-        <p>Everything runs locally. Your code, progress, and submissions are stored in your browser — no account required.</p>
+        <h3>Progressive hints &amp; video walkthroughs</h3>
+        <p>Three reveal-on-click hints per problem so you can nudge yourself unstuck without spoilers. Most problems also include an embedded video walkthrough tab.</p>
+      </div>
+      <div class="feature">
+        <h3>Persistent local-only state</h3>
+        <p>Progress, code drafts per language, and submissions are persisted to a SQLite database on disk. No accounts, no cloud, no telemetry.</p>
+      </div>
+      <div class="feature">
+        <h3>Custom inputs</h3>
+        <p>Run your code against any test case from the suite, or paste a custom input and run just that one — across all three languages.</p>
       </div>
     </section>
   </main>

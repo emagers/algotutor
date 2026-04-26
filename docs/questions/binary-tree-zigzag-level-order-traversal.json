@@ -1,14 +1,11 @@
 {
   "id": "binary-tree-zigzag-level-order-traversal",
-  "leetcode_number": 103,
+  "number": 15,
   "title": "Binary Tree Zigzag Level Order Traversal",
   "difficulty": "Medium",
   "categories": [
     "Tree",
     "BFS"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a binary tree, return the zigzag level order traversal of its nodes' values (left-to-right, then right-to-left for the next level, alternating).",
   "constraints": [

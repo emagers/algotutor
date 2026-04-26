@@ -1,6 +1,6 @@
 {
   "id": "design-circular-queue",
-  "leetcode_number": 622,
+  "number": 43,
   "title": "Design Circular Queue",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Queue",
     "Design",
     "Linked List"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Implement a fixed-capacity circular queue (ring buffer) with operations: MyCircularQueue(k), enQueue(value) → bool, deQueue() → bool, Front() → int (-1 when empty), Rear() → int (-1 when empty), isEmpty() → bool, isFull() → bool. All operations should run in O(1). The runnable variant accepts (operations, args) arrays.",
   "constraints": [

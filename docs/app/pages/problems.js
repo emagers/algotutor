@@ -27,7 +27,7 @@ function applyFilters() {
     if (state.categories.size && !it.categories.some((c) => state.categories.has(c))) return false;
     if (state.unsolvedOnly && Storage.getStatus(it.id) === "solved") return false;
     if (q) {
-      const hay = `${it.id} ${it.title} ${it.leetcode_number} ${it.categories.join(" ")}`.toLowerCase();
+      const hay = `${it.id} ${it.title} ${it.number} ${it.categories.join(" ")}`.toLowerCase();
       if (!hay.includes(q)) return false;
     }
     return true;
@@ -51,7 +51,7 @@ function renderRow(it) {
   return `
     <a class="problem-row" href="problem.html?id=${encodeURIComponent(it.id)}">
       ${STATUS_ICON[status]}
-      <span class="lc-num">#${it.leetcode_number}</span>
+      <span class="lc-num">#${it.number}</span>
       <span class="title">${escapeHtml(it.title)}</span>
       <span class="difficulty diff-${it.difficulty}">${it.difficulty}</span>
       <span class="cats">${cats}${more}</span>
@@ -143,6 +143,7 @@ function renderFilters() {
 }
 
 async function init() {
+  await Storage.init();
   const idx = await fetchIndex();
   state.items = idx.items;
 

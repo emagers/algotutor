@@ -1,14 +1,11 @@
 {
   "id": "single-number-ii",
-  "leetcode_number": 137,
+  "number": 167,
   "title": "Single Number II",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Bit Manipulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "In a non-empty array of integers, every element appears exactly three times except for one element that appears once. Find that element in linear time and constant extra space.",
   "constraints": [

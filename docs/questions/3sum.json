@@ -1,17 +1,12 @@
 {
   "id": "3sum",
-  "leetcode_number": 15,
+  "number": 1,
   "title": "3Sum",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Two Pointers",
     "Sorting"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Return all unique triplets `[a, b, c]` from `nums` such that a + b + c = 0 and indices are distinct. The result must not contain duplicate triplets.",
   "constraints": [

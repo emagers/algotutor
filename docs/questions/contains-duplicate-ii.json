@@ -1,15 +1,12 @@
 {
   "id": "contains-duplicate-ii",
-  "leetcode_number": 219,
+  "number": 32,
   "title": "Contains Duplicate II",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Hash Table",
     "Sliding Window"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array nums and an integer k, return true if there are two distinct indices i and j with nums[i] == nums[j] and |i - j| <= k.",
   "constraints": [

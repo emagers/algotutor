@@ -1,13 +1,10 @@
 {
   "id": "length-of-last-word",
-  "leetcode_number": 58,
+  "number": 86,
   "title": "Length of Last Word",
   "difficulty": "Easy",
   "categories": [
     "String"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a string s consisting of words separated by single or multiple spaces (with possible leading or trailing spaces), return the length of the last word.",
   "constraints": [

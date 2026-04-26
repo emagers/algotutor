@@ -1,6 +1,6 @@
 {
   "id": "k-closest-points-to-origin",
-  "leetcode_number": 973,
+  "number": 79,
   "title": "K Closest Points to Origin",
   "difficulty": "Medium",
   "categories": [
@@ -9,10 +9,6 @@
     "Math",
     "Divide & Conquer",
     "Sorting"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given an array of points where points[i] = [xi, yi] and an integer k, return the k closest points to the origin (0,0). The distance is the Euclidean distance. Any order is acceptable.",
   "constraints": [

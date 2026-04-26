@@ -1,6 +1,6 @@
 {
   "id": "design-add-and-search-words-data-structure",
-  "leetcode_number": 211,
+  "number": 42,
   "title": "Design Add and Search Words Data Structure",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Trie",
     "DFS",
     "Design"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "Design a data structure with `addWord(word)` and `search(word) -> bool` where word may contain '.' which matches any single letter. Inputs are op protocols `[['WordDictionary'], ['addWord', w], ['search', w], ...]`; outputs are `null` for ctor/addWord and bool for search.",
   "constraints": [

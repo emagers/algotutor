@@ -1,15 +1,12 @@
 {
   "id": "unique-paths",
-  "leetcode_number": 62,
+  "number": 186,
   "title": "Unique Paths",
   "difficulty": "Medium",
   "categories": [
     "Math",
     "Dynamic Programming",
     "Combinatorics"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "There is a robot on an m x n grid at top-left (0,0). It tries to reach the bottom-right (m-1, n-1). The robot can only move down or right. Return the number of unique paths.",
   "constraints": [

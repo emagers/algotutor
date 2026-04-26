@@ -1,16 +1,11 @@
 {
   "id": "two-sum",
-  "leetcode_number": 1,
+  "number": 184,
   "title": "Two Sum",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Hash Table"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`. Each input has exactly one solution, and you may not use the same element twice. Return the answer in any order.",
   "constraints": [

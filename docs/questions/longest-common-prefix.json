@@ -1,15 +1,11 @@
 {
   "id": "longest-common-prefix",
-  "leetcode_number": 14,
+  "number": 91,
   "title": "Longest Common Prefix",
   "difficulty": "Easy",
   "categories": [
     "String",
     "Trie"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Write a function that finds the longest common prefix string among an array of strings. Return '' if no common prefix exists.",
   "constraints": [

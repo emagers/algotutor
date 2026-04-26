@@ -146,7 +146,7 @@ func (c *LRUCache) Put(key int, value int) {
 }`],
 ];
 
-// LeetCode Go uses capitalized method names (Push/Pop/Get/Put), but the question schema
+// Some Go conventions use capitalized method names (Push/Pop/Get/Put), but the question schema
 // has lowercase (push/pop/get/put). The harness dispatches on lowercase.
 // So users must define lowercase method names matching the schema. Adjust min-stack / lru-cache.
 const remap = {

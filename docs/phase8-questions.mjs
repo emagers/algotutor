@@ -20,11 +20,10 @@ function add(q) { phase8Questions.push(q); }
 // 1. Subsets
 add({
   id: "subsets",
-  leetcode_number: 78,
+  number: 173,
   title: "Subsets",
   difficulty: "Medium",
   categories: ["Array", "Backtracking", "Bit Manipulation"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given an integer array nums of unique elements, return all possible subsets (the power set). The solution set must not contain duplicate subsets. Order does not matter.",
   constraints: ["1 <= nums.length <= 10", "-10 <= nums[i] <= 10", "All numbers are unique."],
   hints: ["For each element, choose to include or exclude — DFS over 2^n branches.", "Bitmask iteration over 0..2^n-1 also works."],
@@ -62,11 +61,10 @@ add({
 // 2. Subsets II
 add({
   id: "subsets-ii",
-  leetcode_number: 90,
+  number: 174,
   title: "Subsets II",
   difficulty: "Medium",
   categories: ["Array", "Backtracking", "Bit Manipulation"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer array nums that may contain duplicates, return all possible subsets (the power set). The solution set must not contain duplicate subsets.",
   constraints: ["1 <= nums.length <= 10", "-10 <= nums[i] <= 10"],
   hints: ["Sort first.", "At each level, skip nums[i] when i > start && nums[i] == nums[i-1]."],
@@ -108,11 +106,10 @@ add({
 // 3. Permutations
 add({
   id: "permutations",
-  leetcode_number: 46,
+  number: 138,
   title: "Permutations",
   difficulty: "Medium",
   categories: ["Array", "Backtracking"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given an array nums of distinct integers, return all the possible permutations. Order does not matter.",
   constraints: ["1 <= nums.length <= 6", "-10 <= nums[i] <= 10", "All integers are unique."],
   hints: ["DFS with a `used` boolean array; pick any unused element at each level."],
@@ -154,11 +151,10 @@ add({
 // 4. Permutations II
 add({
   id: "permutations-ii",
-  leetcode_number: 47,
+  number: 139,
   title: "Permutations II",
   difficulty: "Medium",
   categories: ["Array", "Backtracking"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a collection of numbers nums that might contain duplicates, return all possible unique permutations.",
   constraints: ["1 <= nums.length <= 8", "-10 <= nums[i] <= 10"],
   hints: ["Sort, then skip nums[i] if it equals nums[i-1] and nums[i-1] is not currently used (sibling-skip)."],
@@ -201,11 +197,10 @@ add({
 // 5. Combination Sum
 add({
   id: "combination-sum",
-  leetcode_number: 39,
+  number: 26,
   title: "Combination Sum",
   difficulty: "Medium",
   categories: ["Array", "Backtracking"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given an array of distinct integers candidates and a target integer target, return all unique combinations of candidates where the chosen numbers sum to target. The same number may be chosen unlimited times. Two combinations are unique if their multiset of chosen numbers differs.",
   constraints: ["1 <= candidates.length <= 30", "1 <= candidates[i] <= 200", "1 <= target <= 500", "All elements distinct."],
   hints: ["Sort; DFS with a `start` index and remaining target.", "Keep `start` (not `start+1`) since reuse is allowed.", "Prune when arr[i] > rem."],
@@ -248,11 +243,10 @@ add({
 // 6. Combination Sum II
 add({
   id: "combination-sum-ii",
-  leetcode_number: 40,
+  number: 27,
   title: "Combination Sum II",
   difficulty: "Medium",
   categories: ["Array", "Backtracking"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a collection of candidate numbers (which may contain duplicates) and a target, find all unique combinations where the candidate numbers sum to target. Each number may only be used once. Solution set must not contain duplicates.",
   constraints: ["1 <= candidates.length <= 100", "1 <= candidates[i] <= 50", "1 <= target <= 30"],
   hints: ["Sort; DFS with start = i+1 (each used once).", "Skip nums[i] if i > start and nums[i] == nums[i-1] to dedupe."],
@@ -300,11 +294,10 @@ add({
 // 7. Word Search
 add({
   id: "word-search",
-  leetcode_number: 79,
+  number: 198,
   title: "Word Search",
   difficulty: "Medium",
   categories: ["Array", "String", "Backtracking", "Matrix"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given an m x n grid of characters and a word, return true if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cells (horizontally or vertically). The same cell may not be used more than once in a single word.",
   constraints: ["1 <= m, n <= 6 (LC bound; we test up to 12x12)", "1 <= word.length <= 15", "Letters and word are lowercase or uppercase English."],
   hints: ["DFS from each cell; mark visited (e.g., temporarily replace with '#').", "Restore the cell on backtrack."],
@@ -351,11 +344,10 @@ add({
 // 8. Palindrome Partitioning
 add({
   id: "palindrome-partitioning",
-  leetcode_number: 131,
+  number: 132,
   title: "Palindrome Partitioning",
   difficulty: "Medium",
   categories: ["String", "Backtracking", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitions of s.",
   constraints: ["1 <= s.length <= 16", "Lowercase English letters."],
   hints: ["DFS: at each position, try every prefix that is a palindrome and recurse on the suffix.", "Optional: precompute isPal[i][j] in O(n²)."],
@@ -399,11 +391,10 @@ add({
 // 9. N-Queens
 add({
   id: "n-queens",
-  leetcode_number: 51,
+  number: 123,
   title: "N-Queens",
   difficulty: "Hard",
   categories: ["Array", "Backtracking"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order. Each solution is a list of n strings of length n, with 'Q' marking a queen and '.' marking an empty cell.",
   constraints: ["1 <= n <= 9"],
   hints: [
@@ -460,11 +451,10 @@ add({
 // 10. Letter Combinations of a Phone Number
 add({
   id: "letter-combinations-of-a-phone-number",
-  leetcode_number: 17,
+  number: 87,
   title: "Letter Combinations of a Phone Number",
   difficulty: "Medium",
   categories: ["Hash Table", "String", "Backtracking"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given a string containing digits from 2-9, return all possible letter combinations the number could represent (using the standard phone keypad). Return the answer in any order. If digits is empty, return an empty list.",
   constraints: ["0 <= digits.length <= 4", "digits[i] in '2'..'9'"],
   hints: ["DFS over the digits, choosing one letter at each step."],

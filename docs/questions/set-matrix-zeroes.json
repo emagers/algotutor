@@ -1,15 +1,12 @@
 {
   "id": "set-matrix-zeroes",
-  "leetcode_number": 73,
+  "number": 165,
   "title": "Set Matrix Zeroes",
   "difficulty": "Medium",
   "categories": [
     "Matrix",
     "Array",
     "Hash Table"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an m x n integer matrix, if any element is 0, set its entire row and column to 0. Modify the matrix in-place using O(1) extra space.",
   "constraints": [

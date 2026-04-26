@@ -1,15 +1,12 @@
 {
   "id": "find-all-anagrams-in-a-string",
-  "leetcode_number": 438,
+  "number": 53,
   "title": "Find All Anagrams in a String",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Hash Table",
     "Sliding Window"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two strings s and p, return an array of every starting index in s where a substring of length p.length is an anagram of p. Indices may be returned in any order, but this dataset expects them in increasing order (the natural left-to-right scan).",
   "constraints": [

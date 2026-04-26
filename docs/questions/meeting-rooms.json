@@ -1,15 +1,12 @@
 {
   "id": "meeting-rooms",
-  "leetcode_number": 252,
+  "number": 107,
   "title": "Meeting Rooms",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Sorting",
     "Intervals"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "Given an array of meeting time intervals, determine if a person could attend all meetings (no two meetings overlap; touching is allowed).",
   "constraints": [

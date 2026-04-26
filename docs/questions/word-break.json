@@ -1,6 +1,6 @@
 {
   "id": "word-break",
-  "leetcode_number": 139,
+  "number": 195,
   "title": "Word Break",
   "difficulty": "Medium",
   "categories": [
@@ -8,11 +8,6 @@
     "String",
     "Hash Table",
     "Trie"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Can `s` be segmented into a sequence of dictionary words (reuse allowed)?",
   "constraints": [
@@ -107,7 +102,7 @@
     "code": "function wordBreak(s: string, wordDict: string[]): boolean {\n  const dict = new Set(wordDict);\n  let maxLen = 0;\n  for (const w of wordDict) if (w.length > maxLen) maxLen = w.length;\n  const n = s.length;\n  const dp = new Array(n + 1).fill(false);\n  dp[0] = true;\n  for (let i = 1; i <= n; i++) {\n    for (let j = Math.max(0, i - maxLen); j < i; j++) {\n      if (dp[j] && dict.has(s.slice(j, i))) {\n        dp[i] = true;\n        break;\n      }\n    }\n  }\n  return dp[n];\n}"
   },
   "tests": [
-    {"name":"example-leetcode","category":"example","input":{"s":"leetcode","wordDict":["leet","code"]},"output":true},
+    {"name":"example-1","category":"example","input":{"s":"abcabd","wordDict":["ab","cab","d"]},"output":true},
     {"name":"example-applepenapple","category":"example","input":{"s":"applepenapple","wordDict":["apple","pen"]},"output":true},
     {"name":"example-cant-segment","category":"example","input":{"s":"catsandog","wordDict":["cats","dog","sand","and","cat"]},"output":false},
     {"name":"edge-single-match","category":"edge","input":{"s":"a","wordDict":["a"]},"output":true},

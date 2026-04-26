@@ -8,6 +8,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { generateGoHarness } from "../harness/generate-go.mjs";
 import { comparators } from "../harness/js/runtime.mjs";
+import { runWithMetrics } from "./metrics.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const RUNNER_DIR = existsSync("/work/backend/runner/go")
@@ -78,7 +79,7 @@ export async function runGo({ question, code, tests }) {
     }
 
     const requestPayload = JSON.stringify({ tests });
-    const exec = await runProcess(BINARY_PATH, [],
+    const exec = await runWithMetrics(BINARY_PATH, [],
       { cwd: RUNNER_DIR, input: requestPayload, timeoutMs: RUN_TIMEOUT_MS });
     if (exec.timedOut) {
       return { results: [], compileError: `Execution timed out after ${RUN_TIMEOUT_MS / 1000}s.` };
@@ -102,6 +103,6 @@ export async function runGo({ question, code, tests }) {
       const pass = cmpFn(r.actual, expected);
       return { index: i, status: pass ? "pass" : "fail", expected, actual: r.actual, durationMs: r.durationMs ?? 0 };
     });
-    return { results };
+    return { results, metrics: exec.metrics };
   });
 }

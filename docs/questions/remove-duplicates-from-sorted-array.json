@@ -1,14 +1,11 @@
 {
   "id": "remove-duplicates-from-sorted-array",
-  "leetcode_number": 26,
+  "number": 148,
   "title": "Remove Duplicates from Sorted Array",
   "difficulty": "Easy",
   "categories": [
     "Two Pointers",
     "Array"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a sorted integer array `nums`, remove duplicates in-place so each unique element appears only once, preserving relative order. Return k = the count of unique elements; the first k positions of nums must contain the unique values.",
   "constraints": [

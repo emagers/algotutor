@@ -1,14 +1,11 @@
 {
   "id": "word-pattern",
-  "leetcode_number": 290,
+  "number": 197,
   "title": "Word Pattern",
   "difficulty": "Easy",
   "categories": [
     "String",
     "Hash Table"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a pattern and a string s, return true if s follows the same pattern. Each character in pattern maps to exactly one whitespace-separated word in s, and each word maps to exactly one character (a bijection).",
   "constraints": [

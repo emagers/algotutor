@@ -1,6 +1,6 @@
 {
   "id": "lfu-cache",
-  "leetcode_number": 460,
+  "number": 88,
   "title": "LFU Cache",
   "difficulty": "Hard",
   "categories": [
@@ -8,10 +8,7 @@
     "Linked List",
     "Design"
   ],
-  "sources": [
-    "LeetCode Top Interview 150"
-  ],
-  "prompt": "Design a data structure that follows the constraints of a Least Frequently Used (LFU) cache. Operations: LFUCache(int capacity), int get(int key) — returns the value if present and bumps its access frequency, else -1; void put(int key, int value) — inserts or updates; if capacity is exceeded, evict the least-frequently-used key, breaking ties by least-recently-used. The runnable variant accepts (operations, args) arrays mirroring LeetCode's design test format and returns the array of results (with null for void calls).",
+  "prompt": "Design a data structure that follows the constraints of a Least Frequently Used (LFU) cache. Operations: LFUCache(int capacity), int get(int key) — returns the value if present and bumps its access frequency, else -1; void put(int key, int value) — inserts or updates; if capacity is exceeded, evict the least-frequently-used key, breaking ties by least-recently-used. The runnable variant accepts (operations, args) arrays using parallel operations + arguments arrays and returns the array of results (with null for void calls).",
   "constraints": [
     "0 <= capacity <= 1e4",
     "0 <= key, value <= 1e9",

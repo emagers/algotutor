@@ -1,17 +1,12 @@
 {
   "id": "container-with-most-water",
-  "leetcode_number": 11,
+  "number": 30,
   "title": "Container With Most Water",
   "difficulty": "Medium",
   "categories": [
     "Two Pointers",
     "Greedy",
     "Array"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array `height` of length n where height[i] is the height of a vertical line at index i, find two lines that together with the x-axis form a container holding the most water. Return the maximum amount of water (area).",
   "constraints": [

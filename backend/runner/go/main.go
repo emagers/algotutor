@@ -12,7 +12,7 @@ import (
 var _ = fmt.Sprintf
 var _ = time.Now
 
-// === Standard data structures (LeetCode-canonical) ===
+// === Standard data structures (canonical) ===
 type ListNode struct {
 	Val  int
 	Next *ListNode

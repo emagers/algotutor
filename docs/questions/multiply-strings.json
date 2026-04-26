@@ -1,15 +1,12 @@
 {
   "id": "multiply-strings",
-  "leetcode_number": 43,
+  "number": 122,
   "title": "Multiply Strings",
   "difficulty": "Medium",
   "categories": [
     "Math",
     "String",
     "Simulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two non-negative integers represented as strings num1 and num2 (no leading zeros except for the number '0' itself), return their product, also as a string. You must not use built-in big-integer libraries or convert directly to numbers.",
   "constraints": [

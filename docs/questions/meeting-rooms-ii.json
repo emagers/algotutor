@@ -1,6 +1,6 @@
 {
   "id": "meeting-rooms-ii",
-  "leetcode_number": 253,
+  "number": 108,
   "title": "Meeting Rooms II",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Sorting",
     "Heap / Priority Queue",
     "Intervals"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "Given an array of meeting time intervals, return the minimum number of conference rooms required.",
   "constraints": [

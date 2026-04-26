@@ -1,6 +1,6 @@
 {
   "id": "course-schedule",
-  "leetcode_number": 207,
+  "number": 38,
   "title": "Course Schedule",
   "difficulty": "Medium",
   "categories": [
@@ -8,11 +8,6 @@
     "BFS",
     "DFS",
     "Topological Sort"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given numCourses and a list of [a, b] meaning b is a prerequisite for a, can you finish all courses (i.e., is the graph acyclic)?",
   "constraints": [

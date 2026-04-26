@@ -1,14 +1,11 @@
 {
   "id": "first-missing-positive",
-  "leetcode_number": 41,
+  "number": 58,
   "title": "First Missing Positive",
   "difficulty": "Hard",
   "categories": [
     "Array",
     "Hash Table"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an unsorted integer array nums, return the smallest positive integer that does not appear in nums. Your algorithm must run in O(n) time and use O(1) auxiliary space.",
   "constraints": [

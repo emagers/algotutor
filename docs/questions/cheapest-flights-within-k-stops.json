@@ -1,6 +1,6 @@
 {
   "id": "cheapest-flights-within-k-stops",
-  "leetcode_number": 787,
+  "number": 21,
   "title": "Cheapest Flights Within K Stops",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Shortest Path",
     "Dynamic Programming",
     "BFS"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "There are n cities and a list of flights = [from, to, price]. Return the cheapest price from `src` to `dst` with at most `k` stops; -1 if no such route.",
   "constraints": [

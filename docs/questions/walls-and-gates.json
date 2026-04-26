@@ -1,14 +1,11 @@
 {
   "id": "walls-and-gates",
-  "leetcode_number": 286,
+  "number": 194,
   "title": "Walls and Gates",
   "difficulty": "Medium",
   "categories": [
     "Matrix",
     "BFS"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "You are given an m x n grid `rooms` initialized with -1 for walls, 0 for gates, and 2147483647 (INT_MAX) for empty rooms. Fill each empty room with the distance to its nearest gate (4-directional). If unreachable, leave INT_MAX. Modify in-place and return the grid.",
   "constraints": [

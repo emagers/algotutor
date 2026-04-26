@@ -12,19 +12,27 @@
     <nav class="site-nav">
       <a href="index.html">Home</a>
       <a href="problems.html" class="active">Problems</a>
+      <a href="lessons.html">Lessons</a>
     </nav>
   </header>
 
   <main class="container wide">
-    <div class="problem-layout">
-      <section class="problem-pane">
+    <div class="problem-layout" id="problem-layout">
+      <section class="problem-pane" id="problem-pane">
         <div class="pane-header" id="problem-head">
           <h2>Loading…</h2>
+        </div>
+        <div class="problem-tabs">
+          <button class="problem-tab active" data-tab="description">Description</button>
+          <button class="problem-tab" data-tab="video">Video</button>
         </div>
         <div class="pane-body" id="problem-body">
           <div class="loading">Loading problem…</div>
         </div>
+        <div class="pane-body hidden" id="video-body"></div>
       </section>
+
+      <div class="resize-handle" id="resize-handle" title="Drag to resize"></div>
 
       <section class="editor-pane">
         <div class="pane-header">
@@ -37,9 +45,14 @@
         </div>
         <div class="editor-container" id="editor"></div>
 
-        <div class="run-area">
-          <div class="label">Custom input (JSON object keyed by parameter name):</div>
-          <textarea id="custom-input" spellcheck="false"></textarea>
+        <div class="run-area" id="run-area">
+          <div class="section-header" data-toggle="run-area">
+            <span class="chev">▼</span>
+            <span>Custom input (JSON object keyed by parameter name)</span>
+          </div>
+          <div class="section-body">
+            <textarea id="custom-input" spellcheck="false"></textarea>
+          </div>
         </div>
 
         <div class="run-controls">
@@ -48,7 +61,13 @@
           <button id="btn-submit" class="primary">Submit (run all tests)</button>
         </div>
 
-        <div class="output-area hidden" id="output"></div>
+        <div class="output-area hidden" id="output">
+          <div class="section-header" data-toggle="output">
+            <span class="chev">▼</span>
+            <span>Output</span>
+          </div>
+          <div class="section-body" id="output-body"></div>
+        </div>
       </section>
     </div>
   </main>

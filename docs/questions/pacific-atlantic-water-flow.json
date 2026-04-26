@@ -1,15 +1,12 @@
 {
   "id": "pacific-atlantic-water-flow",
-  "leetcode_number": 417,
+  "number": 129,
   "title": "Pacific Atlantic Water Flow",
   "difficulty": "Medium",
   "categories": [
     "Matrix",
     "BFS",
     "DFS"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "Given an m x n matrix `heights` representing land elevations, water flows from a cell to a neighboring cell only if the neighbor's height is less than or equal. The Pacific touches the top and left edges; the Atlantic touches the bottom and right. Return all coordinates [r,c] where rain water can flow to BOTH oceans. The reference returns coordinates in row-major order (any-order accepted via comparator).",
   "constraints": [

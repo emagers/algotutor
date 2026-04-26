@@ -1,6 +1,6 @@
 {
   "id": "serialize-and-deserialize-binary-tree",
-  "leetcode_number": 297,
+  "number": 164,
   "title": "Serialize and Deserialize Binary Tree",
   "difficulty": "Hard",
   "categories": [
@@ -10,10 +10,6 @@
     "Design",
     "String"
   ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
-  ],
   "prompt": "Design an algorithm to serialize a binary tree to a string and deserialize the string back to the original tree. The serialization format is up to you. The test driver round-trips your two functions and compares the resulting tree (level-order, with nulls for absent children) to the input.",
   "constraints": [
     "0 <= n <= 10^4",
@@ -22,7 +18,7 @@
   "hints": [
     "Preorder DFS with a sentinel ('#' or 'null') for missing children gives an unambiguous string.",
     "Deserialize by consuming tokens recursively in the same preorder.",
-    "BFS with level tokens also works (the LeetCode display format)."
+    "BFS with level tokens also works (an alternative format)."
   ],
   "optimal": {
     "time": "O(n)",

@@ -1,17 +1,12 @@
 {
   "id": "longest-consecutive-sequence",
-  "leetcode_number": 128,
+  "number": 93,
   "title": "Longest Consecutive Sequence",
   "difficulty": "Medium",
   "categories": [
     "Hash Table",
     "Union-Find",
     "Array"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence. Solve in O(n).",
   "constraints": [

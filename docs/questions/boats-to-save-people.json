@@ -1,6 +1,6 @@
 {
   "id": "boats-to-save-people",
-  "leetcode_number": 881,
+  "number": 17,
   "title": "Boats to Save People",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Two Pointers",
     "Greedy",
     "Sorting"
-  ],
-  "sources": [
-    "NeetCode 150"
   ],
   "prompt": "You are given an array people and an integer limit. Each boat carries at most 2 people whose total weight ≤ limit. Return the minimum number of boats to carry every person.",
   "constraints": [

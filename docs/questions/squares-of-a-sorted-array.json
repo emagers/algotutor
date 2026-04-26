@@ -1,15 +1,12 @@
 {
   "id": "squares-of-a-sorted-array",
-  "leetcode_number": 977,
+  "number": 171,
   "title": "Squares of a Sorted Array",
   "difficulty": "Easy",
   "categories": [
     "Two Pointers",
     "Sorting",
     "Array"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array `nums` sorted in non-decreasing order, return an array of the squares of each number, also sorted in non-decreasing order. Solve in O(n).",
   "constraints": [

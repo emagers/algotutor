@@ -1,6 +1,6 @@
 {
   "id": "invert-binary-tree",
-  "leetcode_number": 226,
+  "number": 75,
   "title": "Invert Binary Tree",
   "difficulty": "Easy",
   "categories": [
@@ -8,10 +8,6 @@
     "DFS",
     "BFS",
     "Recursion"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75"
   ],
   "prompt": "Given the root of a binary tree, invert the tree (mirror it left-right) and return its root.",
   "constraints": [

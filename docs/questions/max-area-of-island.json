@@ -1,15 +1,12 @@
 {
   "id": "max-area-of-island",
-  "leetcode_number": 695,
+  "number": 103,
   "title": "Max Area of Island",
   "difficulty": "Medium",
   "categories": [
     "Matrix",
     "DFS",
     "BFS"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "Given an m x n binary matrix where 1 represents land and 0 represents water, return the maximum area (in cells) of any 4-connected island. The matrix may be modified in place during traversal.",
   "constraints": [

@@ -1,16 +1,11 @@
 {
   "id": "min-stack",
-  "leetcode_number": 155,
+  "number": 115,
   "title": "Min Stack",
   "difficulty": "Medium",
   "categories": [
     "Stack",
     "Design"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Design a stack that supports push, pop, top, and retrieving the minimum element in O(1). Implement: push(val), pop(), top() returning the top value, getMin() returning the current minimum.",
   "constraints": [

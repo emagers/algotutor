@@ -1,15 +1,12 @@
 {
   "id": "add-binary",
-  "leetcode_number": 67,
+  "number": 2,
   "title": "Add Binary",
   "difficulty": "Easy",
   "categories": [
     "Math",
     "String",
     "Bit Manipulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two binary strings a and b, return their sum as a binary string. Inputs may be very long (up to ~10^4 bits), so do not convert directly to a fixed-width number.",
   "constraints": [

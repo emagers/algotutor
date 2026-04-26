@@ -23,6 +23,7 @@ export class CodeEditor {
     this.parent = parent;
     this.langCompartment = new Compartment();
     this.onChange = onChange;
+    this._suppressOnChange = false;
 
     this.view = new EditorView({
       doc: code,
@@ -32,7 +33,9 @@ export class CodeEditor {
         oneDark,
         this.langCompartment.of(langSupport[lang]),
         EditorView.updateListener.of((u) => {
-          if (u.docChanged && this.onChange) this.onChange(u.state.doc.toString());
+          if (u.docChanged && this.onChange && !this._suppressOnChange) {
+            this.onChange(u.state.doc.toString());
+          }
         }),
         EditorView.theme({
           "&": { fontSize: "13px", height: "100%" },
@@ -56,9 +59,14 @@ export class CodeEditor {
   }
 
   setCode(code) {
-    this.view.dispatch({
-      changes: { from: 0, to: this.view.state.doc.length, insert: code },
-    });
+    this._suppressOnChange = true;
+    try {
+      this.view.dispatch({
+        changes: { from: 0, to: this.view.state.doc.length, insert: code },
+      });
+    } finally {
+      this._suppressOnChange = false;
+    }
   }
 
   getCode() {

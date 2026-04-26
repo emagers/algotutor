@@ -1,15 +1,11 @@
 {
   "id": "copy-list-with-random-pointer",
-  "leetcode_number": 138,
+  "number": 34,
   "title": "Copy List with Random Pointer",
   "difficulty": "Medium",
   "categories": [
     "Linked List",
     "Hash Table"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "A linked list is given where each node has a `val`, a `next`, and a `random` pointer that may point to any node in the list or to null. Construct a deep copy of the list. Inputs and outputs are represented as `{ vals, randoms }` where `randoms[i]` is the index of node i's random target (or null).",
   "constraints": [

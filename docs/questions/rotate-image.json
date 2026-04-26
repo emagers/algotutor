@@ -1,15 +1,12 @@
 {
   "id": "rotate-image",
-  "leetcode_number": 48,
+  "number": 158,
   "title": "Rotate Image",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Matrix",
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Rotate an n x n 2D matrix representing an image 90 degrees clockwise in place. Do not allocate a second matrix.",
   "constraints": [

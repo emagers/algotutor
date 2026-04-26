@@ -9,7 +9,7 @@ test("landing page renders hero and stats", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle(/AlgoTutor/);
   await expect(page.locator(".hero h1")).toHaveText(/Master 200 interview problems/);
-  await expect(page.locator(".cta")).toHaveText(/Browse problems/);
+  await expect(page.locator(".cta.primary")).toHaveText(/Browse problems/);
 
   // Stats are loaded async from index.json — wait for them to fill in.
   const totalEl = page.locator("#stat-total");

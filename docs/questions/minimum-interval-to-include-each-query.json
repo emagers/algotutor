@@ -1,6 +1,6 @@
 {
   "id": "minimum-interval-to-include-each-query",
-  "leetcode_number": 1851,
+  "number": 116,
   "title": "Minimum Interval to Include Each Query",
   "difficulty": "Hard",
   "categories": [
@@ -9,9 +9,6 @@
     "Heap / Priority Queue",
     "Sorting",
     "Intervals"
-  ],
-  "sources": [
-    "NeetCode 150"
   ],
   "prompt": "Given a 2D array intervals where intervals[i] = [l_i, r_i] and an array queries, for each query q find the size (r-l+1) of the smallest interval such that l ≤ q ≤ r. If no such interval exists, return -1 for that query. Return an array of answers in the original query order.",
   "constraints": [

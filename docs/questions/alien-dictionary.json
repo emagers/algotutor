@@ -1,15 +1,12 @@
 {
   "id": "alien-dictionary",
-  "leetcode_number": 269,
+  "number": 4,
   "title": "Alien Dictionary",
   "difficulty": "Hard",
   "categories": [
     "Graph",
     "Topological Sort",
     "String"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "There is an alien language using lowercase English letters but with an unknown order. You are given a list of `words` from this language sorted lexicographically by its rules. Return any valid letter ordering as a string. If invalid (e.g., a prefix violation) return \"\". Note: this dataset compares against a deterministic Kahn's algorithm with alphabetical tiebreaks; multiple valid orderings exist for the underlying problem, but our reference produces one canonical answer.",
   "constraints": [

@@ -1,13 +1,10 @@
 {
   "id": "bitwise-and-of-numbers-range",
-  "leetcode_number": 201,
+  "number": 16,
   "title": "Bitwise AND of Numbers Range",
   "difficulty": "Medium",
   "categories": [
     "Bit Manipulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two integers left and right with left <= right, return the bitwise AND of all numbers in the inclusive range [left, right].",
   "constraints": [

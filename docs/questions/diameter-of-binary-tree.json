@@ -1,14 +1,11 @@
 {
   "id": "diameter-of-binary-tree",
-  "leetcode_number": 543,
+  "number": 46,
   "title": "Diameter of Binary Tree",
   "difficulty": "Easy",
   "categories": [
     "Tree",
     "DFS"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "Given the root of a binary tree, return the length (in edges) of the longest path between any two nodes. The path may or may not pass through the root.",
   "constraints": [

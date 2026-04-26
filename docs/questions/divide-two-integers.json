@@ -1,14 +1,11 @@
 {
   "id": "divide-two-integers",
-  "leetcode_number": 29,
+  "number": 47,
   "title": "Divide Two Integers",
   "difficulty": "Medium",
   "categories": [
     "Math",
     "Bit Manipulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two integers dividend and divisor, divide them without using multiplication, division, or modulo operators. Truncate toward zero. If the result overflows the 32-bit signed integer range, return INT_MAX (2^31 - 1).",
   "constraints": [

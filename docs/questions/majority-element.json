@@ -1,6 +1,6 @@
 {
   "id": "majority-element",
-  "leetcode_number": 169,
+  "number": 102,
   "title": "Majority Element",
   "difficulty": "Easy",
   "categories": [
@@ -8,9 +8,6 @@
     "Hash Table",
     "Divide & Conquer",
     "Sorting"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an array nums of size n, return the majority element — the one that appears more than ⌊n / 2⌋ times. You may assume that a majority element always exists.",
   "constraints": [

@@ -1,6 +1,6 @@
 {
   "id": "partition-labels",
-  "leetcode_number": 763,
+  "number": 135,
   "title": "Partition Labels",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Hash Table",
     "Two Pointers",
     "Greedy"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given a string s. Partition s into as many parts as possible so that each letter appears in at most one part. Return a list of integers representing the size of these parts, in order.",
   "constraints": [

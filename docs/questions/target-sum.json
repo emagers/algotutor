@@ -1,15 +1,12 @@
 {
   "id": "target-sum",
-  "leetcode_number": 494,
+  "number": 179,
   "title": "Target Sum",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming",
     "Backtracking"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given an integer array nums and a target integer target. Build an expression by inserting '+' or '-' before each integer in nums. Return the number of expressions evaluating to target.",
   "constraints": [

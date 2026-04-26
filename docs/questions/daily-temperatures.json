@@ -1,15 +1,12 @@
 {
   "id": "daily-temperatures",
-  "leetcode_number": 739,
+  "number": 40,
   "title": "Daily Temperatures",
   "difficulty": "Medium",
   "categories": [
     "Stack",
     "Monotonic Stack",
     "Array"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "Given an array of daily temperatures, return an array `answer` such that answer[i] is the number of days you must wait after day i to get a warmer temperature. If no such day exists, answer[i] = 0.",
   "constraints": [

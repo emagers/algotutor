@@ -1,17 +1,12 @@
 {
   "id": "longest-substring-without-repeating-characters",
-  "leetcode_number": 3,
+  "number": 98,
   "title": "Longest Substring Without Repeating Characters",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Sliding Window",
     "Hash Table"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a string `s`, return the length of the longest substring without repeating characters.",
   "constraints": [

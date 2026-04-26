@@ -1,14 +1,11 @@
 {
   "id": "reverse-nodes-in-k-group",
-  "leetcode_number": 25,
+  "number": 155,
   "title": "Reverse Nodes in k-Group",
   "difficulty": "Hard",
   "categories": [
     "Linked List",
     "Recursion"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list. Nodes left over at the end (fewer than k) remain in their original order. Use only O(1) extra memory.",
   "constraints": [

@@ -1,6 +1,6 @@
 {
   "id": "jump-game-ii",
-  "leetcode_number": 45,
+  "number": 78,
   "title": "Jump Game II",
   "difficulty": "Medium",
   "categories": [
@@ -8,10 +8,6 @@
     "Dynamic Programming",
     "Greedy",
     "BFS"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given a 0-indexed array of integers nums. You start at index 0. Each nums[i] is the maximum length of a forward jump from i. Return the minimum number of jumps to reach nums[n-1] (assumed reachable).",
   "constraints": [

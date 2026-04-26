@@ -1,15 +1,12 @@
 {
   "id": "contains-duplicate",
-  "leetcode_number": 217,
+  "number": 31,
   "title": "Contains Duplicate",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Hash Table",
     "Sorting"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "Given an integer array `nums`, return `true` if any value appears at least twice, and `false` if every element is distinct.",
   "constraints": [

@@ -18,7 +18,7 @@ use std::rc::Rc;
 
 use serde::{Deserialize, Serialize};
 
-// === Standard data structures (LeetCode-canonical) ===
+// === Standard data structures (canonical) ===
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ListNode {
     pub val: i32,

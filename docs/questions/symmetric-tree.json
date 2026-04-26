@@ -1,15 +1,12 @@
 {
   "id": "symmetric-tree",
-  "leetcode_number": 101,
+  "number": 178,
   "title": "Symmetric Tree",
   "difficulty": "Easy",
   "categories": [
     "Tree",
     "DFS",
     "BFS"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
   "constraints": [

@@ -1,14 +1,11 @@
 {
   "id": "insert-interval",
-  "leetcode_number": 57,
+  "number": 72,
   "title": "Insert Interval",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Intervals"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given an array of non-overlapping intervals sorted by start time and a new interval. Insert the new interval into the list (merging overlaps as needed). Return the resulting list of non-overlapping intervals sorted by start time.",
   "constraints": [

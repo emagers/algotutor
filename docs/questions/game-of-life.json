@@ -1,15 +1,12 @@
 {
   "id": "game-of-life",
-  "leetcode_number": 289,
+  "number": 60,
   "title": "Game of Life",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Matrix",
     "Simulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Conway's Game of Life: each cell is live (1) or dead (0). The next state of every cell is computed simultaneously from its 8 neighbors using these rules — live with <2 live neighbors dies, live with 2 or 3 stays alive, live with >3 dies, dead with exactly 3 becomes alive. Update the board in place to reflect the next state.",
   "constraints": [

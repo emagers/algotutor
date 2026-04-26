@@ -1,6 +1,6 @@
 {
   "id": "clone-graph",
-  "leetcode_number": 133,
+  "number": 23,
   "title": "Clone Graph",
   "difficulty": "Medium",
   "categories": [
@@ -8,10 +8,6 @@
     "BFS",
     "DFS",
     "Hash Table"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. The graph is represented here as `{ nodes: number[], adj: number[][] }` where `adj[i]` is the list of neighbor indices of node i. The output uses the same canonical form, with neighbor lists sorted ascending.",
   "constraints": [

@@ -1,16 +1,11 @@
 {
   "id": "longest-common-subsequence",
-  "leetcode_number": 1143,
+  "number": 92,
   "title": "Longest Common Subsequence",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given two strings text1 and text2, return the length of their longest common subsequence. A subsequence is derived by deleting some characters without changing the order. If there is no common subsequence, return 0.",
   "constraints": [

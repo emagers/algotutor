@@ -4,7 +4,7 @@
 
 FROM rust:1.81-slim-bookworm AS rust-base
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        ca-certificates curl git pkg-config \
+        ca-certificates curl git pkg-config time \
     && rm -rf /var/lib/apt/lists/*
 
 # ---- Final image ----
@@ -41,4 +41,4 @@ COPY backend ./backend
 COPY docs/questions ./docs/questions
 
 EXPOSE 9090
-CMD ["node", "backend/server.mjs"]
+CMD ["node", "--experimental-sqlite", "backend/server.mjs"]

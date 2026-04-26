@@ -1,15 +1,12 @@
 {
   "id": "subsets-ii",
-  "leetcode_number": 90,
+  "number": 174,
   "title": "Subsets II",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Backtracking",
     "Bit Manipulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array nums that may contain duplicates, return all possible subsets (the power set). The solution set must not contain duplicate subsets.",
   "constraints": [

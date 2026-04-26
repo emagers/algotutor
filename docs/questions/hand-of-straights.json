@@ -1,6 +1,6 @@
 {
   "id": "hand-of-straights",
-  "leetcode_number": 846,
+  "number": 66,
   "title": "Hand of Straights",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Hash Table",
     "Sorting",
     "Greedy"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Alice has a hand of cards, given as an integer array. She wants to rearrange them into groups, where each group is of size groupSize and consists of groupSize consecutive cards. Return true if she can rearrange the cards.",
   "constraints": [

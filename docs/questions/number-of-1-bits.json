@@ -1,13 +1,10 @@
 {
   "id": "number-of-1-bits",
-  "leetcode_number": 191,
+  "number": 126,
   "title": "Number of 1 Bits",
   "difficulty": "Easy",
   "categories": [
     "Bit Manipulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a non-negative 32-bit integer, return the number of '1' bits in its binary representation (also known as the Hamming weight).",
   "constraints": [

@@ -1,16 +1,12 @@
 {
   "id": "kth-smallest-element-in-a-bst",
-  "leetcode_number": 230,
+  "number": 83,
   "title": "Kth Smallest Element in a BST",
   "difficulty": "Medium",
   "categories": [
     "Tree",
     "Binary Search Tree",
     "DFS"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the root of a BST and an integer k, return the kth smallest value in the tree (1-indexed).",
   "constraints": [

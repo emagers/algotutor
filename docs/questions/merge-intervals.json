@@ -1,17 +1,12 @@
 {
   "id": "merge-intervals",
-  "leetcode_number": 56,
+  "number": 109,
   "title": "Merge Intervals",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Sorting",
     "Intervals"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given an array of intervals where intervals[i] = [start_i, end_i], merge all overlapping intervals and return an array of non-overlapping intervals that cover all the intervals in the input.",
   "constraints": [

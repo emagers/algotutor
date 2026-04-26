@@ -1,6 +1,6 @@
 {
   "id": "course-schedule-ii",
-  "leetcode_number": 210,
+  "number": 39,
   "title": "Course Schedule II",
   "difficulty": "Medium",
   "categories": [
@@ -8,10 +8,6 @@
     "Topological Sort",
     "BFS",
     "DFS"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Return any valid order in which all numCourses can be taken given prerequisites[i] = [a, b] meaning course b must be completed before course a. If impossible, return [].",
   "constraints": [

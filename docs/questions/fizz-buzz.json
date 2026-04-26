@@ -1,14 +1,11 @@
 {
   "id": "fizz-buzz",
-  "leetcode_number": 412,
+  "number": 59,
   "title": "Fizz Buzz",
   "difficulty": "Easy",
   "categories": [
     "Math",
     "String"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer n, return a string array answer of length n where answer[i] equals 'FizzBuzz' if i+1 is divisible by 15, 'Fizz' if divisible by 3, 'Buzz' if divisible by 5, and the decimal string of i+1 otherwise.",
   "constraints": [

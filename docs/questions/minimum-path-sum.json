@@ -1,15 +1,12 @@
 {
   "id": "minimum-path-sum",
-  "leetcode_number": 64,
+  "number": 118,
   "title": "Minimum Path Sum",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming",
     "Matrix"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a non-empty m x n grid filled with non-negative numbers, find a path from top-left to bottom-right that minimizes the sum of all numbers along its path. You can only move right or down.",
   "constraints": [

@@ -21,11 +21,10 @@ function add(q) { phase7Questions.push(q); }
 // 1. Climbing Stairs
 add({
   id: "climbing-stairs",
-  leetcode_number: 70,
+  number: 22,
   title: "Climbing Stairs",
   difficulty: "Easy",
   categories: ["Dynamic Programming", "Math", "Memoization"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "You are climbing a staircase. It takes n steps to reach the top. Each time you can climb either 1 or 2 steps. In how many distinct ways can you climb to the top?",
   constraints: ["1 <= n <= 45"],
   hints: ["f(n) = f(n-1) + f(n-2) — Fibonacci.", "Iterate with two rolling variables."],
@@ -58,11 +57,10 @@ add({
 // 2. House Robber
 add({
   id: "house-robber",
-  leetcode_number: 198,
+  number: 68,
   title: "House Robber",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "You are a robber planning to rob houses along a street. Each house has a certain amount of money stashed. Adjacent houses have connected security systems and will alert police if both are robbed. Given nums where nums[i] is the money in house i, return the maximum amount you can rob without alerting police.",
   constraints: ["1 <= nums.length <= 100", "0 <= nums[i] <= 400"],
   hints: ["dp[i] = max(dp[i-1], dp[i-2] + nums[i]).", "Two rolling variables suffice."],
@@ -99,11 +97,10 @@ add({
 // 3. House Robber II
 add({
   id: "house-robber-ii",
-  leetcode_number: 213,
+  number: 69,
   title: "House Robber II",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt: "Same as House Robber, but the houses are arranged in a circle (the first and last houses are adjacent). Return the maximum amount you can rob.",
   constraints: ["1 <= nums.length <= 100", "0 <= nums[i] <= 1000"],
   hints: ["Run linear House-Robber twice: once on nums[0..n-2], once on nums[1..n-1].", "Take the max — circular constraint reduces to two linear cases."],
@@ -143,11 +140,10 @@ add({
 // 4. Decode Ways
 add({
   id: "decode-ways",
-  leetcode_number: 91,
+  number: 41,
   title: "Decode Ways",
   difficulty: "Medium",
   categories: ["String", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt: "A message containing letters from A-Z can be encoded into numbers using A=1, B=2, ..., Z=26. Given a string s containing only digits, return the number of ways to decode it.",
   constraints: ["1 <= s.length <= 100", "s contains only digits and may contain leading zeros."],
   hints: [
@@ -197,11 +193,10 @@ add({
 // 5. Maximum Product Subarray
 add({
   id: "maximum-product-subarray",
-  leetcode_number: 152,
+  number: 105,
   title: "Maximum Product Subarray",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt: "Given an integer array nums, find a contiguous non-empty subarray that has the largest product, and return that product.",
   constraints: ["1 <= nums.length <= 2*1e4", "-10 <= nums[i] <= 10", "Product fits in a 32-bit integer."],
   hints: [
@@ -248,11 +243,10 @@ add({
 // 6. Longest Increasing Subsequence
 add({
   id: "longest-increasing-subsequence",
-  leetcode_number: 300,
+  number: 95,
   title: "Longest Increasing Subsequence",
   difficulty: "Medium",
   categories: ["Array", "Binary Search", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
   constraints: ["1 <= nums.length <= 2500", "-1e4 <= nums[i] <= 1e4"],
   hints: [
@@ -296,11 +290,10 @@ add({
 // 7. Partition Equal Subset Sum
 add({
   id: "partition-equal-subset-sum",
-  leetcode_number: 416,
+  number: 134,
   title: "Partition Equal Subset Sum",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a non-empty array of positive integers nums, return true if you can partition it into two subsets with equal sums.",
   constraints: ["1 <= nums.length <= 200", "1 <= nums[i] <= 100"],
   hints: ["If total is odd, false.", "Else: subset-sum DP for target = total/2 (boolean knapsack)."],
@@ -343,11 +336,10 @@ add({
 // 8. Unique Paths
 add({
   id: "unique-paths",
-  leetcode_number: 62,
+  number: 186,
   title: "Unique Paths",
   difficulty: "Medium",
   categories: ["Math", "Dynamic Programming", "Combinatorics"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "There is a robot on an m x n grid at top-left (0,0). It tries to reach the bottom-right (m-1, n-1). The robot can only move down or right. Return the number of unique paths.",
   constraints: ["1 <= m, n <= 100"],
   hints: ["dp[i][j] = dp[i-1][j] + dp[i][j-1].", "Closed form: C(m+n-2, m-1)."],
@@ -379,11 +371,10 @@ add({
 // 9. Unique Paths II
 add({
   id: "unique-paths-ii",
-  leetcode_number: 63,
+  number: 187,
   title: "Unique Paths II",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming", "Matrix"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Same as Unique Paths but obstacleGrid[i][j] == 1 marks a blocked cell. Return the number of unique paths from top-left to bottom-right.",
   constraints: ["1 <= m, n <= 100", "obstacleGrid[i][j] is 0 or 1."],
   hints: ["Same DP — set dp[j]=0 when obstacleGrid[i][j]==1.", "Watch the start cell: if blocked, answer is 0."],
@@ -428,11 +419,10 @@ add({
 // 10. Minimum Path Sum
 add({
   id: "minimum-path-sum",
-  leetcode_number: 64,
+  number: 118,
   title: "Minimum Path Sum",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming", "Matrix"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given a non-empty m x n grid filled with non-negative numbers, find a path from top-left to bottom-right that minimizes the sum of all numbers along its path. You can only move right or down.",
   constraints: ["1 <= m, n <= 200", "0 <= grid[i][j] <= 100"],
   hints: ["dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]).", "Roll to 1D."],
@@ -473,11 +463,10 @@ add({
 // 11. Jump Game
 add({
   id: "jump-game",
-  leetcode_number: 55,
+  number: 77,
   title: "Jump Game",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming", "Greedy"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "You are given an integer array nums. You are initially at the first index, and each element represents your maximum jump length at that position. Return true if you can reach the last index.",
   constraints: ["1 <= nums.length <= 1e4", "0 <= nums[i] <= 1e5"],
   hints: ["Greedy: track the farthest reachable index. If i ever exceeds it, fail.", "DP also works but is unnecessary."],
@@ -517,11 +506,10 @@ add({
 // 12. Jump Game II
 add({
   id: "jump-game-ii",
-  leetcode_number: 45,
+  number: 78,
   title: "Jump Game II",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming", "Greedy", "BFS"],
-  sources: ["LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given a 0-indexed array of integers nums. You start at index 0. Each nums[i] is the maximum length of a forward jump from i. Return the minimum number of jumps to reach nums[n-1] (assumed reachable).",
   constraints: ["1 <= nums.length <= 1e4", "0 <= nums[i] <= 1000", "It's guaranteed you can reach the end."],
   hints: [
@@ -563,11 +551,10 @@ add({
 // 13. Coin Change II
 add({
   id: "coin-change-ii",
-  leetcode_number: 518,
+  number: 25,
   title: "Coin Change II",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "You are given an integer array coins (denominations, infinite supply each) and an integer amount. Return the number of distinct combinations that make up amount. If impossible, return 0.",
   constraints: ["1 <= coins.length <= 300", "1 <= coins[i] <= 5000", "0 <= amount <= 5000", "All coin values unique."],
   hints: ["Unbounded knapsack — outer loop coins, inner loop sums ascending. Order matters: coins outside means combinations (sets), not permutations."],
@@ -604,11 +591,10 @@ add({
 // 14. Combination Sum IV
 add({
   id: "combination-sum-iv",
-  leetcode_number: 377,
+  number: 28,
   title: "Combination Sum IV",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an array of distinct integers nums and a target integer target, return the number of possible combinations that add up to target. Different orderings count as different combinations.",
   constraints: ["1 <= nums.length <= 200", "1 <= nums[i] <= 1000", "1 <= target <= 1000"],
   hints: ["Loop sums outer, nums inner — counts permutations."],
@@ -640,11 +626,10 @@ add({
 // 15. Target Sum
 add({
   id: "target-sum",
-  leetcode_number: 494,
+  number: 179,
   title: "Target Sum",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming", "Backtracking"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "You are given an integer array nums and a target integer target. Build an expression by inserting '+' or '-' before each integer in nums. Return the number of expressions evaluating to target.",
   constraints: ["1 <= nums.length <= 20", "0 <= nums[i] <= 1000", "0 <= sum(nums) <= 1000", "-1000 <= target <= 1000"],
   hints: [
@@ -688,11 +673,10 @@ add({
 // 16. Longest Common Subsequence
 add({
   id: "longest-common-subsequence",
-  leetcode_number: 1143,
+  number: 92,
   title: "Longest Common Subsequence",
   difficulty: "Medium",
   categories: ["String", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given two strings text1 and text2, return the length of their longest common subsequence. A subsequence is derived by deleting some characters without changing the order. If there is no common subsequence, return 0.",
   constraints: ["1 <= text1.length, text2.length <= 1000", "Lowercase English letters."],
   hints: [
@@ -742,11 +726,10 @@ add({
 // 17. Best Time to Buy and Sell Stock with Cooldown
 add({
   id: "best-time-to-buy-and-sell-stock-with-cooldown",
-  leetcode_number: 309,
+  number: 9,
   title: "Best Time to Buy and Sell Stock with Cooldown",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150"],
   prompt: "You are given prices where prices[i] is the price of a given stock on day i. Find the maximum profit you can achieve. After you sell, you cannot buy on the next day (cooldown of 1 day). You may complete as many transactions as you like (must sell before buying again).",
   constraints: ["1 <= prices.length <= 5000", "0 <= prices[i] <= 1000"],
   hints: [
@@ -790,11 +773,10 @@ add({
 // 18. Best Time to Buy and Sell Stock IV
 add({
   id: "best-time-to-buy-and-sell-stock-iv",
-  leetcode_number: 188,
+  number: 8,
   title: "Best Time to Buy and Sell Stock IV",
   difficulty: "Hard",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "You are given an integer array prices and an integer k. Find the maximum profit with at most k transactions (a transaction = buy then sell; you must sell before buying again).",
   constraints: ["0 <= k <= 100", "0 <= prices.length <= 1000", "0 <= prices[i] <= 1000"],
   hints: [
@@ -847,11 +829,10 @@ add({
 // 19. Edit Distance
 add({
   id: "edit-distance",
-  leetcode_number: 72,
+  number: 48,
   title: "Edit Distance",
   difficulty: "Medium",
   categories: ["String", "Dynamic Programming"],
-  sources: ["Blind 75", "LeetCode Top Interview 150", "Grind 75"],
   prompt: "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You can insert, delete, or replace one character per operation.",
   constraints: ["0 <= word1.length, word2.length <= 500", "Lowercase English letters."],
   hints: [
@@ -903,11 +884,10 @@ add({
 // 20. Burst Balloons
 add({
   id: "burst-balloons",
-  leetcode_number: 312,
+  number: 18,
   title: "Burst Balloons",
   difficulty: "Hard",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "You are given n balloons with numbers nums[i] painted on them. If you burst balloon i you gain nums[left] * nums[i] * nums[right] coins (using virtual nums[-1] = nums[n] = 1). Return the maximum coins you can collect by bursting balloons wisely.",
   constraints: ["1 <= n <= 300", "0 <= nums[i] <= 100"],
   hints: [
@@ -959,11 +939,10 @@ add({
 // 21. Regular Expression Matching
 add({
   id: "regular-expression-matching",
-  leetcode_number: 10,
+  number: 147,
   title: "Regular Expression Matching",
   difficulty: "Hard",
   categories: ["String", "Dynamic Programming", "Recursion"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an input string s and a pattern p, implement regex matching with support for '.' (matches any single char) and '*' (zero or more of the preceding element). The match must cover the entire input string.",
   constraints: ["1 <= s.length <= 20", "1 <= p.length <= 20", "p uses lowercase letters, '.', and '*'.", "It is guaranteed that '*' is preceded by a valid character."],
   hints: [
@@ -1013,11 +992,10 @@ add({
 // 22. Interleaving String
 add({
   id: "interleaving-string",
-  leetcode_number: 97,
+  number: 74,
   title: "Interleaving String",
   difficulty: "Medium",
   categories: ["String", "Dynamic Programming"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given strings s1, s2, s3, return true iff s3 can be formed by interleaving s1 and s2 (preserving each string's order).",
   constraints: ["0 <= s1.length, s2.length <= 100", "0 <= s3.length <= 200", "All lowercase letters."],
   hints: [
@@ -1077,11 +1055,10 @@ add({
 // 23. Longest Increasing Path in a Matrix
 add({
   id: "longest-increasing-path-in-a-matrix",
-  leetcode_number: 329,
+  number: 94,
   title: "Longest Increasing Path in a Matrix",
   difficulty: "Hard",
   categories: ["Array", "Dynamic Programming", "DFS", "Memoization", "Matrix", "Topological Sort"],
-  sources: ["LeetCode Top Interview 150"],
   prompt: "Given an m x n matrix of integers, return the length of the longest strictly increasing path. From each cell you can move up, down, left, or right.",
   constraints: ["1 <= m, n <= 200", "0 <= matrix[i][j] <= 2³¹ - 1"],
   hints: [

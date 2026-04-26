@@ -1,15 +1,12 @@
 {
   "id": "integer-to-roman",
-  "leetcode_number": 12,
+  "number": 73,
   "title": "Integer to Roman",
   "difficulty": "Medium",
   "categories": [
     "Hash Table",
     "Math",
     "String"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer in [1, 3999], convert it to its roman numeral representation. Use the subtractive forms IV, IX, XL, XC, CD, CM where applicable.",
   "constraints": [

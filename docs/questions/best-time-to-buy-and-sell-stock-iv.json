@@ -1,14 +1,11 @@
 {
   "id": "best-time-to-buy-and-sell-stock-iv",
-  "leetcode_number": 188,
+  "number": 8,
   "title": "Best Time to Buy and Sell Stock IV",
   "difficulty": "Hard",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given an integer array prices and an integer k. Find the maximum profit with at most k transactions (a transaction = buy then sell; you must sell before buying again).",
   "constraints": [

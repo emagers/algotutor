@@ -1,15 +1,11 @@
 {
   "id": "maximum-product-subarray",
-  "leetcode_number": 152,
+  "number": 105,
   "title": "Maximum Product Subarray",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array nums, find a contiguous non-empty subarray that has the largest product, and return that product.",
   "constraints": [

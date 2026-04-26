@@ -1,6 +1,6 @@
 {
   "id": "minimum-number-of-arrows-to-burst-balloons",
-  "leetcode_number": 452,
+  "number": 117,
   "title": "Minimum Number of Arrows to Burst Balloons",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Greedy",
     "Sorting",
     "Intervals"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given balloons[i] = [x_start, x_end], find the minimum number of vertical arrows that must be shot to burst all balloons. An arrow at x bursts every balloon with x_start <= x <= x_end.",
   "constraints": [

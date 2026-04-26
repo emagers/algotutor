@@ -86,6 +86,9 @@ export async function runJavascript({ question, code, tests }) {
 
   const cmp = comparators[question.comparison?.kind || "exact"] || comparators.exact;
   const results = [];
+  const ru0 = process.resourceUsage();
+  const memBefore = process.memoryUsage().rss;
+  let memPeak = memBefore;
   for (let i = 0; i < tests.length; i++) {
     const test = tests[i];
     try {
@@ -112,6 +115,14 @@ export async function runJavascript({ question, code, tests }) {
         stderr: err.message,
       });
     }
+    const rss = process.memoryUsage().rss;
+    if (rss > memPeak) memPeak = rss;
   }
-  return { results };
+  const ru1 = process.resourceUsage();
+  const metrics = {
+    peakMemBytes: memPeak,
+    cpuMs: Math.round(((ru1.userCPUTime + ru1.systemCPUTime) - (ru0.userCPUTime + ru0.systemCPUTime)) / 1000),
+    wallMs: results.reduce((a, r) => a + (r.durationMs || 0), 0),
+  };
+  return { results, metrics };
 }

@@ -1,14 +1,11 @@
 {
   "id": "find-the-index-of-the-first-occurrence-in-a-string",
-  "leetcode_number": 28,
+  "number": 57,
   "title": "Find the Index of the First Occurrence in a String",
   "difficulty": "Easy",
   "categories": [
     "String",
     "Two Pointers"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given strings haystack and needle, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. If needle is empty, return 0.",
   "constraints": [
@@ -89,7 +86,7 @@
   },
   "tests": [
     {"name":"example-1","category":"example","input":{"haystack":"sadbutsad","needle":"sad"},"output":0},
-    {"name":"example-2","category":"example","input":{"haystack":"leetcode","needle":"leeto"},"output":-1},
+    {"name":"example-2","category":"example","input":{"haystack":"abcdefgh","needle":"abco"},"output":-1},
     {"name":"needle-empty-not-allowed","category":"edge","input":{"haystack":"abc","needle":"a"},"output":0},
     {"name":"needle-equals-haystack","category":"edge","input":{"haystack":"abc","needle":"abc"},"output":0},
     {"name":"needle-longer","category":"edge","input":{"haystack":"ab","needle":"abc"},"output":-1},

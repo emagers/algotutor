@@ -1,16 +1,11 @@
 {
   "id": "coin-change",
-  "leetcode_number": 322,
+  "number": 24,
   "title": "Coin Change",
   "difficulty": "Medium",
   "categories": [
     "Dynamic Programming",
     "Array"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Fewest coins to make `amount` using unlimited copies of denominations in `coins`, or -1 if impossible.",
   "constraints": [

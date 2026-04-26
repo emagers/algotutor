@@ -1,6 +1,6 @@
 {
   "id": "task-scheduler",
-  "leetcode_number": 621,
+  "number": 180,
   "title": "Task Scheduler",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Hash Table",
     "Heap / Priority Queue",
     "Greedy"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a character array tasks (each character is a task type) and a non-negative integer n (cooldown), return the least number of intervals the CPU needs to finish all tasks, where the same task type must be at least n intervals apart.",
   "constraints": [

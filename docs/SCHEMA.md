@@ -13,11 +13,11 @@
 ```jsonc
 {
   "id": "two-sum",
-  "leetcode_number": 1,
+  "number": 1,
   "title": "Two Sum",
   "difficulty": "Easy",
   "categories": ["Array", "Hash Table"],
-  "sources": ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
+  "sources": ["", "", ""],
 
   "prompt": "...",
   "constraints": ["..."],
@@ -59,7 +59,7 @@
 | `identity` | Pass through unchanged. |
 | `arrayToLinkedList` | `[1,2,3]` → `ListNode` chain. |
 | `linkedListToArray` | `ListNode` chain → `[1,2,3]`. |
-| `arrayToBinaryTree` | LeetCode level-order with `null` placeholders → `TreeNode`. |
+| `arrayToBinaryTree` | level-order (null placeholders for absent children) with `null` placeholders → `TreeNode`. |
 | `binaryTreeToLevelOrder` | `TreeNode` → trimmed level-order array. |
 
 The runner **always deep-clones each input before invocation**, so problems that mutate (e.g., Number of Islands) are safe.

@@ -1,14 +1,11 @@
 {
   "id": "interleaving-string",
-  "leetcode_number": 97,
+  "number": 74,
   "title": "Interleaving String",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given strings s1, s2, s3, return true iff s3 can be formed by interleaving s1 and s2 (preserving each string's order).",
   "constraints": [

@@ -1,14 +1,11 @@
 {
   "id": "combination-sum-iv",
-  "leetcode_number": 377,
+  "number": 28,
   "title": "Combination Sum IV",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an array of distinct integers nums and a target integer target, return the number of possible combinations that add up to target. Different orderings count as different combinations.",
   "constraints": [

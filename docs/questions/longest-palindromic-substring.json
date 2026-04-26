@@ -1,16 +1,12 @@
 {
   "id": "longest-palindromic-substring",
-  "leetcode_number": 5,
+  "number": 96,
   "title": "Longest Palindromic Substring",
   "difficulty": "Medium",
   "categories": [
     "Two Pointers",
     "String",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a string `s`, return the longest palindromic substring of `s`. Any valid longest substring is accepted.",
   "constraints": [

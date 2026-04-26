@@ -1,16 +1,12 @@
 {
   "id": "reorder-list",
-  "leetcode_number": 143,
+  "number": 150,
   "title": "Reorder List",
   "difficulty": "Medium",
   "categories": [
     "Linked List",
     "Two Pointers",
     "Stack"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a singly linked list L0 → L1 → … → Ln-1 → Ln, reorder it to L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → … in place.",
   "constraints": [

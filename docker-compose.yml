@@ -11,9 +11,13 @@ services:
       - NODE_ENV=development
       - PORT=9090
       - REQUEST_TIMEOUT_MS=30000
+      - DB_PATH=/work/data/algotutor.db
+      - ALLOWED_ORIGINS=http://localhost:8080,http://127.0.0.1:8080
+      - ALGOTUTOR_E2E=${ALGOTUTOR_E2E:-0}
     volumes:
       - ./docs/questions:/work/docs/questions:ro
       - ./backend:/work/backend
+      - ./data:/work/data
       # Persistent + image-warmed cargo target, otherwise the bind mount above
       # would shadow the pre-built deps and every cold start would recompile
       # serde from scratch (~30s). Named volumes are populated from the image

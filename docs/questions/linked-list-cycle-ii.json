@@ -1,15 +1,12 @@
 {
   "id": "linked-list-cycle-ii",
-  "leetcode_number": 142,
+  "number": 90,
   "title": "Linked List Cycle II",
   "difficulty": "Medium",
   "categories": [
     "Linked List",
     "Two Pointers",
     "Hash Table"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Return the index of the node where a cycle begins, or -1 if there is no cycle. The list is given as `head` array plus `pos` (cycle entry index, -1 for none); the answer is the **index** of the cycle's first node.",
   "constraints": [

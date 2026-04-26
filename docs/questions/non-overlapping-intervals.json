@@ -1,6 +1,6 @@
 {
   "id": "non-overlapping-intervals",
-  "leetcode_number": 435,
+  "number": 125,
   "title": "Non-overlapping Intervals",
   "difficulty": "Medium",
   "categories": [
@@ -9,9 +9,6 @@
     "Intervals",
     "Sorting",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an array of intervals, return the minimum number of intervals you need to remove to make the rest non-overlapping (touching at endpoints is allowed).",
   "constraints": [

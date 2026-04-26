@@ -1,14 +1,11 @@
 {
   "id": "n-queens",
-  "leetcode_number": 51,
+  "number": 123,
   "title": "N-Queens",
   "difficulty": "Hard",
   "categories": [
     "Array",
     "Backtracking"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order. Each solution is a list of n strings of length n, with 'Q' marking a queen and '.' marking an empty cell.",
   "constraints": [

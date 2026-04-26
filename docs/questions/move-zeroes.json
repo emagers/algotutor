@@ -1,15 +1,11 @@
 {
   "id": "move-zeroes",
-  "leetcode_number": 283,
+  "number": 121,
   "title": "Move Zeroes",
   "difficulty": "Easy",
   "categories": [
     "Two Pointers",
     "Array"
-  ],
-  "sources": [
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array `nums`, move all 0s to the end while maintaining the relative order of the non-zero elements. Modify the array in-place.",
   "constraints": [

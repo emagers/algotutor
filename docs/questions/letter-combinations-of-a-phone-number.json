@@ -1,17 +1,12 @@
 {
   "id": "letter-combinations-of-a-phone-number",
-  "leetcode_number": 17,
+  "number": 87,
   "title": "Letter Combinations of a Phone Number",
   "difficulty": "Medium",
   "categories": [
     "Hash Table",
     "String",
     "Backtracking"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given a string containing digits from 2-9, return all possible letter combinations the number could represent (using the standard phone keypad). Return the answer in any order. If digits is empty, return an empty list.",
   "constraints": [

@@ -1,6 +1,6 @@
 {
   "id": "graph-valid-tree",
-  "leetcode_number": 261,
+  "number": 63,
   "title": "Graph Valid Tree",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Union-Find",
     "DFS",
     "BFS"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "Given n nodes labeled 0..n-1 and a list of undirected edges, determine whether the graph forms a valid tree (connected and acyclic).",
   "constraints": [

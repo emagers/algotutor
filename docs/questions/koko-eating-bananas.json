@@ -1,14 +1,11 @@
 {
   "id": "koko-eating-bananas",
-  "leetcode_number": 875,
+  "number": 80,
   "title": "Koko Eating Bananas",
   "difficulty": "Medium",
   "categories": [
     "Binary Search",
     "Array"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "Koko has piles of bananas with piles[i] bananas in the i-th pile. She eats k bananas per hour, choosing one pile each hour. If a pile has fewer than k bananas, she finishes it and waits the rest of that hour. Return the minimum integer k that lets her finish all piles within h hours.",
   "constraints": [

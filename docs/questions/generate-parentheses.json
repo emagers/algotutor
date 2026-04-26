@@ -1,17 +1,12 @@
 {
   "id": "generate-parentheses",
-  "leetcode_number": 22,
+  "number": 62,
   "title": "Generate Parentheses",
   "difficulty": "Medium",
   "categories": [
     "Backtracking",
     "Dynamic Programming",
     "String"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given n pairs of parentheses, generate all combinations of well-formed parentheses. Return the result as a list of strings (any order accepted).",
   "constraints": [

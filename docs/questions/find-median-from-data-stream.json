@@ -1,17 +1,12 @@
 {
   "id": "find-median-from-data-stream",
-  "leetcode_number": 295,
+  "number": 54,
   "title": "Find Median from Data Stream",
   "difficulty": "Hard",
   "categories": [
     "Heap / Priority Queue",
     "Design",
     "Data Stream"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Design a data structure that supports `addNum(num)` and `findMedian()` in a streaming fashion. The median is the middle value of an ordered list (or average of two middle values). Inputs are op protocols of the form `[['MedianFinder'], ['addNum', n], ['findMedian'], ...]`; outputs are `null` for ctor/addNum and the current median for findMedian.",
   "constraints": [

@@ -1,16 +1,12 @@
 {
   "id": "minimum-window-substring",
-  "leetcode_number": 76,
+  "number": 119,
   "title": "Minimum Window Substring",
   "difficulty": "Hard",
   "categories": [
     "Sliding Window",
     "Hash Table",
     "String"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given strings `s` and `t`, return the minimum window substring of `s` that contains every character of `t` (including duplicates). If no such substring exists, return the empty string. Any valid minimum-length window is accepted.",
   "constraints": [

@@ -1,15 +1,12 @@
 {
   "id": "spiral-matrix",
-  "leetcode_number": 54,
+  "number": 169,
   "title": "Spiral Matrix",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Matrix",
     "Simulation"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an m x n matrix, return all elements of the matrix in spiral order — start at the top-left, go right, then down, then left, then up, peeling off layers.",
   "constraints": [

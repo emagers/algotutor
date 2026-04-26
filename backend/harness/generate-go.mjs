@@ -21,7 +21,7 @@ import (
 var _ = fmt.Sprintf
 var _ = time.Now
 
-// === Standard data structures (LeetCode-canonical) ===
+// === Standard data structures (canonical) ===
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -287,7 +287,7 @@ export function generateGoDesignHarness(question, userCode) {
 
   // The user-defined struct in Go convention has methods with pointer receivers.
   // The constructor is conventionally a top-level `Constructor(args...) {ClassName}`.
-  // (LeetCode Go template.) We'll call it as `{className}_New` if you adopted a
+  // ( Go template.) We'll call it as `{className}_New` if you adopted a
   // different convention — but standard is `Constructor`. We assume `Constructor`.
 
   const ctorArgBindings = ctorParams.map((p, i) => {

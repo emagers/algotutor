@@ -1,17 +1,12 @@
 {
   "id": "valid-anagram",
-  "leetcode_number": 242,
+  "number": 188,
   "title": "Valid Anagram",
   "difficulty": "Easy",
   "categories": [
     "String",
     "Hash Table",
     "Sorting"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.",
   "constraints": [

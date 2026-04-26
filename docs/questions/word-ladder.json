@@ -1,6 +1,6 @@
 {
   "id": "word-ladder",
-  "leetcode_number": 127,
+  "number": 196,
   "title": "Word Ladder",
   "difficulty": "Hard",
   "categories": [
@@ -8,10 +8,6 @@
     "BFS",
     "String",
     "Hash Table"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two words beginWord and endWord and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, where each step changes exactly one letter and every intermediate word must be in wordList. Return 0 if no such sequence exists.",
   "constraints": [

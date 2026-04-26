@@ -1,14 +1,11 @@
 {
   "id": "burst-balloons",
-  "leetcode_number": 312,
+  "number": 18,
   "title": "Burst Balloons",
   "difficulty": "Hard",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given n balloons with numbers nums[i] painted on them. If you burst balloon i you gain nums[left] * nums[i] * nums[right] coins (using virtual nums[-1] = nums[n] = 1). Return the maximum coins you can collect by bursting balloons wisely.",
   "constraints": [

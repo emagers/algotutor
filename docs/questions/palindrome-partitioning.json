@@ -1,15 +1,12 @@
 {
   "id": "palindrome-partitioning",
-  "leetcode_number": 131,
+  "number": 132,
   "title": "Palindrome Partitioning",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Backtracking",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitions of s.",
   "constraints": [

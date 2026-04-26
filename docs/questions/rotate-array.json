@@ -1,15 +1,12 @@
 {
   "id": "rotate-array",
-  "leetcode_number": 189,
+  "number": 157,
   "title": "Rotate Array",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Math",
     "Two Pointers"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an integer array nums and a non-negative integer k, rotate the array to the right by k steps in place. The function must mutate the input and return the same reference.",
   "constraints": [

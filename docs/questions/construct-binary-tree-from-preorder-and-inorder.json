@@ -1,6 +1,6 @@
 {
   "id": "construct-binary-tree-from-preorder-and-inorder",
-  "leetcode_number": 105,
+  "number": 29,
   "title": "Construct Binary Tree from Preorder and Inorder Traversal",
   "difficulty": "Medium",
   "categories": [
@@ -8,10 +8,6 @@
     "DFS",
     "Hash Table",
     "Divide & Conquer"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree (returned here as level-order with nulls).",
   "constraints": [

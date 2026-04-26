@@ -1,6 +1,6 @@
 {
   "id": "insert-delete-getrandom-o1",
-  "leetcode_number": 380,
+  "number": 71,
   "title": "Insert Delete GetRandom O(1)",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Hash Table",
     "Math",
     "Design"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Implement RandomizedSet supporting insert(val) → bool (true if new), remove(val) → bool (true if existed), and getRandom() → element drawn uniformly from the current set, all in O(1) expected time. The runnable variant accepts (operations, args) arrays. NOTE: tests in this dataset omit getRandom because its output is non-deterministic; correctness of getRandom is validated by inspection or stochastic harness.",
   "constraints": [

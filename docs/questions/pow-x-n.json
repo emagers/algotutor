@@ -1,14 +1,11 @@
 {
   "id": "pow-x-n",
-  "leetcode_number": 50,
+  "number": 141,
   "title": "Pow(x, n)",
   "difficulty": "Medium",
   "categories": [
     "Math",
     "Recursion"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Implement pow(x, n) which computes x raised to the power n (where n is a 32-bit signed integer).",
   "constraints": [

@@ -1,14 +1,11 @@
 {
   "id": "evaluate-reverse-polish-notation",
-  "leetcode_number": 150,
+  "number": 50,
   "title": "Evaluate Reverse Polish Notation",
   "difficulty": "Medium",
   "categories": [
     "Stack",
     "Math"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, /. Each operand is a 32-bit integer or another RPN expression. Division between two integers always truncates toward zero.",
   "constraints": [

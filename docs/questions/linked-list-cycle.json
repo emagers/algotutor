@@ -1,17 +1,12 @@
 {
   "id": "linked-list-cycle",
-  "leetcode_number": 141,
+  "number": 89,
   "title": "Linked List Cycle",
   "difficulty": "Easy",
   "categories": [
     "Linked List",
     "Two Pointers",
     "Hash Table"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the head of a linked list (represented here as `head` array of node values plus `pos`, the index where the tail's next pointer connects, or -1 for none), determine if the list contains a cycle.",
   "constraints": [

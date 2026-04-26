@@ -1,17 +1,12 @@
 {
   "id": "group-anagrams",
-  "leetcode_number": 49,
+  "number": 64,
   "title": "Group Anagrams",
   "difficulty": "Medium",
   "categories": [
     "String",
     "Hash Table",
     "Sorting"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Group the anagrams together. You may return the answer in any order.",
   "constraints": [

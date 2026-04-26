@@ -80,11 +80,10 @@ function add(q) { questions.push(q); }
 // 1. Two Sum
 add({
   id: "two-sum",
-  leetcode_number: 1,
+  number: 184,
   title: "Two Sum",
   difficulty: "Easy",
   categories: ["Array", "Hash Table"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`. Each input has exactly one solution, and you may not use the same element twice. Return the answer in any order.",
   constraints: [
@@ -159,11 +158,10 @@ add({
 // 2. Best Time to Buy and Sell Stock
 add({
   id: "best-time-to-buy-and-sell-stock",
-  leetcode_number: 121,
+  number: 6,
   title: "Best Time to Buy and Sell Stock",
   difficulty: "Easy",
   categories: ["Array", "Dynamic Programming"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "You are given an array `prices` where `prices[i]` is the price of a given stock on the i-th day. You want to maximize profit by choosing a single day to buy and a different later day to sell. Return the maximum profit; if no profit is possible, return 0.",
   constraints: ["1 <= prices.length <= 10^5", "0 <= prices[i] <= 10^4"],
@@ -229,11 +227,10 @@ add({
 // 3. Contains Duplicate
 add({
   id: "contains-duplicate",
-  leetcode_number: 217,
+  number: 31,
   title: "Contains Duplicate",
   difficulty: "Easy",
   categories: ["Array", "Hash Table", "Sorting"],
-  sources: ["Blind 75"],
   prompt: "Given an integer array `nums`, return `true` if any value appears at least twice, and `false` if every element is distinct.",
   constraints: ["1 <= nums.length <= 10^5", "-10^9 <= nums[i] <= 10^9"],
   hints: ["A set tracks what you've already seen.", "Or sort and check adjacent equality."],
@@ -280,11 +277,10 @@ add({
 // 4. Valid Anagram
 add({
   id: "valid-anagram",
-  leetcode_number: 242,
+  number: 188,
   title: "Valid Anagram",
   difficulty: "Easy",
   categories: ["String", "Hash Table", "Sorting"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.",
   constraints: ["1 <= s.length, t.length <= 5 * 10^4", "s and t consist of lowercase English letters."],
   hints: ["Different lengths can never be anagrams.", "Count character frequencies — they must match exactly."],
@@ -334,11 +330,10 @@ add({
 // 5. Valid Parentheses
 add({
   id: "valid-parentheses",
-  leetcode_number: 20,
+  number: 190,
   title: "Valid Parentheses",
   difficulty: "Easy",
   categories: ["String", "Stack"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a string `s` containing only the characters `()[]{}`, determine if the input string is valid.",
   constraints: ["1 <= s.length <= 10^4", "s consists of parentheses only: ()[]{}"],
@@ -392,11 +387,10 @@ add({
 // 6. Merge Two Sorted Lists
 add({
   id: "merge-two-sorted-lists",
-  leetcode_number: 21,
+  number: 113,
   title: "Merge Two Sorted Lists",
   difficulty: "Easy",
   categories: ["Linked List", "Recursion"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "You are given the heads of two sorted singly linked lists. Splice them into one sorted list and return the head.",
   constraints: ["0 <= number of nodes in each list <= 50", "-100 <= Node.val <= 100", "Both lists are sorted in non-decreasing order."],
@@ -458,11 +452,10 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 // 7. Invert Binary Tree
 add({
   id: "invert-binary-tree",
-  leetcode_number: 226,
+  number: 75,
   title: "Invert Binary Tree",
   difficulty: "Easy",
   categories: ["Tree", "DFS", "BFS", "Recursion"],
-  sources: ["Blind 75", "Grind 75"],
   prompt: "Given the root of a binary tree, invert the tree (mirror it left-right) and return its root.",
   constraints: ["The number of nodes is in the range [0, 100].", "-100 <= Node.val <= 100"],
   hints: ["Inversion = swap left and right at every node.", "Recursion mirrors the tree's structure naturally; iterative BFS/DFS works too."],
@@ -519,11 +512,10 @@ function invertTree(root: TreeNode | null): TreeNode | null {
 // 8. Binary Search
 add({
   id: "binary-search",
-  leetcode_number: 704,
+  number: 10,
   title: "Binary Search",
   difficulty: "Easy",
   categories: ["Array", "Binary Search"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Given a sorted (ascending) array of distinct integers `nums` and a `target`, return the index of `target` if found, else return -1. Run in O(log n).",
   constraints: ["1 <= nums.length <= 10^4", "-10^4 <= nums[i], target <= 10^4", "All values are unique."],
@@ -578,11 +570,10 @@ add({
 // 9. Maximum Subarray
 add({
   id: "maximum-subarray",
-  leetcode_number: 53,
+  number: 106,
   title: "Maximum Subarray",
   difficulty: "Medium",
   categories: ["Array", "Dynamic Programming", "Divide & Conquer"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Find the contiguous subarray (containing at least one number) with the largest sum, and return its sum.",
   constraints: ["1 <= nums.length <= 10^5", "-10^4 <= nums[i] <= 10^4"],
   hints: ["Define f(i) = best sum ending at i.", "f(i) = max(nums[i], f(i-1) + nums[i]). Track the global max."],
@@ -632,11 +623,10 @@ add({
 // 10. Product of Array Except Self
 add({
   id: "product-of-array-except-self",
-  leetcode_number: 238,
+  number: 143,
   title: "Product of Array Except Self",
   difficulty: "Medium",
   categories: ["Array", "Prefix Sum"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Return an array `answer` such that `answer[i]` equals the product of all elements of `nums` except `nums[i]`. Run in O(n) without using division.",
   constraints: ["2 <= nums.length <= 10^5", "-30 <= nums[i] <= 30", "Any prefix or suffix product fits in a 32-bit integer."],
@@ -695,11 +685,10 @@ add({
 // 11. 3Sum
 add({
   id: "3sum",
-  leetcode_number: 15,
+  number: 1,
   title: "3Sum",
   difficulty: "Medium",
   categories: ["Array", "Two Pointers", "Sorting"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt:
     "Return all unique triplets `[a, b, c]` from `nums` such that a + b + c = 0 and indices are distinct. The result must not contain duplicate triplets.",
   constraints: ["3 <= nums.length <= 3000", "-10^5 <= nums[i] <= 10^5"],
@@ -768,11 +757,10 @@ add({
 // 12. Longest Substring Without Repeating Characters
 add({
   id: "longest-substring-without-repeating-characters",
-  leetcode_number: 3,
+  number: 98,
   title: "Longest Substring Without Repeating Characters",
   difficulty: "Medium",
   categories: ["String", "Sliding Window", "Hash Table"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Given a string `s`, return the length of the longest substring without repeating characters.",
   constraints: ["0 <= s.length <= 5 * 10^4", "s consists of English letters, digits, symbols, and spaces."],
   hints: ["Maintain a window [l, r] of unique characters and slide r forward.", "On a repeat, jump l forward to past the previous occurrence."],
@@ -827,11 +815,10 @@ add({
 // 13. Group Anagrams
 add({
   id: "group-anagrams",
-  leetcode_number: 49,
+  number: 64,
   title: "Group Anagrams",
   difficulty: "Medium",
   categories: ["String", "Hash Table", "Sorting"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Group the anagrams together. You may return the answer in any order.",
   constraints: ["1 <= strs.length <= 10^4", "0 <= strs[i].length <= 100", "strs[i] consists of lowercase English letters."],
   hints: ["Anagrams share a canonical signature — pick one.", "Sorting yields a key; or use a 26-length count tuple."],
@@ -885,11 +872,10 @@ add({
 // 14. Search in Rotated Sorted Array
 add({
   id: "search-in-rotated-sorted-array",
-  leetcode_number: 33,
+  number: 163,
   title: "Search in Rotated Sorted Array",
   difficulty: "Medium",
   categories: ["Array", "Binary Search"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Sorted-ascending array of distinct integers possibly rotated; find target index in O(log n) or -1.",
   constraints: ["1 <= nums.length <= 5000", "-10^4 <= nums[i] <= 10^4", "All values are unique."],
   hints: ["At any midpoint one half is fully sorted.", "Decide which half is sorted, then check whether target lies inside it."],
@@ -948,11 +934,10 @@ add({
 // 15. Number of Islands
 add({
   id: "number-of-islands",
-  leetcode_number: 200,
+  number: 128,
   title: "Number of Islands",
   difficulty: "Medium",
   categories: ["Matrix", "Graph", "DFS", "BFS", "Union-Find"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Count maximal connected groups of '1's in a 2D grid (4-directional).",
   constraints: ["1 <= m, n <= 300", "grid[i][j] is '0' or '1'."],
   hints: ["Each unvisited land cell starts a new island; flood-fill it before moving on.", "Mark visited cells in place to save space."],
@@ -1007,11 +992,10 @@ add({
 // 16. Course Schedule
 add({
   id: "course-schedule",
-  leetcode_number: 207,
+  number: 38,
   title: "Course Schedule",
   difficulty: "Medium",
   categories: ["Graph", "BFS", "DFS", "Topological Sort"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Given numCourses and a list of [a, b] meaning b is a prerequisite for a, can you finish all courses (i.e., is the graph acyclic)?",
   constraints: ["1 <= numCourses <= 2000", "0 <= prerequisites.length <= 5000", "All prerequisite pairs are unique."],
   hints: ["Detect a cycle in a directed graph.", "Kahn's algorithm: peel zero-indegree nodes.", "DFS alternative: 3-color marking."],
@@ -1083,11 +1067,10 @@ add({
 // 17. Coin Change
 add({
   id: "coin-change",
-  leetcode_number: 322,
+  number: 24,
   title: "Coin Change",
   difficulty: "Medium",
   categories: ["Dynamic Programming", "Array"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Fewest coins to make `amount` using unlimited copies of denominations in `coins`, or -1 if impossible.",
   constraints: ["1 <= coins.length <= 12", "1 <= coins[i] <= 2^31 - 1", "0 <= amount <= 10^4"],
   hints: [
@@ -1139,11 +1122,10 @@ add({
 // 18. Word Break
 add({
   id: "word-break",
-  leetcode_number: 139,
+  number: 195,
   title: "Word Break",
   difficulty: "Medium",
   categories: ["Dynamic Programming", "String", "Hash Table", "Trie"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Can `s` be segmented into a sequence of dictionary words (reuse allowed)?",
   constraints: ["1 <= s.length <= 300", "1 <= wordDict.length <= 1000", "1 <= wordDict[i].length <= 20", "All strings of wordDict are unique."],
   hints: [
@@ -1181,7 +1163,7 @@ add({
 }`,
   tests: () => {
     const t = [];
-    t.push({ name: "example-leetcode", category: "example", input: { s: "leetcode", wordDict: ["leet","code"] } });
+    t.push({ name: "example-1", category: "example", input: { s: "abcabd", wordDict: ["ab","cab","d"] } });
     t.push({ name: "example-applepenapple", category: "example", input: { s: "applepenapple", wordDict: ["apple","pen"] } });
     t.push({ name: "example-cant-segment", category: "example", input: { s: "catsandog", wordDict: ["cats","dog","sand","and","cat"] } });
     t.push({ name: "edge-single-match", category: "edge", input: { s: "a", wordDict: ["a"] } });
@@ -1201,11 +1183,10 @@ add({
 // 19. Top K Frequent Elements
 add({
   id: "top-k-frequent-elements",
-  leetcode_number: 347,
+  number: 182,
   title: "Top K Frequent Elements",
   difficulty: "Medium",
   categories: ["Array", "Hash Table", "Heap / Priority Queue", "Sorting"],
-  sources: ["Blind 75", "Grind 75", "LeetCode Top Interview 150"],
   prompt: "Return the k most frequent elements (any order). Better than O(n log n).",
   constraints: ["1 <= nums.length <= 10^5", "-10^4 <= nums[i] <= 10^4", "k is in [1, number of unique values]", "Answer is unique."],
   hints: [
@@ -1263,11 +1244,10 @@ add({
 // 20. Trapping Rain Water
 add({
   id: "trapping-rain-water",
-  leetcode_number: 42,
+  number: 183,
   title: "Trapping Rain Water",
   difficulty: "Hard",
   categories: ["Array", "Two Pointers", "Stack", "Dynamic Programming", "Monotonic Stack"],
-  sources: ["Grind 75", "LeetCode Top Interview 150"],
   prompt: "Given an elevation map (bar widths = 1), compute trapped water after rain.",
   constraints: ["n == height.length", "1 <= n <= 2 * 10^4", "0 <= height[i] <= 10^5"],
   hints: [
@@ -1374,11 +1354,10 @@ for (const q of questions) {
 
   const file = {
     id: q.id,
-    leetcode_number: q.leetcode_number,
+    number: q.number ?? q.number,
     title: q.title,
     difficulty: q.difficulty,
     categories: q.categories,
-    sources: q.sources,
     prompt: q.prompt,
     constraints: q.constraints,
     hints: q.hints,
@@ -1415,11 +1394,10 @@ writeFileSync(
       items: questions.map((q) => {
         const item = {
           id: q.id,
-          leetcode_number: q.leetcode_number,
+          number: q.number ?? q.number,
           title: q.title,
           difficulty: q.difficulty,
           categories: q.categories,
-          sources: q.sources,
           file: `questions/${q.id}.json`,
         };
         const ov = metadataOverrides[q.id];

@@ -1,14 +1,11 @@
 {
   "id": "middle-of-the-linked-list",
-  "leetcode_number": 876,
+  "number": 114,
   "title": "Middle of the Linked List",
   "difficulty": "Easy",
   "categories": [
     "Linked List",
     "Two Pointers"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "Given the head of a singly linked list, return the middle node. If there are two middle nodes, return the second one.",
   "constraints": [

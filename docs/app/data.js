@@ -11,6 +11,17 @@ export async function fetchIndex() {
   return _indexCache;
 }
 
+let _videoMapCache = null;
+export async function fetchVideoMap() {
+  if (_videoMapCache) return _videoMapCache;
+  try {
+    const res = await fetch("./video-map.json");
+    if (!res.ok) { _videoMapCache = {}; return _videoMapCache; }
+    _videoMapCache = await res.json();
+  } catch { _videoMapCache = {}; }
+  return _videoMapCache;
+}
+
 export async function fetchQuestion(slug) {
   if (_qCache.has(slug)) return _qCache.get(slug);
   const res = await fetch(`./questions/${slug}.json`);

@@ -1,6 +1,6 @@
 {
   "id": "time-based-key-value-store",
-  "leetcode_number": 981,
+  "number": 181,
   "title": "Time Based Key-Value Store",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "String",
     "Binary Search",
     "Design"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Design a time-based key-value store that supports: set(key, value, timestamp) — stores value at the given timestamp; get(key, timestamp) — returns the value associated with the largest timestamp ≤ the queried timestamp, or '' if no such record exists. All set timestamps for a given key are strictly increasing. The runnable variant accepts (operations, args) arrays.",
   "constraints": [

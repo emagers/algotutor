@@ -1,6 +1,6 @@
 {
   "id": "valid-parenthesis-string",
-  "leetcode_number": 678,
+  "number": 191,
   "title": "Valid Parenthesis String",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Stack",
     "Greedy",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a string s containing only '(', ')', and '*', return true if s is valid. '*' may be treated as '(', ')', or empty.",
   "constraints": [

@@ -1,6 +1,6 @@
 {
   "id": "palindrome-linked-list",
-  "leetcode_number": 234,
+  "number": 130,
   "title": "Palindrome Linked List",
   "difficulty": "Easy",
   "categories": [
@@ -8,10 +8,6 @@
     "Two Pointers",
     "Stack",
     "Recursion"
-  ],
-  "sources": [
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the head of a singly linked list, return true if it is a palindrome (reads the same forward and backward).",
   "constraints": [

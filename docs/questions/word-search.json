@@ -1,6 +1,6 @@
 {
   "id": "word-search",
-  "leetcode_number": 79,
+  "number": 198,
   "title": "Word Search",
   "difficulty": "Medium",
   "categories": [
@@ -8,11 +8,6 @@
     "String",
     "Backtracking",
     "Matrix"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given an m x n grid of characters and a word, return true if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cells (horizontally or vertically). The same cell may not be used more than once in a single word.",
   "constraints": [

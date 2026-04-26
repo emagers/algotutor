@@ -1,14 +1,11 @@
 {
   "id": "merge-sorted-array",
-  "leetcode_number": 88,
+  "number": 111,
   "title": "Merge Sorted Array",
   "difficulty": "Easy",
   "categories": [
     "Two Pointers",
     "Array"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given two sorted integer arrays nums1 and nums2, with nums1 having m + n length where the last n entries are placeholders. Merge nums2 into nums1 in-place so nums1 becomes sorted in non-decreasing order.",
   "constraints": [

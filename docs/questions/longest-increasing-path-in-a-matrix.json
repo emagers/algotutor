@@ -1,6 +1,6 @@
 {
   "id": "longest-increasing-path-in-a-matrix",
-  "leetcode_number": 329,
+  "number": 94,
   "title": "Longest Increasing Path in a Matrix",
   "difficulty": "Hard",
   "categories": [
@@ -10,9 +10,6 @@
     "Memoization",
     "Matrix",
     "Topological Sort"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an m x n matrix of integers, return the length of the longest strictly increasing path. From each cell you can move up, down, left, or right.",
   "constraints": [

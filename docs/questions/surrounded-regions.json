@@ -1,6 +1,6 @@
 {
   "id": "surrounded-regions",
-  "leetcode_number": 130,
+  "number": 177,
   "title": "Surrounded Regions",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "DFS",
     "BFS",
     "Union-Find"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an m x n board of 'X' and 'O', capture all regions of 'O' that are completely surrounded by 'X' (flip those to 'X'). 'O's connected to the border are not captured. Modify in-place and return the board.",
   "constraints": [

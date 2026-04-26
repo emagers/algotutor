@@ -1,15 +1,11 @@
 {
   "id": "remove-nth-node-from-end-of-list",
-  "leetcode_number": 19,
+  "number": 149,
   "title": "Remove Nth Node From End of List",
   "difficulty": "Medium",
   "categories": [
     "Linked List",
     "Two Pointers"
-  ],
-  "sources": [
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the head of a linked list, remove the nth node from the end and return the head.",
   "constraints": [

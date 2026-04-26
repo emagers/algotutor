@@ -1,15 +1,12 @@
 {
   "id": "longest-repeating-character-replacement",
-  "leetcode_number": 424,
+  "number": 97,
   "title": "Longest Repeating Character Replacement",
   "difficulty": "Medium",
   "categories": [
     "Sliding Window",
     "Hash Table",
     "String"
-  ],
-  "sources": [
-    "Blind 75"
   ],
   "prompt": "Given a string `s` and an integer `k`, you can change at most k characters to any other uppercase English letter. Return the length of the longest substring containing the same letter you can obtain.",
   "constraints": [

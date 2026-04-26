@@ -1,15 +1,11 @@
 {
   "id": "single-number",
-  "leetcode_number": 136,
+  "number": 166,
   "title": "Single Number",
   "difficulty": "Easy",
   "categories": [
     "Array",
     "Bit Manipulation"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Every element in a non-empty integer array appears twice except for one. Find that single element. Your solution must run in linear time and use only constant extra space.",
   "constraints": [

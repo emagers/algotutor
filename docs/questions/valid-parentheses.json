@@ -1,16 +1,11 @@
 {
   "id": "valid-parentheses",
-  "leetcode_number": 20,
+  "number": 190,
   "title": "Valid Parentheses",
   "difficulty": "Easy",
   "categories": [
     "String",
     "Stack"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a string `s` containing only the characters `()[]{}`, determine if the input string is valid.",
   "constraints": [

@@ -1,14 +1,11 @@
 {
   "id": "coin-change-ii",
-  "leetcode_number": 518,
+  "number": 25,
   "title": "Coin Change II",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "You are given an integer array coins (denominations, infinite supply each) and an integer amount. Return the number of distinct combinations that make up amount. If impossible, return 0.",
   "constraints": [

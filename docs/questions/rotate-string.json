@@ -1,14 +1,11 @@
 {
   "id": "rotate-string",
-  "leetcode_number": 796,
+  "number": 159,
   "title": "Rotate String",
   "difficulty": "Easy",
   "categories": [
     "String",
     "String Matching"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given two strings s and goal, return true if and only if s can become goal after some number of left shifts. A left shift moves the first character to the end.",
   "constraints": [

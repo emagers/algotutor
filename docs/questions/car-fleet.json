@@ -1,6 +1,6 @@
 {
   "id": "car-fleet",
-  "leetcode_number": 853,
+  "number": 20,
   "title": "Car Fleet",
   "difficulty": "Medium",
   "categories": [
@@ -8,9 +8,6 @@
     "Monotonic Stack",
     "Sorting",
     "Greedy"
-  ],
-  "sources": [
-    "Grind 75"
   ],
   "prompt": "There are n cars at given integer positions on a single-lane road heading to a destination at `target`. Each car drives at speed[i] and never overtakes; if a faster car catches a slower one they form a fleet that moves at the slower car's speed. Return the number of fleets that arrive at the target.",
   "constraints": [

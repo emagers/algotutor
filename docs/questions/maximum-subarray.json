@@ -1,17 +1,12 @@
 {
   "id": "maximum-subarray",
-  "leetcode_number": 53,
+  "number": 106,
   "title": "Maximum Subarray",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming",
     "Divide & Conquer"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Find the contiguous subarray (containing at least one number) with the largest sum, and return its sum.",
   "constraints": [

@@ -1,16 +1,11 @@
 {
   "id": "reverse-linked-list",
-  "leetcode_number": 206,
+  "number": 154,
   "title": "Reverse Linked List",
   "difficulty": "Easy",
   "categories": [
     "Linked List",
     "Recursion"
-  ],
-  "sources": [
-    "Blind 75",
-    "Grind 75",
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given the head of a singly linked list, reverse the list and return the new head.",
   "constraints": [

@@ -1,14 +1,11 @@
 {
   "id": "combination-sum-ii",
-  "leetcode_number": 40,
+  "number": 27,
   "title": "Combination Sum II",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Backtracking"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a collection of candidate numbers (which may contain duplicates) and a target, find all unique combinations where the candidate numbers sum to target. Each number may only be used once. Solution set must not contain duplicates.",
   "constraints": [

@@ -1,15 +1,12 @@
 {
   "id": "reconstruct-itinerary",
-  "leetcode_number": 332,
+  "number": 145,
   "title": "Reconstruct Itinerary",
   "difficulty": "Hard",
   "categories": [
     "Graph",
     "DFS",
     "Eulerian Path"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a list of airline tickets [from, to], reconstruct the itinerary in order. The trip starts at \"JFK\" and uses every ticket exactly once. If multiple valid itineraries exist, return the one that is lexicographically smallest when read as a single concatenated list.",
   "constraints": [

@@ -1,16 +1,11 @@
 {
   "id": "combination-sum",
-  "leetcode_number": 39,
+  "number": 26,
   "title": "Combination Sum",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Backtracking"
-  ],
-  "sources": [
-    "Blind 75",
-    "LeetCode Top Interview 150",
-    "Grind 75"
   ],
   "prompt": "Given an array of distinct integers candidates and a target integer target, return all unique combinations of candidates where the chosen numbers sum to target. The same number may be chosen unlimited times. Two combinations are unique if their multiset of chosen numbers differs.",
   "constraints": [

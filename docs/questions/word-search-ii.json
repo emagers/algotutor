@@ -1,6 +1,6 @@
 {
   "id": "word-search-ii",
-  "leetcode_number": 212,
+  "number": 199,
   "title": "Word Search II",
   "difficulty": "Hard",
   "categories": [
@@ -9,9 +9,6 @@
     "Trie",
     "Backtracking",
     "Matrix"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given an m x n board of characters and a list of words, return all words that can be constructed from letters of sequentially adjacent cells (horizontally/vertically), where the same cell may not be used more than once in a word. Order of returned words is not specified.",
   "constraints": [

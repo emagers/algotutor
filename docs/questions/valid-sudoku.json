@@ -1,15 +1,12 @@
 {
   "id": "valid-sudoku",
-  "leetcode_number": 36,
+  "number": 192,
   "title": "Valid Sudoku",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Hash Table",
     "Matrix"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Determine whether a partially filled 9x9 Sudoku board is valid. Validation rules: each row contains digits 1-9 with no duplicates, each column contains digits 1-9 with no duplicates, and each of the nine 3x3 sub-boxes contains digits 1-9 with no duplicates. Empty cells are denoted '.'. You only need to validate the filled cells.",
   "constraints": [

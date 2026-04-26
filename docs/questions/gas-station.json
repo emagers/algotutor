@@ -1,14 +1,11 @@
 {
   "id": "gas-station",
-  "leetcode_number": 134,
+  "number": 61,
   "title": "Gas Station",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Greedy"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "There are n gas stations along a circular route, where the amount of gas at station i is gas[i]. To travel from i to i+1 costs cost[i] units. Given gas and cost, return the starting gas station's index if you can travel around the circuit once in the clockwise direction; otherwise return -1. Solution is unique if it exists.",
   "constraints": [

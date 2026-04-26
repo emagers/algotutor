@@ -1,14 +1,11 @@
 {
   "id": "partition-equal-subset-sum",
-  "leetcode_number": 416,
+  "number": 134,
   "title": "Partition Equal Subset Sum",
   "difficulty": "Medium",
   "categories": [
     "Array",
     "Dynamic Programming"
-  ],
-  "sources": [
-    "LeetCode Top Interview 150"
   ],
   "prompt": "Given a non-empty array of positive integers nums, return true if you can partition it into two subsets with equal sums.",
   "constraints": [
