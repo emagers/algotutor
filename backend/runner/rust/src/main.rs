@@ -97,12 +97,12 @@ fn tree_to_array(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
 }
 
 // === Wire-shape structs for graph/random-list problems ===
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct RandomList {
     pub vals: Vec<i32>,
     pub randoms: Vec<Option<usize>>,
 }
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct GraphRepr {
     pub nodes: Vec<i32>,
     pub adj: Vec<Vec<usize>>,
@@ -111,24 +111,50 @@ pub struct GraphRepr {
 
 // === User code ===
 
-fn isPalindrome(s: String) -> bool {
-    let bytes: Vec<u8> = s.bytes().filter(|&b| b.is_ascii_alphanumeric()).map(|b| b.to_ascii_lowercase()).collect();
-    let (mut i, mut j) = (0usize, bytes.len().saturating_sub(1));
-    while i < j {
-        if bytes[i] != bytes[j] { return false; }
-        i += 1; j -= 1;
+use std::collections::HashMap;
+
+pub struct LRUCache {
+    cap: usize,
+    order: Vec<i32>,
+    map: HashMap<i32, i32>,
+}
+
+impl LRUCache {
+    pub fn new(capacity: i32) -> Self {
+        LRUCache { cap: capacity as usize, order: Vec::new(), map: HashMap::new() }
     }
-    true
+    pub fn get(&mut self, key: i32) -> i32 {
+        if let Some(&v) = self.map.get(&key) {
+            self.order.retain(|&k| k != key);
+            self.order.push(key);
+            v
+        } else { -1 }
+    }
+    pub fn put(&mut self, key: i32, value: i32) {
+        if self.map.contains_key(&key) {
+            self.order.retain(|&k| k != key);
+        } else if self.map.len() >= self.cap {
+            let evict = self.order.remove(0);
+            self.map.remove(&evict);
+        }
+        self.order.push(key);
+        self.map.insert(key, value);
+    }
 }
 // === End user code ===
 
-#[derive(Deserialize)]
-pub struct Test { pub input: TestInput, pub output: serde_json::Value }
-#[derive(Deserialize)]
-pub struct TestInput {
-    pub s: String,
+#[derive(Deserialize, Default)]
+pub struct DesignInput {
+    #[serde(default)]
+    pub ops: Vec<Vec<serde_json::Value>>,
+    #[serde(default)]
+    pub operations: Vec<String>,
+    #[serde(default)]
+    pub args: Vec<Vec<serde_json::Value>>,
 }
 
+#[derive(Deserialize)]
+pub struct Test { pub input: DesignInput, pub output: serde_json::Value }
 #[derive(Deserialize)]
 pub struct Request { pub tests: Vec<Test> }
 
@@ -152,6 +178,55 @@ fn panic_message(e: Box<dyn std::any::Any + Send>) -> String {
     "panic".to_string()
 }
 
+fn run_one(input: DesignInput) -> Vec<serde_json::Value> {
+    let (methods, all_args): (Vec<String>, Vec<Vec<serde_json::Value>>) = if !input.ops.is_empty() {
+        let mut ms = Vec::with_capacity(input.ops.len());
+        let mut args_v = Vec::with_capacity(input.ops.len());
+        for op in input.ops.into_iter() {
+            let mut it = op.into_iter();
+            let head = it.next().expect("empty op tuple");
+            let name = head.as_str().expect("op[0] not a string").to_string();
+            ms.push(name);
+            args_v.push(it.collect());
+        }
+        (ms, args_v)
+    } else {
+        (input.operations, input.args)
+    };
+
+    let mut out: Vec<serde_json::Value> = Vec::with_capacity(methods.len());
+    let mut instance: Option<LRUCache> = None;
+    for (i, name) in methods.iter().enumerate() {
+        let args = all_args.get(i).cloned().unwrap_or_default();
+        if name == "LRUCache" {
+            let __c0: i32 = serde_json::from_value(args[0].clone()).expect("ctor arg 0 (capacity) parse");
+            instance = Some(LRUCache::new(__c0));
+            out.push(serde_json::Value::Null);
+            continue;
+        }
+        if instance.is_none() {
+            // Constructor not in stream; only legal when ctor has no params.
+            panic!("first op should be the constructor (LRUCache) for this problem");
+        }
+        let inst = instance.as_mut().unwrap();
+        match name.as_str() {
+            "get" => {
+                let __a0: i32 = serde_json::from_value(args[0].clone()).expect("get arg 0 (key) parse");
+                let __r = inst.get(__a0);
+                out.push(serde_json::to_value(__r).unwrap());
+            }
+            "put" => {
+                let __a0: i32 = serde_json::from_value(args[0].clone()).expect("put arg 0 (key) parse");
+                let __a1: i32 = serde_json::from_value(args[1].clone()).expect("put arg 1 (value) parse");
+                inst.put(__a0, __a1);
+                out.push(serde_json::Value::Null);
+            }
+            other => panic!("unknown method: {}", other),
+        }
+    }
+    out
+}
+
 fn main() {
     let mut buf = String::new();
     io::stdin().read_to_string(&mut buf).unwrap();
@@ -165,16 +240,12 @@ fn main() {
     let mut out: Vec<CaseResult> = Vec::with_capacity(req.tests.len());
     for (i, t) in req.tests.into_iter().enumerate() {
         let Test { input, output: _ } = t;
-        let s_in = input.s;
         let started = std::time::Instant::now();
-        let res = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-            isPalindromeAlnum(s_in)
-        }));
+        let res = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| run_one(input)));
         let dt = started.elapsed().as_millis() as u64;
         match res {
-            Ok(__ret) => {
-                let actual = serde_json::to_value(&__ret).unwrap();
-                out.push(CaseResult { index: i, ok: true, actual, duration_ms: dt, error: None });
+            Ok(actual) => {
+                out.push(CaseResult { index: i, ok: true, actual: serde_json::to_value(actual).unwrap(), duration_ms: dt, error: None });
             }
             Err(e) => {
                 out.push(CaseResult { index: i, ok: false, actual: serde_json::Value::Null, duration_ms: dt, error: Some(panic_message(e)) });

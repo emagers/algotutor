@@ -91,17 +91,16 @@ test("invalid JSON in custom input shows error", async ({ page }) => {
   await expect(page.locator("#output")).toContainText(/not valid JSON/i);
 });
 
-test("Run/Submit buttons disabled for backendUnsupported language", async ({ page }) => {
+test("Run/Submit buttons enabled across all languages (full support)", async ({ page }) => {
+  // All 200 problems support all 3 languages — verify a previously-restricted
+  // problem (alien-dictionary) is fully usable in Rust now.
   await page.goto("/problem.html?id=alien-dictionary");
   await waitForEditor(page);
-  await selectLanguage(page, "rust");
-  await expect(page.locator("#btn-run")).toBeDisabled();
-  await expect(page.locator("#btn-submit")).toBeDisabled();
-  await expect(page.locator("#lang-warning")).toContainText(/not supported/i);
-  // JS still works.
-  await selectLanguage(page, "javascript");
-  await expect(page.locator("#btn-run")).toBeEnabled();
-  await expect(page.locator("#btn-submit")).toBeEnabled();
+  for (const lang of ["javascript", "rust", "go"]) {
+    await selectLanguage(page, lang);
+    await expect(page.locator("#btn-run")).toBeEnabled();
+    await expect(page.locator("#btn-submit")).toBeEnabled();
+  }
 });
 
 test("editor code persists across page reload", async ({ page }) => {

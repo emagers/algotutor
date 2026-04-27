@@ -18,8 +18,8 @@
     "backend:up": "docker compose up -d algotutor-backend",
     "backend:down": "docker compose down",
     "backend:logs": "docker compose logs -f algotutor-backend",
-    "e2e": "node -e \"process.env.ALGOTUTOR_E2E='1';require('child_process').execSync('docker compose up -d',{stdio:'inherit',env:{...process.env,ALGOTUTOR_E2E:'1'}})\" && playwright test",
-    "e2e:up": "node -e \"require('child_process').execSync('docker compose up -d',{stdio:'inherit',env:{...process.env,ALGOTUTOR_E2E:'1'}})\""
+    "e2e": "node e2e/ensure-stack.mjs && playwright test",
+    "e2e:up": "node e2e/ensure-stack.mjs"
   },
   "keywords": [],
   "author": "",

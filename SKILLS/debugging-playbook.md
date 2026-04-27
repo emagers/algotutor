@@ -123,7 +123,76 @@ rg -i "leetcode|neetcode|blind ?75|grind ?75|algoexpert|top interview" \
 Should be empty. If a result is in `SKILLS/project-conventions.md` itself,
 that's expected (the rule references the names so it can ban them).
 
-## When stuck: read the relevant skill
+## Symptom: `npm run e2e` (or `npx playwright …`) hangs forever with no output
+
+Almost always one of two things:
+
+**(a) Playwright isn't installed locally.** `npx playwright …` then prompts
+"Need to install the following packages: playwright@x.y.z. Ok to proceed?"
+which is invisible in non-TTY shells. Fix:
+
+```sh
+npm install                                  # picks up @playwright/test
+./node_modules/.bin/playwright install chromium
+./node_modules/.bin/playwright test          # NOT npx playwright
+```
+
+**(b) Backend up without `ALGOTUTOR_E2E=1`.** Then `/api/state/reset` is a
+403, the per-test `clearStorage` is silently a no-op, and tests bleed
+state. `npm run e2e` runs `e2e/ensure-stack.mjs` first which checks this
+explicitly — if you're invoking Playwright directly, verify with:
+
+```sh
+docker compose exec -T algotutor-backend sh -c 'echo $ALGOTUTOR_E2E'
+# Must print "1"
+```
+
+If it prints `0`, recreate the backend:
+
+```sh
+ALGOTUTOR_E2E=1 docker compose up -d --force-recreate --no-deps algotutor-backend
+```
+
+## Symptom: Half the E2E suite mysteriously fails after passing earlier
+
+Same as (b) above. State from earlier tests (especially the "switch to
+Rust" tests) persists and changes the starter code / language tab on
+subsequent tests, causing assertions like `expect(code).toContain("function twoSum")`
+to fail because the editor is showing the Rust starter instead.
+
+Confirm by checking `test-results/<failing-test>/error-context.md` — you'll
+see the wrong starter code in the page snapshot.
+
+## Symptom: Codec round-trip problem fails in JavaScript only
+
+`kind: "codec-roundtrip"` problems (e.g., serialize-and-deserialize-binary-tree)
+have a different drive contract per language:
+
+- **Rust / Go**: backend harness instantiates the user's `Codec` class and
+  calls `serialize(tree) → string → deserialize(string) → tree`.
+- **JavaScript (backend path)**: same, via `runCodecTest` in
+  `backend/languages/javascript.mjs`.
+- **JavaScript (Web Worker path)**: ❌ the worker can only call
+  `signature.fn` as a top-level function. It can't drive a class.
+
+Therefore `docs/app/runner.js` routes JS design+codec to the backend (not
+the worker). If you're seeing `Could not find function "codecBinaryTreeRoundTrip"`
+or `actual: []`, check that `jsNeedsBackend(question)` in `runner.js` is
+returning `true` for that kind.
+
+## Symptom: Sweep stub fails to compile in Rust for design / codec problems
+
+`backend/sweep-all.mjs` emits a default-returning stub for every problem.
+For `kind === "design" || kind === "codec-roundtrip"` it generates a
+`pub struct ClassName {}` with `Default::default()`-returning methods.
+That requires `Default` to be derivable on every wire-type the methods
+return (`RandomList`, `GraphRepr`, etc.).
+
+If you add a new wire struct in `backend/harness/generate-rust.mjs` PRELUDE,
+add `#[derive(Default)]` (alongside `Debug, Clone, Serialize, Deserialize`)
+or sweep stubs will fail.
+
+
 
 | Problem area | Skill |
 |---|---|

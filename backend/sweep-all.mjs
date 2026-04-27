@@ -59,7 +59,8 @@ ${methods}
 }
 
 function stubRust(q) {
-  if (q.signature.kind === "design") {
+  const kind = q.signature.kind || "function";
+  if (kind === "design" || kind === "codec-roundtrip") {
     const d = q.signature.design;
     const cls = d.className;
     const ctorParams = (d.ctor?.params || []).map((p) => `_${p.name}: ${p.type.rust}`).join(", ");
@@ -87,7 +88,8 @@ ${methods}
 }
 
 function stubGo(q) {
-  if (q.signature.kind === "design") {
+  const kind = q.signature.kind || "function";
+  if (kind === "design" || kind === "codec-roundtrip") {
     const d = q.signature.design;
     const cls = d.className;
     const ctorParams = (d.ctor?.params || []).map((p) => `${p.name} ${p.type.go}`).join(", ");
@@ -116,8 +118,6 @@ const STUBBERS = { javascript: stubJs, rust: stubRust, go: stubGo };
 function isSupported(q, lang) {
   const kind = q.signature.kind || "function";
   if (kind !== "function" && kind !== "design" && kind !== "codec-roundtrip") return false;
-  // codec-roundtrip is JS-only on the backend.
-  if (kind === "codec-roundtrip" && lang !== "javascript") return false;
   if (q.signature.backendUnsupported?.[lang]) return false;
   return true;
 }

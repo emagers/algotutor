@@ -6,7 +6,13 @@
 |---|---|---|
 | Node.js | 22+ | Uses `--experimental-sqlite` natively. |
 | Docker | 24+ | With Compose v2 (`docker compose`, not `docker-compose`). |
-| Playwright browsers | latest | `npx playwright install --with-deps` (one-time). |
+| Playwright + browsers | latest | `npm install` + `./node_modules/.bin/playwright install chromium` (one-time). |
+
+⚠ **Do not use `npx playwright …`** for tests — if `@playwright/test` isn't
+already in `node_modules`, npx will silently prompt to install the standalone
+`playwright` package each invocation, which hangs in non-TTY shells with no
+visible output. Always use the locally installed binary
+(`./node_modules/.bin/playwright …`) or the `npm run e2e` script.
 
 No global Rust or Go install is needed; both toolchains live inside the
 backend container image (`Dockerfile`).
@@ -42,8 +48,9 @@ npm test                         # MUST stay green
 # 5. Bring up Docker stack
 npm run up
 
-# 6. End-to-end suite
-npx playwright test --reporter=line
+# 6. End-to-end suite (the script also recreates the backend with E2E=1
+#    if it was started without that env var — see "E2E preflight" below).
+npm run e2e
 
 # 7. Tear down
 npm run down
@@ -60,16 +67,34 @@ node docs/run-tests.mjs --filter=word-break --category=example
 ## Targeted E2E
 
 ```bash
-npx playwright test e2e/03-problem-page.spec.js          # single file
-npx playwright test -g "invalid JSON"                    # by test name
-npx playwright test --workers=1                          # serial, easier to debug
-npx playwright show-trace test-results/<dir>/trace.zip   # post-mortem
+./node_modules/.bin/playwright test e2e/03-problem-page.spec.js   # single file
+./node_modules/.bin/playwright test -g "invalid JSON"             # by test name
+./node_modules/.bin/playwright show-trace test-results/<dir>/trace.zip
 ```
+
+The Playwright config already pins `workers: 1` and `fullyParallel: false`
+because all tests share the single backend SQLite DB and use
+`/api/state/reset` to isolate state. Don't try to parallelize unless you
+also shard the backend.
+
+## E2E preflight (`npm run e2e`)
+
+`npm run e2e` runs `e2e/ensure-stack.mjs` first. That helper:
+1. `docker compose up -d` with `ALGOTUTOR_E2E=1`.
+2. Probes the backend container's actual env: `echo $ALGOTUTOR_E2E`.
+3. If it isn't `1` (e.g., the stack was previously brought up without the
+   flag), force-recreates the backend with the flag set.
+
+This guards the most painful silent failure mode in the suite:
+`/api/state/reset` returns 403 without `ALGOTUTOR_E2E=1`, so `clearStorage`
+in `e2e/helpers.js` is a no-op, tests bleed state into each other, and
+half the suite mysteriously fails. **Always check docker state matches
+what you expect before running E2E.**
 
 E2E tests assume:
 - Frontend at `http://localhost:8080`.
-- Backend at `http://localhost:9090` with `ALGOTUTOR_E2E=1` (which exposes
-  `/api/state/reset` for `clearStorage` in `e2e/helpers.js`).
+- Backend at `http://localhost:9090` with `ALGOTUTOR_E2E=1`.
+- Playwright + Chromium installed locally (`./node_modules/.bin/playwright install chromium`).
 
 ## Backend-only iteration
 
@@ -106,11 +131,24 @@ dataset:
 |---|---|
 | `node backend/smoke.mjs` | Quick JS-runner sanity check on a few problems. |
 | `node backend/smoke-rust.mjs` | Same for the Rust path. |
-| `node backend/acceptance-all.mjs` | Run the reference solution for every problem against the live runner in every supported language. |
-| `node backend/sweep-rust.mjs` / `sweep-go.mjs` | Stress-run a single language across the dataset, surfacing slow / failing items. |
+| `node backend/acceptance-all.mjs` | Run the reference solution for every problem-archetype against the live runner in every supported language. Covers all signature kinds: function, mutation, design, codec round-trip, GraphRepr, RandomList. |
+| `node backend/sweep-all.mjs` | Generate a default-returning stub for every problem × every language (600 pairs) and confirm each one compiles + runs end-to-end through the backend. |
+| `node backend/sweep-rust.mjs` / `sweep-go.mjs` | Per-language version of the sweep. |
 
 These do not run in CI by default but are the right tool when you've changed
 the harness code-gen or runner shell.
+
+## Validation gates
+
+Before declaring any change "done", all four must be green. This is the
+canonical happy-path sequence; copy it into PR descriptions verbatim.
+
+```bash
+npm test                          # 1647/1647 dataset tests
+node backend/sweep-all.mjs        # 600/600 problem-language pairs
+node backend/acceptance-all.mjs   # 39/39 reference solutions
+npm run e2e                       # all Playwright specs (≈35s)
+```
 
 ## When tests fail
 

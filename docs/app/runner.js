@@ -111,14 +111,20 @@ export function runCustom(code, question, customInput) {
   });
 }
 
-// Top-level dispatcher: JS runs in the Web Worker, Rust/Go go to the backend.
+// Top-level dispatcher: JS function-kind runs in the Web Worker; Rust/Go and
+// JS design/codec route through the backend (worker doesn't drive class harnesses).
+function jsNeedsBackend(question) {
+  const kind = question.signature?.kind || "function";
+  return kind === "design" || kind === "codec-roundtrip";
+}
+
 export async function runAllForLanguage(code, question, language, onProgress) {
-  if (language === "javascript") return runAll(code, question, onProgress);
+  if (language === "javascript" && !jsNeedsBackend(question)) return runAll(code, question, onProgress);
   return runAllBackend(code, question, language);
 }
 
 export async function runCustomForLanguage(code, question, language, customInput) {
-  if (language === "javascript") return runCustom(code, question, customInput);
+  if (language === "javascript" && !jsNeedsBackend(question)) return runCustom(code, question, customInput);
   return runCustomBackend(code, question, language, customInput);
 }
 

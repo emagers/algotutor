@@ -61,10 +61,15 @@ The signature is the contract the runner uses to wire your function:
   is called. See `SCHEMA.md` for the full adapter list (`identity`,
   `arrayToLinkedList`, `arrayToBinaryTree`, etc.).
 - `returnAdapt` is the inverse for the function's return value.
-- For Rust/Go, you may also need `signature.types` declaring the typed
-  parameters / return for those languages, AND `signature.backendUnsupported`
-  if a language path isn't viable yet (e.g., problems that require returning
-  a custom class instance).
+- For Rust/Go, you must also provide `signature.codeTypes` (or
+  `signature.types` legacy alias) declaring the typed parameters / return
+  for those languages. **Every problem must support all three languages.**
+  `signature.backendUnsupported` is reserved for genuinely impossible
+  cases (none currently exist) — do not use it as an escape hatch.
+- For `kind: "codec-roundtrip"` and `kind: "design"`, also declare
+  `signature.design` with `className`, `ctor.params`, and `methods[]`
+  (each method's typed params + return). The Rust / Go harness generates a
+  `Codec` (or whatever `className`) struct and drives its methods.
 
 ## 6. Comparator
 
@@ -137,6 +142,11 @@ Before you commit:
 - [ ] No category outside the canonical list.
 - [ ] No trademarked names anywhere in the entry.
 - [ ] Test count: `example >= 2`, `edge >= 4`, `stress >= 2`.
-- [ ] If any language is intentionally unsupported, set
-      `signature.backendUnsupported.<lang> = true` so the UI greys out the
-      Run/Submit buttons for that language.
+- [ ] `signature.codeTypes.rust` and `signature.codeTypes.go` are present.
+- [ ] `node backend/sweep-all.mjs` shows your problem ✓ in all three columns
+      (JS, Rust, Go) — the language stubs compile and run.
+- [ ] If your problem is `kind: design` or `codec-roundtrip`, add it to a
+      relevant SUITE entry in `backend/acceptance-all.mjs` with reference
+      solutions for all three languages, then run the script — must be ✓ in
+      all three columns.
+- [ ] No problem ships with `signature.backendUnsupported` set.

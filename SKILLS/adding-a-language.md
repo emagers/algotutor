@@ -167,9 +167,31 @@ solution doesn't compile or doesn't pass.
 ### 9. Tests
 
 #### Acceptance smoke
-Add `backend/acceptance-<lang>.mjs` that loops the dataset, generates the
-language's reference solution (if any) or a known-correct hand-written one,
-and runs every problem through the live runner.
+`backend/acceptance-all.mjs` is the one-stop validator — add a new SUITE
+entry only if your language gains a new archetype, otherwise just include
+the language in the existing entries' `solutions` map. The suite covers
+all signature kinds: function, mutation, design, codec round-trip,
+GraphRepr, RandomList. **Every kind must pass before merge.**
+
+#### Sweep
+`backend/sweep-all.mjs` emits a default-returning stub for every {problem,
+language} pair (600 total) and confirms each compiles and runs through the
+backend. The `stubFor<Lang>` helpers must handle every `signature.kind`:
+
+```js
+function stubRust(question) {
+  if (question.signature.kind === "design"
+      || question.signature.kind === "codec-roundtrip") {
+    // emit `pub struct ClassName {}` with Default-returning methods
+  } else {
+    // emit `fn fnName(params) -> RetType { rustZero(RetType) }`
+  }
+}
+```
+
+For Rust, every wire struct in `backend/harness/generate-rust.mjs` PRELUDE
+(e.g., `RandomList`, `GraphRepr`) must derive `Default` so
+`Default::default()` works as the zero value.
 
 #### E2E
 Add a Playwright test mirroring the existing two-sum-Rust / two-sum-Go

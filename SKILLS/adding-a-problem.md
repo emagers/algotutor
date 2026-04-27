@@ -127,12 +127,28 @@ npm run up
 ```
 
 If a language's submission fails, check:
-- Is `signature.types.<lang>` set correctly?
+- Is `signature.codeTypes.<lang>` set correctly?
 - Does the harness generator (`backend/harness/generate-<lang>.mjs`) handle
   the parameter / return types involved?
-- Should this language be marked `signature.backendUnsupported`?
+- For new wire types in Rust, did you derive `Default` so sweep stubs
+  compile?
 
-### 7. Commit
+### 7. Run all four validation gates
+
+Mandatory before commit:
+
+```sh
+npm test                          # 1647/1647
+node backend/sweep-all.mjs        # 600/600 ✓ in JS / Rust / Go
+node backend/acceptance-all.mjs   # 39/39 (or +N if you added a new SUITE entry)
+npm run e2e                       # all Playwright specs
+```
+
+If your problem introduces a new archetype (a kind/wire combination not
+already covered), add an entry to `backend/acceptance-all.mjs` `SUITE`
+with reference solutions in all three languages.
+
+### 8. Commit
 
 ```
 Add problem: <slug>

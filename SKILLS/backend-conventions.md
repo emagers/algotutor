@@ -118,6 +118,29 @@ When `ALGOTUTOR_E2E=1`:
 - The reset endpoint requires header `x-algotutor-test: 1` so a stray
   request can't wipe production state.
 
+The flag must be set on the **backend container's environment**, not the
+host shell. `docker-compose.yml` reads `ALGOTUTOR_E2E=${ALGOTUTOR_E2E:-0}`
+at compose-up time, so once the container is created with the flag bound
+to its env, the value is fixed for that container's lifetime. Restarting
+won't change it — recreating will. `e2e/ensure-stack.mjs` does the
+detection-and-recreate dance automatically.
+
+## Signature kinds and how each is driven
+
+The backend `runJavascript(...)` (and the per-language equivalents) dispatch
+on `signature.kind`:
+
+| Kind | JS path | Rust / Go path |
+|---|---|---|
+| `function` (default) | Web Worker via `runner.js`, calls `signature.fn` | Backend, generated `main.rs`/`main.go` calls `signature.fn` |
+| `mutation` | Web Worker, mutates input arg, judged via `judgeSource: "param:N"` | Backend, same idea |
+| `design` | **Backend** (`runDesignTest`) — drives `ops` ↔ method calls; the worker can't drive classes | Backend, generated harness drives the same op tuples |
+| `codec-roundtrip` | **Backend** (`runCodecTest`) — instantiates `Codec`, calls `serialize(arrayToTree(input)) → deserialize → treeToLevelOrder` | Backend, same drive in the generated `main.<ext>` |
+
+`docs/app/runner.js` enforces this routing: `jsNeedsBackend(question)`
+returns true for `design` + `codec-roundtrip`. If you add a new kind,
+update both `runner.js` AND `backend/languages/javascript.mjs`.
+
 ## Don'ts
 
 - **Don't** add an HTTP framework (Express, Fastify, …). Native `http` is

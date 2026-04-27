@@ -52,16 +52,17 @@ test("group-by category re-groups results", async ({ page }) => {
 test("language chips render JS/RS/GO and reflect support", async ({ page }) => {
   await page.goto("/problems.html");
   await expect(page.locator(".problem-row").first()).toBeVisible();
-  // Find a known unsupported problem and inspect its chips.
-  await page.fill("#search", "alien-dictionary");
+  // All 200 problems are fully supported across all 3 languages — verify a
+  // representative row reflects that.
+  await page.fill("#search", "two-sum");
   const row = page.locator(".problem-row").first();
   await expect(row).toBeVisible();
   await expect(row.locator(".lang-chip", { hasText: "JS" })).toHaveClass(/on/);
-  await expect(row.locator(".lang-chip", { hasText: "RS" })).toHaveClass(/off/);
-  await expect(row.locator(".lang-chip", { hasText: "GO" })).toHaveClass(/off/);
+  await expect(row.locator(".lang-chip", { hasText: "RS" })).toHaveClass(/on/);
+  await expect(row.locator(".lang-chip", { hasText: "GO" })).toHaveClass(/on/);
 
-  // And a fully-supported one.
-  await page.fill("#search", "two-sum");
+  // Also verify a previously-unsupported problem is now fully supported.
+  await page.fill("#search", "alien-dictionary");
   const row2 = page.locator(".problem-row").first();
   await expect(row2.locator(".lang-chip", { hasText: "JS" })).toHaveClass(/on/);
   await expect(row2.locator(".lang-chip", { hasText: "RS" })).toHaveClass(/on/);

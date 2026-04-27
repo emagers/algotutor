@@ -108,12 +108,12 @@ fn tree_to_array(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
 }
 
 // === Wire-shape structs for graph/random-list problems ===
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct RandomList {
     pub vals: Vec<i32>,
     pub randoms: Vec<Option<usize>>,
 }
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct GraphRepr {
     pub nodes: Vec<i32>,
     pub adj: Vec<Vec<usize>>,

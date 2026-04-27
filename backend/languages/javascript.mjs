@@ -39,6 +39,23 @@ function runFunctionTest(question, fn, test) {
   return { actual, durationMs: dur };
 }
 
+function runCodecTest(question, ClassRef, test) {
+  // Drive a user-provided Codec class round-trip: input.tree (level-order
+  // array) -> tree -> serialize -> deserialize -> level-order array.
+  const inputs = question.signature.params.map((p) => {
+    const adapt = adapters[p.adapt || "identity"];
+    return adapt(deepClone(test.input[p.name]));
+  });
+  const treeIn = adapters.arrayToBinaryTree(inputs[0]);
+  const t0 = Date.now();
+  const codec = new ClassRef();
+  const data = codec.serialize(treeIn);
+  const treeOut = codec.deserialize(data);
+  const dur = Date.now() - t0;
+  const actual = adapters.binaryTreeToLevelOrder(treeOut);
+  return { actual, durationMs: dur };
+}
+
 function runDesignTest(question, ClassRef, test) {
   const design = question.signature.design;
   const wire = design.wireFormat || "ops-tuples";
@@ -96,7 +113,10 @@ export async function runJavascript({ question, code, tests }) {
     const test = tests[i];
     try {
       const promise = (async () => {
-        if (kind === "design" || kind === "codec-roundtrip") {
+        if (kind === "codec-roundtrip") {
+          return runCodecTest(question, user, test);
+        }
+        if (kind === "design") {
           return runDesignTest(question, user, test);
         }
         return runFunctionTest(question, user, test);
